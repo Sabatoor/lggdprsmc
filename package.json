@@ -1,0 +1,48 @@
+{
+  "name": "prismic-foundation",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"bun:next:dev\" \"bun:slicemachine\" --names \"next,slicemachine\" --prefix-colors gray,magenta",
+    "next:dev": "next",
+    "build": "rm -rf .next/cache/fetch-cache && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine",
+    "format": "bunx prettier --write ."
+  },
+  "dependencies": {
+    "@prismicio/client": "latest",
+    "@prismicio/next": "latest",
+    "@prismicio/react": "latest",
+    "axios": "latest",
+    "framer-motion": "latest",
+    "next": "14.0.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "latest",
+    "react-icons": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@slicemachine/adapter-next": "latest",
+    "@tailwindcss/aspect-ratio": "latest",
+    "@tailwindcss/typography": "latest",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "clsx": "latest",
+    "concurrently": "latest",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.1",
+    "postcss": "^8",
+    "prettier": "latest",
+    "prettier-plugin-tailwindcss": "latest",
+    "schema-dts": "latest",
+    "slice-machine-ui": "latest",
+    "tailwind-merge": "latest",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

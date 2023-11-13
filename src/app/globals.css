@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 4, 96, 217;
+    --color-primary-hover: 5, 104, 235;
+    --color-secondary: 177, 204, 254;
+    --color-secondary-hover: 242, 242, 242;
+    --color-neutral: 30, 41, 59;
+    --color-base: 242, 242, 242;
+    --color-muted: 191, 219, 254;
+  }
+  .theme-alternate {
+    --color-primary: 158, 5, 34;
+    --color-primary-hover: 171, 5, 36;
+    --color-secondary: 184, 197, 145;
+    --color-secondary-hover: 160, 171, 126;
+    --color-neutral: 78, 8, 5;
+    --color-base: 255, 244, 212;
+    --color-muted: 243, 225, 232;
+  }
+  .full-bleed {
+    box-shadow: 0 0 0 100vmax var(--color-fill);
+    clip-path: inset(0 -100vmax);
+  }
+  .scroller[data-animated='true'] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      purple 15%,
+      purple 85%,
+      transparent
+    );
+    mask: linear-gradient(
+      90deg,
+      transparent,
+      purple 15%,
+      purple 85%,
+      transparent
+    );
+  }
+  .scroller[data-animated='true'] .scroller__inner {
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+
+  .scroller[data-direction='right'] {
+    --_animation-direction: reverse;
+  }
+
+  .scroller[data-direction='left'] {
+    --_animation-direction: forwards;
+  }
+
+  .scroller[data-speed='fast'] {
+    --_animation-duration: 30s;
+  }
+  .scroller[data-animated='true'] .scroller__inner:hover {
+    animation-play-state: paused;
+  }
+  .scroller[data-speed='medium'] {
+    --_animation-duration: 50s;
+  }
+
+  .scroller[data-speed='slow'] {
+    --_animation-duration: 100s;
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+}

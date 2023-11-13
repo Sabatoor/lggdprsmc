@@ -1,0 +1,78 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "ImageWithText Slice",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"image": {
+				"origin": {
+					"id": "nAOZCYcLND8",
+					"url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2OTk0Nzk5OTh8MA&ixlib=rb-4.0.3&q=85",
+					"width": 2749,
+					"height": 4124
+				},
+				"url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2OTk0Nzk5OTh8MA&ixlib=rb-4.0.3&q=85",
+				"width": 2749,
+				"height": 4124,
+				"edit": {
+					"background": "transparent",
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					}
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"image_location": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

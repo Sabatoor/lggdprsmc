@@ -1,0 +1,63 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Content Slice",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aute labore nisi sint nostrud consectetur adipisicing non laborum in. Sunt adipisicing ut nisi ex magna ex fugiat duis excepteur excepteur. ",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "image",
+						"data": {
+							"url": "https://images.unsplash.com/photo-1696446701648-f1d03681eb19?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MXwxfHNlYXJjaHwxfHxmcnVpdHxlbnwwfHx8fDE2OTkzOTM1ODN8MA&ixlib=rb-4.0.3&q=85",
+							"origin": {
+								"id": "KMF8kU1BYMo",
+								"url": "https://images.unsplash.com/photo-1696446701648-f1d03681eb19?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MXwxfHNlYXJjaHwxfHxmcnVpdHxlbnwwfHx8fDE2OTkzOTM1ODN8MA&ixlib=rb-4.0.3&q=85",
+								"width": 6048,
+								"height": 4024
+							},
+							"width": 6048,
+							"height": 4024,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": "This is a woman making food.",
+							"__TYPE__": "ImageContent"
+						}
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consequat qui laboris sint consequat adipisicing ullamco non velit mollit do dolor laboris mollit velit.",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

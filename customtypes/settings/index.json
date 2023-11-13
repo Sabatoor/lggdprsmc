@@ -1,0 +1,71 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "domain": {
+        "type": "Text",
+        "config": {
+          "label": "Domain",
+          "placeholder": ""
+        }
+      },
+      "site_title": {
+        "type": "Text",
+        "config": {
+          "label": "Site Title",
+          "placeholder": ""
+        }
+      },
+      "site_meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Site Meta Description",
+          "placeholder": ""
+        }
+      },
+      "site_meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Site Meta Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "site_theme": {
+        "type": "Select",
+        "config": {
+          "label": "Site Theme",
+          "placeholder": "",
+          "options": ["Base", "Alternate"]
+        }
+      },
+      "navigation": {
+        "type": "Group",
+        "config": {
+          "label": "Navigation",
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
