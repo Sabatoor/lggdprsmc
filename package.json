@@ -1,6 +1,6 @@
 {
-  "name": "prismic-foundation",
-  "version": "0.1.0",
+  "name": "liosgate",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "concurrently \"bun:next:dev\" \"bun:slicemachine\" --names \"next,slicemachine\" --prefix-colors gray,magenta",
