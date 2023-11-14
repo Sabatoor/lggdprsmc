@@ -54,7 +54,7 @@ export default async function RootLayout({
     data: { navigation },
   } = settings
   return (
-    <html lang="en-US">
+    <html lang="en-CA">
       <body
         className={cn(
           'flex min-h-screen flex-col justify-between',

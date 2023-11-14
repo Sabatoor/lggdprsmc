@@ -21,18 +21,18 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
-        'relative mx-auto flex h-screen items-center justify-center overflow-hidden bg-skin-fill lg:h-[calc(100vh-72px)]',
+        'relative mx-auto flex h-screen items-center justify-center overflow-hidden bg-skin-neutral lg:h-[calc(100vh-72px)]',
         { 'theme-alternate': slice.primary.theme === 'Alternate' },
       )}
     >
       <PrismicNextImage
         field={slice.primary.background_image}
-        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        className="absolute inset-0 h-full w-full object-cover opacity-[.15]"
         fill
         sizes="100vw"
         priority={index === 0}
       />
-      <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-skin-hue-primary via-skin-hue-primary to-transparent opacity-90" />
+      {/* <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-skin-hue-primary via-skin-hue-primary to-transparent opacity-90" /> */}
       <div className="relative mx-auto max-w-screen-xl text-skin-base">
         <PrismicRichText
           field={slice.primary.heading}
@@ -44,9 +44,11 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
             ),
           }}
         />
-        <span className="relative text-skin-muted">
-          <PrismicRichText field={slice.primary.description} />
-        </span>
+        {isFilled.richText(slice.primary.description) && (
+          <span className="relative text-skin-muted">
+            <PrismicRichText field={slice.primary.description} />
+          </span>
+        )}
         {slice.items.length > 0 && (
           <div className="flex flex-col justify-center gap-8 lg:flex-row">
             {isFilled.link(slice.items[0].button_link) &&

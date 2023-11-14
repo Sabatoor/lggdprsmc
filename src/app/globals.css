@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --color-primary: 4, 96, 217;
-    --color-primary-hover: 5, 104, 235;
-    --color-secondary: 177, 204, 254;
-    --color-secondary-hover: 242, 242, 242;
-    --color-neutral: 30, 41, 59;
-    --color-base: 242, 242, 242;
-    --color-muted: 191, 219, 254;
+    --color-primary: 132, 199, 124;
+    --color-primary-hover: 83, 173, 73;
+    --color-secondary: 220, 38, 38;
+    --color-secondary-hover: 153, 27, 27;
+    --color-neutral: 14, 20, 40;
+    --color-base: 233, 233, 234;
+    --color-muted: 220, 252, 231;
   }
   .theme-alternate {
     --color-primary: 158, 5, 34;
