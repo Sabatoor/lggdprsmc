@@ -69,7 +69,7 @@ export default function Consent() {
             }}
             id="consent-banner"
             className={cn(
-              'bg-skin-base fixed bottom-0 z-10 grid w-full bg-opacity-95 p-3 md:grid-cols-5',
+              'fixed bottom-0 z-10 grid w-full bg-skin-base bg-opacity-95 p-3 md:grid-cols-5',
             )}
           >
             <p className="prose prose-sm mx-auto my-4 px-6 text-left md:col-span-3">
@@ -110,7 +110,7 @@ export default function Consent() {
                   setConsent(true)
                   setHideBanner(true)
                 }}
-                className="rounded-xl bg-skin-button-primary px-6 py-4 font-bold text-skin-base lg:text-lg"
+                className="rounded-xl bg-skin-button-primary px-6 py-4 font-bold text-skin-neutral lg:text-lg"
               >
                 Accept All
               </button>
