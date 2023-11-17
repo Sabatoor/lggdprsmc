@@ -3,7 +3,7 @@ import { createClient, repositoryName } from '@/prismicio'
 import { Suspense } from 'react'
 import { PrismicPreview } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
-import { Outfit, Red_Hat_Text } from 'next/font/google'
+import { Mulish, Recursive } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -13,14 +13,14 @@ import Consent from './components/Consent'
 /**
  * Heading & Body fonts
  */
-const outfit = Outfit({
+const mulish = Mulish({
   subsets: ['latin'],
-  variable: '--font-outfit',
+  variable: '--font-mulish',
   display: 'swap',
 })
-const redhattext = Red_Hat_Text({
+const recursive = Recursive({
   subsets: ['latin'],
-  variable: '--font-red-hat-text',
+  variable: '--font-recursive',
   display: 'swap',
 })
 
@@ -57,9 +57,9 @@ export default async function RootLayout({
     <html lang="en-CA">
       <body
         className={cn(
-          'flex min-h-screen flex-col justify-between',
-          redhattext.variable,
-          outfit.variable,
+          'font-recursive flex min-h-screen flex-col justify-between',
+          recursive.variable,
+          mulish.variable,
           { 'theme-alternate': settings.data.site_theme === 'Alternate' },
         )}
       >

@@ -12,11 +12,13 @@ type NavbarProps = {
 
 export default function Navbar({ navigation }: NavbarProps) {
   return (
-    <Section
-      as="header"
-      className="bg-skin-base sticky top-0 z-10 py-4 shadow-sm md:py-4 lg:py-6"
-    >
-      <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between">
+    <header className="sticky top-0 z-10 bg-skin-base pb-4 shadow-sm md:pb-6 lg:pb-8">
+      <div className="mb-4 bg-skin-fill py-1 md:mb-6 lg:mb-8">
+        <p className="text-center text-xl font-bold text-skin-neutral">
+          <a href="tel:6042431505">604.243.1505</a>
+        </p>
+      </div>
+      <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4">
         <Link href="/">
           <h1>LOGO</h1>
           <span className="sr-only">Return to Homepage</span>
@@ -39,6 +41,6 @@ export default function Navbar({ navigation }: NavbarProps) {
           </nav>
         )}
       </div>
-    </Section>
+    </header>
   )
 }
