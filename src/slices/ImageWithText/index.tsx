@@ -18,7 +18,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      width="lg"
+      width="2xl"
     >
       <div className="grid grid-cols-1 items-center lg:grid-cols-3 lg:gap-12">
         <div

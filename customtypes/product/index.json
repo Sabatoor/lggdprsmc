@@ -16,7 +16,7 @@
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "",
+          "placeholder": "Enter the Product Title",
           "allowTargetBlank": true,
           "single": "heading1"
         }
@@ -49,16 +49,16 @@
         "type": "StructuredText",
         "config": {
           "label": "Excerpt",
-          "placeholder": "",
+          "placeholder": "Enter a shorter description",
           "allowTargetBlank": true,
-          "single": "strong,em,hyperlink,paragraph"
+          "single": "paragraph,strong,em,hyperlink"
         }
       },
       "description": {
         "type": "StructuredText",
         "config": {
           "label": "Description",
-          "placeholder": "",
+          "placeholder": "Describe the product",
           "allowTargetBlank": true,
           "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }

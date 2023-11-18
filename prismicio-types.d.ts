@@ -18,7 +18,7 @@ interface BlogPostDocumentData {
    * Title field in *Blog Post*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter the Post Title
    * - **API ID Path**: blog_post.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -40,7 +40,7 @@ interface BlogPostDocumentData {
    * Excerpt field in *Blog Post*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter a short preview
    * - **API ID Path**: blog_post.excerpt
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -294,7 +294,7 @@ interface PageDocumentData {
    * TItle field in *Page*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter the Page Title
    * - **API ID Path**: page.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -356,6 +356,118 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, 'page', Lang>
 
+type PortfolioDocumentDataSlicesSlice =
+  | ScrollerSlice
+  | ImageWithTextSlice
+  | ContentSlice
+
+/**
+ * Content for Portfolio documents
+ */
+interface PortfolioDocumentData {
+  /**
+   * Title field in *Portfolio*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter the Project Title
+   * - **API ID Path**: portfolio.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Date Published field in *Portfolio*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.date_published
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date_published: prismic.DateField
+
+  /**
+   * Featured Image field in *Portfolio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>
+
+  /**
+   * Excerpt field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  excerpt: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Portfolio*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PortfolioDocumentDataSlicesSlice> /**
+   * Meta Description field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: portfolio.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Portfolio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: portfolio.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Portfolio document from Prismic
+ *
+ * - **API ID**: `portfolio`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PortfolioDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PortfolioDocumentData>,
+    'portfolio',
+    Lang
+  >
+
 /**
  * Item in *Product → Files*
  */
@@ -381,7 +493,7 @@ interface ProductDocumentData {
    * Title field in *Product*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter the Product Title
    * - **API ID Path**: product.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -425,7 +537,7 @@ interface ProductDocumentData {
    * Excerpt field in *Product*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter a shorter description
    * - **API ID Path**: product.excerpt
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -436,7 +548,7 @@ interface ProductDocumentData {
    * Description field in *Product*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Describe the product
    * - **API ID Path**: product.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -519,7 +631,7 @@ interface ProductTypeDocumentData {
    * Title field in *Product Type*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter the Product Type Title
    * - **API ID Path**: product_type.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -541,7 +653,7 @@ interface ProductTypeDocumentData {
    * Excerpt field in *Product Type*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter a short product type description
    * - **API ID Path**: product_type.excerpt
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -552,7 +664,7 @@ interface ProductTypeDocumentData {
    * Description field in *Product Type*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Describe the product type
    * - **API ID Path**: product_type.description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -735,6 +847,7 @@ export type AllDocumentTypes =
   | BrandDocument
   | HomepageDocument
   | PageDocument
+  | PortfolioDocument
   | ProductDocument
   | ProductTypeDocument
   | SettingsDocument
@@ -1073,6 +1186,9 @@ declare module '@prismicio/client' {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      PortfolioDocument,
+      PortfolioDocumentData,
+      PortfolioDocumentDataSlicesSlice,
       ProductDocument,
       ProductDocumentData,
       ProductDocumentDataFilesItem,

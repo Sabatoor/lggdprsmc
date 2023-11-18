@@ -35,6 +35,15 @@ export default async function Page({
       page: pageNumber,
       pageSize: 5,
     })
+  } else if (page.uid === 'portfolio') {
+    posts = await client.getByType('portfolio', {
+      orderings: {
+        field: 'document.first_publication_date',
+        direction: 'desc',
+      },
+      page: pageNumber,
+      pageSize: 5,
+    })
   }
   const settings = await client.getSingle('settings')
 
@@ -72,7 +81,7 @@ export default async function Page({
       />
       <SliceZone slices={page.data.slices} components={components} />
       {/* CODE FOR BLOG PAGE ONLY */}
-      {page.uid === 'blog' && (
+      {(page.uid === 'blog' || page.uid === 'portfolio') && (
         <Section width="md" className="flex-col">
           <PrismicRichText field={page.data.title} />
           {posts && posts.results.length > 0 ? (

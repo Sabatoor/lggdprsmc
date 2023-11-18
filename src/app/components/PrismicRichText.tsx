@@ -54,7 +54,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   paragraph: ({ children }) => {
     return (
-      <p className="prose mx-auto my-4 text-inherit lg:prose-lg xl:prose-xl prose-a:text-skin-primary lg:my-2">
+      <p className="prose my-4 text-inherit lg:prose-lg xl:prose-xl prose-a:text-skin-primary lg:my-2">
         {children}
       </p>
     )
@@ -77,11 +77,19 @@ const defaultComponents: JSXMapSerializer = {
           alt={node.alt || ''}
           width={node.dimensions.width}
           height={node.dimensions.height}
-          className="rounded-lg shadow-md shadow-skin-neutral"
+          className="my-4 rounded-lg shadow-md shadow-skin-neutral md:my-6 lg:my-8 xl:my-10"
           title={node.alt || ''}
         />
       </Link>
     )
+  },
+  list: ({ children }) => {
+    return (
+      <ul className="prose list-disc lg:prose-lg xl:prose-xl">{children}</ul>
+    )
+  },
+  listItem: ({ children }) => {
+    return <li className="ml-4 md:ml-6 lg:ml-8 xl:ml-10">{children}</li>
   },
 }
 

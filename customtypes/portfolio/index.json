@@ -1,6 +1,6 @@
 {
-  "id": "blog_post",
-  "label": "Blog Post",
+  "id": "portfolio",
+  "label": "Portfolio",
   "format": "page",
   "repeatable": true,
   "status": true,
@@ -16,9 +16,16 @@
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "Enter the Post Title",
+          "placeholder": "Enter the Project Title",
           "allowTargetBlank": true,
           "single": "heading1"
+        }
+      },
+      "date_published": {
+        "type": "Date",
+        "config": {
+          "label": "Date Published",
+          "placeholder": ""
         }
       },
       "featured_image": {
@@ -33,13 +40,6 @@
         "type": "Text",
         "config": {
           "label": "Excerpt",
-          "placeholder": "Enter a short preview"
-        }
-      },
-      "date_published": {
-        "type": "Date",
-        "config": {
-          "label": "Date Published",
           "placeholder": ""
         }
       },
@@ -51,13 +51,10 @@
             "scroller": {
               "type": "SharedSlice"
             },
-            "content": {
-              "type": "SharedSlice"
-            },
             "image_with_text": {
               "type": "SharedSlice"
             },
-            "hero": {
+            "content": {
               "type": "SharedSlice"
             }
           }

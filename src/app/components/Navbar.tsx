@@ -12,7 +12,7 @@ type NavbarProps = {
 
 export default function Navbar({ navigation }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-10 bg-skin-base pb-4 shadow-sm md:pb-6 lg:pb-8">
+    <header className="sticky top-0 z-20 bg-skin-base pb-4 shadow-sm md:pb-6 lg:pb-8">
       <div className="mb-4 bg-skin-fill py-1 md:mb-6 lg:mb-8">
         <p className="text-center text-xl font-bold text-skin-neutral">
           <a href="tel:6042431505">604.243.1505</a>

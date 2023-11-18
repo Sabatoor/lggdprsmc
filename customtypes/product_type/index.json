@@ -16,7 +16,7 @@
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "",
+          "placeholder": "Enter the Product Type Title",
           "allowTargetBlank": true,
           "single": "heading1"
         }
@@ -33,7 +33,7 @@
         "type": "StructuredText",
         "config": {
           "label": "Excerpt",
-          "placeholder": "",
+          "placeholder": "Enter a short product type description",
           "allowTargetBlank": true,
           "single": "paragraph,strong,em,hyperlink"
         }
@@ -42,7 +42,7 @@
         "type": "StructuredText",
         "config": {
           "label": "Description",
-          "placeholder": "",
+          "placeholder": "Describe the product type",
           "allowTargetBlank": true,
           "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }

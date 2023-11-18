@@ -16,7 +16,7 @@
         "type": "StructuredText",
         "config": {
           "label": "TItle",
-          "placeholder": "",
+          "placeholder": "Enter the Page Title",
           "allowTargetBlank": true,
           "single": "heading1"
         }
