@@ -18,8 +18,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        mulish: ['var(--font-mulish)'],
-        recursive: ['var(--font-recursive)'],
+        heading: ['var(--font-heading)'],
+        body: ['var(--font-body)'],
       },
       textColor: {
         skin: {

@@ -13,14 +13,14 @@ import Consent from './components/Consent'
 /**
  * Heading & Body fonts
  */
-const mulish = Mulish({
+const heading = Mulish({
   subsets: ['latin'],
-  variable: '--font-mulish',
+  variable: '--font-heading',
   display: 'swap',
 })
-const recursive = Recursive({
+const body = Recursive({
   subsets: ['latin'],
-  variable: '--font-recursive',
+  variable: '--font-body',
   display: 'swap',
 })
 
@@ -57,9 +57,9 @@ export default async function RootLayout({
     <html lang="en-CA">
       <body
         className={cn(
-          'font-recursive flex min-h-screen flex-col justify-between',
-          recursive.variable,
-          mulish.variable,
+          'flex min-h-screen flex-col justify-between font-body text-skin-neutral',
+          body.variable,
+          heading.variable,
           { 'theme-alternate': settings.data.site_theme === 'Alternate' },
         )}
       >

@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: Params }) {
       {
         '@type': 'WebSite',
         '@id': `https://${settings.data.domain || `example.com`}/#site`,
-        name: 'Lori Boiler',
+        name: settings.data.site_title || '',
         url: `https://${settings.data.domain || `example.com`}/`,
       },
       {
