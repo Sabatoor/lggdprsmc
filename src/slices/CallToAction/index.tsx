@@ -30,6 +30,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         width="2xl"
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
+        className="flex-wrap place-items-center justify-center gap-4 py-6 lg:gap-8"
       >
         {slice.items.length > 0
           ? slice.items.map((item, i) => {
@@ -38,23 +39,41 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 Icon = icons[item.icon]
               }
               return (
-                <React.Fragment key={`${slice.id}-${i}`}>
-                  <div>
-                    {Icon ? <Icon className="h-12 w-12" /> : null}
-                    <h2>Request Quote</h2>
-                    <p>A new Garage Door instantly improves your home</p>
+                <div
+                  key={`${slice.id}-${i}`}
+                  className="bg-skin-white max-w-sm overflow-hidden rounded-lg border border-skin-base p-4 lg:p-6"
+                >
+                  <div className="flex flex-col items-center">
+                    {Icon ? (
+                      <Icon className="h-16 w-16 text-skin-primary" />
+                    ) : null}
+                    <PrismicRichText
+                      field={item.heading}
+                      components={{
+                        heading2: ({ children }) => (
+                          <Heading
+                            as="h2"
+                            size="3xl"
+                            className="my-2 text-skin-neutral lg:my-3"
+                          >
+                            {children}
+                          </Heading>
+                        ),
+                      }}
+                    />
+                    <PrismicRichText field={item.description} />
                   </div>
-                  <div>
-                    <p>
+                  {isFilled.link(item.button_link) ? (
+                    <div className="mb-4 mt-6 flex justify-center">
                       <ButtonLink
                         field={item.button_link}
                         color={item.button_color || 'Inverted'}
                       >
-                        Button
+                        {item.button_label || 'Click Here'}
                       </ButtonLink>
-                    </p>
-                  </div>
-                </React.Fragment>
+                    </div>
+                  ) : null}
+                </div>
               )
             })
           : null}

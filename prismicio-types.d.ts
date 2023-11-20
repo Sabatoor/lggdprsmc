@@ -1257,9 +1257,70 @@ export type ImageWithTextSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *ImageWithText → Primary*
+ */
+export interface ImageWithTextSliceTwoColumnPrimary {
+  /**
+   * Heading field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Image field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Image Location field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: image_with_text.primary.image_location
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  image_location: prismic.BooleanField
+
+  /**
+   * Text field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+}
+
+/**
+ * TwoColumn variation for ImageWithText Slice
+ *
+ * - **API ID**: `twoColumn`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageWithTextSliceTwoColumn = prismic.SharedSliceVariation<
+  'twoColumn',
+  Simplify<ImageWithTextSliceTwoColumnPrimary>,
+  never
+>
+
+/**
  * Slice variation for *ImageWithText*
  */
-type ImageWithTextSliceVariation = ImageWithTextSliceDefault
+type ImageWithTextSliceVariation =
+  | ImageWithTextSliceDefault
+  | ImageWithTextSliceTwoColumn
 
 /**
  * ImageWithText Shared Slice
@@ -1409,8 +1470,10 @@ declare module '@prismicio/client' {
       HeroSliceDefault,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
+      ImageWithTextSliceTwoColumnPrimary,
       ImageWithTextSliceVariation,
       ImageWithTextSliceDefault,
+      ImageWithTextSliceTwoColumn,
       ScrollerSlice,
       ScrollerSliceDefaultPrimary,
       ScrollerSliceDefaultItem,

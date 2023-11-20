@@ -3,7 +3,7 @@ import { createClient, repositoryName } from '@/prismicio'
 import { Suspense } from 'react'
 import { PrismicPreview } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
-import { Oswald, Recursive } from 'next/font/google'
+import { Oswald, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -18,7 +18,7 @@ const heading = Oswald({
   variable: '--font-heading',
   display: 'swap',
 })
-const body = Recursive({
+const body = Inter({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
@@ -57,7 +57,7 @@ export default async function RootLayout({
     <html lang="en-CA">
       <body
         className={cn(
-          'flex min-h-screen flex-col justify-between font-body text-skin-neutral',
+          'flex min-h-screen flex-col justify-between bg-skin-base font-body text-skin-neutral',
           body.variable,
           heading.variable,
           { 'theme-alternate': settings.data.site_theme === 'Alternate' },
