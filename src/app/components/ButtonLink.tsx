@@ -9,7 +9,7 @@ export default function ButtonLink({
   return (
     <PrismicNextLink
       className={cn(
-        'rounded-xl px-6 py-4 text-center font-bold transition duration-300 ease-in-out lg:text-lg',
+        'ring-skin-primary rounded-xl px-6 py-4 text-center font-bold outline-none transition duration-300 ease-in-out focus:ring-2 lg:text-lg',
         {
           'bg-skin-button-primary text-skin-neutral shadow-md shadow-skin-neutral hover:bg-skin-button-primary-hover':
             color === 'Primary',

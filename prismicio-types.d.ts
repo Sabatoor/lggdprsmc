@@ -5,6 +5,7 @@ import type * as prismic from '@prismicio/client'
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
 type BlogPostDocumentDataSlicesSlice =
+  | CallToActionSlice
   | ScrollerSlice
   | ContentSlice
   | ImageWithTextSlice
@@ -212,6 +213,7 @@ export type BrandDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BrandDocumentData>, 'brand', Lang>
 
 type HomepageDocumentDataSlicesSlice =
+  | CallToActionSlice
   | ImageWithTextSlice
   | ContentSlice
   | ScrollerSlice
@@ -281,6 +283,7 @@ export type HomepageDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | CallToActionSlice
   | ScrollerSlice
   | ContentSlice
   | ImageWithTextSlice
@@ -357,6 +360,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, 'page', Lang>
 
 type PortfolioDocumentDataSlicesSlice =
+  | CallToActionSlice
   | ScrollerSlice
   | ImageWithTextSlice
   | ContentSlice
@@ -782,6 +786,17 @@ interface SettingsDocumentData {
   site_title: prismic.KeyTextField
 
   /**
+   * Logo field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>
+
+  /**
    * Site Meta Description field in *Settings*
    *
    * - **Field Type**: Text
@@ -851,6 +866,182 @@ export type AllDocumentTypes =
   | ProductDocument
   | ProductTypeDocument
   | SettingsDocument
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceDefaultPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Button Link field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Button Label field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Enter Call to Action
+   * - **API ID Path**: call_to_action.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+
+  /**
+   * Button Color field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_color: prismic.SelectField<
+    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+  >
+}
+
+/**
+ * Default variation for CallToAction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<CallToActionSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceFeaturedGridPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceFeaturedGridItem {
+  /**
+   * Icon field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select an Icon
+   * - **API ID Path**: call_to_action.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<
+    'RiQuestionnaireFill' | 'GiHomeGarage' | 'FaToolbox'
+  >
+
+  /**
+   * Heading field in *CallToAction → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter a Call to Action
+   * - **API ID Path**: call_to_action.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *CallToAction → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Describe the call to action
+   * - **API ID Path**: call_to_action.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Link field in *CallToAction → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Where should they go?
+   * - **API ID Path**: call_to_action.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Button Label field in *CallToAction → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: What should the button say?
+   * - **API ID Path**: call_to_action.items[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+
+  /**
+   * Button Color field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].button_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_color: prismic.SelectField<
+    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+  >
+}
+
+/**
+ * FeaturedGrid variation for CallToAction Slice
+ *
+ * - **API ID**: `featuredGrid`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceFeaturedGrid = prismic.SharedSliceVariation<
+  'featuredGrid',
+  Simplify<CallToActionSliceFeaturedGridPrimary>,
+  Simplify<CallToActionSliceFeaturedGridItem>
+>
+
+/**
+ * Slice variation for *CallToAction*
+ */
+type CallToActionSliceVariation =
+  | CallToActionSliceDefault
+  | CallToActionSliceFeaturedGrid
+
+/**
+ * CallToAction Shared Slice
+ *
+ * - **API ID**: `call_to_action`
+ * - **Description**: CallToAction
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSlice = prismic.SharedSlice<
+  'call_to_action',
+  CallToActionSliceVariation
+>
 
 /**
  * Primary content in *Content → Primary*
@@ -1200,6 +1391,13 @@ declare module '@prismicio/client' {
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      CallToActionSlice,
+      CallToActionSliceDefaultPrimary,
+      CallToActionSliceFeaturedGridPrimary,
+      CallToActionSliceFeaturedGridItem,
+      CallToActionSliceVariation,
+      CallToActionSliceDefault,
+      CallToActionSliceFeaturedGrid,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceVariation,

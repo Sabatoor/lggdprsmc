@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
             "image_with_text": {
               "type": "SharedSlice"
             },

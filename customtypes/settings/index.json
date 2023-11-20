@@ -20,6 +20,14 @@
           "placeholder": ""
         }
       },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "site_meta_description": {
         "type": "Text",
         "config": {

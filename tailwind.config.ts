@@ -62,6 +62,15 @@ const config: Config = {
           neutral: withOpacity('--color-neutral'),
         },
       },
+      ringColor: {
+        skin: {
+          base: withOpacity('--color-base'),
+          primary: withOpacity('--color-primary'),
+          secondary: withOpacity('--color-secondary'),
+          neutral: withOpacity('--color-neutral'),
+          muted: withOpacity('--color-muted'),
+        },
+      },
       gradientColorStops: {
         skin: {
           'hue-primary': withOpacity('--color-primary'),

@@ -17,7 +17,7 @@
     "@prismicio/react": "latest",
     "axios": "latest",
     "framer-motion": "latest",
-    "next": "14.0.1",
+    "next": "latest",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "latest",
@@ -35,14 +35,14 @@
     "clsx": "latest",
     "concurrently": "latest",
     "eslint": "^8",
-    "eslint-config-next": "14.0.1",
+    "eslint-config-next": "latest",
     "postcss": "^8",
     "prettier": "latest",
     "prettier-plugin-tailwindcss": "latest",
     "schema-dts": "latest",
     "slice-machine-ui": "latest",
     "tailwind-merge": "latest",
-    "tailwindcss": "^3.3.0",
+    "tailwindcss": "latest",
     "typescript": "^5"
   }
 }

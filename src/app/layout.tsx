@@ -3,7 +3,7 @@ import { createClient, repositoryName } from '@/prismicio'
 import { Suspense } from 'react'
 import { PrismicPreview } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
-import { Mulish, Recursive } from 'next/font/google'
+import { Oswald, Recursive } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -13,7 +13,7 @@ import Consent from './components/Consent'
 /**
  * Heading & Body fonts
  */
-const heading = Mulish({
+const heading = Oswald({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
@@ -66,7 +66,11 @@ export default async function RootLayout({
         <Suspense>
           <Analytics />
         </Suspense>
-        <Navbar navigation={navigation} />
+        <Navbar
+          navigation={navigation}
+          logo={settings.data.logo}
+          title={settings.data.site_title}
+        />
         {children}
         <Footer />
         <Consent />
