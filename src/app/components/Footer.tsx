@@ -28,7 +28,7 @@ export default async function Footer() {
           <PrismicNextImage field={settings.data.footer_logo} />
 
           {settings.data.footer_socials.length > 0 ? (
-            <ul className="-mt-12 flex w-full justify-between lg:-mt-24">
+            <ul className="flex w-full justify-between">
               {isFilled.select(settings.data.footer_socials[0]?.logo) &&
                 settings.data.footer_socials.map(({ logo, social_url }, i) => {
                   let Logo
