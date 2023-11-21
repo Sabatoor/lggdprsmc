@@ -73,6 +73,65 @@
             }
           }
         }
+      },
+      "footer_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Footer Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "footer_socials": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Socials",
+          "fields": {
+            "logo": {
+              "type": "Select",
+              "config": {
+                "label": "Logo",
+                "placeholder": "",
+                "options": ["Facebook", "Instagram", "LinkedIn", "Yelp"]
+              }
+            },
+            "social_url": {
+              "type": "Link",
+              "config": {
+                "label": "Social URL",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "company_information": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Company Information",
+          "placeholder": "Enter company info",
+          "allowTargetBlank": true,
+          "multi": "list-item"
+        }
+      },
+      "terms_of_service": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Terms of Service",
+          "placeholder": "Enter terms of service info",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em,hyperlink"
+        }
+      },
+      "design_credit": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Design Credit",
+          "placeholder": "Optionally give credit to designers.",
+          "allowTargetBlank": true,
+          "single": "paragraph,hyperlink"
+        }
       }
     }
   }

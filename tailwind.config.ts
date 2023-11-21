@@ -79,6 +79,7 @@ const config: Config = {
       gradientColorStops: {
         skin: {
           'hue-primary': withOpacity('--color-primary'),
+          'hue-base': withOpacity('--color-base'),
         },
       },
     },

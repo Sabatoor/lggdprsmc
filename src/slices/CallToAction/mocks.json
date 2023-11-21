@@ -267,5 +267,121 @@
 				]
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "social",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Call to Action Social Variation",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"logo",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Facebook"
+						}
+					],
+					[
+						"social_url",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev"
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"logo",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Instagram"
+						}
+					],
+					[
+						"social_url",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev",
+								"target": ""
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"logo",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "LinkedIn"
+						}
+					],
+					[
+						"social_url",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev",
+								"target": ""
+							}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"logo",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Yelp"
+						}
+					],
+					[
+						"social_url",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://slicemachine.dev",
+								"target": ""
+							}
+						}
+					]
+				]
+			}
+		]
 	}
 ]

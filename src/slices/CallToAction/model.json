@@ -131,6 +131,49 @@
           }
         }
       }
+    },
+    {
+      "id": "social",
+      "name": "Social",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Enter Call to Action Heading",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        }
+      },
+      "items": {
+        "logo": {
+          "type": "Select",
+          "config": {
+            "label": "Logo",
+            "placeholder": "Select a Social Logo",
+            "options": [
+              "Facebook",
+              "Instagram",
+              "LinkedIn",
+              "Yelp"
+            ]
+          }
+        },
+        "social_url": {
+          "type": "Link",
+          "config": {
+            "label": "Social URL",
+            "placeholder": "Enter the URL of a Social Account",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        }
+      }
     }
   ]
 }

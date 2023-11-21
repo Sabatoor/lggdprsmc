@@ -11,7 +11,7 @@ export default function ButtonLink({
       className={cn(
         'rounded-xl px-6 py-4 text-center font-bold outline-none ring-skin-primary transition duration-300 ease-in-out focus:ring-2 lg:text-lg',
         {
-          'bg-skin-button-primary text-skin-neutral  hover:bg-skin-button-primary-hover':
+          'bg-skin-button-primary text-skin-neutral ring-skin-neutral hover:bg-skin-button-primary-hover':
             color === 'Primary',
           'bg-skin-button-secondary text-skin-base hover:bg-skin-button-secondary-hover':
             color === 'Secondary',

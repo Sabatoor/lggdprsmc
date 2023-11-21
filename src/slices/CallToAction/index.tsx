@@ -6,8 +6,15 @@ import Section from '@/app/components/Section'
 import ButtonLink from '@/app/components/ButtonLink'
 import { GiHomeGarage } from 'react-icons/gi'
 import { RiQuestionnaireFill } from 'react-icons/ri'
-import { FaToolbox } from 'react-icons/fa'
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaYelp,
+  FaToolbox,
+} from 'react-icons/fa'
 import React from 'react'
+import { PrismicNextLink } from '@prismicio/next'
 
 /**
  * Props for `CallToAction`.
@@ -18,6 +25,10 @@ const icons = {
   GiHomeGarage,
   RiQuestionnaireFill,
   FaToolbox,
+  Facebook: FaFacebook,
+  Instagram: FaInstagram,
+  LinkedIn: FaLinkedin,
+  Yelp: FaYelp,
 }
 
 /**
@@ -41,7 +52,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
               return (
                 <div
                   key={`${slice.id}-${i}`}
-                  className="bg-skin-white max-w-sm overflow-hidden rounded-lg border border-skin-base p-4 lg:p-6"
+                  className="max-w-sm overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
                 >
                   <div className="flex flex-col items-center">
                     {Icon ? (
@@ -77,6 +88,54 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
               )
             })
           : null}
+      </Section>
+    )
+  } else if (slice.variation === 'social') {
+    return (
+      <Section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="bg-skin-fill"
+      >
+        <div className="mx-auto flex max-w-screen-sm flex-col items-center">
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading2: ({ children }) => (
+                <Heading as="h2" size="5xl" className="text-skin-neutral">
+                  {children}
+                </Heading>
+              ),
+            }}
+          />
+          <ul className="mt-4 grid grid-flow-col gap-4 lg:mt-6 lg:gap-8">
+            {slice.items.length > 0 && isFilled.select(slice.items[0].logo)
+              ? slice.items.map((item, i) => {
+                  let Icon
+                  if (item.logo) {
+                    Icon = icons[item.logo]
+                  }
+                  return (
+                    <li key={slice.id + i}>
+                      <PrismicNextLink
+                        field={item.social_url}
+                        className="group outline-none"
+                      >
+                        {isFilled.link(item.social_url) && (
+                          <>
+                            <Icon className="h-16 w-16 rounded p-1 text-skin-white ring-skin-muted group-focus:ring-2" />
+                            <span className="sr-only">
+                              {`View us on ${item.logo}`}
+                            </span>
+                          </>
+                        )}
+                      </PrismicNextLink>
+                    </li>
+                  )
+                })
+              : null}
+          </ul>
+        </div>
       </Section>
     )
   }
