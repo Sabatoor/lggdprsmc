@@ -15,7 +15,7 @@ type Params = { uid: string }
 export default async function Page({ params }: { params: Params }) {
   const client = createClient()
   const page = await client
-    .getByUID('blog_post', params.uid)
+    .getByUID('portfolio', params.uid)
     .catch(() => notFound())
   const settings = await client.getSingle('settings')
   let pubDate
@@ -75,7 +75,7 @@ export default async function Page({ params }: { params: Params }) {
       />
       <section
         className={cn(
-          'relative mb-8 flex items-center justify-center bg-skin-fill py-36 lg:py-44 xl:py-56 2xl:py-72',
+          'relative mb-8 flex items-center justify-center bg-skin-neutral py-36 lg:py-44 xl:py-56 2xl:py-72',
         )}
       >
         {prismic.isFilled.image(page.data.featured_image) && (
@@ -107,6 +107,7 @@ export default async function Page({ params }: { params: Params }) {
           </p>
         </div>
       </section>
+
       <SliceZone slices={page.data.slices} components={components} />
     </>
   )
@@ -119,7 +120,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const client = createClient()
   const page = await client
-    .getByUID('blog_post', params.uid)
+    .getByUID('portfolio', params.uid)
     .catch(() => notFound())
   const settings = await client.getSingle('settings')
 
@@ -139,7 +140,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const client = createClient()
-  const pages = await client.getAllByType('blog_post')
+  const pages = await client.getAllByType('portfolio')
   return pages.map(page => {
     return { uid: page.uid }
   })

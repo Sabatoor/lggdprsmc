@@ -3,7 +3,7 @@ import { createClient, repositoryName } from '@/prismicio'
 import { Suspense } from 'react'
 import { PrismicPreview } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
-import { Mulish, Recursive } from 'next/font/google'
+import { Oswald, Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -13,14 +13,14 @@ import Consent from './components/Consent'
 /**
  * Heading & Body fonts
  */
-const mulish = Mulish({
+const heading = Oswald({
   subsets: ['latin'],
-  variable: '--font-mulish',
+  variable: '--font-heading',
   display: 'swap',
 })
-const recursive = Recursive({
+const body = Inter({
   subsets: ['latin'],
-  variable: '--font-recursive',
+  variable: '--font-body',
   display: 'swap',
 })
 
@@ -57,16 +57,20 @@ export default async function RootLayout({
     <html lang="en-CA">
       <body
         className={cn(
-          'font-recursive flex min-h-screen flex-col justify-between',
-          recursive.variable,
-          mulish.variable,
+          'flex min-h-screen flex-col justify-between bg-skin-base font-body text-skin-neutral',
+          body.variable,
+          heading.variable,
           { 'theme-alternate': settings.data.site_theme === 'Alternate' },
         )}
       >
         <Suspense>
           <Analytics />
         </Suspense>
-        <Navbar navigation={navigation} />
+        <Navbar
+          navigation={navigation}
+          logo={settings.data.logo}
+          title={settings.data.site_title}
+        />
         {children}
         <Footer />
         <Consent />

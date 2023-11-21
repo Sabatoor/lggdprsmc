@@ -18,12 +18,13 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        mulish: ['var(--font-mulish)'],
-        recursive: ['var(--font-recursive)'],
+        heading: ['var(--font-heading)'],
+        body: ['var(--font-body)'],
       },
       textColor: {
         skin: {
           base: withOpacity('--color-base'),
+          white: withOpacity('--color-white'),
           primary: withOpacity('--color-primary'),
           muted: withOpacity('--color-muted'),
           secondary: withOpacity('--color-secondary'),
@@ -34,6 +35,7 @@ const config: Config = {
       backgroundColor: {
         skin: {
           base: withOpacity('--color-base'),
+          white: withOpacity('--color-white'),
           fill: withOpacity('--color-primary'),
           neutral: withOpacity('--color-neutral'),
           secondary: withOpacity('--color-secondary'),
@@ -49,6 +51,7 @@ const config: Config = {
       boxShadowColor: {
         skin: {
           base: withOpacity('--color-base'),
+          white: withOpacity('--color-white'),
           primary: withOpacity('--color-primary'),
           secondary: withOpacity('--color-secondary'),
           neutral: withOpacity('--color-neutral'),
@@ -58,13 +61,25 @@ const config: Config = {
       borderColor: {
         skin: {
           base: withOpacity('--color-base'),
+          white: withOpacity('--color-white'),
           secondary: withOpacity('--color-secondary'),
           neutral: withOpacity('--color-neutral'),
+        },
+      },
+      ringColor: {
+        skin: {
+          base: withOpacity('--color-base'),
+          white: withOpacity('--color-white'),
+          primary: withOpacity('--color-primary'),
+          secondary: withOpacity('--color-secondary'),
+          neutral: withOpacity('--color-neutral'),
+          muted: withOpacity('--color-muted'),
         },
       },
       gradientColorStops: {
         skin: {
           'hue-primary': withOpacity('--color-primary'),
+          'hue-base': withOpacity('--color-base'),
         },
       },
     },

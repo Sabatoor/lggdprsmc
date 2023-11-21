@@ -1,6 +1,6 @@
 {
-  "id": "blog_post",
-  "label": "Blog Post",
+  "id": "product",
+  "label": "Product",
   "format": "page",
   "repeatable": true,
   "status": true,
@@ -16,9 +16,25 @@
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "Enter the Post Title",
+          "placeholder": "Enter the Product Title",
           "allowTargetBlank": true,
           "single": "heading1"
+        }
+      },
+      "product_type": {
+        "type": "Link",
+        "config": {
+          "label": "Product Type",
+          "select": "document",
+          "customtypes": ["product_type"]
+        }
+      },
+      "brand": {
+        "type": "Link",
+        "config": {
+          "label": "Brand",
+          "select": "document",
+          "customtypes": ["brand"]
         }
       },
       "featured_image": {
@@ -30,17 +46,37 @@
         }
       },
       "excerpt": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
           "label": "Excerpt",
-          "placeholder": "Enter a short preview"
+          "placeholder": "Enter a shorter description",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong,em,hyperlink"
         }
       },
-      "date_published": {
-        "type": "Date",
+      "description": {
+        "type": "StructuredText",
         "config": {
-          "label": "Date Published",
-          "placeholder": ""
+          "label": "Description",
+          "placeholder": "Describe the product",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "files": {
+        "type": "Group",
+        "config": {
+          "label": "Files",
+          "fields": {
+            "file": {
+              "type": "Link",
+              "config": {
+                "label": "File",
+                "placeholder": "",
+                "select": "media"
+              }
+            }
+          }
         }
       },
       "slices": {
@@ -48,19 +84,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "scroller": {
-              "type": "SharedSlice"
-            },
-            "content": {
-              "type": "SharedSlice"
-            },
             "image_with_text": {
               "type": "SharedSlice"
             },
-            "hero": {
+            "content": {
               "type": "SharedSlice"
             }
           }

@@ -5,6 +5,7 @@ import type * as prismic from '@prismicio/client'
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
 type BlogPostDocumentDataSlicesSlice =
+  | CallToActionSlice
   | ScrollerSlice
   | ContentSlice
   | ImageWithTextSlice
@@ -18,7 +19,7 @@ interface BlogPostDocumentData {
    * Title field in *Blog Post*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter the Post Title
    * - **API ID Path**: blog_post.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -40,7 +41,7 @@ interface BlogPostDocumentData {
    * Excerpt field in *Blog Post*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter a short preview
    * - **API ID Path**: blog_post.excerpt
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
@@ -117,7 +118,102 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >
 
+type BrandDocumentDataSlicesSlice = ContentSlice
+
+/**
+ * Content for Brand documents
+ */
+interface BrandDocumentData {
+  /**
+   * Title field in *Brand*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brand.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Logo field in *Brand*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brand.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>
+
+  /**
+   * Description field in *Brand*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brand.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Slice Zone field in *Brand*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brand.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<BrandDocumentDataSlicesSlice> /**
+   * Meta Description field in *Brand*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: brand.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Brand*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brand.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Brand*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: brand.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Brand document from Prismic
+ *
+ * - **API ID**: `brand`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BrandDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<BrandDocumentData>, 'brand', Lang>
+
 type HomepageDocumentDataSlicesSlice =
+  | CallToActionSlice
   | ImageWithTextSlice
   | ContentSlice
   | ScrollerSlice
@@ -187,6 +283,7 @@ export type HomepageDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | CallToActionSlice
   | ScrollerSlice
   | ContentSlice
   | ImageWithTextSlice
@@ -200,7 +297,7 @@ interface PageDocumentData {
    * TItle field in *Page*
    *
    * - **Field Type**: Title
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Enter the Page Title
    * - **API ID Path**: page.title
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -262,6 +359,381 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, 'page', Lang>
 
+type PortfolioDocumentDataSlicesSlice =
+  | CallToActionSlice
+  | ScrollerSlice
+  | ImageWithTextSlice
+  | ContentSlice
+
+/**
+ * Content for Portfolio documents
+ */
+interface PortfolioDocumentData {
+  /**
+   * Title field in *Portfolio*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter the Project Title
+   * - **API ID Path**: portfolio.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Date Published field in *Portfolio*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.date_published
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date_published: prismic.DateField
+
+  /**
+   * Featured Image field in *Portfolio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>
+
+  /**
+   * Excerpt field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  excerpt: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Portfolio*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PortfolioDocumentDataSlicesSlice> /**
+   * Meta Description field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: portfolio.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Portfolio*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: portfolio.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Portfolio*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: portfolio.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Portfolio document from Prismic
+ *
+ * - **API ID**: `portfolio`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PortfolioDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PortfolioDocumentData>,
+    'portfolio',
+    Lang
+  >
+
+/**
+ * Item in *Product → Files*
+ */
+export interface ProductDocumentDataFilesItem {
+  /**
+   * File field in *Product → Files*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.files[].file
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  file: prismic.LinkToMediaField
+}
+
+type ProductDocumentDataSlicesSlice = ImageWithTextSlice | ContentSlice
+
+/**
+ * Content for Product documents
+ */
+interface ProductDocumentData {
+  /**
+   * Title field in *Product*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter the Product Title
+   * - **API ID Path**: product.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Product Type field in *Product*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.product_type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product_type: prismic.ContentRelationshipField<'product_type'>
+
+  /**
+   * Brand field in *Product*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.brand
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  brand: prismic.ContentRelationshipField<'brand'>
+
+  /**
+   * Featured Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>
+
+  /**
+   * Excerpt field in *Product*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter a shorter description
+   * - **API ID Path**: product.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  excerpt: prismic.RichTextField
+
+  /**
+   * Description field in *Product*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Describe the product
+   * - **API ID Path**: product.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Files field in *Product*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.files[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  files: prismic.GroupField<Simplify<ProductDocumentDataFilesItem>>
+
+  /**
+   * Slice Zone field in *Product*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProductDocumentDataSlicesSlice> /**
+   * Meta Description field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: product.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Product*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: product.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Product document from Prismic
+ *
+ * - **API ID**: `product`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<ProductDocumentData>, 'product', Lang>
+
+type ProductTypeDocumentDataSlicesSlice = ContentSlice
+
+/**
+ * Content for Product Type documents
+ */
+interface ProductTypeDocumentData {
+  /**
+   * Title field in *Product Type*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter the Product Type Title
+   * - **API ID Path**: product_type.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Featured Image field in *Product Type*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_type.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>
+
+  /**
+   * Excerpt field in *Product Type*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter a short product type description
+   * - **API ID Path**: product_type.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  excerpt: prismic.RichTextField
+
+  /**
+   * Description field in *Product Type*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Describe the product type
+   * - **API ID Path**: product_type.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Slice Zone field in *Product Type*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_type.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ProductTypeDocumentDataSlicesSlice> /**
+   * Meta Description field in *Product Type*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: product_type.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Product Type*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_type.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Product Type*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: product_type.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Product Type document from Prismic
+ *
+ * - **API ID**: `product_type`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ProductTypeDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ProductTypeDocumentData>,
+    'product_type',
+    Lang
+  >
+
 /**
  * Item in *Settings → Navigation*
  */
@@ -285,6 +757,31 @@ export interface SettingsDocumentDataNavigationItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   label: prismic.KeyTextField
+}
+
+/**
+ * Item in *Settings → Footer Socials*
+ */
+export interface SettingsDocumentDataFooterSocialsItem {
+  /**
+   * Logo field in *Settings → Footer Socials*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_socials[].logo
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  logo: prismic.SelectField<'Facebook' | 'Instagram' | 'LinkedIn' | 'Yelp'>
+
+  /**
+   * Social URL field in *Settings → Footer Socials*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_socials[].social_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  social_url: prismic.LinkField
 }
 
 /**
@@ -312,6 +809,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   site_title: prismic.KeyTextField
+
+  /**
+   * Logo field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>
 
   /**
    * Site Meta Description field in *Settings*
@@ -356,6 +864,63 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   navigation: prismic.GroupField<Simplify<SettingsDocumentDataNavigationItem>>
+
+  /**
+   * Footer Logo field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_logo
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  footer_logo: prismic.ImageField<never>
+
+  /**
+   * Footer Socials field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_socials[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_socials: prismic.GroupField<
+    Simplify<SettingsDocumentDataFooterSocialsItem>
+  >
+
+  /**
+   * Company Information field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter company info
+   * - **API ID Path**: settings.company_information
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  company_information: prismic.RichTextField
+
+  /**
+   * Terms of Service field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter terms of service info
+   * - **API ID Path**: settings.terms_of_service
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  terms_of_service: prismic.RichTextField
+
+  /**
+   * Design Credit field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optionally give credit to designers.
+   * - **API ID Path**: settings.design_credit
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  design_credit: prismic.RichTextField
 }
 
 /**
@@ -376,9 +941,243 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | BlogPostDocument
+  | BrandDocument
   | HomepageDocument
   | PageDocument
+  | PortfolioDocument
+  | ProductDocument
+  | ProductTypeDocument
   | SettingsDocument
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceDefaultPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Button Link field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Button Label field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Enter Call to Action
+   * - **API ID Path**: call_to_action.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+
+  /**
+   * Button Color field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_color: prismic.SelectField<
+    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+  >
+}
+
+/**
+ * Default variation for CallToAction Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<CallToActionSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceFeaturedGridPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceFeaturedGridItem {
+  /**
+   * Icon field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select an Icon
+   * - **API ID Path**: call_to_action.items[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<
+    'RiQuestionnaireFill' | 'GiHomeGarage' | 'FaToolbox'
+  >
+
+  /**
+   * Heading field in *CallToAction → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter a Call to Action
+   * - **API ID Path**: call_to_action.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *CallToAction → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Describe the call to action
+   * - **API ID Path**: call_to_action.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Link field in *CallToAction → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Where should they go?
+   * - **API ID Path**: call_to_action.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Button Label field in *CallToAction → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: What should the button say?
+   * - **API ID Path**: call_to_action.items[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+
+  /**
+   * Button Color field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].button_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_color: prismic.SelectField<
+    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+  >
+}
+
+/**
+ * FeaturedGrid variation for CallToAction Slice
+ *
+ * - **API ID**: `featuredGrid`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceFeaturedGrid = prismic.SharedSliceVariation<
+  'featuredGrid',
+  Simplify<CallToActionSliceFeaturedGridPrimary>,
+  Simplify<CallToActionSliceFeaturedGridItem>
+>
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceSocialPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceSocialItem {
+  /**
+   * Logo field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select a Social Logo
+   * - **API ID Path**: call_to_action.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  logo: prismic.SelectField<'Facebook' | 'Instagram' | 'LinkedIn' | 'Yelp'>
+
+  /**
+   * Social URL field in *CallToAction → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Enter the URL of a Social Account
+   * - **API ID Path**: call_to_action.items[].social_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  social_url: prismic.LinkField
+}
+
+/**
+ * Social variation for CallToAction Slice
+ *
+ * - **API ID**: `social`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceSocial = prismic.SharedSliceVariation<
+  'social',
+  Simplify<CallToActionSliceSocialPrimary>,
+  Simplify<CallToActionSliceSocialItem>
+>
+
+/**
+ * Slice variation for *CallToAction*
+ */
+type CallToActionSliceVariation =
+  | CallToActionSliceDefault
+  | CallToActionSliceFeaturedGrid
+  | CallToActionSliceSocial
+
+/**
+ * CallToAction Shared Slice
+ *
+ * - **API ID**: `call_to_action`
+ * - **Description**: CallToAction
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSlice = prismic.SharedSlice<
+  'call_to_action',
+  CallToActionSliceVariation
+>
 
 /**
  * Primary content in *Content → Primary*
@@ -594,9 +1393,140 @@ export type ImageWithTextSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *ImageWithText → Primary*
+ */
+export interface ImageWithTextSliceTwoColumnPrimary {
+  /**
+   * Heading field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Image field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Image Location field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: image_with_text.primary.image_location
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  image_location: prismic.BooleanField
+
+  /**
+   * Text field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+}
+
+/**
+ * TwoColumn variation for ImageWithText Slice
+ *
+ * - **API ID**: `twoColumn`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageWithTextSliceTwoColumn = prismic.SharedSliceVariation<
+  'twoColumn',
+  Simplify<ImageWithTextSliceTwoColumnPrimary>,
+  never
+>
+
+/**
+ * Primary content in *ImageWithText → Primary*
+ */
+export interface ImageWithTextSliceWithIconPrimary {
+  /**
+   * Heading field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Image field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Image Location field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_with_text.primary.image_location
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  image_location: prismic.BooleanField
+
+  /**
+   * Text field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField
+
+  /**
+   * Icon field in *ImageWithText → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Optionally select an icon
+   * - **API ID Path**: image_with_text.primary.icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<'Garage' | 'Toolbox' | 'Question'>
+}
+
+/**
+ * WithIcon variation for ImageWithText Slice
+ *
+ * - **API ID**: `withIcon`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageWithTextSliceWithIcon = prismic.SharedSliceVariation<
+  'withIcon',
+  Simplify<ImageWithTextSliceWithIconPrimary>,
+  never
+>
+
+/**
  * Slice variation for *ImageWithText*
  */
-type ImageWithTextSliceVariation = ImageWithTextSliceDefault
+type ImageWithTextSliceVariation =
+  | ImageWithTextSliceDefault
+  | ImageWithTextSliceTwoColumn
+  | ImageWithTextSliceWithIcon
 
 /**
  * ImageWithText Shared Slice
@@ -705,16 +1635,40 @@ declare module '@prismicio/client' {
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
+      BrandDocument,
+      BrandDocumentData,
+      BrandDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      PortfolioDocument,
+      PortfolioDocumentData,
+      PortfolioDocumentDataSlicesSlice,
+      ProductDocument,
+      ProductDocumentData,
+      ProductDocumentDataFilesItem,
+      ProductDocumentDataSlicesSlice,
+      ProductTypeDocument,
+      ProductTypeDocumentData,
+      ProductTypeDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
+      SettingsDocumentDataFooterSocialsItem,
       AllDocumentTypes,
+      CallToActionSlice,
+      CallToActionSliceDefaultPrimary,
+      CallToActionSliceFeaturedGridPrimary,
+      CallToActionSliceFeaturedGridItem,
+      CallToActionSliceSocialPrimary,
+      CallToActionSliceSocialItem,
+      CallToActionSliceVariation,
+      CallToActionSliceDefault,
+      CallToActionSliceFeaturedGrid,
+      CallToActionSliceSocial,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceVariation,
@@ -726,8 +1680,12 @@ declare module '@prismicio/client' {
       HeroSliceDefault,
       ImageWithTextSlice,
       ImageWithTextSliceDefaultPrimary,
+      ImageWithTextSliceTwoColumnPrimary,
+      ImageWithTextSliceWithIconPrimary,
       ImageWithTextSliceVariation,
       ImageWithTextSliceDefault,
+      ImageWithTextSliceTwoColumn,
+      ImageWithTextSliceWithIcon,
       ScrollerSlice,
       ScrollerSliceDefaultPrimary,
       ScrollerSliceDefaultItem,

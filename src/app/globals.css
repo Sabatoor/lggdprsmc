@@ -4,12 +4,14 @@
 
 @layer base {
   :root {
+    --full-bleed: rgb(132, 199, 124);
     --color-primary: 132, 199, 124;
     --color-primary-hover: 83, 173, 73;
     --color-secondary: 220, 38, 38;
     --color-secondary-hover: 153, 27, 27;
     --color-neutral: 14, 20, 40;
     --color-base: 233, 233, 234;
+    --color-white: 253, 253, 253;
     --color-muted: 220, 252, 231;
   }
   .theme-alternate {
@@ -22,7 +24,7 @@
     --color-muted: 243, 225, 232;
   }
   .full-bleed {
-    box-shadow: 0 0 0 100vmax var(--color-fill);
+    box-shadow: 0 0 0 100vmax var(--full-bleed);
     clip-path: inset(0 -100vmax);
   }
   .scroller[data-animated='true'] {

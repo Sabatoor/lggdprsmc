@@ -1,29 +1,49 @@
 {
-  "id": "homepage",
-  "label": "Homepage",
+  "id": "brand",
+  "label": "Brand",
   "format": "page",
-  "repeatable": false,
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "call_to_action": {
-              "type": "SharedSlice"
-            },
-            "image_with_text": {
-              "type": "SharedSlice"
-            },
             "content": {
-              "type": "SharedSlice"
-            },
-            "scroller": {
-              "type": "SharedSlice"
-            },
-            "hero": {
               "type": "SharedSlice"
             }
           }

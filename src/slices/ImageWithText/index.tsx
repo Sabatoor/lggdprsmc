@@ -4,6 +4,9 @@ import { PrismicRichText } from '@/app/components/PrismicRichText'
 import Section from '@/app/components/Section'
 import { PrismicNextImage } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
+import { GiHomeGarage } from 'react-icons/gi'
+import { FaToolbox } from 'react-icons/fa'
+import { RiQuestionnaireFill } from 'react-icons/ri'
 
 /**
  * Props for `ImageWithText`.
@@ -14,11 +17,110 @@ export type ImageWithTextProps = SliceComponentProps<Content.ImageWithTextSlice>
  * Component for "ImageWithText" Slices.
  */
 const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
+  if (slice.variation === 'twoColumn') {
+    return (
+      <Section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        width="2xl"
+        className="flex-col"
+      >
+        {isFilled.richText(slice.primary.heading) && (
+          <>
+            <PrismicRichText field={slice.primary.heading} />
+            <div className="my-4 h-0.5 w-full rounded-full bg-skin-fill lg:my-6" />
+          </>
+        )}
+        <div className="grid lg:grid-cols-2 lg:gap-x-8">
+          <div
+            className={cn('aspect-h-9 aspect-w-16 overflow-hidden rounded-lg', {
+              'lg:order-2': slice.primary.image_location,
+            })}
+          >
+            <PrismicNextImage
+              field={slice.primary.image}
+              fallbackAlt=""
+              priority={index < 2}
+              className="rounded-lg transition duration-500 ease-in-out hover:scale-110"
+              title={slice.primary.image.alt || ''}
+            />
+          </div>
+          <div
+            className={cn('self-center px-0 py-4 lg:mr-6 lg:py-0', {
+              'lg:order-1': slice.primary.image_location,
+            })}
+          >
+            {isFilled.richText(slice.primary.text) && (
+              <PrismicRichText field={slice.primary.text} />
+            )}
+          </div>
+        </div>
+      </Section>
+    )
+  } else if (slice.variation === 'withIcon') {
+    const icons = {
+      Garage: GiHomeGarage,
+      Question: RiQuestionnaireFill,
+      Toolbox: FaToolbox,
+    }
+    let Icon
+    if (slice.primary.icon) {
+      Icon = icons[slice.primary.icon]
+    }
+    return (
+      <section className="group mx-auto grid max-w-screen-xl lg:grid-cols-2">
+        <div
+          className={cn('aspect-h-9 aspect-w-16 overflow-hidden', {
+            'lg:order-2': slice.primary.image_location,
+          })}
+        >
+          <PrismicNextImage
+            field={slice.primary.image}
+            fallbackAlt=""
+            priority={index < 2}
+            className="object-cover transition duration-500 ease-in-out group-hover:scale-110"
+            title={slice.primary.image.alt || ''}
+          />
+        </div>
+        <div
+          className={cn(
+            'flex flex-col items-center bg-skin-neutral p-4 lg:p-6',
+            {
+              'lg:order-1': slice.primary.image_location,
+            },
+          )}
+        >
+          {isFilled.select(slice.primary.icon) && (
+            <>
+              <Icon className="h-24 w-24 text-skin-primary" />
+
+              <div className="my-4 h-0.5 w-full rounded-full bg-skin-fill lg:my-6" />
+            </>
+          )}
+          {isFilled.richText(slice.primary.heading) ? (
+            <span className="self-start">
+              <PrismicRichText field={slice.primary.heading} />
+            </span>
+          ) : null}
+          <PrismicRichText
+            field={slice.primary.text}
+            components={{
+              paragraph: ({ children }) => (
+                <p className="prose text-skin-base lg:prose-lg xl:prose-xl">
+                  {children}
+                </p>
+              ),
+            }}
+          />
+        </div>
+      </section>
+    )
+  }
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      width="lg"
+      width="2xl"
     >
       <div className="grid grid-cols-1 items-center lg:grid-cols-3 lg:gap-12">
         <div

@@ -38,7 +38,11 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
           field={slice.primary.heading}
           components={{
             heading1: ({ children }) => (
-              <Heading as="h1" size="7xl" className="text-skin-base">
+              <Heading
+                as="h1"
+                size="7xl"
+                className="my-6 text-skin-base lg:my-10"
+              >
                 {children}
               </Heading>
             ),

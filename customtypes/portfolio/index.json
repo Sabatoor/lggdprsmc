@@ -1,11 +1,48 @@
 {
-  "id": "homepage",
-  "label": "Homepage",
+  "id": "portfolio",
+  "label": "Portfolio",
   "format": "page",
-  "repeatable": false,
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "Enter the Project Title",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      },
+      "date_published": {
+        "type": "Date",
+        "config": {
+          "label": "Date Published",
+          "placeholder": ""
+        }
+      },
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "label": "Featured Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "excerpt": {
+        "type": "Text",
+        "config": {
+          "label": "Excerpt",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -14,16 +51,13 @@
             "call_to_action": {
               "type": "SharedSlice"
             },
+            "scroller": {
+              "type": "SharedSlice"
+            },
             "image_with_text": {
               "type": "SharedSlice"
             },
             "content": {
-              "type": "SharedSlice"
-            },
-            "scroller": {
-              "type": "SharedSlice"
-            },
-            "hero": {
               "type": "SharedSlice"
             }
           }

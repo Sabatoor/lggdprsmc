@@ -23,8 +23,34 @@ const routes: prismic.ClientConfig['routes'] = [
     path: '/:uid',
   },
   {
+    type: 'product_type',
+    path: '/products/:uid',
+  },
+  {
+    type: 'brand',
+    path: '/products/:uid',
+  },
+  {
+    type: 'product',
+    resolvers: {
+      type: 'product_type',
+    },
+    path: '/products/:type/:uid',
+  },
+  {
+    type: 'product',
+    resolvers: {
+      brand: 'brand',
+    },
+    path: '/products/:brand/:uid',
+  },
+  {
     type: 'blog_post',
     path: '/blog/:uid',
+  },
+  {
+    type: 'portfolio',
+    path: '/portfolio/:uid',
   },
 ]
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { cn } from '@/app/lib/cn'
-import { BlogPostDocument } from '../../../prismicio-types'
+import { BlogPostDocument, PortfolioDocument } from '../../../prismicio-types'
 import Link from 'next/link'
 import { PrismicNextImage } from '@prismicio/next'
 import { asText, isFilled } from '@prismicio/client'
@@ -10,7 +10,7 @@ import { PrismicRichText } from './PrismicRichText'
 type BlogCardProps = {
   as?: React.ElementType
   className?: string
-  blog_post: BlogPostDocument
+  blog_post: BlogPostDocument | PortfolioDocument
 }
 
 export default function BlogCard({
@@ -36,7 +36,7 @@ export default function BlogCard({
             />
           </Link>
         )}
-        <div className="relative mx-auto -mt-4 max-w-lg rounded-lg bg-skin-base p-4 shadow-md shadow-skin-secondary lg:-mt-16">
+        <div className="relative mx-auto -mt-4 max-w-lg rounded-lg bg-skin-base p-4 shadow-sm shadow-skin-neutral lg:-mt-16">
           <PrismicRichText
             field={blog_post.data.title}
             components={{
@@ -52,7 +52,9 @@ export default function BlogCard({
             href={`${blog_post.url}`}
             className="hover:text-color-neutral hover:shadow-color-accent inline-block rounded bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-base transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:shadow"
           >
-            Continue Reading
+            {blog_post.type === 'blog_post'
+              ? 'Continue Reading'
+              : 'View Project'}
           </Link>
         </div>
       </article>
