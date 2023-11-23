@@ -1606,9 +1606,52 @@ export type ScrollerSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Scroller → Primary*
+ */
+export interface ScrollerSliceCarouselPrimary {
+  /**
+   * Heading field in *Scroller → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroller.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *Scroller → Items*
+ */
+export interface ScrollerSliceCarouselItem {
+  /**
+   * Image field in *Scroller → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroller.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Carousel variation for Scroller Slice
+ *
+ * - **API ID**: `carousel`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ScrollerSliceCarousel = prismic.SharedSliceVariation<
+  'carousel',
+  Simplify<ScrollerSliceCarouselPrimary>,
+  Simplify<ScrollerSliceCarouselItem>
+>
+
+/**
  * Slice variation for *Scroller*
  */
-type ScrollerSliceVariation = ScrollerSliceDefault
+type ScrollerSliceVariation = ScrollerSliceDefault | ScrollerSliceCarousel
 
 /**
  * Scroller Shared Slice
@@ -1689,8 +1732,11 @@ declare module '@prismicio/client' {
       ScrollerSlice,
       ScrollerSliceDefaultPrimary,
       ScrollerSliceDefaultItem,
+      ScrollerSliceCarouselPrimary,
+      ScrollerSliceCarouselItem,
       ScrollerSliceVariation,
       ScrollerSliceDefault,
+      ScrollerSliceCarousel,
     }
   }
 }

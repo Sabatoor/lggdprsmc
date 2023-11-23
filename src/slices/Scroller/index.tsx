@@ -4,6 +4,9 @@ import { SliceComponentProps } from '@prismicio/react'
 import { PrismicNextImage } from '@prismicio/next'
 import * as React from 'react'
 import { PrismicRichText } from '@/app/components/PrismicRichText'
+import { AnimatePresence, motion } from 'framer-motion'
+import useMeasure from 'react-use-measure'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
 /**
  * Props for `Scroller`.
@@ -47,6 +50,83 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
       })
     }
   }, [])
+
+  /**
+   * Carousel State
+   */
+  let [ref, { width }] = useMeasure()
+  let [count, setCount] = React.useState(1)
+  let prev = usePrevious(count) as number
+  let direction = count > prev ? 1 : -1
+
+  if (slice.variation === 'carousel') {
+    return (
+      <section className="flex justify-center">
+        <div className="w-full max-w-screen-xl text-skin-white">
+          <div className="flex justify-center">
+            <div className="aspect-hd w-full">
+              <div
+                ref={ref}
+                className="relative my-6 flex h-full items-center justify-center overflow-hidden rounded-lg bg-skin-neutral lg:my-8"
+              >
+                <button
+                  onClick={() => {
+                    if (count === 1) {
+                      setCount(slice.items.length)
+                    } else {
+                      setCount(count - 1)
+                    }
+                  }}
+                  className="absolute left-0 z-10 h-full px-4 transition duration-300 ease-in-out hover:bg-skin-neutral hover:bg-opacity-50"
+                >
+                  <HiChevronLeft className="h-10 w-10" />
+                </button>
+                <button
+                  onClick={() => {
+                    if (count === slice.items.length) {
+                      setCount(1)
+                    } else {
+                      setCount(count + 1)
+                    }
+                  }}
+                  className="absolute right-0 z-10 h-full px-4 transition duration-300 ease-in-out hover:bg-skin-neutral hover:bg-opacity-50"
+                >
+                  <HiChevronRight className="h-10 w-10" />
+                </button>
+                <AnimatePresence>
+                  <motion.div key={count}>
+                    <PrismicNextImage
+                      field={slice.items[count - 1].image}
+                      fill
+                      sizes="100vw"
+                      className="object-cover opacity-30"
+                      imgixParams={{ blur: 200 }}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+                <AnimatePresence custom={{ direction, width }}>
+                  <motion.div
+                    key={count}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    custom={{ direction, width }}
+                    className={`absolute flex h-2/3 w-2/3 items-center justify-center`}
+                  >
+                    <PrismicNextImage
+                      field={slice.items[count - 1].image}
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
   return (
     <section className="my-4 grid place-content-center">
       {isFilled.richText(slice.primary.heading) && (
@@ -88,6 +168,26 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
       </div>
     </section>
   )
+}
+
+let variants = {
+  enter: ({ direction, width }: { direction: number; width: number }) => ({
+    x: direction * width,
+  }),
+  center: { x: 0 },
+  exit: ({ direction, width }: { direction: number; width: number }) => ({
+    x: direction * -width,
+  }),
+}
+
+function usePrevious(state: number) {
+  let [tuple, setTuple] = React.useState([null, state])
+
+  if (tuple[1] !== state) {
+    setTuple([tuple[1], state])
+  }
+
+  return tuple[0]
 }
 
 export default Scroller

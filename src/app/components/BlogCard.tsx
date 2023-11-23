@@ -36,7 +36,7 @@ export default function BlogCard({
             />
           </Link>
         )}
-        <div className="relative mx-auto -mt-4 max-w-lg rounded-lg bg-skin-base p-4 shadow-sm shadow-skin-neutral lg:-mt-16">
+        <div className="relative mx-auto -mt-4 max-w-lg rounded-lg bg-skin-base p-4 shadow lg:-mt-16">
           <PrismicRichText
             field={blog_post.data.title}
             components={{

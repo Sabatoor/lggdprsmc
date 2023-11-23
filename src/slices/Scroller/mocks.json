@@ -121,5 +121,116 @@
 				]
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "carousel",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Double"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"origin": {
+								"id": "5JQH9Iqnm9o",
+								"url": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8ZnJ1aXR8ZW58MHx8fHwxNzAwNzI2ODIzfDA&ixlib=rb-4.0.3&q=85",
+								"width": 4608,
+								"height": 3072
+							},
+							"url": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8ZnJ1aXR8ZW58MHx8fHwxNzAwNzI2ODIzfDA&ixlib=rb-4.0.3&q=85",
+							"width": 4608,
+							"height": 3072,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": "red apple fruit beside green apple and yellow fruit on brown woven basket",
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"url": "https://images.unsplash.com/photo-1696446970340-b18148c1176f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MXwxfHNlYXJjaHwxfHxmcnVpdHxlbnwwfHx8fDE3MDA3MjY4MjN8MA&ixlib=rb-4.0.3&q=85",
+							"alt": "a woman in a green swimsuit reading a book next to a pool",
+							"origin": {
+								"id": "dxwVXiVLrso",
+								"url": "https://images.unsplash.com/photo-1696446970340-b18148c1176f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MXwxfHNlYXJjaHwxfHxmcnVpdHxlbnwwfHx8fDE3MDA3MjY4MjN8MA&ixlib=rb-4.0.3&q=85",
+								"width": 5000,
+								"height": 3334
+							},
+							"width": 5000,
+							"height": 3334,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"url": "https://images.unsplash.com/photo-1696446700665-1e26fcca574f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MXwxfHNlYXJjaHw4fHxmcnVpdHxlbnwwfHx8fDE3MDA3MjY4MjN8MA&ixlib=rb-4.0.3&q=85",
+							"alt": "a man and a woman laying on a blanket with fruit",
+							"origin": {
+								"id": "dNN9MbZPuzY",
+								"url": "https://images.unsplash.com/photo-1696446700665-1e26fcca574f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MXwxfHNlYXJjaHw4fHxmcnVpdHxlbnwwfHx8fDE3MDA3MjY4MjN8MA&ixlib=rb-4.0.3&q=85",
+								"width": 6048,
+								"height": 4024
+							},
+							"width": 6048,
+							"height": 4024,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
 	}
 ]

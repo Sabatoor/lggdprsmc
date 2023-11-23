@@ -95,7 +95,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
       <Section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="bg-skin-fill"
+        className="bg-skin-fill py-6"
       >
         <div className="mx-auto flex max-w-screen-sm flex-col items-center">
           <PrismicRichText

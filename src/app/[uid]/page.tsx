@@ -9,6 +9,7 @@ import Section from '@/app/components/Section'
 import BlogCard from '@/app/components/BlogCard'
 import Pagination from '@/app/components/Pagination'
 import { PrismicRichText } from '../components/PrismicRichText'
+import Heading from '../components/Heading'
 
 type Params = { uid: string }
 type SearchParams = {
@@ -79,11 +80,15 @@ export default async function Page({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {page.data.slices[0]?.slice_type !== 'hero' ? (
+        <Heading as="h1" size="5xl" className="my-6 lg:my-8 lg:text-center">
+          {prismic.asText(page.data.title)}
+        </Heading>
+      ) : null}
       <SliceZone slices={page.data.slices} components={components} />
       {/* CODE FOR BLOG PAGE ONLY */}
       {(page.uid === 'blog' || page.uid === 'portfolio') && (
         <Section width="md" className="flex-col">
-          <PrismicRichText field={page.data.title} />
           {posts && posts.results.length > 0 ? (
             <ul className="px-4 lg:px-0">
               {posts.results.map(post => {
