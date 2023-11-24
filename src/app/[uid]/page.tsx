@@ -8,7 +8,7 @@ import { Graph } from 'schema-dts'
 import Section from '@/app/components/Section'
 import BlogCard from '@/app/components/BlogCard'
 import Pagination from '@/app/components/Pagination'
-import { PrismicRichText } from '../components/PrismicRichText'
+import type { Content } from '@prismicio/client'
 import Heading from '../components/Heading'
 
 type Params = { uid: string }
@@ -25,7 +25,11 @@ export default async function Page({
 }) {
   const client = createClient()
   const pageNumber = Number(searchParams['page']) || 1
-  const page = await client.getByUID('page', params.uid).catch(() => notFound())
+  const page = await client
+    .getByUID('page', params.uid, {
+      fetchLinks: ['brand.description', 'brand.logo', 'brand.title'],
+    })
+    .catch(() => notFound())
   let posts
   if (page.uid === 'blog') {
     posts = await client.getByType('blog_post', {
