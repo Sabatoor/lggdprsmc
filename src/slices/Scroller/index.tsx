@@ -67,7 +67,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
             <div className="aspect-hd w-full">
               <div
                 ref={ref}
-                className="relative my-6 flex h-full items-center justify-center overflow-hidden rounded-lg bg-skin-neutral lg:my-8"
+                className="relative my-6 flex h-full items-center justify-center overflow-hidden bg-skin-neutral lg:my-8 lg:rounded-lg"
               >
                 <button
                   onClick={() => {
@@ -77,7 +77,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                       setCount(count - 1)
                     }
                   }}
-                  className="absolute left-0 z-10 h-full px-4 transition duration-300 ease-in-out hover:bg-skin-neutral hover:bg-opacity-50"
+                  className="absolute left-0 z-10 h-full px-1 transition duration-300 ease-in-out hover:bg-skin-neutral hover:bg-opacity-50"
                 >
                   <HiChevronLeft className="h-10 w-10" />
                 </button>
@@ -89,7 +89,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                       setCount(count + 1)
                     }
                   }}
-                  className="absolute right-0 z-10 h-full px-4 transition duration-300 ease-in-out hover:bg-skin-neutral hover:bg-opacity-50"
+                  className="absolute right-0 z-10 h-full px-1 transition duration-300 ease-in-out hover:bg-skin-neutral hover:bg-opacity-50"
                 >
                   <HiChevronRight className="h-10 w-10" />
                 </button>

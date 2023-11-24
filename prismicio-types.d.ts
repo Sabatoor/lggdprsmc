@@ -1160,12 +1160,108 @@ export type CallToActionSliceSocial = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceBrandGridPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceBrandGridItem {
+  /**
+   * Brand field in *CallToAction → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].brand
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  brand: prismic.ContentRelationshipField<'brand'>
+
+  /**
+   * Heading field in *CallToAction → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter a Call to Action
+   * - **API ID Path**: call_to_action.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *CallToAction → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Describe the call to action
+   * - **API ID Path**: call_to_action.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Link field in *CallToAction → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Where should they go?
+   * - **API ID Path**: call_to_action.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Button Label field in *CallToAction → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: What should the button say?
+   * - **API ID Path**: call_to_action.items[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+
+  /**
+   * Button Color field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].button_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_color: prismic.SelectField<
+    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+  >
+}
+
+/**
+ * Brand Grid variation for CallToAction Slice
+ *
+ * - **API ID**: `brandGrid`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceBrandGrid = prismic.SharedSliceVariation<
+  'brandGrid',
+  Simplify<CallToActionSliceBrandGridPrimary>,
+  Simplify<CallToActionSliceBrandGridItem>
+>
+
+/**
  * Slice variation for *CallToAction*
  */
 type CallToActionSliceVariation =
   | CallToActionSliceDefault
   | CallToActionSliceFeaturedGrid
   | CallToActionSliceSocial
+  | CallToActionSliceBrandGrid
 
 /**
  * CallToAction Shared Slice
@@ -1708,10 +1804,13 @@ declare module '@prismicio/client' {
       CallToActionSliceFeaturedGridItem,
       CallToActionSliceSocialPrimary,
       CallToActionSliceSocialItem,
+      CallToActionSliceBrandGridPrimary,
+      CallToActionSliceBrandGridItem,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceFeaturedGrid,
       CallToActionSliceSocial,
+      CallToActionSliceBrandGrid,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceVariation,

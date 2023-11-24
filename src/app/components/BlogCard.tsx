@@ -25,7 +25,7 @@ export default function BlogCard({
         {isFilled.image(blog_post.data.featured_image) && (
           <Link
             href={`${blog_post.url}`}
-            className="overflow-hidden focus:outline-none focus:ring-4 focus:ring-blue-600"
+            className="overflow-hidden focus:outline-none focus:ring-4 focus:ring-skin-primary"
           >
             <PrismicNextImage
               field={blog_post.data.featured_image}

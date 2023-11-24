@@ -14,7 +14,8 @@ import {
   FaToolbox,
 } from 'react-icons/fa'
 import React from 'react'
-import { PrismicNextLink } from '@prismicio/next'
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { BrandDocument } from '../../../prismicio-types'
 
 /**
  * Props for `CallToAction`.
@@ -31,11 +32,112 @@ const icons = {
   Yelp: FaYelp,
 }
 
+const isBrand = (brand: object): brand is BrandDocument => {
+  return (brand as BrandDocument).data !== undefined
+}
+
 /**
  * Component for "CallToAction" Slices.
  */
 const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
-  if (slice.variation === 'featuredGrid') {
+  if (slice.variation === 'brandGrid') {
+    return (
+      <Section
+        width="2xl"
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="flex-col place-items-center justify-center "
+      >
+        {isFilled.richText(slice.primary.heading) && (
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading2: ({ children }) => (
+                <Heading
+                  as="h2"
+                  size="5xl"
+                  className="text-3xl text-skin-primary md:text-4xl"
+                >
+                  {children}
+                </Heading>
+              ),
+            }}
+          />
+        )}
+        <div className="grid gap-4 py-6 lg:grid-cols-3 lg:gap-8">
+          {slice.items.length > 0
+            ? slice.items.map((item, i) => {
+                return (
+                  <div
+                    key={`${slice.id}-${i}`}
+                    className="max-w-sm overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
+                  >
+                    <div className="flex flex-col items-center">
+                      {isBrand(item.brand) && (
+                        <PrismicNextImage
+                          field={item.brand.data.logo}
+                          className="rounded-lg"
+                        />
+                      )}
+                      {isFilled.richText(item.heading) ? (
+                        <PrismicRichText
+                          field={item.heading}
+                          components={{
+                            heading2: ({ children }) => (
+                              <Heading
+                                as="h2"
+                                size="3xl"
+                                className="my-2 text-skin-neutral lg:my-3"
+                              >
+                                {children}
+                              </Heading>
+                            ),
+                          }}
+                        />
+                      ) : isBrand(item.brand) ? (
+                        <PrismicRichText
+                          field={item.brand.data.title}
+                          components={{
+                            heading1: ({ children }) => (
+                              <Heading
+                                as="h2"
+                                size="3xl"
+                                className="my-2 text-skin-neutral lg:my-3"
+                              >
+                                {children}
+                              </Heading>
+                            ),
+                          }}
+                        />
+                      ) : null}
+                      {isFilled.richText(item.description) ? (
+                        <PrismicRichText field={item.description} />
+                      ) : (
+                        isBrand(item.brand) && (
+                          <PrismicRichText
+                            field={item.brand.data.description}
+                          />
+                        )
+                      )}
+                    </div>
+                    {isFilled.link(item.button_link) ? (
+                      <div className="mb-4 mt-6 flex justify-center">
+                        <ButtonLink
+                          field={item.button_link}
+                          color={item.button_color || 'Inverted'}
+                        >
+                          {item.button_label || 'Click Here'}
+                        </ButtonLink>
+                      </div>
+                    ) : null}
+                  </div>
+                )
+              })
+            : null}
+        </div>
+      </Section>
+    )
+  } else if (slice.variation === 'featuredGrid') {
     return (
       <Section
         width="2xl"
