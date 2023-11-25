@@ -13,12 +13,12 @@ type NavbarProps = {
 
 export default function Navbar({ navigation, logo, title }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-20 bg-skin-base pb-4 shadow-sm md:pb-6 lg:pb-8">
+    <header className="sticky top-0 z-20 bg-skin-white pb-4 shadow-sm md:pb-6 lg:pb-8">
       <div className="mb-4 bg-skin-fill py-1 md:mb-6 lg:mb-8">
         <p className="text-center text-xl font-bold text-skin-neutral">
           <a
             href="tel:6042431505"
-            className="ring-skin-neutral rounded-lg px-2 py-3 outline-none focus:ring-2"
+            className="rounded-lg px-2 py-3 outline-none ring-skin-neutral focus:ring-2"
           >
             604.243.1505
           </a>
@@ -27,7 +27,7 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
       <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4">
         <Link
           href="/"
-          className="ring-skin-primary rounded-lg outline-none focus:ring-2"
+          className="rounded-lg outline-none ring-skin-primary focus:ring-2"
         >
           {logo ? <PrismicNextImage field={logo} /> : <h1>{title}</h1>}
           <span className="sr-only">Return to Homepage</span>
@@ -42,7 +42,7 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
                       <li key={item.label + i}>
                         <PrismicNextLink
                           field={item.link}
-                          className="ring-skin-primary rounded-lg px-2 py-3 outline-none focus:ring-2"
+                          className="rounded-lg px-2 py-3 outline-none ring-skin-primary focus:ring-2"
                         >
                           {item.label}
                         </PrismicNextLink>

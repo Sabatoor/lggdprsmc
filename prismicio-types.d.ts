@@ -734,6 +734,105 @@ export type ProductTypeDocument<Lang extends string = string> =
     Lang
   >
 
+type ServiceDocumentDataSlicesSlice =
+  | CallToActionSlice
+  | ScrollerSlice
+  | ImageWithTextSlice
+  | HeroSlice
+  | ContentSlice
+
+/**
+ * Content for Service documents
+ */
+interface ServiceDocumentData {
+  /**
+   * Title field in *Service*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Service Title
+   * - **API ID Path**: service.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Description field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Describe the service
+   * - **API ID Path**: service.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Excerpt field in *Service*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter a shorter description
+   * - **API ID Path**: service.excerpt
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  excerpt: prismic.RichTextField
+
+  /**
+   * Slice Zone field in *Service*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ServiceDocumentDataSlicesSlice> /**
+   * Meta Description field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: service.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Service*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: service.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Service document from Prismic
+ *
+ * - **API ID**: `service`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ServiceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<ServiceDocumentData>, 'service', Lang>
+
 /**
  * Item in *Settings → Navigation*
  */
@@ -947,6 +1046,7 @@ export type AllDocumentTypes =
   | PortfolioDocument
   | ProductDocument
   | ProductTypeDocument
+  | ServiceDocument
   | SettingsDocument
 
 /**
@@ -1255,6 +1355,164 @@ export type CallToActionSliceBrandGrid = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceProductTypeGridPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceProductTypeGridItem {
+  /**
+   * Product Type field in *CallToAction → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].product_type
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product_type: prismic.ContentRelationshipField<'product_type'>
+
+  /**
+   * Heading field in *CallToAction → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter a Call to Action
+   * - **API ID Path**: call_to_action.items[].heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *CallToAction → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Describe the call to action
+   * - **API ID Path**: call_to_action.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Link field in *CallToAction → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Where should they go?
+   * - **API ID Path**: call_to_action.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Button Label field in *CallToAction → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: What should the button say?
+   * - **API ID Path**: call_to_action.items[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+
+  /**
+   * Button Color field in *CallToAction → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].button_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_color: prismic.SelectField<
+    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+  >
+}
+
+/**
+ * Product Type Grid variation for CallToAction Slice
+ *
+ * - **API ID**: `productTypeGrid`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceProductTypeGrid = prismic.SharedSliceVariation<
+  'productTypeGrid',
+  Simplify<CallToActionSliceProductTypeGridPrimary>,
+  Simplify<CallToActionSliceProductTypeGridItem>
+>
+
+/**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceServicesGridPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceServicesGridItem {
+  /**
+   * Service field in *CallToAction → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].service
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  service: prismic.ContentRelationshipField<'service'>
+
+  /**
+   * Description field in *CallToAction → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Describe the call to action
+   * - **API ID Path**: call_to_action.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Button Label field in *CallToAction → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: What should the button say?
+   * - **API ID Path**: call_to_action.items[].button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+}
+
+/**
+ * ServicesGrid variation for CallToAction Slice
+ *
+ * - **API ID**: `servicesGrid`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceServicesGrid = prismic.SharedSliceVariation<
+  'servicesGrid',
+  Simplify<CallToActionSliceServicesGridPrimary>,
+  Simplify<CallToActionSliceServicesGridItem>
+>
+
+/**
  * Slice variation for *CallToAction*
  */
 type CallToActionSliceVariation =
@@ -1262,6 +1520,8 @@ type CallToActionSliceVariation =
   | CallToActionSliceFeaturedGrid
   | CallToActionSliceSocial
   | CallToActionSliceBrandGrid
+  | CallToActionSliceProductTypeGrid
+  | CallToActionSliceServicesGrid
 
 /**
  * CallToAction Shared Slice
@@ -1793,6 +2053,9 @@ declare module '@prismicio/client' {
       ProductTypeDocument,
       ProductTypeDocumentData,
       ProductTypeDocumentDataSlicesSlice,
+      ServiceDocument,
+      ServiceDocumentData,
+      ServiceDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
@@ -1806,11 +2069,17 @@ declare module '@prismicio/client' {
       CallToActionSliceSocialItem,
       CallToActionSliceBrandGridPrimary,
       CallToActionSliceBrandGridItem,
+      CallToActionSliceProductTypeGridPrimary,
+      CallToActionSliceProductTypeGridItem,
+      CallToActionSliceServicesGridPrimary,
+      CallToActionSliceServicesGridItem,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceFeaturedGrid,
       CallToActionSliceSocial,
       CallToActionSliceBrandGrid,
+      CallToActionSliceProductTypeGrid,
+      CallToActionSliceServicesGrid,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceVariation,

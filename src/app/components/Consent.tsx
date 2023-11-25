@@ -69,7 +69,7 @@ export default function Consent() {
             }}
             id="consent-banner"
             className={cn(
-              'fixed bottom-0 z-10 grid w-full bg-skin-base bg-opacity-95 p-3 md:grid-cols-5',
+              'fixed bottom-0 z-10 grid w-full bg-skin-white bg-opacity-95 p-3 md:grid-cols-5',
             )}
           >
             <p className="prose prose-sm mx-auto my-4 px-6 text-left md:col-span-3">

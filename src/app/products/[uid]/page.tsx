@@ -32,15 +32,20 @@ export default async function Page({ params }: { params: Params }) {
             brand
             title
             featured_image
+            excerpt
           }
         }
       `,
       filters: [prismic.filter.at('my.product.brand', page.id)],
+      orderings: {
+        field: 'my.product.title',
+        direction: 'asc',
+      },
     })
     return (
       <Section as="div" width="xl" className="flex flex-col items-center">
         <PrismicNextImage field={page.data.logo} />
-        <Heading as="h1" size="4xl" className="my-4">
+        <Heading as="h1" size="4xl" className="my-6 lg:my-8">
           Products by {asText(page.data.title)}
         </Heading>
         <SliceZone slices={page.data.slices} components={components} />
@@ -50,11 +55,32 @@ export default async function Page({ params }: { params: Params }) {
               return (
                 <li key={product.id} className="max-w-[400px]">
                   <Link href={product.url || '#'}>
-                    <PrismicNextImage field={product.data.featured_image} />
-                    <p className="relative mx-auto -mt-8 max-w-sm rounded-lg bg-skin-base p-4 text-center shadow-sm shadow-skin-neutral">
-                      {asText(product.data.title)}
-                    </p>
+                    <PrismicNextImage
+                      field={product.data.featured_image}
+                      className="rounded-lg"
+                    />
                   </Link>
+                  <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-skin-white p-4 shadow-lg lg:text-center">
+                    <PrismicRichText
+                      field={product.data.title}
+                      components={{
+                        heading1: ({ children }) => (
+                          <Heading
+                            as="h2"
+                            size="3xl"
+                            className="lg:text-center"
+                          >
+                            {children}
+                          </Heading>
+                        ),
+                      }}
+                    />
+                    <PrismicRichText field={product.data.excerpt} />
+                    <Link
+                      href={product.url || '#'}
+                      className="rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-primary transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
+                    >{`See ${asText(product.data.title)}`}</Link>
+                  </div>
                 </li>
               )
             })}
@@ -63,10 +89,67 @@ export default async function Page({ params }: { params: Params }) {
       </Section>
     )
   } else {
+    const products = await client.getAllByType('product', {
+      graphQuery: `
+        {
+          product {
+            product_type
+            title
+            featured_image
+            excerpt
+          }
+        }
+      `,
+      filters: [prismic.filter.at('my.product.product_type', page.id)],
+      orderings: {
+        field: 'my.product.title',
+        direction: 'asc',
+      },
+    })
     return (
-      <Section as="div" width="lg" className="flex flex-col items-center">
+      <Section as="div" width="xl" className="flex flex-col items-center">
         <PrismicNextImage field={page.data.featured_image} />
+        <Heading as="h1" size="4xl" className="my-6 lg:my-8">
+          {asText(page.data.title)}
+        </Heading>
         <SliceZone slices={page.data.slices} components={components} />
+        {products.length > 0 ? (
+          <ul className="flex flex-wrap justify-center gap-4">
+            {products.map(product => {
+              return (
+                <li key={product.id} className="max-w-[400px]">
+                  <Link href={product.url || '#'}>
+                    <PrismicNextImage
+                      field={product.data.featured_image}
+                      className="rounded-lg"
+                    />
+                  </Link>
+                  <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-skin-white p-4 shadow-lg lg:text-center">
+                    <PrismicRichText
+                      field={product.data.title}
+                      components={{
+                        heading1: ({ children }) => (
+                          <Heading
+                            as="h2"
+                            size="3xl"
+                            className="lg:text-center"
+                          >
+                            {children}
+                          </Heading>
+                        ),
+                      }}
+                    />
+                    <PrismicRichText field={product.data.excerpt} />
+                    <Link
+                      href={product.url || '#'}
+                      className="rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-primary transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
+                    >{`See ${asText(product.data.title)}`}</Link>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+        ) : null}
       </Section>
     )
   }
