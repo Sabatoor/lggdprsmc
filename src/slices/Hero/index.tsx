@@ -49,7 +49,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
           }}
         />
         {isFilled.richText(slice.primary.description) && (
-          <span className="relative text-skin-muted">
+          <span className="relative mb-6 flex justify-center text-skin-muted lg:mb-8">
             <PrismicRichText field={slice.primary.description} />
           </span>
         )}

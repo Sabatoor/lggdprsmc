@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { PrismicRichText } from '@/app/components/PrismicRichText'
@@ -15,7 +16,11 @@ import {
 } from 'react-icons/fa'
 import React from 'react'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
-import { BrandDocument } from '../../../prismicio-types'
+import {
+  BrandDocument,
+  ProductTypeDocument,
+  ServiceDocument,
+} from '../../../prismicio-types'
 
 /**
  * Props for `CallToAction`.
@@ -35,6 +40,12 @@ const icons = {
 const isBrand = (brand: object): brand is BrandDocument => {
   return (brand as BrandDocument).data !== undefined
 }
+const isProductType = (type: object): type is ProductTypeDocument => {
+  return (type as ProductTypeDocument).data !== undefined
+}
+const isService = (service: object): service is ServiceDocument => {
+  return (service as ServiceDocument).data !== undefined
+}
 
 /**
  * Component for "CallToAction" Slices.
@@ -46,7 +57,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         width="2xl"
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="flex-col place-items-center justify-center "
+        className="flex-col"
       >
         {isFilled.richText(slice.primary.heading) && (
           <PrismicRichText
@@ -70,15 +81,19 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 return (
                   <div
                     key={`${slice.id}-${i}`}
-                    className="max-w-sm overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
+                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
                   >
                     <div className="flex flex-col items-center">
-                      {isBrand(item.brand) && (
-                        <PrismicNextImage
-                          field={item.brand.data.logo}
-                          className="rounded-lg"
-                        />
-                      )}
+                      {isBrand(item.brand) &&
+                        isFilled.image(item.brand.data.logo) &&
+                        isFilled.link(item.button_link) && (
+                          <Link href={item.button_link.url || '#'}>
+                            <PrismicNextImage
+                              field={item.brand.data.logo}
+                              className="rounded-lg"
+                            />
+                          </Link>
+                        )}
                       {isFilled.richText(item.heading) ? (
                         <PrismicRichText
                           field={item.heading}
@@ -116,6 +131,106 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                         isBrand(item.brand) && (
                           <PrismicRichText
                             field={item.brand.data.description}
+                          />
+                        )
+                      )}
+                    </div>
+                    {isFilled.link(item.button_link) ? (
+                      <div className="mb-4 mt-6 flex justify-center">
+                        <ButtonLink
+                          field={item.button_link}
+                          color={item.button_color || 'Inverted'}
+                        >
+                          {item.button_label || 'Click Here'}
+                        </ButtonLink>
+                      </div>
+                    ) : null}
+                  </div>
+                )
+              })
+            : null}
+        </div>
+      </Section>
+    )
+  } else if (slice.variation === 'productTypeGrid') {
+    return (
+      <Section
+        width="2xl"
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="flex-col"
+      >
+        {isFilled.richText(slice.primary.heading) && (
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading2: ({ children }) => (
+                <Heading
+                  as="h2"
+                  size="5xl"
+                  className="text-3xl text-skin-primary md:text-4xl"
+                >
+                  {children}
+                </Heading>
+              ),
+            }}
+          />
+        )}
+        <div className="grid gap-4 py-6 lg:grid-cols-3 lg:gap-8">
+          {slice.items.length > 0
+            ? slice.items.map((item, i) => {
+                return (
+                  <div
+                    key={`${slice.id}-${i}`}
+                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
+                  >
+                    <div className="flex flex-col items-center">
+                      {isProductType(item.product_type) &&
+                        isFilled.link(item.button_link) && (
+                          <PrismicNextLink field={item.button_link}>
+                            <PrismicNextImage
+                              field={item.product_type.data.featured_image}
+                              className="h-[250px] w-[250px] rounded-lg"
+                            />
+                          </PrismicNextLink>
+                        )}
+                      {isFilled.richText(item.heading) ? (
+                        <PrismicRichText
+                          field={item.heading}
+                          components={{
+                            heading2: ({ children }) => (
+                              <Heading
+                                as="h2"
+                                size="3xl"
+                                className="my-2 text-skin-neutral lg:my-3"
+                              >
+                                {children}
+                              </Heading>
+                            ),
+                          }}
+                        />
+                      ) : isProductType(item.product_type) ? (
+                        <PrismicRichText
+                          field={item.product_type.data.title}
+                          components={{
+                            heading1: ({ children }) => (
+                              <Heading
+                                as="h2"
+                                size="3xl"
+                                className="my-2 text-skin-neutral lg:my-3"
+                              >
+                                {children}
+                              </Heading>
+                            ),
+                          }}
+                        />
+                      ) : null}
+                      {isFilled.richText(item.description) ? (
+                        <PrismicRichText field={item.description} />
+                      ) : (
+                        isProductType(item.product_type) && (
+                          <PrismicRichText
+                            field={item.product_type.data.description}
                           />
                         )
                       )}
@@ -190,6 +305,81 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
               )
             })
           : null}
+      </Section>
+    )
+  } else if (slice.variation === 'servicesGrid') {
+    return (
+      <Section
+        width="2xl"
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="flex-col"
+      >
+        {isFilled.richText(slice.primary.heading) && (
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading2: ({ children }) => (
+                <Heading
+                  as="h2"
+                  size="5xl"
+                  className="text-3xl text-skin-primary md:text-4xl"
+                >
+                  {children}
+                </Heading>
+              ),
+            }}
+          />
+        )}
+        <div className="grid gap-4 py-6 lg:grid-cols-3 lg:gap-8">
+          {slice.items.length > 0
+            ? slice.items.map((item, i) => {
+                console.log('SERVICE ITEM ===> ', item)
+                return (
+                  <div
+                    key={`${slice.id}-${i}`}
+                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
+                  >
+                    <div className="flex flex-col items-center">
+                      {isService(item.service) ? (
+                        <PrismicRichText
+                          field={item.service.data.title}
+                          components={{
+                            heading1: ({ children }) => (
+                              <Heading
+                                as="h2"
+                                size="3xl"
+                                className="my-2 text-skin-neutral lg:my-3"
+                              >
+                                {children}
+                              </Heading>
+                            ),
+                          }}
+                        />
+                      ) : null}
+                      {isFilled.richText(item.description) ? (
+                        <PrismicRichText field={item.description} />
+                      ) : (
+                        isService(item.service) && (
+                          <PrismicRichText field={item.service.data.excerpt} />
+                        )
+                      )}
+                    </div>
+                    {isService(item.service) ? (
+                      <div className="mb-4 mt-6 flex justify-center">
+                        <Link
+                          href={item.service.url || '#'}
+                          className="rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-neutral transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
+                        >
+                          {item.button_label || 'Click Here'}
+                        </Link>
+                      </div>
+                    ) : null}
+                  </div>
+                )
+              })
+            : null}
+        </div>
       </Section>
     )
   } else if (slice.variation === 'social') {

@@ -14,7 +14,16 @@ type Params = { product: string }
 export default async function Page({ params }: { params: Params }) {
   const client = createClient()
   const page = await client
-    .getByUID('product', params.product)
+    .getByUID('product', params.product, {
+      fetchLinks: [
+        'brand.description',
+        'brand.logo',
+        'brand.title',
+        'product_type.title',
+        'product_type.description',
+        'product_type.featured_image',
+      ],
+    })
     .catch(() => notFound())
 
   return (
