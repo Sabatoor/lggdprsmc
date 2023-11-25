@@ -15,7 +15,18 @@ type Params = { uid: string }
 export default async function Page({ params }: { params: Params }) {
   const client = createClient()
   const page = await client
-    .getByUID('portfolio', params.uid)
+    .getByUID('portfolio', params.uid, {
+      fetchLinks: [
+        'brand.description',
+        'brand.logo',
+        'brand.title',
+        'product_type.title',
+        'product_type.description',
+        'product_type.featured_image',
+        'service.title',
+        'service.excerpt',
+      ],
+    })
     .catch(() => notFound())
   const settings = await client.getSingle('settings')
   let pubDate
