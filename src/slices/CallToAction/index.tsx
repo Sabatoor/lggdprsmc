@@ -334,7 +334,6 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         <div className="grid gap-4 py-6 lg:grid-cols-3 lg:gap-8">
           {slice.items.length > 0
             ? slice.items.map((item, i) => {
-                console.log('SERVICE ITEM ===> ', item)
                 return (
                   <div
                     key={`${slice.id}-${i}`}
