@@ -22,7 +22,6 @@ export default async function Page({ params }: { params: Params }) {
         'product_type.featured_image',
         'service.title',
         'service.excerpt',
-        'service',
       ],
     })
     .catch(() => notFound())

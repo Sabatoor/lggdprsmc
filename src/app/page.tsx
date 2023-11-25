@@ -6,7 +6,18 @@ import { components } from '@/slices'
 
 export default async function Page() {
   const client = createClient()
-  const page = await client.getSingle('homepage')
+  const page = await client.getSingle('homepage', {
+    fetchLinks: [
+      'brand.description',
+      'brand.logo',
+      'brand.title',
+      'product_type.title',
+      'product_type.description',
+      'product_type.featured_image',
+      'service.title',
+      'service.excerpt',
+    ],
+  })
 
   return <SliceZone slices={page.data.slices} components={components} />
 }
