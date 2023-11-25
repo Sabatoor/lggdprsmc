@@ -21,6 +21,7 @@ import {
   ProductTypeDocument,
   ServiceDocument,
 } from '../../../prismicio-types'
+import { cn } from '@/app/lib/cn'
 
 /**
  * Props for `CallToAction`.
@@ -75,7 +76,12 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             }}
           />
         )}
-        <div className="grid gap-4 py-6 lg:grid-cols-3 lg:gap-8">
+        <div
+          className={cn('grid gap-4 py-6  lg:gap-8', {
+            'lg:grid-cols-3': slice.items.length === 3,
+            'lg:grid-cols-2': slice.items.length === 2,
+          })}
+        >
           {slice.items.length > 0
             ? slice.items.map((item, i) => {
                 return (
@@ -176,7 +182,12 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             }}
           />
         )}
-        <div className="grid gap-4 py-6 lg:grid-cols-3 lg:gap-8">
+        <div
+          className={cn('grid gap-4 py-6  lg:gap-8', {
+            'lg:grid-cols-3': slice.items.length === 3,
+            'lg:grid-cols-2': slice.items.length === 2,
+          })}
+        >
           {slice.items.length > 0
             ? slice.items.map((item, i) => {
                 return (
