@@ -1,0 +1,128 @@
+{
+  "id": "form",
+  "type": "SharedSlice",
+  "name": "Form",
+  "description": "Form",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Contact",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name_label": {
+          "type": "Text",
+          "config": {
+            "label": "Name Label",
+            "placeholder": ""
+          }
+        },
+        "name_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Name Placeholder",
+            "placeholder": ""
+          }
+        },
+        "email_label": {
+          "type": "Text",
+          "config": {
+            "label": "Email Label",
+            "placeholder": ""
+          }
+        },
+        "email_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Email Placeholder",
+            "placeholder": ""
+          }
+        },
+        "message_label": {
+          "type": "Text",
+          "config": {
+            "label": "Message Label",
+            "placeholder": ""
+          }
+        },
+        "message_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Message Placeholder",
+            "placeholder": ""
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "estimate",
+      "name": "Estimate",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "name_label": {
+          "type": "Text",
+          "config": {
+            "label": "Name Label",
+            "placeholder": ""
+          }
+        },
+        "name_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Name Placeholder",
+            "placeholder": ""
+          }
+        },
+        "email_label": {
+          "type": "Text",
+          "config": {
+            "label": "Email Label",
+            "placeholder": ""
+          }
+        },
+        "email_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Email Placeholder",
+            "placeholder": ""
+          }
+        },
+        "message_label": {
+          "type": "Text",
+          "config": {
+            "label": "Message Label",
+            "placeholder": ""
+          }
+        },
+        "message_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Message Placeholder",
+            "placeholder": ""
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

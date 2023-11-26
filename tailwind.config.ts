@@ -62,8 +62,10 @@ const config: Config = {
         skin: {
           base: withOpacity('--color-base'),
           white: withOpacity('--color-white'),
+          primary: withOpacity('--color-primary'),
           secondary: withOpacity('--color-secondary'),
           neutral: withOpacity('--color-neutral'),
+          muted: withOpacity('--color-muted'),
         },
       },
       ringColor: {
@@ -86,6 +88,7 @@ const config: Config = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
   ],
 }
