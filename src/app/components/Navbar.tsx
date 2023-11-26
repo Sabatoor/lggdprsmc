@@ -5,7 +5,6 @@ import { SettingsDocumentDataNavigationItem } from '../../../prismicio-types'
 import { ImageField, KeyTextField } from '@prismicio/client'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { useState, useEffect } from 'react'
-import { cn } from '../lib/cn'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 
@@ -72,6 +71,7 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
                 alt="Better Business Bureau Accredited Business"
                 width={150}
                 height={104.27}
+                className="w-auto"
               />
             </div>
           </motion.div>

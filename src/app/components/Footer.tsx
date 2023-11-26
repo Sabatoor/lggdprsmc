@@ -20,7 +20,7 @@ export default async function Footer() {
     <Section
       as="footer"
       className={cn(
-        'flex-col bg-skin-neutral py-0 text-skin-base md:py-0 lg:py-0 lg:text-lg',
+        'flex-col bg-skin-neutral px-0 py-0 text-skin-base md:px-0 md:py-0 lg:px-0 lg:py-0 lg:text-lg',
       )}
     >
       <div className="grid place-items-center gap-8 p-8 text-skin-base lg:grid-cols-2">
