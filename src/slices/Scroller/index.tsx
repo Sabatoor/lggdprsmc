@@ -134,7 +134,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
           field={slice.primary.heading}
           components={{
             heading2: ({ children }) => (
-              <h2 className="mb-4 mt-6 text-center font-heading text-3xl font-bold text-skin-primary md:text-4xl lg:text-5xl">
+              <h2 className="mb-4 mt-6 text-center font-heading text-3xl font-bold text-skin-neutral md:text-4xl lg:text-5xl">
                 {children}
               </h2>
             ),

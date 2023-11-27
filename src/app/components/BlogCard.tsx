@@ -33,6 +33,7 @@ export default function BlogCard({
               shadow shadow-skin-muted transition duration-700 ease-in-out group-hover:-translate-y-4"
               fallbackAlt=""
               title={`Read ${asText(blog_post.data.title)}`}
+              width={576}
             />
           </Link>
         )}
@@ -50,7 +51,7 @@ export default function BlogCard({
           <p className="mb-4">{blog_post.data.excerpt}</p>
           <Link
             href={`${blog_post.url}`}
-            className="hover:text-color-neutral hover:shadow-color-accent inline-block rounded bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-base transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:shadow"
+            className="hover:text-color-neutral hover:shadow-color-accent inline-block rounded-lg bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-neutral transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:text-skin-white hover:shadow"
           >
             {blog_post.type === 'blog_post'
               ? 'Continue Reading'

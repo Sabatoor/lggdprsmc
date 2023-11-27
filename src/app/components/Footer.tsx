@@ -71,7 +71,7 @@ export default async function Footer() {
           </p>
         </div>
       </div>
-      <div className="flex h-16 items-center justify-center place-self-stretch bg-skin-fill text-center text-skin-white">
+      <div className="flex h-16 items-center justify-center place-self-stretch bg-skin-fill text-center text-skin-neutral">
         <span>
           All rights reserved &copy; {new Date().getFullYear()} &nbsp;{' '}
         </span>
