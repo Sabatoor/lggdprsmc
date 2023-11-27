@@ -27,7 +27,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
     >
       <PrismicNextImage
         field={slice.primary.background_image}
-        className="absolute inset-0 h-full w-full object-cover opacity-[.15]"
+        className="absolute inset-0 h-full w-full object-cover opacity-[.10]"
         fill
         sizes="100vw"
         priority={index === 0}

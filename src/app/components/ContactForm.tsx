@@ -156,7 +156,7 @@ const ContactForm = (data: FormSlice): React.JSX.Element => {
                   })}
                   type="text"
                   placeholder={name_placeholder || 'Enter your name here'}
-                  className={`form-input input`}
+                  className={`input form-input`}
                   onFocus={handleFocus}
                 />
               </label>
@@ -179,7 +179,7 @@ const ContactForm = (data: FormSlice): React.JSX.Element => {
                   })}
                   type="email"
                   placeholder={email_placeholder || 'Enter your email here'}
-                  className={`form-input input`}
+                  className={`input form-input`}
                   onFocus={handleFocus}
                 />
               </label>
@@ -201,7 +201,7 @@ const ContactForm = (data: FormSlice): React.JSX.Element => {
                     required: 'Your message is required.',
                   })}
                   placeholder={message_placeholder || 'Enter your message here'}
-                  className={`form-input input`}
+                  className={`input form-input`}
                   onFocus={handleFocus}
                   rows={5}
                 />
@@ -211,7 +211,7 @@ const ContactForm = (data: FormSlice): React.JSX.Element => {
 
           <div className="mx-auto max-w-sm">
             <SubmitButton text={button_text} />
-            <p className="prose-a:text-primary-content prose prose-sm mt-3 prose-a:no-underline hover:prose-a:underline">
+            <p className="prose prose-sm mt-3 prose-a:no-underline hover:prose-a:underline">
               This site is protected by reCAPTCHA and the{' '}
               <a href="https://policies.google.com/privacy">
                 Google Privacy Policy

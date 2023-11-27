@@ -68,7 +68,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-3xl text-skin-primary md:text-4xl"
+                  className="text-3xl text-skin-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -174,7 +174,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-3xl text-skin-primary md:text-4xl"
+                  className="text-3xl text-skin-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -334,7 +334,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-3xl text-skin-primary md:text-4xl"
+                  className="text-3xl text-skin-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
