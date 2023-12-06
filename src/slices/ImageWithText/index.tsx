@@ -41,7 +41,9 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
               field={slice.primary.image}
               fallbackAlt=""
               priority={index < 2}
-              className="rounded-lg transition duration-500 ease-in-out hover:scale-110"
+              fill
+              sizes="95vw"
+              className="rounded-lg object-cover transition duration-500 ease-in-out hover:scale-110"
               title={slice.primary.image.alt || ''}
             />
           </div>
@@ -78,6 +80,8 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
             field={slice.primary.image}
             fallbackAlt=""
             priority={index < 2}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
             className="object-cover transition duration-500 ease-in-out group-hover:scale-110"
             title={slice.primary.image.alt || ''}
           />
