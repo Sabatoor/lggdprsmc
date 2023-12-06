@@ -17,7 +17,7 @@
     "@prismicio/react": "latest",
     "axios": "latest",
     "framer-motion": "latest",
-    "next": "latest",
+    "next": "canary",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "latest",

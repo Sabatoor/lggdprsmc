@@ -98,7 +98,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                     <PrismicNextImage
                       field={slice.items[count - 1].image}
                       fill
-                      sizes="100vw"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                       className="object-cover opacity-30"
                       imgixParams={{ blur: 200 }}
                     />
@@ -117,6 +117,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                     <PrismicNextImage
                       field={slice.items[count - 1].image}
                       className="rounded-lg"
+                      priority
                     />
                   </motion.div>
                 </AnimatePresence>
