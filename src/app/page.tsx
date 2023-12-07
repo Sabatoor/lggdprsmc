@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
 import { SliceZone } from '@prismicio/react'
-
+import { Graph } from 'schema-dts'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
+import { type } from 'os'
 
 export default async function Page() {
   const client = createClient()
@@ -18,8 +19,71 @@ export default async function Page() {
       'service.excerpt',
     ],
   })
+  const settings = await client.getSingle('settings')
 
-  return <SliceZone slices={page.data.slices} components={components} />
+  const jsonLd: Graph = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'LocalBusiness',
+        name: 'Lionsgate Garage Doors',
+        image: `${settings.data.footer_logo.url}`,
+        '@id': 'https://lionsgategaragedoors.com/',
+        url: 'https://lionsgategaragedoors.com/',
+        telephone: '+16042431505',
+        priceRange: '$-$$$',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: ' 18777 68a Ave',
+          addressLocality: 'Surrey',
+          addressRegion: 'BC',
+          postalCode: 'V4N 0Z8',
+          addressCountry: 'CA',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 49.1274905182408,
+          longitude: -122.70193977308799,
+        },
+        sameAs: [
+          'https://www.facebook.com/lionsgategaragedoors/',
+          'https://www.instagram.com/lions_gate_garage_doors/',
+          'https://www.linkedin.com/company/lions-gate-garage-doors-ltd/about/',
+          'https://www.yelp.ca/biz/lions-gate-garage-doors-surrey/',
+        ],
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `https://${settings.data.domain || `example.com`}/#${page.uid}`,
+        about: page.data.meta_description || undefined,
+        accountablePerson: {
+          '@id': `https://${settings.data.domain || `example.com`}/#lori`,
+        },
+        author: {
+          '@id': `https://${settings.data.domain || `example.com`}/#lori`,
+        },
+        copyrightHolder: {
+          '@id': `https://${settings.data.domain || `example.com`}/#lori`,
+        },
+        datePublished: page.first_publication_date,
+        dateModified: page.last_publication_date,
+        image:
+          page.data.meta_image.url ||
+          settings.data.site_meta_image.url ||
+          undefined,
+      },
+    ],
+  }
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <SliceZone slices={page.data.slices} components={components} />
+    </>
+  )
 }
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -71,7 +71,7 @@ export default async function RootLayout({
           logo={settings.data.logo}
           title={settings.data.site_title}
         />
-        {children}
+        <main id="content">{children}</main>
         <Footer />
         <Consent />
         <PrismicPreview repositoryName={repositoryName} />
