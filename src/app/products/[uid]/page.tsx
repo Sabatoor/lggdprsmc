@@ -118,7 +118,10 @@ export default async function Page({ params }: { params: Params }) {
             {products.map(product => {
               return (
                 <li key={product.id} className="max-w-[400px]">
-                  <Link href={product.url || '#'}>
+                  <Link
+                    href={product.url || '#'}
+                    className="block outline-none ring-skin-primary transition duration-300 ease-in-out focus:ring-2"
+                  >
                     <PrismicNextImage
                       field={product.data.featured_image}
                       className="rounded-lg"
@@ -131,7 +134,7 @@ export default async function Page({ params }: { params: Params }) {
                         heading1: ({ children }) => (
                           <Heading
                             as="h2"
-                            size="3xl"
+                            size="2xl"
                             className="lg:text-center"
                           >
                             {children}
@@ -142,8 +145,10 @@ export default async function Page({ params }: { params: Params }) {
                     <PrismicRichText field={product.data.excerpt} />
                     <Link
                       href={product.url || '#'}
-                      className="rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-primary transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
-                    >{`See ${asText(product.data.title)}`}</Link>
+                      className="my-4 rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-neutral transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
+                    >
+                      Learn More
+                    </Link>
                   </div>
                 </li>
               )
