@@ -21,7 +21,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
-        'relative mx-auto flex h-[calc(100vh-108px)] items-center justify-center overflow-hidden bg-skin-neutral lg:h-[calc(100vh-150px)]',
+        'relative mx-auto flex items-center justify-center overflow-hidden bg-skin-neutral py-24 md:py-44 lg:h-[calc(100vh-150px)]',
         { 'theme-alternate': slice.primary.theme === 'Alternate' },
       )}
     >
