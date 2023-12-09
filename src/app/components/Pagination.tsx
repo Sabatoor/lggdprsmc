@@ -23,11 +23,11 @@ const Pagination: FC<PaginationProps> = ({
       <div className="flex justify-center gap-2">
         <button
           className={cn(
-            'inline-block rounded bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-base',
+            'inline-block rounded bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-neutral',
             {
               'transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:shadow hover:shadow-skin-primary':
                 hasPrevPage,
-              'bg-skin-neutral': !hasPrevPage,
+              'bg-skin-neutral text-skin-base': !hasPrevPage,
             },
           )}
           disabled={!hasPrevPage}
@@ -40,11 +40,11 @@ const Pagination: FC<PaginationProps> = ({
 
         <button
           className={cn(
-            'inline-block rounded bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-base',
+            'inline-block rounded bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-neutral',
             {
               'transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:text-skin-muted hover:shadow hover:shadow-skin-primary':
                 hasNextPage,
-              'bg-skin-neutral': !hasNextPage,
+              'bg-skin-neutral text-skin-base': !hasNextPage,
             },
           )}
           disabled={!hasNextPage}
