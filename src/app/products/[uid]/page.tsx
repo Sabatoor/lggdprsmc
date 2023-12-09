@@ -147,7 +147,10 @@ export default async function Page({ params }: { params: Params }) {
                       href={product.url || '#'}
                       className="my-4 rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-neutral transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
                     >
-                      Learn More
+                      Learn More{' '}
+                      <span className="sr-only">{` about ${asText(
+                        product.data.title,
+                      )}`}</span>
                     </Link>
                   </div>
                 </li>

@@ -488,7 +488,10 @@ export interface ProductDocumentDataFilesItem {
   file: prismic.LinkToMediaField
 }
 
-type ProductDocumentDataSlicesSlice = ImageWithTextSlice | ContentSlice
+type ProductDocumentDataSlicesSlice =
+  | ScrollerSlice
+  | ImageWithTextSlice
+  | ContentSlice
 
 /**
  * Content for Product documents

@@ -86,15 +86,15 @@ export default async function Page({ params }: { params: Params }) {
       />
       <section
         className={cn(
-          'relative mb-8 flex items-center justify-center bg-skin-fill py-36 lg:py-44 xl:py-56 2xl:py-72',
+          'relative mb-8 flex items-center justify-center bg-skin-neutral py-36 lg:py-44 xl:py-56 2xl:py-72',
         )}
       >
         {prismic.isFilled.image(page.data.featured_image) && (
           <PrismicNextImage
             field={page.data.featured_image}
             fill
-            sizes="45vw"
-            className="absolute inset-0 object-cover opacity-[.15]"
+            sizes="100vw"
+            className="absolute inset-0 object-cover opacity-[.05]"
             priority
           />
         )}

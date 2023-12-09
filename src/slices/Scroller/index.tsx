@@ -64,6 +64,9 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
       <section className="flex justify-center">
         <div className="w-full max-w-screen-xl text-skin-white">
           <div className="flex justify-center">
+            <PrismicRichText field={slice.primary.heading} />
+          </div>
+          <div className="flex justify-center">
             <div className="aspect-hd w-full">
               <div
                 ref={ref}
@@ -118,6 +121,8 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                       field={slice.items[count - 1].image}
                       className="rounded-lg"
                       priority
+                      fill
+                      sizes="100vw"
                     />
                   </motion.div>
                 </AnimatePresence>

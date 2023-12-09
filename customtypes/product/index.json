@@ -84,6 +84,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "scroller": {
+              "type": "SharedSlice"
+            },
             "image_with_text": {
               "type": "SharedSlice"
             },
