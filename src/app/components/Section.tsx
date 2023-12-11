@@ -18,7 +18,7 @@ export default function Section({
   return (
     <Comp
       className={cn(
-        'mx-auto flex items-center px-4 py-2 md:px-6 md:py-8 lg:py-10',
+        'mx-auto flex items-center justify-center px-4 py-2 md:px-6 md:py-8 lg:py-10',
         {
           'w-full': width === 'full',
           'max-w-screen-2xl': width === '2xl',
