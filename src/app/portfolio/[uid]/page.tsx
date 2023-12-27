@@ -9,6 +9,7 @@ import { PrismicNextImage } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
 import { PrismicRichText } from '@/app/components/PrismicRichText'
 import Heading from '@/app/components/Heading'
+import Section from '@/app/components/Section'
 
 type Params = { uid: string }
 
@@ -96,6 +97,7 @@ export default async function Page({ params }: { params: Params }) {
             sizes="45vw"
             className="absolute inset-0 object-cover opacity-[.15]"
             priority
+            fallbackAlt=""
           />
         )}
         <div className="z-10 mx-auto flex max-w-screen-lg flex-col px-4">
@@ -118,7 +120,16 @@ export default async function Page({ params }: { params: Params }) {
           </p>
         </div>
       </section>
-
+      {prismic.isFilled.image(page.data.featured_image) && (
+        <Section width="lg" className="">
+          <PrismicNextImage
+            field={page.data.featured_image}
+            className="rounded-lg"
+            priority
+            fallbackAlt=""
+          />
+        </Section>
+      )}
       <SliceZone slices={page.data.slices} components={components} />
     </>
   )
