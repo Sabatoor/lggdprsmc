@@ -51,7 +51,7 @@ export default async function Page({
   } else if (page.uid === 'portfolio') {
     posts = await client.getByType('portfolio', {
       orderings: {
-        field: 'document.first_publication_date',
+        field: 'my.portfolio.date_published',
         direction: 'desc',
       },
       page: pageNumber,
