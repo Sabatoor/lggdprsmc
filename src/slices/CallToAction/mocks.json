@@ -615,5 +615,60 @@
 				]
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "expo",
+		"primary": {
+			"booth_info": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "VISIT US AT BOOTHS 69 & 70",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 26
+								}
+							]
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"expo_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "HOME & BACKYARD LIVING EXPO",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"expo_details": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Palace"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

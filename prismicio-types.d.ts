@@ -1517,6 +1517,54 @@ export type CallToActionSliceServicesGrid = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceExpoPrimary {
+  /**
+   * Booth Info field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.booth_info
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  booth_info: prismic.RichTextField
+
+  /**
+   * Expo Title field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.expo_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  expo_title: prismic.TitleField
+
+  /**
+   * Expo Details field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter info about the expo
+   * - **API ID Path**: call_to_action.primary.expo_details
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  expo_details: prismic.TitleField
+}
+
+/**
+ * Expo variation for CallToAction Slice
+ *
+ * - **API ID**: `expo`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceExpo = prismic.SharedSliceVariation<
+  'expo',
+  Simplify<CallToActionSliceExpoPrimary>,
+  never
+>
+
+/**
  * Slice variation for *CallToAction*
  */
 type CallToActionSliceVariation =
@@ -1526,6 +1574,7 @@ type CallToActionSliceVariation =
   | CallToActionSliceBrandGrid
   | CallToActionSliceProductTypeGrid
   | CallToActionSliceServicesGrid
+  | CallToActionSliceExpo
 
 /**
  * CallToAction Shared Slice
@@ -2267,6 +2316,7 @@ declare module '@prismicio/client' {
       CallToActionSliceProductTypeGridItem,
       CallToActionSliceServicesGridPrimary,
       CallToActionSliceServicesGridItem,
+      CallToActionSliceExpoPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceFeaturedGrid,
@@ -2274,6 +2324,7 @@ declare module '@prismicio/client' {
       CallToActionSliceBrandGrid,
       CallToActionSliceProductTypeGrid,
       CallToActionSliceServicesGrid,
+      CallToActionSliceExpo,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceVariation,
