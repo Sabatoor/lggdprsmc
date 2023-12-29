@@ -158,6 +158,53 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         </div>
       </Section>
     )
+  } else if (slice.variation === 'expo') {
+    return (
+      <Section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="bg-[#ec0c8b] lg:py-0"
+      >
+        <Section as="div" width="xl" className="text-center text-skin-muted">
+          <div className="flex flex-col items-center gap-2">
+            <PrismicRichText
+              field={slice.primary.booth_info}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className="text-xl font-semibold uppercase text-skin-neutral">
+                    {children}
+                  </p>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={slice.primary.expo_title}
+              components={{
+                heading2: ({ children }) => (
+                  <Heading
+                    as="h2"
+                    size="5xl"
+                    className="font-light uppercase text-skin-muted"
+                  >
+                    {children}
+                  </Heading>
+                ),
+              }}
+            />
+            <PrismicRichText
+              field={slice.primary.expo_details}
+              components={{
+                heading3: ({ children }) => (
+                  <Heading as="h3" size="4xl" className="font-thin uppercase">
+                    {children}
+                  </Heading>
+                ),
+              }}
+            />
+          </div>
+        </Section>
+      </Section>
+    )
   } else if (slice.variation === 'productTypeGrid') {
     return (
       <Section

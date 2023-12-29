@@ -377,6 +377,44 @@
           }
         }
       }
+    },
+    {
+      "id": "expo",
+      "name": "Expo",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "booth_info": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Booth Info",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "expo_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Expo Title",
+            "placeholder": "Enter Call to Action Heading",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "expo_details": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Expo Details",
+            "placeholder": "Enter info about the expo",
+            "allowTargetBlank": true,
+            "single": "heading3"
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
