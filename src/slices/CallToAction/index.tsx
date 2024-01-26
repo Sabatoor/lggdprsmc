@@ -460,9 +460,9 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           <ul className="mt-4 grid grid-flow-col gap-4 lg:mt-6 lg:gap-8">
             {slice.items.length > 0 && isFilled.select(slice.items[0].logo)
               ? slice.items.map((item, i) => {
-                  let Icon
-                  if (item.logo) {
-                    Icon = icons[item.logo]
+                  let Icon: React.ElementType | null = null
+                  if (item.logo && icons[item.logo]) {
+                    Icon = icons[item.logo] as React.ElementType
                   }
                   return (
                     <li key={slice.id + i}>
@@ -472,7 +472,9 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                       >
                         {isFilled.link(item.social_url) && (
                           <>
-                            <Icon className="h-16 w-16 rounded p-1 text-skin-white ring-skin-muted group-focus:ring-2" />
+                            {Icon && (
+                              <Icon className="h-16 w-16 rounded p-1 text-skin-white ring-skin-muted group-focus:ring-2" />
+                            )}
                             <span className="sr-only">
                               {`View us on ${item.logo}`}
                             </span>

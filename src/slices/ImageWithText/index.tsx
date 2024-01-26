@@ -7,6 +7,7 @@ import { cn } from '@/app/lib/cn'
 import { GiHomeGarage } from 'react-icons/gi'
 import { FaToolbox } from 'react-icons/fa'
 import { RiQuestionnaireFill } from 'react-icons/ri'
+import React from 'react'
 
 /**
  * Props for `ImageWithText`.
@@ -65,9 +66,9 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
       Question: RiQuestionnaireFill,
       Toolbox: FaToolbox,
     }
-    let Icon
-    if (slice.primary.icon) {
-      Icon = icons[slice.primary.icon]
+    let Icon: React.ElementType | null = null
+    if (slice.primary.icon && icons[slice.primary.icon]) {
+      Icon = icons[slice.primary.icon] as React.ElementType
     }
     return (
       <section className="group mx-auto grid max-w-screen-xl lg:grid-cols-2">
@@ -96,7 +97,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
         >
           {isFilled.select(slice.primary.icon) && (
             <>
-              <Icon className="h-24 w-24 text-skin-primary" />
+              {Icon && <Icon className="h-24 w-24 text-skin-primary" />}
 
               <div className="my-4 h-0.5 w-full rounded-full bg-skin-fill lg:my-6" />
             </>

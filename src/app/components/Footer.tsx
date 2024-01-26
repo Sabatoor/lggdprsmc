@@ -6,6 +6,7 @@ import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { isFilled } from '@prismicio/client'
 import { FaFacebook, FaInstagram, FaLinkedin, FaYelp } from 'react-icons/fa'
 import { PrismicRichText } from './PrismicRichText'
+import React from 'react'
 
 export default async function Footer() {
   const client = createClient()
@@ -31,14 +32,16 @@ export default async function Footer() {
             <ul className="flex w-full justify-between">
               {isFilled.select(settings.data.footer_socials[0]?.logo) &&
                 settings.data.footer_socials.map(({ logo, social_url }, i) => {
-                  let Logo
-                  if (logo) {
-                    Logo = icons[logo]
+                  let Logo: React.ElementType | null = null
+                  if (logo && icons[logo]) {
+                    Logo = icons[logo] as React.ElementType
                   }
                   return (
                     <li key={settings.id + `footer-social` + i}>
                       <PrismicNextLink field={social_url}>
-                        <Logo className="h-12 w-12 rounded p-1 text-skin-white ring-skin-muted group-focus:ring-2 lg:h-16 lg:w-16" />
+                        {Logo && (
+                          <Logo className="h-12 w-12 rounded p-1 text-skin-white ring-skin-muted group-focus:ring-2 lg:h-16 lg:w-16" />
+                        )}
                         <span className="sr-only">{`View us on ${logo}`}</span>
                       </PrismicNextLink>
                     </li>
