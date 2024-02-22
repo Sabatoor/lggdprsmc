@@ -1,6 +1,6 @@
 {
-  "name": "liosgate",
-  "version": "0.0.1",
+  "name": "lionsgate",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "dev": "concurrently \"bun:next:dev\" \"bun:slicemachine\" --names \"next,slicemachine\" --prefix-colors gray,magenta",
