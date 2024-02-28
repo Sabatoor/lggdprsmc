@@ -145,6 +145,9 @@ export async function generateMetadata({
         page.data.meta_image.url || settings.data.site_meta_image.url || '',
       ],
     },
+    alternates: {
+      canonical: page.url,
+    },
   }
 }
 
