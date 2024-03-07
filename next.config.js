@@ -8,6 +8,15 @@ const nextConfig = {
       { protocol: 'https', hostname: 'seal-mbc.bbb.org' },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/products/remote-controls',
+        destination: '/products/remote-transmitters-keypads',
+        permanent: false,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig
