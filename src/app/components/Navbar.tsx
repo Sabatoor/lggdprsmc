@@ -3,7 +3,7 @@ import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import Link from 'next/link'
 import { SettingsDocumentDataNavigationItem } from '../../../prismicio-types'
 import { ImageField, KeyTextField } from '@prismicio/client'
-import { HiMenu, HiX } from 'react-icons/hi'
+import { HiMenu, HiOutlinePhone, HiX } from 'react-icons/hi'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
@@ -79,13 +79,13 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
       </AnimatePresence>
       {/* END MOBILE NAV */}
       <header className="sticky top-0 z-20 bg-skin-white pb-4 shadow-sm md:pb-6 lg:pb-8">
-        <div className="mb-4 bg-skin-fill py-1 md:mb-6 lg:mb-8">
+        <div className="mb-4 bg-skin-fill py-2 md:mb-6 lg:mb-8 lg:py-3">
           <p className="text-center text-xl font-bold text-skin-neutral">
             <a
               href="tel:6042431505"
               className="rounded-lg px-2 py-3 outline-none ring-skin-neutral focus:ring-2"
             >
-              604.243.1505
+              <HiOutlinePhone className="-mt-1 inline h-6 w-6" /> 604.243.1505
             </a>
           </p>
         </div>
