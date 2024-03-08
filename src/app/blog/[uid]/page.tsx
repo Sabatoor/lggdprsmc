@@ -84,21 +84,20 @@ export default async function Page({ params }: { params: Params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section
-        className={cn(
-          'relative mb-8 flex items-center justify-center bg-skin-neutral py-36 lg:py-44 xl:py-56 2xl:py-72',
-        )}
-      >
+      <section className={cn('relative mb-8')}>
         {prismic.isFilled.image(page.data.featured_image) && (
-          <PrismicNextImage
-            field={page.data.featured_image}
-            fill
-            sizes="100vw"
-            className="absolute inset-0 object-cover opacity-[.05]"
-            priority
-          />
+          <div className="relative h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
+            <PrismicNextImage
+              field={page.data.featured_image}
+              priority
+              fallbackAlt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
         )}
-        <div className="z-10 mx-auto flex max-w-screen-lg flex-col px-4">
+        <div className="mx-auto flex max-w-screen-lg flex-col px-4 py-4 lg:py-8">
           <PrismicRichText
             field={page.data.title}
             components={{
@@ -106,14 +105,14 @@ export default async function Page({ params }: { params: Params }) {
                 <Heading
                   as="h1"
                   size="7xl"
-                  className="text-color-base z-10 text-skin-base lg:text-center"
+                  className="text-skin-neutral lg:text-center"
                 >
                   {children}
                 </Heading>
               ),
             }}
           />
-          <p className="z-10 mt-8 text-center text-sm font-medium uppercase text-skin-base">
+          <p className="z-10 mt-8 text-center text-sm font-medium uppercase text-skin-neutral">
             {pubDate}
           </p>
         </div>
