@@ -1,0 +1,33 @@
+{
+  "format": "custom",
+  "id": "gallery_item",
+  "label": "Gallery Item",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "gallery_image": {
+        "type": "Image",
+        "config": {
+          "label": "Gallery Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "related_content": {
+        "type": "Link",
+        "config": {
+          "label": "Related Content",
+          "select": "document",
+          "customtypes": ["blog_post", "portfolio"]
+        }
+      }
+    }
+  }
+}
