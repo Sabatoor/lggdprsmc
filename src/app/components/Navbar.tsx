@@ -78,29 +78,32 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
         )}
       </AnimatePresence>
       {/* END MOBILE NAV */}
-      <header className="sticky top-0 z-20 bg-skin-white pb-4 shadow-sm md:pb-6 lg:pb-8">
-        <div className="mb-4 bg-skin-fill py-2 md:mb-6 lg:mb-8 lg:py-3">
-          <p className="text-center text-xl font-bold text-skin-neutral">
-            <a
-              href="tel:6042431505"
-              className="rounded-lg px-2 py-3 outline-none ring-skin-neutral focus:ring-2"
-            >
-              <HiOutlinePhone className="-mt-1 inline h-6 w-6" /> 604.243.1505
-            </a>
-          </p>
-        </div>
+      <header className="sticky top-0 z-20 bg-skin-white py-3 shadow-sm lg:py-6">
         <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4">
           <Link
             href="/"
-            className="rounded-lg outline-none ring-skin-primary focus:ring-2"
+            className="hidden flex-1 rounded-lg outline-none ring-skin-primary focus:ring-2 md:inline-block"
           >
             {logo ? <PrismicNextImage field={logo} /> : <h1>{title}</h1>}
             <span className="sr-only">Return to Homepage</span>
           </Link>
-          <div className="flex items-center">
+          <div className="flex-1 shrink-0">
+            <p className="text-center text-base font-bold text-skin-neutral md:text-xl">
+              <a
+                href="tel:6042431505"
+                className="rounded-lg px-2 py-3 outline-none ring-skin-neutral focus:ring-2"
+              >
+                <HiOutlinePhone className="-mt-1 inline h-6 w-6" /> 604.243.1505
+              </a>
+            </p>
+            <p className="text-center text-xs md:hidden">
+              Lions Gate Garage Doors
+            </p>
+          </div>
+          <div className="flex flex-1 items-center justify-end">
             <button onClick={toggleNav} className="flex flex-col items-center">
               <HiMenu className="mx-6 h-10 w-10 text-skin-neutral" />
-              <span>Menu</span>
+              <span className="text-xs md:text-base">Menu</span>
             </button>
           </div>
         </div>
