@@ -23,7 +23,7 @@ export default async function Page({
   searchParams: SearchParams
 }) {
   const client = createClient()
-  const pageNumber = Number(searchParams['page']) || 1
+  const pageNumber = { page: Number(searchParams['page']) || 1 }
   const page = await client
     .getByUID('page', params.uid, {
       fetchLinks: [
@@ -45,7 +45,7 @@ export default async function Page({
         field: 'document.first_publication_date',
         direction: 'desc',
       },
-      page: pageNumber,
+      page: pageNumber.page,
       pageSize: 5,
     })
   } else if (page.uid === 'portfolio') {
@@ -54,7 +54,7 @@ export default async function Page({
         field: 'my.portfolio.date_published',
         direction: 'desc',
       },
-      page: pageNumber,
+      page: pageNumber.page,
       pageSize: 5,
     })
   }
@@ -68,13 +68,13 @@ export default async function Page({
         '@id': `https://${settings.data.domain || `example.com`}/#${page.uid}`,
         about: page.data.meta_description || undefined,
         accountablePerson: {
-          '@id': `https://${settings.data.domain || `example.com`}/#lori`,
+          '@id': `https://${settings.data.domain || `example.com`}/#lggd`,
         },
         author: {
-          '@id': `https://${settings.data.domain || `example.com`}/#lori`,
+          '@id': `https://${settings.data.domain || `example.com`}/#lggd`,
         },
         copyrightHolder: {
-          '@id': `https://${settings.data.domain || `example.com`}/#lori`,
+          '@id': `https://${settings.data.domain || `example.com`}/#lggd`,
         },
         datePublished: page.first_publication_date,
         dateModified: page.last_publication_date,
@@ -97,7 +97,11 @@ export default async function Page({
           {prismic.asText(page.data.title)}
         </Heading>
       ) : null}
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone
+        slices={page.data.slices}
+        components={components}
+        context={pageNumber}
+      />
       {/* CODE FOR BLOG PAGE ONLY */}
       {(page.uid === 'blog' || page.uid === 'portfolio') && (
         <Section width="md" className="flex-col">

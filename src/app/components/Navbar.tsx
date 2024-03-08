@@ -98,29 +98,9 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
             <span className="sr-only">Return to Homepage</span>
           </Link>
           <div className="flex items-center">
-            {navigation.length > 0 && (
-              <nav className="hidden text-xl xl:block">
-                <ul className="flex gap-x-2">
-                  {navigation.map((item, i) => {
-                    if (item.label) {
-                      return (
-                        <li key={item.label + i}>
-                          <PrismicNextLink
-                            field={item.link}
-                            className="rounded-lg px-2 py-3 outline-none ring-skin-primary focus:ring-2"
-                          >
-                            {item.label}
-                          </PrismicNextLink>
-                        </li>
-                      )
-                    }
-                  })}
-                </ul>
-              </nav>
-            )}
-            <button onClick={toggleNav}>
-              <HiMenu className="mx-6 h-10 w-10 text-skin-neutral xl:hidden" />
-              <span className="sr-only">Toggle Navigation</span>
+            <button onClick={toggleNav} className="flex flex-col items-center">
+              <HiMenu className="mx-6 h-10 w-10 text-skin-neutral" />
+              <span>Menu</span>
             </button>
           </div>
         </div>

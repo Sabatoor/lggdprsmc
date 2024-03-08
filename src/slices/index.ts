@@ -6,6 +6,7 @@ export const components = {
   call_to_action: dynamic(() => import('./CallToAction')),
   content: dynamic(() => import('./Content')),
   form: dynamic(() => import('./Form')),
+  gallery: dynamic(() => import('./Gallery')),
   hero: dynamic(() => import('./Hero')),
   image_with_text: dynamic(() => import('./ImageWithText')),
   scroller: dynamic(() => import('./Scroller')),

@@ -212,6 +212,49 @@ interface BrandDocumentData {
 export type BrandDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<BrandDocumentData>, 'brand', Lang>
 
+/**
+ * Content for Gallery Item documents
+ */
+interface GalleryItemDocumentData {
+  /**
+   * Gallery Image field in *Gallery Item*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.gallery_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  gallery_image: prismic.ImageField<never>
+
+  /**
+   * Related Content field in *Gallery Item*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_item.related_content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  related_content: prismic.ContentRelationshipField<'blog_post' | 'portfolio'>
+}
+
+/**
+ * Gallery Item document from Prismic
+ *
+ * - **API ID**: `gallery_item`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type GalleryItemDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<GalleryItemDocumentData>,
+    'gallery_item',
+    Lang
+  >
+
 type HomepageDocumentDataSlicesSlice =
   | CallToActionSlice
   | ImageWithTextSlice
@@ -283,6 +326,7 @@ export type HomepageDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | GallerySlice
   | FormSlice
   | CallToActionSlice
   | ScrollerSlice
@@ -1045,6 +1089,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | BlogPostDocument
   | BrandDocument
+  | GalleryItemDocument
   | HomepageDocument
   | PageDocument
   | PortfolioDocument
@@ -1821,6 +1866,48 @@ type FormSliceVariation = FormSliceDefault | FormSliceEstimate
 export type FormSlice = prismic.SharedSlice<'form', FormSliceVariation>
 
 /**
+ * Primary content in *Gallery → Primary*
+ */
+export interface GallerySliceDefaultPrimary {
+  /**
+   * Title field in *Gallery → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+}
+
+/**
+ * Default variation for Gallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<GallerySliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Gallery*
+ */
+type GallerySliceVariation = GallerySliceDefault
+
+/**
+ * Gallery Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: Gallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type GallerySlice = prismic.SharedSlice<'gallery', GallerySliceVariation>
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -2280,6 +2367,8 @@ declare module '@prismicio/client' {
       BrandDocument,
       BrandDocumentData,
       BrandDocumentDataSlicesSlice,
+      GalleryItemDocument,
+      GalleryItemDocumentData,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
@@ -2335,6 +2424,10 @@ declare module '@prismicio/client' {
       FormSliceVariation,
       FormSliceDefault,
       FormSliceEstimate,
+      GallerySlice,
+      GallerySliceDefaultPrimary,
+      GallerySliceVariation,
+      GallerySliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefaultItem,
