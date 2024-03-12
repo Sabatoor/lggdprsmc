@@ -33,7 +33,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
         />
       </div>
       {/* <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-skin-hue-primary via-skin-hue-primary to-transparent opacity-90" /> */}
-      <div className="-mt-12 flex items-center justify-center rounded-t-lg bg-skin-neutral bg-opacity-45 py-4 text-skin-base backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
+      <div className="flex items-center justify-center bg-skin-neutral py-4 text-skin-base backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
         <div>
           <PrismicRichText
             field={slice.primary.heading}
@@ -42,7 +42,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
                 <Heading
                   as="h1"
                   size="7xl"
-                  className="text-skin-base lg:text-center"
+                  className="text-skin-primary lg:text-center"
                 >
                   {children}
                 </Heading>
