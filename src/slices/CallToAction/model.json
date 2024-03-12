@@ -415,6 +415,70 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "promotion",
+      "name": "Promotion",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "benefit": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Benefit",
+            "placeholder": "Enter Call to Action Benefit",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "promo_code": {
+          "type": "Text",
+          "config": {
+            "label": "Promo Code",
+            "placeholder": ""
+          }
+        },
+        "details": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Details",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "button_label": {
+          "type": "Text",
+          "config": {
+            "label": "Button Label",
+            "placeholder": "Enter Call to Action"
+          }
+        },
+        "button_color": {
+          "type": "Select",
+          "config": {
+            "label": "Button Color",
+            "placeholder": "",
+            "options": [
+              "Inverted",
+              "Primary",
+              "Secondary",
+              "Ghost"
+            ]
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

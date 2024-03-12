@@ -670,5 +670,76 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "promotion",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Regular"
+						}
+					}
+				]
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"button_label": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Learn More"
+			},
+			"button_color": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Inverted"
+			},
+			"benefit": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Free: 1st Annual Maintenance/Service*",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"details": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "*With a new garage door purchase, we will include the 1st Annual Maintenance Service at no charge! ",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"promo_code": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "MAIN24"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

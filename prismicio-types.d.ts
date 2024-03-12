@@ -1610,6 +1610,86 @@ export type CallToActionSliceExpo = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSlicePromotionPrimary {
+  /**
+   * Benefit field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Benefit
+   * - **API ID Path**: call_to_action.primary.benefit
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  benefit: prismic.TitleField
+
+  /**
+   * Promo Code field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.promo_code
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  promo_code: prismic.KeyTextField
+
+  /**
+   * Details field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.details
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  details: prismic.RichTextField
+
+  /**
+   * Button Link field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+
+  /**
+   * Button Label field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Enter Call to Action
+   * - **API ID Path**: call_to_action.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField
+
+  /**
+   * Button Color field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  button_color: prismic.SelectField<
+    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+  >
+}
+
+/**
+ * Promotion variation for CallToAction Slice
+ *
+ * - **API ID**: `promotion`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSlicePromotion = prismic.SharedSliceVariation<
+  'promotion',
+  Simplify<CallToActionSlicePromotionPrimary>,
+  never
+>
+
+/**
  * Slice variation for *CallToAction*
  */
 type CallToActionSliceVariation =
@@ -1620,6 +1700,7 @@ type CallToActionSliceVariation =
   | CallToActionSliceProductTypeGrid
   | CallToActionSliceServicesGrid
   | CallToActionSliceExpo
+  | CallToActionSlicePromotion
 
 /**
  * CallToAction Shared Slice
@@ -2406,6 +2487,7 @@ declare module '@prismicio/client' {
       CallToActionSliceServicesGridPrimary,
       CallToActionSliceServicesGridItem,
       CallToActionSliceExpoPrimary,
+      CallToActionSlicePromotionPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceFeaturedGrid,
@@ -2414,6 +2496,7 @@ declare module '@prismicio/client' {
       CallToActionSliceProductTypeGrid,
       CallToActionSliceServicesGrid,
       CallToActionSliceExpo,
+      CallToActionSlicePromotion,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceVariation,
