@@ -1,11 +1,11 @@
-import { Content } from '@prismicio/client'
+import { Content as PrismicContent } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import Section from '@/app/components/Section'
 import { PrismicRichText } from '@/app/components/PrismicRichText'
 /**
  * Props for `Content`.
  */
-export type ContentProps = SliceComponentProps<Content.ContentSlice>
+export type ContentProps = SliceComponentProps<PrismicContent.ContentSlice>
 
 /**
  * Component for "Content" Slices.
