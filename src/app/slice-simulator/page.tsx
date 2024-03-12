@@ -1,14 +1,20 @@
-'use client'
-
-import { SliceSimulator } from '@slicemachine/adapter-next/simulator'
+import {
+  SliceSimulator,
+  SliceSimulatorParams,
+  getSlices,
+} from '@slicemachine/adapter-next/simulator'
 import { SliceZone } from '@prismicio/react'
 
-import { components } from '../../slices'
+import { components } from '@/slices'
 
-export default function SliceSimulatorPage() {
+export default function SliceSimulatorPage({
+  searchParams,
+}: SliceSimulatorParams) {
+  const slices = getSlices(searchParams.state)
+
   return (
-    <SliceSimulator
-      sliceZone={props => <SliceZone {...props} components={components} />}
-    />
+    <SliceSimulator>
+      <SliceZone slices={slices} components={components} />
+    </SliceSimulator>
   )
 }
