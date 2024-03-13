@@ -8,6 +8,7 @@ import { GiHomeGarage } from 'react-icons/gi'
 import { FaToolbox } from 'react-icons/fa'
 import { RiQuestionnaireFill } from 'react-icons/ri'
 import React from 'react'
+import Heading from '@/app/components/Heading'
 
 /**
  * Props for `ImageWithText`.
@@ -103,15 +104,26 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
             </>
           )}
           {isFilled.richText(slice.primary.heading) ? (
-            <span className="self-start">
-              <PrismicRichText field={slice.primary.heading} />
-            </span>
+            <PrismicRichText
+              field={slice.primary.heading}
+              components={{
+                heading2: ({ children }) => (
+                  <Heading
+                    as="h2"
+                    size="3xl"
+                    className="pb-4 text-center text-skin-primary"
+                  >
+                    {children}
+                  </Heading>
+                ),
+              }}
+            />
           ) : null}
           <PrismicRichText
             field={slice.primary.text}
             components={{
               paragraph: ({ children }) => (
-                <p className="prose text-skin-base lg:prose-lg xl:prose-xl">
+                <p className="prose self-start text-skin-base lg:prose-lg xl:prose-xl">
                   {children}
                 </p>
               ),
