@@ -58,13 +58,13 @@ export default function Consent() {
         {!hideBanner && (
           <motion.div
             initial={{
-              y: 152,
+              y: '100%',
             }}
             animate={{
               y: 0,
             }}
             exit={{
-              y: 152,
+              y: '100%',
             }}
             id="consent-banner"
             className={cn(
