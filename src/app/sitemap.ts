@@ -38,6 +38,11 @@ export default async function sitemap() {
     url: `https://${settings.data.domain || `example.com`}${product_type.url}`,
     lastModified: asDate(product_type.last_publication_date),
   }))
+  const locations = await client.getAllByType('location')
+  const sitemapLocations = locations.map(location => ({
+    url: `https://${settings.data.domain || `example.com`}${location.url}`,
+    lastModified: asDate(location.last_publication_date),
+  }))
   return [
     sitemapHomepage,
     ...sitemapPages,
@@ -46,5 +51,6 @@ export default async function sitemap() {
     ...sitemapProducts,
     ...sitemapBrands,
     ...sitemapProductTypes,
+    ...sitemapLocations,
   ]
 }
