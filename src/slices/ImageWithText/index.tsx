@@ -147,10 +147,11 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
         >
           <PrismicNextImage
             field={slice.primary.image}
-            className={cn('my-6 rounded-lg')}
+            className={cn('my-6 rounded-lg shadow-md')}
             fallbackAlt=""
             priority={index < 2}
             title={slice.primary.image.alt || ''}
+            imgixParams={{ ar: '4:5', fit: 'crop' }}
           />
         </div>
         <div

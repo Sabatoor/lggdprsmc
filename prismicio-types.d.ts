@@ -256,6 +256,7 @@ export type GalleryItemDocument<Lang extends string = string> =
   >
 
 type HomepageDocumentDataSlicesSlice =
+  | RecentsSlice
   | CallToActionSlice
   | ImageWithTextSlice
   | ContentSlice
@@ -325,7 +326,100 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >
 
+type LocationDocumentDataSlicesSlice =
+  | RecentsSlice
+  | HeroSlice
+  | ContentSlice
+  | ImageWithTextSlice
+  | CallToActionSlice
+
+/**
+ * Content for Location documents
+ */
+interface LocationDocumentData {
+  /**
+   * Title field in *Location*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Featured Image field in *Location*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.featured_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>
+
+  /**
+   * Slice Zone field in *Location*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<LocationDocumentDataSlicesSlice> /**
+   * Meta Description field in *Location*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: location.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Location*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: location.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Location*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: location.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Location document from Prismic
+ *
+ * - **API ID**: `location`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LocationDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<LocationDocumentData>,
+    'location',
+    Lang
+  >
+
 type PageDocumentDataSlicesSlice =
+  | RecentsSlice
   | GallerySlice
   | FormSlice
   | CallToActionSlice
@@ -405,6 +499,7 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, 'page', Lang>
 
 type PortfolioDocumentDataSlicesSlice =
+  | RecentsSlice
   | CallToActionSlice
   | ScrollerSlice
   | ImageWithTextSlice
@@ -533,6 +628,7 @@ export interface ProductDocumentDataFilesItem {
 }
 
 type ProductDocumentDataSlicesSlice =
+  | RecentsSlice
   | ScrollerSlice
   | ImageWithTextSlice
   | ContentSlice
@@ -783,6 +879,7 @@ export type ProductTypeDocument<Lang extends string = string> =
   >
 
 type ServiceDocumentDataSlicesSlice =
+  | RecentsSlice
   | CallToActionSlice
   | ScrollerSlice
   | ImageWithTextSlice
@@ -1091,6 +1188,7 @@ export type AllDocumentTypes =
   | BrandDocument
   | GalleryItemDocument
   | HomepageDocument
+  | LocationDocument
   | PageDocument
   | PortfolioDocument
   | ProductDocument
@@ -2308,6 +2406,59 @@ export type ImageWithTextSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *Recents → Primary*
+ */
+export interface RecentsSliceDefaultPrimary {
+  /**
+   * Heading field in *Recents → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recents.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Type field in *Recents → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: blog_post
+   * - **API ID Path**: recents.primary.type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<'blog_post' | 'portfolio', 'filled'>
+}
+
+/**
+ * Default variation for Recents Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecentsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<RecentsSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Recents*
+ */
+type RecentsSliceVariation = RecentsSliceDefault
+
+/**
+ * Recents Shared Slice
+ *
+ * - **API ID**: `recents`
+ * - **Description**: Recents
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecentsSlice = prismic.SharedSlice<'recents', RecentsSliceVariation>
+
+/**
  * Primary content in *Scroller → Primary*
  */
 export interface ScrollerSliceDefaultPrimary {
@@ -2453,6 +2604,9 @@ declare module '@prismicio/client' {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      LocationDocument,
+      LocationDocumentData,
+      LocationDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -2524,6 +2678,10 @@ declare module '@prismicio/client' {
       ImageWithTextSliceDefault,
       ImageWithTextSliceTwoColumn,
       ImageWithTextSliceWithIcon,
+      RecentsSlice,
+      RecentsSliceDefaultPrimary,
+      RecentsSliceVariation,
+      RecentsSliceDefault,
       ScrollerSlice,
       ScrollerSliceDefaultPrimary,
       ScrollerSliceDefaultItem,
