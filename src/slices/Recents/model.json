@@ -1,0 +1,40 @@
+{
+  "id": "recents",
+  "type": "SharedSlice",
+  "name": "Recents",
+  "description": "Recents",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "",
+            "options": [
+              "blog_post",
+              "portfolio"
+            ],
+            "default_value": "blog_post"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

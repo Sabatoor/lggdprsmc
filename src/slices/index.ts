@@ -9,5 +9,6 @@ export const components = {
   gallery: dynamic(() => import('./Gallery')),
   hero: dynamic(() => import('./Hero')),
   image_with_text: dynamic(() => import('./ImageWithText')),
+  recents: dynamic(() => import('./Recents')),
   scroller: dynamic(() => import('./Scroller')),
 }

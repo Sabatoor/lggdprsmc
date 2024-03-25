@@ -1,7 +1,7 @@
 {
-  "id": "portfolio",
-  "label": "Portfolio",
   "format": "page",
+  "id": "location",
+  "label": "Location",
   "repeatable": true,
   "status": true,
   "json": {
@@ -16,16 +16,9 @@
         "type": "StructuredText",
         "config": {
           "label": "Title",
-          "placeholder": "Enter the Project Title",
+          "placeholder": "",
           "allowTargetBlank": true,
           "single": "heading1"
-        }
-      },
-      "date_published": {
-        "type": "Date",
-        "config": {
-          "label": "Date Published",
-          "placeholder": ""
         }
       },
       "featured_image": {
@@ -36,13 +29,6 @@
           "thumbnails": []
         }
       },
-      "excerpt": {
-        "type": "Text",
-        "config": {
-          "label": "Excerpt",
-          "placeholder": ""
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -51,16 +37,16 @@
             "recents": {
               "type": "SharedSlice"
             },
-            "call_to_action": {
+            "hero": {
               "type": "SharedSlice"
             },
-            "scroller": {
+            "content": {
               "type": "SharedSlice"
             },
             "image_with_text": {
               "type": "SharedSlice"
             },
-            "content": {
+            "call_to_action": {
               "type": "SharedSlice"
             }
           }

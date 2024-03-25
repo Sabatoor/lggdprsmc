@@ -84,6 +84,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "recents": {
+              "type": "SharedSlice"
+            },
             "scroller": {
               "type": "SharedSlice"
             },
