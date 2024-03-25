@@ -32,6 +32,7 @@ const RecentList = async ({ type }: RecentListProps): Promise<JSX.Element> => {
                   field={post.data.featured_image}
                   fill
                   className="object-cover transition duration-200 ease-in-out group-hover:opacity-75"
+                  sizes="(min-width: 460px) 384px, calc(82.86vw + 19px)"
                 />
               </div>
               <p className="p-3 text-center text-xs font-bold text-skin-neutral">
