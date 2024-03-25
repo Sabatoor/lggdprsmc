@@ -54,7 +54,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   paragraph: ({ children }) => {
     return (
-      <p className="prose my-4 self-start text-inherit lg:prose-lg xl:prose-xl lg:my-2">
+      <p className="prose mx-auto my-4 self-start text-inherit lg:prose-lg xl:prose-xl lg:my-2">
         {children}
       </p>
     )
