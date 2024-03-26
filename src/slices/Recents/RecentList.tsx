@@ -14,7 +14,7 @@ const RecentList = async ({ type }: RecentListProps): Promise<JSX.Element> => {
     page: 1,
     pageSize: 3,
     orderings: {
-      field: 'document.first_publication_date',
+      field: 'my.portfolio.date_published',
       direction: 'desc',
     },
   })
