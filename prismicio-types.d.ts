@@ -1788,6 +1788,49 @@ export type CallToActionSlicePromotion = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceLogosPrimary {
+  /**
+   * Heading field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceLogosItem {
+  /**
+   * Logo field in *CallToAction → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>
+}
+
+/**
+ * Logos variation for CallToAction Slice
+ *
+ * - **API ID**: `logos`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceLogos = prismic.SharedSliceVariation<
+  'logos',
+  Simplify<CallToActionSliceLogosPrimary>,
+  Simplify<CallToActionSliceLogosItem>
+>
+
+/**
  * Slice variation for *CallToAction*
  */
 type CallToActionSliceVariation =
@@ -1799,6 +1842,7 @@ type CallToActionSliceVariation =
   | CallToActionSliceServicesGrid
   | CallToActionSliceExpo
   | CallToActionSlicePromotion
+  | CallToActionSliceLogos
 
 /**
  * CallToAction Shared Slice
@@ -2642,6 +2686,8 @@ declare module '@prismicio/client' {
       CallToActionSliceServicesGridItem,
       CallToActionSliceExpoPrimary,
       CallToActionSlicePromotionPrimary,
+      CallToActionSliceLogosPrimary,
+      CallToActionSliceLogosItem,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceFeaturedGrid,
@@ -2651,6 +2697,7 @@ declare module '@prismicio/client' {
       CallToActionSliceServicesGrid,
       CallToActionSliceExpo,
       CallToActionSlicePromotion,
+      CallToActionSliceLogos,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceVariation,

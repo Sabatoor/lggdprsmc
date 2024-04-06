@@ -489,6 +489,44 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         </div>
       </Section>
     )
+  } else if (slice.variation === 'logos') {
+    return (
+      <Section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="bg-white py-6"
+      >
+        <div className="mx-auto flex max-w-screen-xl flex-col items-center">
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading2: ({ children }) => (
+                <Heading as="h2" size="5xl" className="text-skin-neutral">
+                  {children}
+                </Heading>
+              ),
+            }}
+          />
+          <ul className="mt-4 flex flex-wrap justify-center gap-4 lg:gap-8">
+            {slice.items.length > 0 &&
+              slice.items.map(item => {
+                return (
+                  <li
+                    key={item.logo.id}
+                    className="flex flex-col justify-center"
+                  >
+                    <PrismicNextImage
+                      field={item.logo}
+                      width={250}
+                      className=""
+                    />
+                  </li>
+                )
+              })}
+          </ul>
+        </div>
+      </Section>
+    )
   } else if (slice.variation === 'promotion') {
     return (
       <Section
