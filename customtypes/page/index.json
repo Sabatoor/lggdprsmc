@@ -26,6 +26,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "locations": {
+              "type": "SharedSlice"
+            },
             "recents": {
               "type": "SharedSlice"
             },

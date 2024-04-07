@@ -9,6 +9,7 @@ export const components = {
   gallery: dynamic(() => import('./Gallery')),
   hero: dynamic(() => import('./Hero')),
   image_with_text: dynamic(() => import('./ImageWithText')),
+  locations: dynamic(() => import('./Locations')),
   recents: dynamic(() => import('./Recents')),
   scroller: dynamic(() => import('./Scroller')),
 }
