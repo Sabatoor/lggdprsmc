@@ -37,6 +37,7 @@ const Locations = ({ slice }: LocationsProps): JSX.Element => {
                       className="object-cover"
                       imgixParams={{ ar: '1:1', fit: 'crop' }}
                       fill
+                      sizes="(min-width: 1360px) 389px, (min-width: 1040px) calc(26.67vw + 32px), calc(97.78vw - 27px)"
                     />
                   </div>
                   <div className="p-4 lg:col-span-2 lg:p-8">
