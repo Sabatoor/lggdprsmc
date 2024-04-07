@@ -35,6 +35,9 @@ export default async function Page({
         'product_type.featured_image',
         'service.title',
         'service.excerpt',
+        'location.title',
+        'location.featured_image',
+        'location.meta_description',
       ],
     })
     .catch(() => notFound())

@@ -69,7 +69,8 @@ export default async function Footer() {
           {isFilled.richText(settings.data.terms_of_service) && (
             <PrismicRichText field={settings.data.terms_of_service} />
           )}
-          <p className="font-heading text-xl font-bold text-skin-white">
+          <p className="flex flex-wrap gap-8 font-heading text-xl font-bold text-skin-white">
+            <Link href="/locations">Areas Served</Link>
             <Link href={'/sitemap.xml'}>Sitemap</Link>
           </p>
         </div>

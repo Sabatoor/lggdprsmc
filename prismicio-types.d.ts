@@ -419,6 +419,7 @@ export type LocationDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | LocationsSlice
   | RecentsSlice
   | GallerySlice
   | FormSlice
@@ -2450,6 +2451,76 @@ export type ImageWithTextSlice = prismic.SharedSlice<
 >
 
 /**
+ * Primary content in *Locations → Primary*
+ */
+export interface LocationsSliceDefaultPrimary {
+  /**
+   * Heading field in *Locations → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Optionally add a heading
+   * - **API ID Path**: locations.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Description field in *Locations → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optionally add a description
+   * - **API ID Path**: locations.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *Locations → Items*
+ */
+export interface LocationsSliceDefaultItem {
+  /**
+   * Location field in *Locations → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: locations.items[].location
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  location: prismic.ContentRelationshipField<'location'>
+}
+
+/**
+ * Default variation for Locations Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LocationsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<LocationsSliceDefaultPrimary>,
+  Simplify<LocationsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Locations*
+ */
+type LocationsSliceVariation = LocationsSliceDefault
+
+/**
+ * Locations Shared Slice
+ *
+ * - **API ID**: `locations`
+ * - **Description**: Locations
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LocationsSlice = prismic.SharedSlice<
+  'locations',
+  LocationsSliceVariation
+>
+
+/**
  * Primary content in *Recents → Primary*
  */
 export interface RecentsSliceDefaultPrimary {
@@ -2725,6 +2796,11 @@ declare module '@prismicio/client' {
       ImageWithTextSliceDefault,
       ImageWithTextSliceTwoColumn,
       ImageWithTextSliceWithIcon,
+      LocationsSlice,
+      LocationsSliceDefaultPrimary,
+      LocationsSliceDefaultItem,
+      LocationsSliceVariation,
+      LocationsSliceDefault,
       RecentsSlice,
       RecentsSliceDefaultPrimary,
       RecentsSliceVariation,
