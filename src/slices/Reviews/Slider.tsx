@@ -87,9 +87,9 @@ const Slider = ({ reviews }: ReviewsProps) => {
                               <AvatarImage
                                 src={item.authorAttribution.photoUri}
                               />
-                              {/* <AvatarFallback>
+                              <AvatarFallback>
                                 {item.authorAttribution.displayName}
-                              </AvatarFallback> */}
+                              </AvatarFallback>
                             </Avatar>
                             <p className="text-xs font-light">
                               {item.authorAttribution.displayName}
