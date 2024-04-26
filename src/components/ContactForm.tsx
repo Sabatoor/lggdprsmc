@@ -7,7 +7,7 @@ declare global {
 }
 
 import * as React from 'react'
-import { FormSlice } from '../../../prismicio-types'
+import { FormSlice } from '../../prismicio-types'
 import { cn } from '@/app/lib/cn'
 import { KeyTextField } from '@prismicio/client'
 import { useForm } from 'react-hook-form'

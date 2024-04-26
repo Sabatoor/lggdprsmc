@@ -5,12 +5,13 @@ import { SliceZone } from '@prismicio/react'
 import * as prismic from '@prismicio/client'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
-import Section from '@/app/components/Section'
+import Section from '@/components/Section'
 import { PrismicNextImage } from '@prismicio/next'
-import { PrismicRichText } from '@/app/components/PrismicRichText'
-import Heading from '@/app/components/Heading'
+import { PrismicRichText } from '@/components/PrismicRichText'
+import Heading from '@/components/Heading'
 import { asText } from '@prismicio/client'
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 type Params = {
   uid: string
 }
@@ -60,7 +61,7 @@ export default async function Page({ params }: { params: Params }) {
                       className="rounded-lg"
                     />
                   </Link>
-                  <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-skin-white p-4 shadow-lg lg:text-center">
+                  <div className="bg-background relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg p-4 shadow-lg lg:text-center">
                     <PrismicRichText
                       field={product.data.title}
                       components={{
@@ -76,10 +77,16 @@ export default async function Page({ params }: { params: Params }) {
                       }}
                     />
                     <PrismicRichText field={product.data.excerpt} />
-                    <Link
-                      href={product.url || '#'}
-                      className="rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-primary transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
-                    >{`See ${asText(product.data.title)}`}</Link>
+                    <Button
+                      asChild
+                      variant="default"
+                      size="lg"
+                      className="text-neutral font-bold lg:text-lg"
+                    >
+                      <Link
+                        href={product.url || '#'}
+                      >{`See ${asText(product.data.title)}`}</Link>
+                    </Button>
                   </div>
                 </li>
               )
@@ -120,14 +127,14 @@ export default async function Page({ params }: { params: Params }) {
                 <li key={product.id} className="max-w-[400px]">
                   <Link
                     href={product.url || '#'}
-                    className="block outline-none ring-skin-primary transition duration-300 ease-in-out focus:ring-2"
+                    className="ring-primary block outline-none transition duration-300 ease-in-out focus:ring-2"
                   >
                     <PrismicNextImage
                       field={product.data.featured_image}
                       className="rounded-lg"
                     />
                   </Link>
-                  <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-skin-white p-4 shadow-lg lg:text-center">
+                  <div className="bg-background relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg p-4 shadow-lg lg:text-center">
                     <PrismicRichText
                       field={product.data.title}
                       components={{
@@ -143,15 +150,19 @@ export default async function Page({ params }: { params: Params }) {
                       }}
                     />
                     <PrismicRichText field={product.data.excerpt} />
-                    <Link
-                      href={product.url || '#'}
-                      className="my-4 rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-neutral transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
+                    <Button
+                      asChild
+                      variant="default"
+                      size="lg"
+                      className="text-neutral font-bold lg:text-lg"
                     >
-                      Learn More{' '}
-                      <span className="sr-only">{` about ${asText(
-                        product.data.title,
-                      )}`}</span>
-                    </Link>
+                      <Link href={product.url || '#'}>
+                        Learn More{' '}
+                        <span className="sr-only">{` about ${asText(
+                          product.data.title,
+                        )}`}</span>
+                      </Link>
+                    </Button>
                   </div>
                 </li>
               )

@@ -1,11 +1,11 @@
-import Section from '@/app/components/Section'
+import Section from '@/components/Section'
 import { createClient } from '@/prismicio'
 import { Content, asText } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { BlogPostDocument, PortfolioDocument } from '../../../prismicio-types'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import Link from 'next/link'
-import Pagination from '@/app/components/Pagination'
+import Pagination from '@/components/Pagination'
 
 /**
  * Props for `Gallery`.
@@ -89,7 +89,7 @@ const Gallery = async ({
                           ? item.data.gallery_image.alt
                           : ''
                     }
-                    className="rounded-lg shadow-sm shadow-skin-neutral"
+                    className="shadow-neutral rounded-lg shadow-sm"
                   />
                 </Link>
               </li>

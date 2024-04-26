@@ -4,7 +4,7 @@ import {
   PrismicRichTextProps,
 } from '@prismicio/react'
 import * as prismic from '@prismicio/client'
-import Heading from '@/app/components/Heading'
+import Heading from '@/components/Heading'
 import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -61,7 +61,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   embed: ({ node }) => {
     return (
-      <div className="mx-auto my-4 max-w-screen-sm overflow-hidden rounded-lg shadow-md shadow-skin-neutral lg:my-8">
+      <div className="shadow-neutral mx-auto my-4 max-w-screen-sm overflow-hidden rounded-lg shadow-md lg:my-8">
         <div
           className="aspect-h-9 aspect-w-16"
           dangerouslySetInnerHTML={{ __html: node.oembed.html || '' }}
@@ -77,7 +77,7 @@ const defaultComponents: JSXMapSerializer = {
           alt={node.alt || ''}
           width={node.dimensions.width}
           height={node.dimensions.height}
-          className="my-4 rounded-lg shadow-md shadow-skin-neutral md:my-6 lg:my-8 xl:my-10"
+          className="shadow-neutral my-4 rounded-lg shadow-md md:my-6 lg:my-8 xl:my-10"
           title={node.alt || ''}
         />
       </Link>

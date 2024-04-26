@@ -42,10 +42,12 @@
             "label": "Button Color",
             "placeholder": "",
             "options": [
-              "Inverted",
-              "Primary",
-              "Secondary",
-              "Ghost"
+              "default",
+              "secondary",
+              "outline",
+              "ghost",
+              "link",
+              "destructive"
             ]
           }
         }
@@ -123,10 +125,12 @@
             "label": "Button Color",
             "placeholder": "",
             "options": [
-              "Inverted",
-              "Primary",
-              "Secondary",
-              "Ghost"
+              "default",
+              "secondary",
+              "outline",
+              "ghost",
+              "link",
+              "destructive"
             ]
           }
         }
@@ -244,10 +248,12 @@
             "label": "Button Color",
             "placeholder": "",
             "options": [
-              "Inverted",
-              "Primary",
-              "Secondary",
-              "Ghost"
+              "default",
+              "secondary",
+              "outline",
+              "ghost",
+              "link",
+              "destructive"
             ]
           }
         }
@@ -322,10 +328,12 @@
             "label": "Button Color",
             "placeholder": "",
             "options": [
-              "Inverted",
-              "Primary",
-              "Secondary",
-              "Ghost"
+              "default",
+              "secondary",
+              "outline",
+              "ghost",
+              "link",
+              "destructive"
             ]
           }
         }
@@ -470,10 +478,12 @@
             "label": "Button Color",
             "placeholder": "",
             "options": [
-              "Inverted",
-              "Primary",
-              "Secondary",
-              "Ghost"
+              "default",
+              "secondary",
+              "outline",
+              "ghost",
+              "link",
+              "destructive"
             ]
           }
         }

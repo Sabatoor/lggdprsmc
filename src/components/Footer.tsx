@@ -21,10 +21,10 @@ export default async function Footer() {
     <Section
       as="footer"
       className={cn(
-        'flex-col bg-skin-neutral px-0 py-0 text-skin-base md:px-0 md:py-0 lg:px-0 lg:py-0 lg:text-lg',
+        'bg-neutral text-background flex-col px-0 py-0 md:px-0 md:py-0 lg:px-0 lg:py-0 lg:text-lg',
       )}
     >
-      <div className="grid place-items-center gap-8 p-8 text-skin-base lg:grid-cols-2">
+      <div className="text-background grid place-items-center gap-8 p-8 lg:grid-cols-2">
         <div className="flex flex-col place-content-center">
           <PrismicNextImage field={settings.data.footer_logo} />
 
@@ -40,7 +40,7 @@ export default async function Footer() {
                     <li key={settings.id + `footer-social` + i}>
                       <PrismicNextLink field={social_url}>
                         {Logo && (
-                          <Logo className="h-12 w-12 rounded p-1 text-skin-white ring-skin-muted group-focus:ring-2 lg:h-16 lg:w-16" />
+                          <Logo className="text-background ring-muted h-12 w-12 rounded p-1 group-focus:ring-2 lg:h-16 lg:w-16" />
                         )}
                         <span className="sr-only">{`View us on ${logo}`}</span>
                       </PrismicNextLink>
@@ -50,8 +50,8 @@ export default async function Footer() {
             </ul>
           ) : null}
         </div>
-        <div className="prose lg:prose-lg prose-p:text-skin-base prose-a:text-skin-white prose-a:no-underline prose-ul:list-none prose-ul:pl-0 prose-li:pl-0">
-          <p className="font-heading text-xl font-bold text-skin-white">
+        <div className="prose-p:text-background prose-a:text-background prose lg:prose-lg prose-a:no-underline prose-ul:list-none prose-ul:pl-0 prose-li:pl-0">
+          <p className="text-background font-heading text-xl font-bold">
             Lions Gate Garage Doors LTD.
           </p>
           <PrismicRichText
@@ -59,23 +59,23 @@ export default async function Footer() {
             components={{
               list: ({ children }) => <ul>{children}</ul>,
               listItem: ({ children }) => (
-                <li className="text-skin-base">{children}</li>
+                <li className="text-background">{children}</li>
               ),
             }}
           />
-          <p className="font-heading text-xl font-bold text-skin-white">
+          <p className="text-background font-heading text-xl font-bold">
             Terms of Service
           </p>
           {isFilled.richText(settings.data.terms_of_service) && (
             <PrismicRichText field={settings.data.terms_of_service} />
           )}
-          <p className="flex flex-wrap gap-8 font-heading text-xl font-bold text-skin-white">
+          <p className="text-background flex flex-wrap gap-8 font-heading text-xl font-bold">
             <Link href="/locations">Areas Served</Link>
             <Link href={'/sitemap.xml'}>Sitemap</Link>
           </p>
         </div>
       </div>
-      <div className="flex h-16 items-center justify-center place-self-stretch bg-skin-fill text-center text-skin-neutral">
+      <div className="bg-primary text-neutral flex h-16 items-center justify-center place-self-stretch text-center">
         <span>
           All rights reserved &copy; {new Date().getFullYear()} &nbsp;{' '}
         </span>

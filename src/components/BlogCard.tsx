@@ -1,11 +1,12 @@
 import React from 'react'
 import { cn } from '@/app/lib/cn'
-import { BlogPostDocument, PortfolioDocument } from '../../../prismicio-types'
+import { BlogPostDocument, PortfolioDocument } from '../../prismicio-types'
 import Link from 'next/link'
 import { PrismicNextImage } from '@prismicio/next'
 import { asText, isFilled } from '@prismicio/client'
 import Heading from './Heading'
 import { PrismicRichText } from './PrismicRichText'
+import { Button } from './ui/button'
 
 type BlogCardProps = {
   as?: React.ElementType
@@ -25,19 +26,19 @@ export default function BlogCard({
         {isFilled.image(blog_post.data.featured_image) && (
           <Link
             href={`${blog_post.url}`}
-            className="overflow-hidden focus:outline-none focus:ring-4 focus:ring-skin-primary"
+            className="focus:ring-primary overflow-hidden focus:outline-none focus:ring-4"
           >
             <PrismicNextImage
               field={blog_post.data.featured_image}
-              className="w-full transform rounded-lg object-cover object-center 
-              shadow shadow-skin-muted transition duration-700 ease-in-out group-hover:-translate-y-4"
+              className="shadow-muted w-full transform rounded-lg object-cover 
+              object-center shadow transition duration-700 ease-in-out group-hover:-translate-y-4"
               fallbackAlt=""
               title={`Read ${asText(blog_post.data.title)}`}
               width={576}
             />
           </Link>
         )}
-        <div className="relative mx-auto -mt-4 max-w-lg rounded-lg bg-skin-white p-4 shadow lg:-mt-16">
+        <div className="bg-background relative mx-auto -mt-4 max-w-lg rounded-lg p-4 shadow lg:-mt-16">
           <PrismicRichText
             field={blog_post.data.title}
             components={{
@@ -49,14 +50,17 @@ export default function BlogCard({
             }}
           />
           <p className="mb-4">{blog_post.data.excerpt}</p>
-          <Link
-            href={`${blog_post.url}`}
-            className="hover:text-color-neutral hover:shadow-color-accent inline-block rounded-lg bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-neutral transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:text-skin-white hover:shadow"
+          <Button
+            asChild
+            variant="default"
+            className="text-neutral text-xs font-medium uppercase leading-normal"
           >
-            {blog_post.type === 'blog_post'
-              ? 'Continue Reading'
-              : 'View Project'}
-          </Link>
+            <Link href={`${blog_post.url}`}>
+              {blog_post.type === 'blog_post'
+                ? 'Continue Reading'
+                : 'View Project'}
+            </Link>
+          </Button>
         </div>
       </article>
     </Comp>

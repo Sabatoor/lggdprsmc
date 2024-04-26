@@ -18,7 +18,7 @@
 			},
 			"button_color": {
 				"__TYPE__": "FieldContent",
-				"value": "Ghost",
+				"value": "default",
 				"type": "Select"
 			},
 			"button_link": {
@@ -116,8 +116,8 @@
 						"button_color",
 						{
 							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "Primary"
+							"value": "outline",
+							"type": "Select"
 						}
 					]
 				]
@@ -188,8 +188,8 @@
 						"button_color",
 						{
 							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "Ghost"
+							"value": "destructive",
+							"type": "Select"
 						}
 					]
 				]
@@ -260,8 +260,8 @@
 						"button_color",
 						{
 							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "Secondary"
+							"value": "link",
+							"type": "Select"
 						}
 					]
 				]
@@ -454,7 +454,7 @@
 						"button_color",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "Primary",
+							"value": "destructive",
 							"type": "Select"
 						}
 					],
@@ -542,7 +542,7 @@
 						"button_color",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "Secondary",
+							"value": "default",
 							"type": "Select"
 						}
 					],
@@ -700,8 +700,8 @@
 			},
 			"button_color": {
 				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Inverted"
+				"value": "outline",
+				"type": "Select"
 			},
 			"benefit": {
 				"__TYPE__": "StructuredTextContent",
@@ -765,7 +765,6 @@
 					[
 						"logo",
 						{
-							"__TYPE__": "ImageContent",
 							"origin": {
 								"id": "main",
 								"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
@@ -783,6 +782,9 @@
 								},
 								"background": "transparent"
 							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
 							"thumbnails": {}
 						}
 					]

@@ -256,6 +256,7 @@ export type GalleryItemDocument<Lang extends string = string> =
   >
 
 type HomepageDocumentDataSlicesSlice =
+  | ReviewsSlice
   | RecentsSlice
   | CallToActionSlice
   | ImageWithTextSlice
@@ -1240,7 +1241,7 @@ export interface CallToActionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   button_color: prismic.SelectField<
-    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+    'default' | 'secondary' | 'outline' | 'ghost' | 'link' | 'destructive'
   >
 }
 
@@ -1337,7 +1338,7 @@ export interface CallToActionSliceFeaturedGridItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   button_color: prismic.SelectField<
-    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+    'default' | 'secondary' | 'outline' | 'ghost' | 'link' | 'destructive'
   >
 }
 
@@ -1485,7 +1486,7 @@ export interface CallToActionSliceBrandGridItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   button_color: prismic.SelectField<
-    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+    'default' | 'secondary' | 'outline' | 'ghost' | 'link' | 'destructive'
   >
 }
 
@@ -1580,7 +1581,7 @@ export interface CallToActionSliceProductTypeGridItem {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   button_color: prismic.SelectField<
-    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+    'default' | 'secondary' | 'outline' | 'ghost' | 'link' | 'destructive'
   >
 }
 
@@ -1771,7 +1772,7 @@ export interface CallToActionSlicePromotionPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   button_color: prismic.SelectField<
-    'Inverted' | 'Primary' | 'Secondary' | 'Ghost'
+    'default' | 'secondary' | 'outline' | 'ghost' | 'link' | 'destructive'
   >
 }
 
@@ -2574,6 +2575,33 @@ type RecentsSliceVariation = RecentsSliceDefault
 export type RecentsSlice = prismic.SharedSlice<'recents', RecentsSliceVariation>
 
 /**
+ * Default variation for Reviews Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ReviewsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *Reviews*
+ */
+type ReviewsSliceVariation = ReviewsSliceDefault
+
+/**
+ * Reviews Shared Slice
+ *
+ * - **API ID**: `reviews`
+ * - **Description**: Reviews
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ReviewsSlice = prismic.SharedSlice<'reviews', ReviewsSliceVariation>
+
+/**
  * Primary content in *Scroller → Primary*
  */
 export interface ScrollerSliceDefaultPrimary {
@@ -2805,6 +2833,9 @@ declare module '@prismicio/client' {
       RecentsSliceDefaultPrimary,
       RecentsSliceVariation,
       RecentsSliceDefault,
+      ReviewsSlice,
+      ReviewsSliceVariation,
+      ReviewsSliceDefault,
       ScrollerSlice,
       ScrollerSliceDefaultPrimary,
       ScrollerSliceDefaultItem,

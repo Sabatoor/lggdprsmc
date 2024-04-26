@@ -2,6 +2,7 @@
 import { FC } from 'react'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { cn } from '@/app/lib/cn'
+import { Button } from './ui/button'
 
 interface PaginationProps {
   hasNextPage: boolean
@@ -21,14 +22,10 @@ const Pagination: FC<PaginationProps> = ({
   return (
     <>
       <div className="flex justify-center gap-2">
-        <button
+        <Button
+          variant={hasPrevPage ? 'default' : 'ghost'}
           className={cn(
-            'inline-block rounded bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-neutral',
-            {
-              'transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:shadow hover:shadow-skin-primary':
-                hasPrevPage,
-              'bg-skin-neutral text-skin-base': !hasPrevPage,
-            },
+            'text-neutral text-xs font-medium uppercase leading-normal',
           )}
           disabled={!hasPrevPage}
           onClick={() => {
@@ -36,16 +33,12 @@ const Pagination: FC<PaginationProps> = ({
           }}
         >
           prev page
-        </button>
+        </Button>
 
-        <button
+        <Button
+          variant={hasNextPage ? 'default' : 'ghost'}
           className={cn(
-            'inline-block rounded bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-skin-neutral',
-            {
-              'transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:text-skin-muted hover:shadow hover:shadow-skin-primary':
-                hasNextPage,
-              'bg-skin-neutral text-skin-base': !hasNextPage,
-            },
+            'text-neutral text-xs font-medium uppercase leading-normal',
           )}
           disabled={!hasNextPage}
           onClick={() => {
@@ -53,7 +46,7 @@ const Pagination: FC<PaginationProps> = ({
           }}
         >
           next page
-        </button>
+        </Button>
       </div>
       {totalPages && (
         <div className="my-6 flex justify-center ">

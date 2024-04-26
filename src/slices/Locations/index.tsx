@@ -1,9 +1,9 @@
-import Section from '@/app/components/Section'
+import Section from '@/components/Section'
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { LocationDocument } from '../../../prismicio-types'
 import { PrismicNextImage } from '@prismicio/next'
-import { PrismicRichText } from '@/app/components/PrismicRichText'
+import { PrismicRichText } from '@/components/PrismicRichText'
 import Link from 'next/link'
 
 /**
@@ -29,7 +29,7 @@ const Locations = ({ slice }: LocationsProps): JSX.Element => {
               <li key={location.id}>
                 <Link
                   href={location.url || '#'}
-                  className="grid gap-4 overflow-hidden rounded-lg border border-skin-neutral lg:grid-cols-3 lg:gap-8"
+                  className="border-neutral grid gap-4 overflow-hidden rounded-lg border lg:grid-cols-3 lg:gap-8"
                 >
                   <div className="relative min-h-28 lg:col-span-1">
                     <PrismicNextImage
