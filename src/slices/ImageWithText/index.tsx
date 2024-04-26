@@ -1,14 +1,14 @@
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-import { PrismicRichText } from '@/app/components/PrismicRichText'
-import Section from '@/app/components/Section'
+import { PrismicRichText } from '@/components/PrismicRichText'
+import Section from '@/components/Section'
 import { PrismicNextImage } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
 import { GiHomeGarage } from 'react-icons/gi'
 import { FaToolbox } from 'react-icons/fa'
 import { RiQuestionnaireFill } from 'react-icons/ri'
 import React from 'react'
-import Heading from '@/app/components/Heading'
+import Heading from '@/components/Heading'
 
 /**
  * Props for `ImageWithText`.
@@ -30,7 +30,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
         {isFilled.richText(slice.primary.heading) && (
           <>
             <PrismicRichText field={slice.primary.heading} />
-            <div className="my-4 h-0.5 w-full rounded-full bg-skin-fill lg:my-6" />
+            <div className="bg-primary my-4 h-0.5 w-full rounded-full lg:my-6" />
           </>
         )}
         <div className="grid lg:grid-cols-2 lg:gap-x-8">
@@ -89,18 +89,15 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
           />
         </div>
         <div
-          className={cn(
-            'flex flex-col items-center bg-skin-neutral p-4 lg:p-6',
-            {
-              'lg:order-1': slice.primary.image_location,
-            },
-          )}
+          className={cn('bg-neutral flex flex-col items-center p-4 lg:p-6', {
+            'lg:order-1': slice.primary.image_location,
+          })}
         >
           {isFilled.select(slice.primary.icon) && (
             <>
-              {Icon && <Icon className="h-24 w-24 text-skin-primary" />}
+              {Icon && <Icon className="text-primary h-24 w-24" />}
 
-              <div className="my-4 h-0.5 w-full rounded-full bg-skin-fill lg:my-6" />
+              <div className="bg-primary my-4 h-0.5 w-full rounded-full lg:my-6" />
             </>
           )}
           {isFilled.richText(slice.primary.heading) ? (
@@ -111,7 +108,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
                   <Heading
                     as="h2"
                     size="3xl"
-                    className="pb-4 text-center text-skin-primary"
+                    className="text-primary pb-4 text-center"
                   >
                     {children}
                   </Heading>
@@ -123,7 +120,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
             field={slice.primary.text}
             components={{
               paragraph: ({ children }) => (
-                <p className="prose self-start text-skin-base lg:prose-lg xl:prose-xl">
+                <p className="text-background prose self-start lg:prose-lg xl:prose-xl">
                   {children}
                 </p>
               ),

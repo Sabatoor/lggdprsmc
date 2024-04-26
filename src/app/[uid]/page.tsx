@@ -5,10 +5,10 @@ import * as prismic from '@prismicio/client'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 import { Graph } from 'schema-dts'
-import Section from '@/app/components/Section'
-import BlogCard from '@/app/components/BlogCard'
-import Pagination from '@/app/components/Pagination'
-import Heading from '@/app/components/Heading'
+import Section from '@/components/Section'
+import BlogCard from '@/components/BlogCard'
+import Pagination from '@/components/Pagination'
+import Heading from '@/components/Heading'
 
 type Params = { uid: string }
 type SearchParams = {

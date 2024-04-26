@@ -6,6 +6,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'prismic-io.s3.amazonaws.com' },
       { protocol: 'https', hostname: 'seal-mbc.bbb.org' },
+      { protocol: 'https', hostname: '*.googleusercontent.com' },
     ],
   },
   async redirects() {

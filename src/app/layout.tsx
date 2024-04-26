@@ -5,10 +5,10 @@ import { PrismicPreview } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
 import { Oswald, Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Analytics from '@/app/components/Analytics'
-import Consent from './components/Consent'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import Analytics from '@/components/Analytics'
+import Consent from '../components/Consent'
 
 /**
  * Heading & Body fonts
@@ -57,10 +57,9 @@ export default async function RootLayout({
     <html lang="en-CA">
       <body
         className={cn(
-          'flex min-h-screen flex-col justify-between bg-skin-base font-body text-skin-neutral',
+          'bg-muted text-neutral flex min-h-screen flex-col justify-between font-body',
           body.variable,
           heading.variable,
-          { 'theme-alternate': settings.data.site_theme === 'Alternate' },
         )}
       >
         <Suspense>

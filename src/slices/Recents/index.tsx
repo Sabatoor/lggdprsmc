@@ -1,9 +1,9 @@
-import Section from '@/app/components/Section'
+import Section from '@/components/Section'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { Suspense } from 'react'
 import RecentList from './RecentList'
-import { PrismicRichText } from '@/app/components/PrismicRichText'
+import { PrismicRichText } from '@/components/PrismicRichText'
 
 /**
  * Props for `Recents`.
@@ -19,7 +19,7 @@ const Recents = ({ slice }: RecentsProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
-      className="full-bleed-white flex-col bg-skin-white"
+      className="full-bleed-white bg-background flex-col"
     >
       <PrismicRichText field={slice.primary.heading} />
       <Suspense fallback={<div>Loading...</div>}>

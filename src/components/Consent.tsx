@@ -5,6 +5,7 @@ import * as React from 'react'
 import { HiX } from 'react-icons/hi'
 import { AnimatePresence, motion } from 'framer-motion'
 import Script from 'next/script'
+import { Button } from './ui/button'
 
 export default function Consent() {
   const [consent, setConsent] = React.useState<boolean>(false)
@@ -68,7 +69,7 @@ export default function Consent() {
             }}
             id="consent-banner"
             className={cn(
-              'fixed bottom-0 z-10 grid w-full bg-skin-white bg-opacity-95 p-3 md:grid-cols-5',
+              'bg-background fixed bottom-0 z-10 grid w-full p-3 md:grid-cols-5',
             )}
           >
             <p className="prose prose-sm mx-auto my-4 px-6 text-left md:col-span-3">
@@ -79,16 +80,18 @@ export default function Consent() {
               (which is how it should be).
             </p>
             <div className="my-4 flex items-center justify-evenly md:col-span-2">
-              <button
+              <Button
+                variant="outline"
                 className="absolute right-2 top-2"
                 onClick={e => {
                   setHideBanner(true)
                 }}
               >
-                <HiX className="h-6 w-6 text-skin-neutral" />
+                <HiX className="text-neutral h-5 w-5" />
                 <span className="sr-only">Close</span>
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={e => {
                   setHideBanner(true)
                   localStorage.setItem(
@@ -100,19 +103,21 @@ export default function Consent() {
                     }),
                   )
                 }}
-                className="rounded-xl px-6 py-4 lg:text-lg"
+                // className="rounded-xl px-6 py-4 lg:text-lg"
               >
                 Deny All
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="default"
+                size="lg"
                 onClick={() => {
                   setConsent(true)
                   setHideBanner(true)
                 }}
-                className="rounded-xl bg-skin-button-primary px-6 py-4 font-bold text-skin-neutral lg:text-lg"
+                className="text-neutral px-6 py-4 font-medium lg:text-lg"
               >
                 Accept All
-              </button>
+              </Button>
             </div>
           </motion.div>
         )}

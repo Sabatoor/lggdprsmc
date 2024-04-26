@@ -1,6 +1,6 @@
-import ContactForm from '@/app/components/ContactForm'
-import JotFormEmbed from '@/app/components/JotFormEmbed'
-import Section from '@/app/components/Section'
+import ContactForm from '@/components/ContactForm'
+import JotFormEmbed from '@/components/JotFormEmbed'
+import Section from '@/components/Section'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 

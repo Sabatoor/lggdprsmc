@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-import { PrismicRichText } from '@/app/components/PrismicRichText'
-import Heading from '@/app/components/Heading'
-import Section from '@/app/components/Section'
-import ButtonLink from '@/app/components/ButtonLink'
+import { PrismicRichText } from '@/components/PrismicRichText'
+import Heading from '@/components/Heading'
+import Section from '@/components/Section'
+import ButtonLink from '@/components/ButtonLink'
 import { GiHomeGarage } from 'react-icons/gi'
 import { RiQuestionnaireFill } from 'react-icons/ri'
 import {
@@ -22,6 +22,7 @@ import {
   ServiceDocument,
 } from '../../../prismicio-types'
 import { cn } from '@/app/lib/cn'
+import { buttonVariants } from '@/components/ui/button'
 
 /**
  * Props for `CallToAction`.
@@ -68,7 +69,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-3xl text-skin-neutral md:text-4xl"
+                  className="text-neutral text-3xl md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -87,7 +88,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 return (
                   <div
                     key={`${slice.id}-${i}`}
-                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
+                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow lg:p-6"
                   >
                     <div className="flex flex-col items-center">
                       {isBrand(item.brand) &&
@@ -108,7 +109,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="my-2 text-skin-neutral lg:my-3"
+                                className="text-neutral my-2 lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -123,7 +124,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="my-2 text-skin-neutral lg:my-3"
+                                className="text-neutral my-2 lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -143,12 +144,18 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                     </div>
                     {isFilled.link(item.button_link) ? (
                       <div className="mb-4 mt-6 flex justify-center">
-                        <ButtonLink
+                        <PrismicNextLink
                           field={item.button_link}
-                          color={item.button_color || 'Inverted'}
+                          className={cn(
+                            buttonVariants({
+                              variant: item.button_color || 'default',
+                              size: 'lg',
+                            }),
+                            'font-bold',
+                          )}
                         >
                           {item.button_label || 'Click Here'}
-                        </ButtonLink>
+                        </PrismicNextLink>
                       </div>
                     ) : null}
                   </div>
@@ -165,13 +172,13 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         data-slice-variation={slice.variation}
         className="bg-[#ec0c8b] lg:py-0"
       >
-        <Section as="div" width="xl" className="text-center text-skin-muted">
+        <Section as="div" width="xl" className="text-muted text-center">
           <div className="flex flex-col items-center gap-2">
             <PrismicRichText
               field={slice.primary.booth_info}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-xl font-semibold uppercase text-skin-neutral">
+                  <p className="text-neutral text-xl font-semibold uppercase">
                     {children}
                   </p>
                 ),
@@ -184,7 +191,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                   <Heading
                     as="h2"
                     size="5xl"
-                    className="font-light uppercase text-skin-muted"
+                    className="text-muted font-light uppercase"
                   >
                     {children}
                   </Heading>
@@ -221,7 +228,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-3xl text-skin-neutral md:text-4xl"
+                  className="text-neutral text-3xl md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -240,7 +247,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 return (
                   <div
                     key={`${slice.id}-${i}`}
-                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
+                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow lg:p-6"
                   >
                     <div className="flex flex-col items-center">
                       {isProductType(item.product_type) &&
@@ -260,7 +267,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="my-2 text-skin-neutral lg:my-3"
+                                className="text-neutral my-2 lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -275,7 +282,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="my-2 text-skin-neutral lg:my-3"
+                                className="text-neutral my-2 lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -295,12 +302,18 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                     </div>
                     {isFilled.link(item.button_link) ? (
                       <div className="mb-4 mt-6 flex justify-center">
-                        <ButtonLink
+                        <PrismicNextLink
                           field={item.button_link}
-                          color={item.button_color || 'Inverted'}
+                          className={cn(
+                            buttonVariants({
+                              variant: item.button_color || 'default',
+                              size: 'lg',
+                            }),
+                            'font-bold',
+                          )}
                         >
                           {item.button_label || 'Click Here'}
-                        </ButtonLink>
+                        </PrismicNextLink>
                       </div>
                     ) : null}
                   </div>
@@ -327,12 +340,10 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
               return (
                 <div
                   key={`${slice.id}-${i}`}
-                  className="max-w-sm overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
+                  className="bg-background max-w-sm overflow-hidden rounded-lg p-4 shadow lg:p-6"
                 >
                   <div className="flex flex-col items-center">
-                    {Icon ? (
-                      <Icon className="h-16 w-16 text-skin-primary" />
-                    ) : null}
+                    {Icon ? <Icon className="text-primary h-16 w-16" /> : null}
                     <PrismicRichText
                       field={item.heading}
                       components={{
@@ -340,7 +351,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                           <Heading
                             as="h2"
                             size="3xl"
-                            className="my-2 text-skin-neutral lg:my-3"
+                            className="text-neutral my-2 lg:my-3"
                           >
                             {children}
                           </Heading>
@@ -351,12 +362,24 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                   </div>
                   {isFilled.link(item.button_link) ? (
                     <div className="mb-4 mt-6 flex justify-center">
-                      <ButtonLink
+                      <PrismicNextLink
+                        field={item.button_link}
+                        className={cn(
+                          buttonVariants({
+                            variant: item.button_color || 'default',
+                            size: 'lg',
+                          }),
+                          'font-bold',
+                        )}
+                      >
+                        {item.button_label || 'Click Here'}
+                      </PrismicNextLink>
+                      {/* <ButtonLink
                         field={item.button_link}
                         color={item.button_color || 'Inverted'}
                       >
                         {item.button_label || 'Click Here'}
-                      </ButtonLink>
+                      </ButtonLink> */}
                     </div>
                   ) : null}
                 </div>
@@ -381,7 +404,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-3xl text-skin-neutral md:text-4xl"
+                  className="text-neutral text-3xl md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -395,7 +418,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 return (
                   <div
                     key={`${slice.id}-${i}`}
-                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-skin-white p-4 shadow lg:p-6"
+                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow lg:p-6"
                   >
                     <div className="flex flex-col items-center">
                       {isService(item.service) ? (
@@ -406,7 +429,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="my-2 text-skin-neutral lg:my-3"
+                                className="text-neutral my-2 lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -426,7 +449,10 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                       <div className="mb-4 mt-6 flex justify-center">
                         <Link
                           href={item.service.url || '#'}
-                          className="rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-neutral transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
+                          className={cn(
+                            buttonVariants({ variant: 'default' }),
+                            'text-neutral text-center outline-none focus:ring-2',
+                          )}
                         >
                           {item.button_label || 'Click Here'}
                         </Link>
@@ -444,14 +470,14 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
       <Section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="bg-skin-fill py-6"
+        className="bg-primary py-6"
       >
         <div className="mx-auto flex max-w-screen-sm flex-col items-center">
           <PrismicRichText
             field={slice.primary.heading}
             components={{
               heading2: ({ children }) => (
-                <Heading as="h2" size="5xl" className="text-skin-neutral">
+                <Heading as="h2" size="5xl" className="text-neutral">
                   {children}
                 </Heading>
               ),
@@ -473,7 +499,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                         {isFilled.link(item.social_url) && (
                           <>
                             {Icon && (
-                              <Icon className="h-16 w-16 rounded p-1 text-skin-white ring-skin-muted group-focus:ring-2" />
+                              <Icon className="text-background ring-muted h-16 w-16 rounded p-1 group-focus:ring-2" />
                             )}
                             <span className="sr-only">
                               {`View us on ${item.logo}`}
@@ -501,7 +527,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             field={slice.primary.heading}
             components={{
               heading2: ({ children }) => (
-                <Heading as="h2" size="5xl" className="text-skin-neutral">
+                <Heading as="h2" size="5xl" className="text-neutral">
                   {children}
                 </Heading>
               ),
@@ -532,7 +558,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
       <Section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="bg-skin-fill"
+        className="bg-primary"
       >
         <Section as="div" width="xl" className="grid lg:grid-cols-3">
           <div className="flex flex-col items-center gap-6 lg:col-span-2">
@@ -544,7 +570,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                     <Heading
                       as="h2"
                       size="4xl"
-                      className="text-3xl uppercase text-skin-neutral md:text-4xl"
+                      className="text-neutral text-3xl uppercase md:text-4xl"
                     >
                       {children}
                     </Heading>
@@ -571,13 +597,17 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           {isFilled.link(slice.primary.button_link) &&
             isFilled.keyText(slice.primary.button_label) && (
               <div className="my-8 justify-self-center lg:justify-self-end">
-                <ButtonLink
+                <PrismicNextLink
                   field={slice.primary.button_link}
-                  className="border border-skin-base"
-                  color={slice.primary.button_color || 'Inverted'}
+                  className={cn(
+                    buttonVariants({
+                      variant: slice.primary.button_color || 'outline',
+                      size: 'lg',
+                    }),
+                  )}
                 >
                   {slice.primary.button_label}
-                </ButtonLink>
+                </PrismicNextLink>
               </div>
             )}
         </Section>
@@ -588,11 +618,11 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="bg-skin-neutral"
+      className="bg-neutral"
     >
       <Section as="div" width="xl" className="grid lg:grid-cols-3">
         <div className="flex flex-col items-center gap-6 lg:col-span-2 lg:flex-row">
-          <GiHomeGarage className="-mt-3 h-24 w-24 text-skin-primary" />
+          <GiHomeGarage className="text-primary -mt-3 h-24 w-24" />
           <PrismicRichText
             field={slice.primary.heading}
             components={{
@@ -600,7 +630,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="4xl"
-                  className="text-3xl uppercase text-skin-muted md:text-4xl"
+                  className="text-muted text-3xl uppercase md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -609,13 +639,17 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           />
         </div>
         <div className="my-8 justify-self-center lg:justify-self-end">
-          <ButtonLink
+          <PrismicNextLink
             field={slice.primary.button_link}
-            className="border border-skin-base"
-            color={slice.primary.button_color || 'Inverted'}
+            className={cn(
+              buttonVariants({
+                variant: slice.primary.button_color || 'default',
+                size: 'lg',
+              }),
+            )}
           >
             {slice.primary.button_label}
-          </ButtonLink>
+          </PrismicNextLink>
         </div>
       </Section>
     </Section>

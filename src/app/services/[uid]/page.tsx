@@ -5,7 +5,7 @@ import * as prismic from '@prismicio/client'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 import { Graph } from 'schema-dts'
-import Heading from '@/app/components/Heading'
+import Heading from '@/components/Heading'
 
 type Params = { uid: string }
 

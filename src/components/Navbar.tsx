@@ -1,7 +1,7 @@
 'use client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import Link from 'next/link'
-import { SettingsDocumentDataNavigationItem } from '../../../prismicio-types'
+import { SettingsDocumentDataNavigationItem } from '../../prismicio-types'
 import { ImageField, KeyTextField } from '@prismicio/client'
 import { HiMenu, HiOutlinePhone, HiX } from 'react-icons/hi'
 import { useState, useEffect } from 'react'
@@ -42,7 +42,7 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ duration: 0.5, type: 'tween' }}
-            className="fixed inset-0 z-30 flex h-full w-full flex-col justify-center bg-skin-neutral text-skin-white"
+            className="bg-neutral text-background fixed inset-0 z-30 flex h-full w-full flex-col justify-center"
           >
             <button onClick={toggleNav} className="absolute right-6 top-6">
               <HiX className="h-8 w-8" />
@@ -54,7 +54,7 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
                   <li key={`mobile-nav-${i}`}>
                     <PrismicNextLink
                       field={item.link}
-                      className="rounded-lg px-2 py-3 outline-none ring-skin-primary focus:ring-2"
+                      className="ring-primary rounded-lg px-2 py-3 outline-none focus:ring-2"
                       onClick={toggleNav}
                     >
                       {item.label}
@@ -78,20 +78,20 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
         )}
       </AnimatePresence>
       {/* END MOBILE NAV */}
-      <header className="sticky top-0 z-20 bg-skin-white py-3 shadow-sm lg:py-6">
+      <header className="bg-background sticky top-0 z-20 py-3 shadow-sm lg:py-6">
         <div className="mx-auto flex w-full max-w-screen-2xl items-center justify-between px-4">
           <Link
             href="/"
-            className="hidden flex-1 rounded-lg outline-none ring-skin-primary focus:ring-2 md:inline-block"
+            className="ring-primary hidden flex-1 rounded-lg outline-none focus:ring-2 md:inline-block"
           >
             {logo ? <PrismicNextImage field={logo} /> : <h1>{title}</h1>}
             <span className="sr-only">Return to Homepage</span>
           </Link>
           <div className="flex-1 shrink-0">
-            <p className="text-center text-base font-bold text-skin-neutral md:text-xl">
+            <p className="text-neutral text-center text-base font-bold md:text-xl">
               <a
                 href="tel:6042431505"
-                className="rounded-lg px-2 py-3 outline-none ring-skin-neutral focus:ring-2"
+                className="ring-neutral rounded-lg px-2 py-3 outline-none focus:ring-2"
               >
                 <HiOutlinePhone className="-mt-1 inline h-6 w-6" /> 604.243.1505
               </a>
@@ -102,7 +102,7 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
           </div>
           <div className="flex flex-1 items-center justify-end">
             <button onClick={toggleNav} className="flex flex-col items-center">
-              <HiMenu className="mx-6 h-10 w-10 text-skin-neutral" />
+              <HiMenu className="text-neutral mx-6 h-10 w-10" />
               <span className="text-xs md:text-base">Menu</span>
             </button>
           </div>

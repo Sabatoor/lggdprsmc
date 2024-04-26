@@ -11,5 +11,6 @@ export const components = {
   image_with_text: dynamic(() => import('./ImageWithText')),
   locations: dynamic(() => import('./Locations')),
   recents: dynamic(() => import('./Recents')),
+  reviews: dynamic(() => import('./Reviews')),
   scroller: dynamic(() => import('./Scroller')),
 }

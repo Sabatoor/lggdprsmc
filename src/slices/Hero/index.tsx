@@ -1,10 +1,10 @@
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { PrismicNextImage } from '@prismicio/next'
-import Section from '@/app/components/Section'
-import Heading from '@/app/components/Heading'
-import { PrismicRichText } from '@/app/components/PrismicRichText'
-import ButtonLink from '@/app/components/ButtonLink'
+
+import Heading from '@/components/Heading'
+import { PrismicRichText } from '@/components/PrismicRichText'
+import ButtonLink from '@/components/ButtonLink'
 import { cn } from '@/app/lib/cn'
 
 /**
@@ -22,7 +22,6 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       className={cn(
         'relative mx-auto flex flex-col overflow-hidden px-0 py-0 md:px-0 md:py-0 lg:py-0',
-        { 'theme-alternate': slice.primary.theme === 'Alternate' },
       )}
     >
       <div className="aspect-h-9 aspect-w-16 relative">
@@ -32,8 +31,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
           priority={index === 0}
         />
       </div>
-      {/* <div className="absolute inset-0 h-full w-full bg-gradient-to-br from-skin-hue-primary via-skin-hue-primary to-transparent opacity-90" /> */}
-      <div className="flex items-center justify-center bg-skin-neutral py-4 text-skin-base backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
+      <div className="bg-neutral text-background flex items-center justify-center py-4 backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
         <div>
           <PrismicRichText
             field={slice.primary.heading}
@@ -42,7 +40,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
                 <Heading
                   as="h1"
                   size="7xl"
-                  className="text-skin-primary lg:text-center"
+                  className="text-primary lg:text-center"
                 >
                   {children}
                 </Heading>
@@ -50,7 +48,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
             }}
           />
           {isFilled.richText(slice.primary.description) && (
-            <span className="relative my-6 flex justify-center text-skin-muted lg:mb-8">
+            <span className="text-muted relative my-6 flex justify-center lg:mb-8">
               <PrismicRichText field={slice.primary.description} />
             </span>
           )}
@@ -62,7 +60,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
                     field={item.button_link}
                     color={index === 0 ? item.button_color : 'Ghost'}
                     key={item.button_label}
-                    className="border border-skin-base"
+                    className="border-background border"
                   >
                     {item.button_label}
                   </ButtonLink>

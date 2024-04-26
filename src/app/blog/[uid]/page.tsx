@@ -7,8 +7,8 @@ import { components } from '@/slices'
 import { Graph } from 'schema-dts'
 import { PrismicNextImage } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
-import { PrismicRichText } from '@/app/components/PrismicRichText'
-import Heading from '@/app/components/Heading'
+import { PrismicRichText } from '@/components/PrismicRichText'
+import Heading from '@/components/Heading'
 
 type Params = { uid: string }
 
@@ -105,14 +105,14 @@ export default async function Page({ params }: { params: Params }) {
                 <Heading
                   as="h1"
                   size="7xl"
-                  className="text-skin-neutral lg:text-center"
+                  className="text-neutral lg:text-center"
                 >
                   {children}
                 </Heading>
               ),
             }}
           />
-          <p className="z-10 mt-8 text-center text-sm font-medium uppercase text-skin-neutral">
+          <p className="text-neutral z-10 mt-8 text-center text-sm font-medium uppercase">
             {pubDate}
           </p>
         </div>

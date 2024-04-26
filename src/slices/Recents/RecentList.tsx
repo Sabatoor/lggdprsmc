@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { createClient } from '@/prismicio'
 import { asDate, asText } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next'
@@ -25,7 +26,7 @@ const RecentList = async ({ type }: RecentListProps): Promise<JSX.Element> => {
           return (
             <li
               key={post.id}
-              className="group flex min-w-[250px] max-w-sm flex-col rounded-lg bg-skin-base shadow transition duration-200 ease-in-out hover:bg-skin-white hover:shadow-md"
+              className="bg-muted hover:bg-background group flex min-w-[250px] max-w-sm flex-col rounded-lg shadow transition duration-200 ease-in-out hover:shadow-md"
             >
               <div className="relative h-24 overflow-hidden rounded-t-lg">
                 <PrismicNextImage
@@ -35,7 +36,7 @@ const RecentList = async ({ type }: RecentListProps): Promise<JSX.Element> => {
                   sizes="(min-width: 460px) 384px, calc(82.86vw + 19px)"
                 />
               </div>
-              <p className="p-3 text-center text-xs font-bold text-skin-neutral">
+              <p className="text-neutral p-3 text-center text-xs font-bold">
                 {asDate(post.data.date_published)?.toLocaleDateString('en-CA', {
                   weekday: 'long',
                   month: 'long',
@@ -46,15 +47,18 @@ const RecentList = async ({ type }: RecentListProps): Promise<JSX.Element> => {
               </p>
               <p className="prose p-3">{post.data.excerpt}</p>
               <div className="mt-auto flex justify-center pb-3 lg:pb-6">
-                <Link
-                  href={post.url || '/'}
-                  className="rounded-xl bg-skin-button-primary px-6 py-4 text-center font-bold text-skin-neutral outline-none ring-skin-primary transition duration-300 ease-in-out hover:bg-skin-button-primary-hover focus:ring-2 lg:text-lg"
+                <Button
+                  asChild
+                  className="text-neutral font-bold"
+                  variant="default"
                 >
-                  Read More{' '}
-                  <span className="sr-only">
-                    about {asText(post.data.title)}
-                  </span>
-                </Link>
+                  <Link href={post.url || '/'}>
+                    Read More{' '}
+                    <span className="sr-only">
+                      about {asText(post.data.title)}
+                    </span>
+                  </Link>
+                </Button>
               </div>
             </li>
           )

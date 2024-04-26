@@ -1,7 +1,7 @@
 import { Content as PrismicContent } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-import Section from '@/app/components/Section'
-import { PrismicRichText } from '@/app/components/PrismicRichText'
+import Section from '@/components/Section'
+import { PrismicRichText } from '@/components/PrismicRichText'
 /**
  * Props for `Content`.
  */

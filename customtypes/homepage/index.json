@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "reviews": {
+              "type": "SharedSlice"
+            },
             "recents": {
               "type": "SharedSlice"
             },
