@@ -51,11 +51,6 @@
 				"alt": "brown and white concrete house under blue sky during daytime",
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
-			},
-			"theme": {
-				"__TYPE__": "FieldContent",
-				"value": "Base",
-				"type": "Select"
 			}
 		},
 		"items": [
@@ -84,7 +79,7 @@
 						"button_color",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "Secondary",
+							"value": "default",
 							"type": "Select"
 						}
 					]
@@ -116,7 +111,7 @@
 						"button_color",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "Primary",
+							"value": "outline",
 							"type": "Select"
 						}
 					]

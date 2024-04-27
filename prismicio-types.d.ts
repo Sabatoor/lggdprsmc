@@ -2165,17 +2165,6 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background_image: prismic.ImageField<never>
-
-  /**
-   * Theme field in *Hero → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Base
-   * - **API ID Path**: hero.primary.theme
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  theme: prismic.SelectField<'Base' | 'Alternate', 'filled'>
 }
 
 /**
@@ -2207,12 +2196,12 @@ export interface HeroSliceDefaultItem {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Inverted
+   * - **Default Value**: default
    * - **API ID Path**: hero.items[].button_color
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   button_color: prismic.SelectField<
-    'Inverted' | 'Primary' | 'Secondary' | 'Ghost',
+    'default' | 'secondary' | 'outline' | 'ghost' | 'link' | 'destructive',
     'filled'
   >
 }
