@@ -69,7 +69,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-neutral text-3xl md:text-4xl"
+                  className="text-3xl text-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -88,7 +88,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 return (
                   <div
                     key={`${slice.id}-${i}`}
-                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow lg:p-6"
+                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow lg:p-6"
                   >
                     <div className="flex flex-col items-center">
                       {isBrand(item.brand) &&
@@ -109,7 +109,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="text-neutral my-2 lg:my-3"
+                                className="my-2 text-neutral lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -124,7 +124,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="text-neutral my-2 lg:my-3"
+                                className="my-2 text-neutral lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -151,6 +151,11 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               variant: item.button_color || 'default',
                               size: 'lg',
                             }),
+                            {
+                              'text-neutral':
+                                item.button_color === 'default' ||
+                                item.button_color === 'link',
+                            },
                             'font-bold',
                           )}
                         >
@@ -172,13 +177,13 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         data-slice-variation={slice.variation}
         className="bg-[#ec0c8b] lg:py-0"
       >
-        <Section as="div" width="xl" className="text-muted text-center">
+        <Section as="div" width="xl" className="text-center text-muted">
           <div className="flex flex-col items-center gap-2">
             <PrismicRichText
               field={slice.primary.booth_info}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-neutral text-xl font-semibold uppercase">
+                  <p className="text-xl font-semibold uppercase text-neutral">
                     {children}
                   </p>
                 ),
@@ -191,7 +196,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                   <Heading
                     as="h2"
                     size="5xl"
-                    className="text-muted font-light uppercase"
+                    className="font-light uppercase text-muted"
                   >
                     {children}
                   </Heading>
@@ -228,7 +233,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-neutral text-3xl md:text-4xl"
+                  className="text-3xl text-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -247,7 +252,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 return (
                   <div
                     key={`${slice.id}-${i}`}
-                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow lg:p-6"
+                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow lg:p-6"
                   >
                     <div className="flex flex-col items-center">
                       {isProductType(item.product_type) &&
@@ -267,7 +272,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="text-neutral my-2 lg:my-3"
+                                className="my-2 text-neutral lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -282,7 +287,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="text-neutral my-2 lg:my-3"
+                                className="my-2 text-neutral lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -340,10 +345,10 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
               return (
                 <div
                   key={`${slice.id}-${i}`}
-                  className="bg-background max-w-sm overflow-hidden rounded-lg p-4 shadow lg:p-6"
+                  className="max-w-sm overflow-hidden rounded-lg bg-background p-4 shadow lg:p-6"
                 >
                   <div className="flex flex-col items-center">
-                    {Icon ? <Icon className="text-primary h-16 w-16" /> : null}
+                    {Icon ? <Icon className="h-16 w-16 text-primary" /> : null}
                     <PrismicRichText
                       field={item.heading}
                       components={{
@@ -351,7 +356,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                           <Heading
                             as="h2"
                             size="3xl"
-                            className="text-neutral my-2 lg:my-3"
+                            className="my-2 text-neutral lg:my-3"
                           >
                             {children}
                           </Heading>
@@ -404,7 +409,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-neutral text-3xl md:text-4xl"
+                  className="text-3xl text-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -418,7 +423,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 return (
                   <div
                     key={`${slice.id}-${i}`}
-                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow lg:p-6"
+                    className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow lg:p-6"
                   >
                     <div className="flex flex-col items-center">
                       {isService(item.service) ? (
@@ -429,7 +434,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                               <Heading
                                 as="h2"
                                 size="3xl"
-                                className="text-neutral my-2 lg:my-3"
+                                className="my-2 text-neutral lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -451,7 +456,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                           href={item.service.url || '#'}
                           className={cn(
                             buttonVariants({ variant: 'default' }),
-                            'text-neutral text-center outline-none focus:ring-2',
+                            'text-center text-neutral outline-none focus:ring-2',
                           )}
                         >
                           {item.button_label || 'Click Here'}
@@ -499,7 +504,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                         {isFilled.link(item.social_url) && (
                           <>
                             {Icon && (
-                              <Icon className="text-background ring-muted h-16 w-16 rounded p-1 group-focus:ring-2" />
+                              <Icon className="h-16 w-16 rounded p-1 text-background ring-muted group-focus:ring-2" />
                             )}
                             <span className="sr-only">
                               {`View us on ${item.logo}`}
@@ -570,7 +575,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                     <Heading
                       as="h2"
                       size="4xl"
-                      className="text-neutral text-3xl uppercase md:text-4xl"
+                      className="text-3xl uppercase text-neutral md:text-4xl"
                     >
                       {children}
                     </Heading>
@@ -622,7 +627,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
     >
       <Section as="div" width="xl" className="grid lg:grid-cols-3">
         <div className="flex flex-col items-center gap-6 lg:col-span-2 lg:flex-row">
-          <GiHomeGarage className="text-primary -mt-3 h-24 w-24" />
+          <GiHomeGarage className="-mt-3 h-24 w-24 text-primary" />
           <PrismicRichText
             field={slice.primary.heading}
             components={{
@@ -630,7 +635,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 <Heading
                   as="h2"
                   size="4xl"
-                  className="text-muted text-3xl uppercase md:text-4xl"
+                  className="text-3xl uppercase text-muted md:text-4xl"
                 >
                   {children}
                 </Heading>

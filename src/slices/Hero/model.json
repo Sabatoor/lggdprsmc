@@ -37,18 +37,6 @@
             "constraint": {},
             "thumbnails": []
           }
-        },
-        "theme": {
-          "type": "Select",
-          "config": {
-            "label": "Theme",
-            "placeholder": "",
-            "options": [
-              "Base",
-              "Alternate"
-            ],
-            "default_value": "Base"
-          }
         }
       },
       "items": {
@@ -73,12 +61,14 @@
             "label": "Button Color",
             "placeholder": "",
             "options": [
-              "Inverted",
-              "Primary",
-              "Secondary",
-              "Ghost"
+              "default",
+              "secondary",
+              "outline",
+              "ghost",
+              "link",
+              "destructive"
             ],
-            "default_value": "Inverted"
+            "default_value": "default"
           }
         }
       }

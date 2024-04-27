@@ -1,11 +1,12 @@
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
-import { PrismicNextImage } from '@prismicio/next'
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 
 import Heading from '@/components/Heading'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import ButtonLink from '@/components/ButtonLink'
 import { cn } from '@/app/lib/cn'
+import { buttonVariants } from '@/components/ui/button'
 
 /**
  * Props for `Hero`.
@@ -31,7 +32,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
           priority={index === 0}
         />
       </div>
-      <div className="bg-neutral text-background flex items-center justify-center py-4 backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
+      <div className="flex items-center justify-center bg-neutral py-4 text-background backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
         <div>
           <PrismicRichText
             field={slice.primary.heading}
@@ -48,22 +49,29 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
             }}
           />
           {isFilled.richText(slice.primary.description) && (
-            <span className="text-muted relative my-6 flex justify-center lg:mb-8">
+            <span className="relative my-6 flex justify-center text-muted lg:mb-8">
               <PrismicRichText field={slice.primary.description} />
             </span>
           )}
           {slice.items.length > 0 && (
             <div className="mt-6 flex flex-col justify-center gap-8 lg:mt-8 lg:flex-row">
               {isFilled.link(slice.items[0].button_link) &&
-                slice.items.map((item, index) => (
-                  <ButtonLink
-                    field={item.button_link}
-                    color={index === 0 ? item.button_color : 'Ghost'}
+                slice.items.map(item => (
+                  <PrismicNextLink
                     key={item.button_label}
-                    className="border-background border"
+                    field={item.button_link}
+                    className={cn(
+                      buttonVariants({
+                        variant: item.button_color || 'default',
+                      }),
+                      {
+                        'bg-neutral': item.button_color === 'outline',
+                        'text-neutral': item.button_color === 'default',
+                      },
+                    )}
                   >
                     {item.button_label}
-                  </ButtonLink>
+                  </PrismicNextLink>
                 ))}
             </div>
           )}
