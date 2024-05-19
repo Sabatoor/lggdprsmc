@@ -14,7 +14,7 @@ export type ReviewsProps = SliceComponentProps<Content.ReviewsSlice>
  */
 const Reviews = async ({ slice }: ReviewsProps): Promise<JSX.Element> => {
   const data = await fetch(
-    `https://places.googleapis.com/v1/places/ChIJEx9psH3RhVQRRLQ3z5jvCAI?fields=rating,userRatingCount,reviews&languageCode=en`,
+    `https://places.googleapis.com/v1/places/ChIJEx9psH3RhVQRRLQ3z5jvCAI?fields=rating,userRatingCount,reviews&languageCode=en&key=${process.env.GOOGLE_PLACES_API_KEY}`,
     {
       method: 'GET',
       headers: {
