@@ -62,7 +62,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
   if (slice.variation === 'carousel') {
     return (
       <section className="flex justify-center">
-        <div className="text-background w-full max-w-screen-xl">
+        <div className="w-full max-w-screen-xl text-background">
           <div className="flex justify-center">
             <PrismicRichText field={slice.primary.heading} />
           </div>
@@ -70,7 +70,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
             <div className="aspect-hd w-full">
               <div
                 ref={ref}
-                className="bg-neutral relative my-6 flex h-full items-center justify-center overflow-hidden lg:my-8 lg:rounded-lg"
+                className="relative my-6 flex h-full min-h-[400px] items-center justify-center overflow-hidden bg-neutral lg:my-8 lg:rounded-lg"
               >
                 <button
                   onClick={() => {
@@ -80,7 +80,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                       setCount(count - 1)
                     }
                   }}
-                  className="hover:bg-neutral absolute left-0 z-10 h-full px-1 transition duration-300 ease-in-out hover:bg-opacity-50"
+                  className="absolute left-0 z-10 h-full px-1 transition duration-300 ease-in-out hover:bg-neutral hover:bg-opacity-50"
                 >
                   <HiChevronLeft className="h-10 w-10" />
                 </button>
@@ -92,7 +92,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                       setCount(count + 1)
                     }
                   }}
-                  className="hover:bg-neutral absolute right-0 z-10 h-full px-1 transition duration-300 ease-in-out hover:bg-opacity-50"
+                  className="absolute right-0 z-10 h-full px-1 transition duration-300 ease-in-out hover:bg-neutral hover:bg-opacity-50"
                 >
                   <HiChevronRight className="h-10 w-10" />
                 </button>
@@ -121,8 +121,9 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                       field={slice.items[count - 1].image}
                       className="rounded-lg"
                       priority
-                      fill
-                      sizes="100vw"
+                      // fill
+                      // sizes="100vw"
+                      imgixParams={{ ar: '4:3', fit: 'crop' }}
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -140,7 +141,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
           field={slice.primary.heading}
           components={{
             heading2: ({ children }) => (
-              <h2 className="text-neutral mb-4 mt-6 text-center font-heading text-3xl font-bold md:text-4xl lg:text-5xl">
+              <h2 className="mb-4 mt-6 text-center font-heading text-3xl font-bold text-neutral md:text-4xl lg:text-5xl">
                 {children}
               </h2>
             ),
