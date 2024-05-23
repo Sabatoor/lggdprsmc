@@ -61,7 +61,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
 
   if (slice.variation === 'carousel') {
     return (
-      <section className="flex justify-center">
+      <section className="flex justify-center py-8">
         <div className="w-full max-w-screen-xl text-background">
           <div className="flex justify-center">
             <PrismicRichText field={slice.primary.heading} />
