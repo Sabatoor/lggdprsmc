@@ -28,12 +28,6 @@ const Reviews = async ({ slice }: ReviewsProps): Promise<JSX.Element> => {
           },
         ).then(res => res.json())
       : { reviews: [] }
-  // const data = await fetch(process.env.URL + '/api/reviews', {
-  //   method: 'GET',
-  //   next: {
-  //     revalidate: 60 * 60 * 24 * 7,
-  //   },
-  // }).then(res => res.json())
 
   return (
     <Section
