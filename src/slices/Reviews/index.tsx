@@ -21,6 +21,7 @@ const Reviews = async ({ slice }: ReviewsProps): Promise<JSX.Element> => {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
+              Referer: `https://lionsgategaragedoors.com`,
             },
             next: {
               revalidate: 60 * 60 * 24 * 7,
