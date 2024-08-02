@@ -454,7 +454,7 @@
             "label": "Details",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,strong,em"
+            "multi": "paragraph,strong,em,list-item,o-list-item"
           }
         },
         "button_link": {

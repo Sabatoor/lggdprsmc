@@ -722,10 +722,8 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "*With a new garage door purchase, we will include the 1st Annual Maintenance Service at no charge! ",
-							"spans": []
-						},
-						"direction": "ltr"
+							"text": "Lorem esse enim culpa labore Lorem commodo exercitation."
+						}
 					}
 				]
 			},
