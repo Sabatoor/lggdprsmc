@@ -26,6 +26,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "reviews": {
+              "type": "SharedSlice"
+            },
             "locations": {
               "type": "SharedSlice"
             },
