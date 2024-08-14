@@ -420,6 +420,7 @@ export type LocationDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | ReviewsSlice
   | LocationsSlice
   | RecentsSlice
   | GallerySlice
@@ -1742,6 +1743,16 @@ export interface CallToActionSlicePromotionPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   details: prismic.RichTextField
+
+  /**
+   * Image field in *CallToAction → Promotion → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.promotion.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
 
   /**
    * Button Link field in *CallToAction → Promotion → Primary*

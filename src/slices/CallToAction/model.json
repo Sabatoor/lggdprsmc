@@ -457,6 +457,14 @@
             "multi": "paragraph,strong,em,list-item,o-list-item"
           }
         },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "button_link": {
           "type": "Link",
           "config": {

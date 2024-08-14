@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Content, isFilled } from '@prismicio/client'
+import { asText, Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Heading from '@/components/Heading'
@@ -78,7 +78,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           />
         )}
         <div
-          className={cn('grid gap-4 py-6  lg:gap-8', {
+          className={cn('grid gap-4 py-6 lg:gap-8', {
             'lg:grid-cols-3': slice.items.length === 3,
             'lg:grid-cols-2': slice.items.length === 2,
           })}
@@ -242,7 +242,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           />
         )}
         <div
-          className={cn('grid gap-4 py-6  lg:gap-8', {
+          className={cn('grid gap-4 py-6 lg:gap-8', {
             'lg:grid-cols-3': slice.items.length === 3,
             'lg:grid-cols-2': slice.items.length === 2,
           })}
@@ -602,17 +602,25 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           {isFilled.link(slice.primary.button_link) &&
             isFilled.keyText(slice.primary.button_label) && (
               <div className="my-8 justify-self-center lg:justify-self-end">
-                <PrismicNextLink
-                  field={slice.primary.button_link}
-                  className={cn(
-                    buttonVariants({
-                      variant: slice.primary.button_color || 'outline',
-                      size: 'lg',
-                    }),
-                  )}
-                >
-                  {slice.primary.button_label}
-                </PrismicNextLink>
+                {isFilled.image(slice.primary.image) && (
+                  <PrismicNextImage field={slice.primary.image} />
+                )}
+                <div className="flex justify-center">
+                  <PrismicNextLink
+                    field={slice.primary.button_link}
+                    className={cn(
+                      buttonVariants({
+                        variant: slice.primary.button_color || 'outline',
+                        size: 'lg',
+                      }),
+                    )}
+                  >
+                    {slice.primary.button_label}
+                    <span className="sr-only">
+                      {`about ${asText(slice.primary.benefit)}`}
+                    </span>
+                  </PrismicNextLink>
+                </div>
               </div>
             )}
         </Section>
