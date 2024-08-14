@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: Params }) {
                       className="rounded-lg"
                     />
                   </Link>
-                  <div className="bg-background relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg p-4 shadow-lg lg:text-center">
+                  <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-background p-4 shadow-lg lg:text-center">
                     <PrismicRichText
                       field={product.data.title}
                       components={{
@@ -81,7 +81,7 @@ export default async function Page({ params }: { params: Params }) {
                       asChild
                       variant="default"
                       size="lg"
-                      className="text-neutral font-bold lg:text-lg"
+                      className="font-bold text-neutral lg:text-lg"
                     >
                       <Link
                         href={product.url || '#'}
@@ -127,14 +127,14 @@ export default async function Page({ params }: { params: Params }) {
                 <li key={product.id} className="max-w-[400px]">
                   <Link
                     href={product.url || '#'}
-                    className="ring-primary block outline-none transition duration-300 ease-in-out focus:ring-2"
+                    className="block outline-none ring-primary transition duration-300 ease-in-out focus:ring-2"
                   >
                     <PrismicNextImage
                       field={product.data.featured_image}
                       className="rounded-lg"
                     />
                   </Link>
-                  <div className="bg-background relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg p-4 shadow-lg lg:text-center">
+                  <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-background p-4 shadow-lg lg:text-center">
                     <PrismicRichText
                       field={product.data.title}
                       components={{
@@ -154,7 +154,7 @@ export default async function Page({ params }: { params: Params }) {
                       asChild
                       variant="default"
                       size="lg"
-                      className="text-neutral font-bold lg:text-lg"
+                      className="font-bold text-neutral lg:text-lg"
                     >
                       <Link href={product.url || '#'}>
                         Learn More{' '}

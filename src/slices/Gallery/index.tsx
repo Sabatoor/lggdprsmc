@@ -1,11 +1,10 @@
+import Pagination from '@/components/Pagination'
 import Section from '@/components/Section'
 import { createClient } from '@/prismicio'
-import { Content, asText } from '@prismicio/client'
+import { Content } from '@prismicio/client'
+import { PrismicNextImage } from '@prismicio/next'
 import { SliceComponentProps } from '@prismicio/react'
-import { BlogPostDocument, PortfolioDocument } from '../../../prismicio-types'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import Link from 'next/link'
-import Pagination from '@/components/Pagination'
 
 /**
  * Props for `Gallery`.
@@ -25,25 +24,22 @@ const Gallery = async ({
 }: GalleryProps): Promise<JSX.Element> => {
   const { page } = context as contextProps
   const client = createClient()
-  const items = await client.getByType('gallery_item', {
+
+  const portfolios = await client.getByType('portfolio', {
     orderings: {
       field: 'document.first_publication_date',
       direction: 'desc',
     },
     graphQuery: `
     {
-      gallery_item {
-        related_content {
-          ...on portfolio {
-            title
-          }
-        }
-        gallery_image
+      portfolio {
+        featured_image
+        title
       }
     }
     `,
     page: page,
-    pageSize: 24,
+    pageSize: 12,
   })
   return (
     <Section
@@ -53,55 +49,28 @@ const Gallery = async ({
       className="flex-col"
     >
       <ul className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4">
-        {items.results &&
-          items.results.map(item => {
-            let relatedContent
-            if (
-              'type' in item.data.related_content &&
-              item.data.related_content.type === 'portfolio'
-            ) {
-              relatedContent = item.data
-                .related_content as unknown as PortfolioDocument
-            } else if (
-              'type' in item.data.related_content &&
-              item.data.related_content.type === 'blog_post'
-            ) {
-              relatedContent = item.data
-                .related_content as unknown as BlogPostDocument
-            }
-
+        {portfolios.results &&
+          portfolios.results.map(item => {
             return (
               <li key={item.id} className="relative">
-                <Link
-                  href={
-                    relatedContent
-                      ? (relatedContent.url as string)
-                      : (item.data.gallery_image.url as string)
-                  }
-                >
+                <Link href={item.url || '#'}>
                   <PrismicNextImage
-                    field={item.data.gallery_image}
+                    field={item.data.featured_image}
                     imgixParams={{ ar: '4:3', fit: 'crop' }}
-                    title={
-                      relatedContent
-                        ? `${asText(relatedContent.data.title)}`
-                        : item.data.gallery_image.alt
-                          ? item.data.gallery_image.alt
-                          : ''
-                    }
-                    className="shadow-neutral rounded-lg shadow-sm"
+                    title={item.data.featured_image.alt || 'decorative image'}
+                    className="rounded-lg shadow-sm shadow-neutral"
                   />
                 </Link>
               </li>
             )
           })}
       </ul>
-      {items.total_pages > 1 && (
+      {portfolios.total_pages > 1 && (
         <div className="mt-6 lg:mt-8">
           <Pagination
-            hasNextPage={items?.next_page !== null}
-            hasPrevPage={items?.prev_page !== null}
-            totalPages={items?.total_pages}
+            hasNextPage={portfolios?.next_page !== null}
+            hasPrevPage={portfolios?.prev_page !== null}
+            totalPages={portfolios?.total_pages}
           />
         </div>
       )}
