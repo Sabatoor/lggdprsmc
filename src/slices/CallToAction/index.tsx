@@ -1,28 +1,27 @@
-import Link from 'next/link'
-import { asText, Content, isFilled } from '@prismicio/client'
-import { SliceComponentProps } from '@prismicio/react'
-import { PrismicRichText } from '@/components/PrismicRichText'
+import { cn } from '@/app/lib/cn'
 import Heading from '@/components/Heading'
+import { PrismicRichText } from '@/components/PrismicRichText'
 import Section from '@/components/Section'
-import ButtonLink from '@/components/ButtonLink'
-import { GiHomeGarage } from 'react-icons/gi'
-import { RiQuestionnaireFill } from 'react-icons/ri'
+import { buttonVariants } from '@/components/ui/button'
+import { asText, Content, isFilled } from '@prismicio/client'
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { SliceComponentProps } from '@prismicio/react'
+import Link from 'next/link'
+import React from 'react'
 import {
   FaFacebook,
   FaInstagram,
   FaLinkedin,
-  FaYelp,
   FaToolbox,
+  FaYelp,
 } from 'react-icons/fa'
-import React from 'react'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { GiHomeGarage } from 'react-icons/gi'
+import { RiQuestionnaireFill } from 'react-icons/ri'
 import {
   BrandDocument,
   ProductTypeDocument,
   ServiceDocument,
 } from '../../../prismicio-types'
-import { cn } from '@/app/lib/cn'
-import { buttonVariants } from '@/components/ui/button'
 
 /**
  * Props for `CallToAction`.
@@ -379,12 +378,6 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                       >
                         {item.button_label || 'Click Here'}
                       </PrismicNextLink>
-                      {/* <ButtonLink
-                        field={item.button_link}
-                        color={item.button_color || 'Inverted'}
-                      >
-                        {item.button_label || 'Click Here'}
-                      </ButtonLink> */}
                     </div>
                   ) : null}
                 </div>
