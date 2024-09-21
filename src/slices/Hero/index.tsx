@@ -1,11 +1,10 @@
 import { Content, isFilled } from '@prismicio/client'
-import { SliceComponentProps } from '@prismicio/react'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { SliceComponentProps } from '@prismicio/react'
 
+import { cn } from '@/app/lib/cn'
 import Heading from '@/components/Heading'
 import { PrismicRichText } from '@/components/PrismicRichText'
-import ButtonLink from '@/components/ButtonLink'
-import { cn } from '@/app/lib/cn'
 import { buttonVariants } from '@/components/ui/button'
 
 /**
