@@ -61,7 +61,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   embed: ({ node }) => {
     return (
-      <div className="shadow-neutral mx-auto my-4 max-w-screen-sm overflow-hidden rounded-lg shadow-md lg:my-8">
+      <div className="mx-auto my-4 max-w-screen-sm overflow-hidden rounded-lg shadow-md shadow-neutral lg:my-8">
         <div
           className="aspect-h-9 aspect-w-16"
           dangerouslySetInnerHTML={{ __html: node.oembed.html || '' }}
@@ -70,18 +70,33 @@ const defaultComponents: JSXMapSerializer = {
     )
   },
   image: ({ node }) => {
-    return (
-      <Link href={node.url} target="_blank">
-        <Image
-          src={node.url}
-          alt={node.alt || ''}
-          width={node.dimensions.width}
-          height={node.dimensions.height}
-          className="shadow-neutral my-4 rounded-lg shadow-md md:my-6 lg:my-8 xl:my-10"
-          title={node.alt || ''}
-        />
-      </Link>
-    )
+    if (node.linkTo) {
+      return (
+        <Link href={node.linkTo.url || '#'} target="_blank">
+          <Image
+            src={node.url}
+            alt={node.alt || ''}
+            width={node.dimensions.width}
+            height={node.dimensions.height}
+            className="my-4 rounded-lg shadow md:my-6 lg:my-8 xl:my-10"
+            title={node.alt || ''}
+          />
+        </Link>
+      )
+    } else {
+      return (
+        <Link href={node.url} target="_blank">
+          <Image
+            src={node.url}
+            alt={node.alt || ''}
+            width={node.dimensions.width}
+            height={node.dimensions.height}
+            className="my-4 rounded-lg shadow md:my-6 lg:my-8 xl:my-10"
+            title={node.alt || ''}
+          />
+        </Link>
+      )
+    }
   },
   list: ({ children }) => {
     return (
