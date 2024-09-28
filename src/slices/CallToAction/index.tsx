@@ -586,7 +586,9 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 field={slice.primary.details}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className="text-xs lg:text-sm">{children}</p>
+                    <p className="max-w-prose self-start text-xs lg:text-sm">
+                      {children}
+                    </p>
                   ),
                 }}
               />
@@ -596,7 +598,12 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             isFilled.keyText(slice.primary.button_label) && (
               <div className="my-8 justify-self-center lg:justify-self-end">
                 {isFilled.image(slice.primary.image) && (
-                  <PrismicNextImage field={slice.primary.image} />
+                  <PrismicNextLink field={slice.primary.button_link}>
+                    <PrismicNextImage
+                      field={slice.primary.image}
+                      className="mb-4 rounded-lg shadow md:mb-6 lg:mb-8"
+                    />
+                  </PrismicNextLink>
                 )}
                 <div className="flex justify-center">
                   <PrismicNextLink
