@@ -19,6 +19,7 @@ import { GiHomeGarage } from 'react-icons/gi'
 import { RiQuestionnaireFill } from 'react-icons/ri'
 import {
   BrandDocument,
+  ProductDocument,
   ProductTypeDocument,
   ServiceDocument,
 } from '../../../prismicio-types'
@@ -40,6 +41,9 @@ const icons = {
 
 const isBrand = (brand: object): brand is BrandDocument => {
   return (brand as BrandDocument).data !== undefined
+}
+const isProduct = (product: object): product is ProductDocument => {
+  return (product as ProductDocument).data !== undefined
 }
 const isProductType = (type: object): type is ProductTypeDocument => {
   return (type as ProductTypeDocument).data !== undefined
@@ -558,8 +562,8 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
         data-slice-variation={slice.variation}
         className="bg-primary"
       >
-        <Section as="div" width="xl" className="grid lg:grid-cols-3">
-          <div className="flex flex-col items-center gap-6 lg:col-span-2">
+        <Section as="div" width="2xl" className="grid lg:grid-cols-5">
+          <div className="flex flex-col items-center gap-6 lg:col-span-3 lg:pr-6">
             {isFilled.richText(slice.primary.benefit) && (
               <PrismicRichText
                 field={slice.primary.benefit}
@@ -586,7 +590,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                 field={slice.primary.details}
                 components={{
                   paragraph: ({ children }) => (
-                    <p className="max-w-prose self-start text-xs lg:text-sm">
+                    <p className="max-w-prose self-start lg:text-xl">
                       {children}
                     </p>
                   ),
@@ -596,7 +600,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           </div>
           {isFilled.link(slice.primary.button_link) &&
             isFilled.keyText(slice.primary.button_label) && (
-              <div className="my-8 justify-self-center lg:justify-self-end">
+              <div className="my-8 justify-self-center lg:col-span-2 lg:justify-self-end">
                 {isFilled.image(slice.primary.image) && (
                   <PrismicNextLink field={slice.primary.button_link}>
                     <PrismicNextImage

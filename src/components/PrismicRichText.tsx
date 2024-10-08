@@ -61,7 +61,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   embed: ({ node }) => {
     return (
-      <div className="mx-auto my-4 max-w-screen-sm overflow-hidden rounded-lg shadow-md shadow-neutral lg:my-8">
+      <div className="mx-auto max-w-screen-sm overflow-hidden rounded shadow-xl">
         <div
           className="aspect-h-9 aspect-w-16"
           dangerouslySetInnerHTML={{ __html: node.oembed.html || '' }}

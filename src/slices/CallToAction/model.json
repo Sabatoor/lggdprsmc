@@ -284,7 +284,8 @@
             "label": "Product Type",
             "select": "document",
             "customtypes": [
-              "product_type"
+              "product_type",
+              "product"
             ]
           }
         },

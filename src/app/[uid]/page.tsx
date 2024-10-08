@@ -30,6 +30,7 @@ export default async function Page({
         'brand.description',
         'brand.logo',
         'brand.title',
+        'product.featured_image',
         'product_type.title',
         'product_type.description',
         'product_type.featured_image',
