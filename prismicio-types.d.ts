@@ -1531,7 +1531,7 @@ export interface CallToActionSliceProductTypeGridItem {
    * - **API ID Path**: call_to_action.items[].product_type
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  product_type: prismic.ContentRelationshipField<'product_type'>
+  product_type: prismic.ContentRelationshipField<'product_type' | 'product'>
 
   /**
    * Heading field in *CallToAction → Items*
@@ -2732,6 +2732,17 @@ declare module '@prismicio/client' {
       repositoryNameOrEndpoint: string,
       options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>
+  }
+
+  interface CreateWriteClient {
+    (
+      repositoryNameOrEndpoint: string,
+      options: prismic.WriteClientConfig,
+    ): prismic.WriteClient<AllDocumentTypes>
+  }
+
+  interface CreateMigration {
+    (): prismic.Migration<AllDocumentTypes>
   }
 
   namespace Content {
