@@ -16,10 +16,12 @@ const Content = ({ slice }: ContentProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="lg"
+      className="prose mx-auto block w-full lg:prose-lg xl:prose-xl 2xl:prose-2xl"
     >
-      <div className="flex flex-col items-center">
+      <PrismicRichText field={slice.primary.content} />
+      {/* <div className="flex flex-col items-center">
         <PrismicRichText field={slice.primary.content} />
-      </div>
+      </div> */}
     </Section>
   )
 }
