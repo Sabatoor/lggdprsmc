@@ -19,7 +19,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   heading2: ({ children }) => {
     return (
-      <Heading as="h2" size="5xl">
+      <Heading as="h2" size="5xl" className="">
         {children}
       </Heading>
     )
@@ -72,35 +72,41 @@ const defaultComponents: JSXMapSerializer = {
   image: ({ node }) => {
     if (node.linkTo) {
       return (
-        <Link href={node.linkTo.url || '#'} target="_blank">
-          <Image
-            src={node.url}
-            alt={node.alt || ''}
-            width={node.dimensions.width}
-            height={node.dimensions.height}
-            className="my-4 rounded-lg shadow md:my-6 lg:my-8 xl:my-10"
-            title={node.alt || ''}
-          />
-        </Link>
+        <div className="flex justify-center">
+          <Link href={node.linkTo.url || '#'} target="_blank">
+            <Image
+              src={node.url}
+              alt={node.alt || ''}
+              width={node.dimensions.width}
+              height={node.dimensions.height}
+              className="my-4 rounded-lg shadow md:my-6 lg:my-8 xl:my-10"
+              title={node.alt || ''}
+            />
+          </Link>
+        </div>
       )
     } else {
       return (
-        <Link href={node.url} target="_blank">
-          <Image
-            src={node.url}
-            alt={node.alt || ''}
-            width={node.dimensions.width}
-            height={node.dimensions.height}
-            className="my-4 rounded-lg shadow md:my-6 lg:my-8 xl:my-10"
-            title={node.alt || ''}
-          />
-        </Link>
+        <div className="flex justify-center">
+          <Link href={node.url} target="_blank">
+            <Image
+              src={node.url}
+              alt={node.alt || ''}
+              width={node.dimensions.width}
+              height={node.dimensions.height}
+              className="my-4 rounded-lg shadow md:my-6 lg:my-8 xl:my-10"
+              title={node.alt || ''}
+            />
+          </Link>
+        </div>
       )
     }
   },
   list: ({ children }) => {
     return (
-      <ul className="prose list-disc lg:prose-lg xl:prose-xl">{children}</ul>
+      <ul className="prose mx-auto list-disc lg:prose-lg xl:prose-xl">
+        {children}
+      </ul>
     )
   },
   listItem: ({ children }) => {
