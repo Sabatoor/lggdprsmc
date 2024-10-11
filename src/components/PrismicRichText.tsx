@@ -19,7 +19,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   heading2: ({ children }) => {
     return (
-      <Heading as="h2" size="5xl" className="">
+      <Heading as="h2" size="5xl">
         {children}
       </Heading>
     )
@@ -54,9 +54,7 @@ const defaultComponents: JSXMapSerializer = {
   },
   paragraph: ({ children }) => {
     return (
-      <p className="prose mx-auto my-4 self-start text-inherit lg:prose-lg xl:prose-xl lg:my-2">
-        {children}
-      </p>
+      <p className="mx-auto my-4 self-start text-inherit lg:my-6">{children}</p>
     )
   },
   embed: ({ node }) => {
@@ -103,11 +101,7 @@ const defaultComponents: JSXMapSerializer = {
     }
   },
   list: ({ children }) => {
-    return (
-      <ul className="prose mx-auto list-disc lg:prose-lg xl:prose-xl">
-        {children}
-      </ul>
-    )
+    return <ul className="mx-auto list-disc">{children}</ul>
   },
   listItem: ({ children }) => {
     return <li className="ml-4 md:ml-6 lg:ml-8 xl:ml-10">{children}</li>

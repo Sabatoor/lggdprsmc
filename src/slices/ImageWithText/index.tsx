@@ -24,13 +24,13 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
       <Section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        width="2xl"
+        width="xl"
         className="flex-col"
       >
         {isFilled.richText(slice.primary.heading) && (
           <>
             <PrismicRichText field={slice.primary.heading} />
-            <div className="bg-primary my-4 h-0.5 w-full rounded-full lg:my-6" />
+            <div className="my-4 h-0.5 w-full rounded-full bg-primary lg:my-6" />
           </>
         )}
         <div className="grid lg:grid-cols-2 lg:gap-x-8">
@@ -50,9 +50,12 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
             />
           </div>
           <div
-            className={cn('self-center px-0 py-4 lg:mr-6 lg:py-0', {
-              'lg:order-1': slice.primary.image_location,
-            })}
+            className={cn(
+              'prose self-center px-0 py-4 lg:prose-lg xl:prose-xl lg:mr-6 lg:py-0',
+              {
+                'lg:order-1': slice.primary.image_location,
+              },
+            )}
           >
             {isFilled.richText(slice.primary.text) && (
               <PrismicRichText field={slice.primary.text} />
@@ -89,15 +92,15 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
           />
         </div>
         <div
-          className={cn('bg-neutral flex flex-col items-center p-4 lg:p-6', {
+          className={cn('flex flex-col items-center bg-neutral p-4 lg:p-6', {
             'lg:order-1': slice.primary.image_location,
           })}
         >
           {isFilled.select(slice.primary.icon) && (
             <>
-              {Icon && <Icon className="text-primary h-24 w-24" />}
+              {Icon && <Icon className="h-24 w-24 text-primary" />}
 
-              <div className="bg-primary my-4 h-0.5 w-full rounded-full lg:my-6" />
+              <div className="my-4 h-0.5 w-full rounded-full bg-primary lg:my-6" />
             </>
           )}
           {isFilled.richText(slice.primary.heading) ? (
@@ -108,7 +111,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
                   <Heading
                     as="h2"
                     size="3xl"
-                    className="text-primary pb-4 text-center"
+                    className="pb-4 text-center text-primary"
                   >
                     {children}
                   </Heading>
@@ -120,7 +123,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
             field={slice.primary.text}
             components={{
               paragraph: ({ children }) => (
-                <p className="text-background prose self-start lg:prose-lg xl:prose-xl">
+                <p className="prose self-start text-background lg:prose-lg xl:prose-xl">
                   {children}
                 </p>
               ),
@@ -134,7 +137,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      width="2xl"
+      width="xl"
     >
       <div className="grid grid-cols-1 items-center lg:grid-cols-3 lg:gap-12">
         <div
@@ -152,7 +155,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
           />
         </div>
         <div
-          className={cn('col-span-2', {
+          className={cn('prose col-span-2 lg:prose-lg xl:prose-xl', {
             'order-1': slice.primary.image_location,
           })}
         >
