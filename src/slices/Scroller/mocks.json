@@ -136,6 +136,135 @@
 						}
 					}
 				]
+			},
+			"items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"__TYPE__": "ImageContent",
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1514515837105-57518a66de3e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
+									"alt": "a close up of the emblem on a classic car",
+									"origin": {
+										"id": "L8-4xHsNzMA",
+										"url": "https://images.unsplash.com/photo-1514515837105-57518a66de3e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
+										"width": 3872,
+										"height": 2592
+									},
+									"width": 3872,
+									"height": 2592,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										}
+									},
+									"thumbnails": {}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"__TYPE__": "ImageContent",
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1701838480909-c67f363ab0ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxOHx8Y29ydmV0dGV8ZW58MHx8fHwxNzMyOTMwMjU0fDA&ixlib=rb-4.0.3&q=85",
+									"alt": "a red car parked on the side of the road",
+									"origin": {
+										"id": "TNIW-j6QEdo",
+										"url": "https://images.unsplash.com/photo-1701838480909-c67f363ab0ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxOHx8Y29ydmV0dGV8ZW58MHx8fHwxNzMyOTMwMjU0fDA&ixlib=rb-4.0.3&q=85",
+										"width": 8064,
+										"height": 4536
+									},
+									"width": 8064,
+									"height": 4536,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										}
+									},
+									"thumbnails": {}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"__TYPE__": "ImageContent",
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1568570125654-2fca9b2116b4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
+									"alt": "a close up of the emblem on a red car",
+									"origin": {
+										"id": "DA_x0_mnYkE",
+										"url": "https://images.unsplash.com/photo-1568570125654-2fca9b2116b4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
+										"width": 5760,
+										"height": 3840
+									},
+									"width": 5760,
+									"height": 3840,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										}
+									},
+									"thumbnails": {}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"image",
+								{
+									"__TYPE__": "ImageContent",
+									"provider": "imgix",
+									"url": "https://images.unsplash.com/photo-1518052016321-b860c6755f83?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
+									"alt": "classic red and white car interior",
+									"origin": {
+										"id": "RjMgc6GXpHg",
+										"url": "https://images.unsplash.com/photo-1518052016321-b860c6755f83?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
+										"width": 4928,
+										"height": 2989
+									},
+									"width": 4928,
+									"height": 2989,
+									"edit": {
+										"background": "transparent",
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										}
+									},
+									"thumbnails": {}
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": [
@@ -207,7 +336,6 @@
 					[
 						"image",
 						{
-							"__TYPE__": "ImageContent",
 							"url": "https://images.unsplash.com/photo-1696446700665-1e26fcca574f?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MXwxfHNlYXJjaHw4fHxmcnVpdHxlbnwwfHx8fDE3MDA3MjY4MjN8MA&ixlib=rb-4.0.3&q=85",
 							"alt": "a man and a woman laying on a blanket with fruit",
 							"origin": {
@@ -226,6 +354,8 @@
 									"y": 0
 								}
 							},
+							"credits": null,
+							"__TYPE__": "ImageContent",
 							"thumbnails": {}
 						}
 					]

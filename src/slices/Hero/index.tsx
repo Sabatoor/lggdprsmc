@@ -29,6 +29,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
           field={slice.primary.background_image}
           className="w-full"
           priority={index === 0}
+          imgixParams={{ ar: '16:9', fit: 'crop' }}
         />
       </div>
       <div className="flex items-center justify-center bg-neutral py-4 text-background backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
