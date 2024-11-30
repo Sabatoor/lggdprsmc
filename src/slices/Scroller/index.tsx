@@ -87,7 +87,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
             <Carousel
               opts={{ loop: true }}
               plugins={[Autoplay({ delay: 6000 })]}
-              className="w-full max-w-[240px] md:max-w-screen-sm lg:max-w-screen-md"
+              className="w-full max-w-screen-sm lg:max-w-screen-md"
             >
               <CarouselContent>
                 {carouselItems &&
@@ -95,7 +95,13 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                     return (
                       <CarouselItem
                         key={slice.id + index}
-                        className="h-full md:basis-1/2 lg:basis-1/3"
+                        className={cn('h-full', {
+                          'xl:basis-1/2': slice.primary.desktop_columns === '2',
+                          'lg:basis-1/2 xl:basis-1/3':
+                            slice.primary.desktop_columns === '3',
+                          'lg:basis-1/2 xl:basis-1/4':
+                            slice.primary.desktop_columns === '4',
+                        })}
                       >
                         <div className="p-1">
                           <Card className="overflow-hidden">
@@ -117,10 +123,10 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
                   })}
               </CarouselContent>
               {carouselItems.length > 2 && (
-                <>
+                <div className="hidden md:block">
                   <CarouselNext />
                   <CarouselPrevious />
-                </>
+                </div>
               )}
             </Carousel>
           </div>
