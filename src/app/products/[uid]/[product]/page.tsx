@@ -22,7 +22,8 @@ type File = {
   size: number
 }
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page(props: { params: Promise<Params> }) {
+  const params = await props.params;
   const client = createClient()
   const page = await client
     .getByUID('product', params.product, {
@@ -93,11 +94,12 @@ export default async function Page({ params }: { params: Params }) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<Params>
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const client = createClient()
   const settings = await client.getSingle('settings')
   const page = await client
