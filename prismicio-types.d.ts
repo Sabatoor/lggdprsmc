@@ -2696,6 +2696,17 @@ export interface ScrollerSliceCarouselPrimary {
   heading: prismic.TitleField
 
   /**
+   * Desktop Columns field in *Scroller → Carousel → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: How many slides to show on desktop
+   * - **Default Value**: 1
+   * - **API ID Path**: scroller.carousel.primary.desktop_columns
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  desktop_columns: prismic.SelectField<'1' | '2' | '3' | '4', 'filled'>
+
+  /**
    * Items field in *Scroller → Carousel → Primary*
    *
    * - **Field Type**: Group

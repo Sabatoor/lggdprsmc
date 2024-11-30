@@ -132,8 +132,10 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Double"
-						}
+							"text": "Scroller Slice",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
@@ -146,7 +148,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"provider": "imgix",
 									"url": "https://images.unsplash.com/photo-1514515837105-57518a66de3e?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxfHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
 									"alt": "a close up of the emblem on a classic car",
@@ -166,6 +167,8 @@
 											"y": 0
 										}
 									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -177,7 +180,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"provider": "imgix",
 									"url": "https://images.unsplash.com/photo-1701838480909-c67f363ab0ed?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxOHx8Y29ydmV0dGV8ZW58MHx8fHwxNzMyOTMwMjU0fDA&ixlib=rb-4.0.3&q=85",
 									"alt": "a red car parked on the side of the road",
@@ -197,6 +199,8 @@
 											"y": 0
 										}
 									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -208,7 +212,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"provider": "imgix",
 									"url": "https://images.unsplash.com/photo-1568570125654-2fca9b2116b4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHw4fHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
 									"alt": "a close up of the emblem on a red car",
@@ -228,6 +231,8 @@
 											"y": 0
 										}
 									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
@@ -239,7 +244,6 @@
 							[
 								"image",
 								{
-									"__TYPE__": "ImageContent",
 									"provider": "imgix",
 									"url": "https://images.unsplash.com/photo-1518052016321-b860c6755f83?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzfHxjb3J2ZXR0ZXxlbnwwfHx8fDE3MzI5MzAyNTR8MA&ixlib=rb-4.0.3&q=85",
 									"alt": "classic red and white car interior",
@@ -259,12 +263,19 @@
 											"y": 0
 										}
 									},
+									"credits": null,
+									"__TYPE__": "ImageContent",
 									"thumbnails": {}
 								}
 							]
 						]
 					}
 				]
+			},
+			"desktop_columns": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "2"
 			}
 		},
 		"items": [

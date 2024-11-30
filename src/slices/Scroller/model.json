@@ -72,6 +72,20 @@
             "single": "heading2"
           }
         },
+        "desktop_columns": {
+          "type": "Select",
+          "config": {
+            "label": "Desktop Columns",
+            "placeholder": "How many slides to show on desktop",
+            "options": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "default_value": "1"
+          }
+        },
         "items": {
           "type": "Group",
           "config": {
