@@ -72,10 +72,10 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
 
     return (
       <Section
-        width="xl"
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
         className="flex-col"
+        width="xl"
       >
         {isFilled.richText(slice.primary.heading) && (
           <div className="flex justify-center pb-4 md:pb-6 lg:pb-10">
@@ -83,53 +83,48 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
           </div>
         )}
         {carouselItems && (
-          <div className="flex justify-center">
-            <Carousel
-              opts={{ loop: true }}
-              plugins={[Autoplay({ delay: 6000 })]}
-              className="w-full max-w-screen-sm lg:max-w-screen-md"
-            >
-              <CarouselContent>
-                {carouselItems &&
-                  carouselItems.map((item, index) => {
-                    return (
-                      <CarouselItem
-                        key={slice.id + index}
-                        className={cn('h-full', {
-                          'xl:basis-1/2': slice.primary.desktop_columns === '2',
-                          'lg:basis-1/2 xl:basis-1/3':
-                            slice.primary.desktop_columns === '3',
-                          'lg:basis-1/2 xl:basis-1/4':
-                            slice.primary.desktop_columns === '4',
-                        })}
-                      >
-                        <div className="p-1">
-                          <Card className="overflow-hidden">
-                            <CardContent className="p-0">
-                              <Link href={item.image.url || '#'}>
-                                <PrismicNextImage
-                                  field={item.image}
-                                  imgixParams={{
-                                    ar: '16:9',
-                                    fit: 'crop',
-                                  }}
-                                />
-                              </Link>
-                            </CardContent>
-                          </Card>
-                        </div>
-                      </CarouselItem>
-                    )
-                  })}
-              </CarouselContent>
-              {carouselItems.length > 2 && (
-                <div className="hidden md:block">
-                  <CarouselNext />
-                  <CarouselPrevious />
-                </div>
-              )}
-            </Carousel>
-          </div>
+          <Carousel
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 6000 })]}
+            className="w-full max-w-screen-sm lg:max-w-screen-lg"
+          >
+            <CarouselContent>
+              {carouselItems &&
+                carouselItems.map(item => {
+                  return (
+                    <CarouselItem
+                      key={item.image.id}
+                      className={cn('h-full', {
+                        'xl:basis-1/2': slice.primary.desktop_columns === '2',
+                        'lg:basis-1/2 xl:basis-1/3':
+                          slice.primary.desktop_columns === '3',
+                        'lg:basis-1/2 xl:basis-1/4':
+                          slice.primary.desktop_columns === '4',
+                      })}
+                    >
+                      <Card className="aspect-h-9 aspect-w-16 overflow-hidden">
+                        <CardContent className="p-0">
+                          <Link href={item.image.url || '#'}>
+                            <PrismicNextImage
+                              field={item.image}
+                              imgixParams={{
+                                ar: '16:9',
+                                fit: 'crop',
+                              }}
+                              fill
+                              className="object-cover"
+                            />
+                          </Link>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  )
+                })}
+            </CarouselContent>
+
+            <CarouselNext className="hidden md:inline-flex" />
+            <CarouselPrevious className="hidden md:inline-flex" />
+          </Carousel>
         )}
       </Section>
     )
