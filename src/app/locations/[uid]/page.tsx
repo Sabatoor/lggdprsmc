@@ -13,7 +13,8 @@ import Section from '@/components/Section'
 
 type Params = { uid: string }
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page(props: { params: Promise<Params> }) {
+  const params = await props.params;
   const client = createClient()
   const page = await client
     .getByUID('location', params.uid, {
@@ -98,11 +99,12 @@ export default async function Page({ params }: { params: Params }) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<Params>
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const client = createClient()
   const page = await client
     .getByUID('location', params.uid)

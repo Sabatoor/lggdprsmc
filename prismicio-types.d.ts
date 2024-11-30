@@ -2602,6 +2602,21 @@ type ReviewsSliceVariation = ReviewsSliceDefault
 export type ReviewsSlice = prismic.SharedSlice<'reviews', ReviewsSliceVariation>
 
 /**
+ * Item in *Scroller → Carousel → Primary → Items*
+ */
+export interface ScrollerSliceCarouselPrimaryItemsItem {
+  /**
+   * image field in *Scroller → Carousel → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroller.carousel.primary.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
  * Primary content in *Scroller → Default → Primary*
  */
 export interface ScrollerSliceDefaultPrimary {
@@ -2679,6 +2694,16 @@ export interface ScrollerSliceCarouselPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   heading: prismic.TitleField
+
+  /**
+   * Items field in *Scroller → Carousel → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroller.carousel.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<ScrollerSliceCarouselPrimaryItemsItem>>
 }
 
 /**
@@ -2850,6 +2875,7 @@ declare module '@prismicio/client' {
       ScrollerSlice,
       ScrollerSliceDefaultPrimary,
       ScrollerSliceDefaultItem,
+      ScrollerSliceCarouselPrimaryItemsItem,
       ScrollerSliceCarouselPrimary,
       ScrollerSliceCarouselItem,
       ScrollerSliceVariation,
