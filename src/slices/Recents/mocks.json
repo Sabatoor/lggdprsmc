@@ -21,5 +21,32 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "location",
+		"primary": {
+			"type": {
+				"__TYPE__": "FieldContent",
+				"value": "portfolio",
+				"type": "Select"
+			},
+			"location": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Surrey"
+			},
+			"service": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "All"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

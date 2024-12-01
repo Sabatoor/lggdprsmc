@@ -35,6 +35,70 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "location",
+      "name": "Location",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "",
+            "options": [
+              "blog_post",
+              "portfolio"
+            ],
+            "default_value": "blog_post"
+          }
+        },
+        "location": {
+          "type": "Select",
+          "config": {
+            "label": "Location",
+            "placeholder": "Select a location",
+            "options": [
+              "Burnaby",
+              "Coquitlam",
+              "Delta",
+              "Langley",
+              "Maple Ridge",
+              "New Westminster",
+              "North Vancouver",
+              "Richmond",
+              "Surrey",
+              "Vancouver",
+              "White Rock"
+            ]
+          }
+        },
+        "service": {
+          "type": "Select",
+          "config": {
+            "label": "Service",
+            "placeholder": "",
+            "options": [
+              "All",
+              "Installation",
+              "Repair"
+            ]
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
