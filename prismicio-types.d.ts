@@ -2561,9 +2561,80 @@ export type RecentsSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Recents → Location → Primary*
+ */
+export interface RecentsSliceLocationPrimary {
+  /**
+   * Heading field in *Recents → Location → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recents.location.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField
+
+  /**
+   * Type field in *Recents → Location → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: blog_post
+   * - **API ID Path**: recents.location.primary.type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  type: prismic.SelectField<'blog_post' | 'portfolio', 'filled'>
+
+  /**
+   * Location field in *Recents → Location → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select a location
+   * - **API ID Path**: recents.location.primary.location
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  location: prismic.SelectField<
+    | 'Burnaby'
+    | 'Coquitlam'
+    | 'Delta'
+    | 'Langley'
+    | 'Maple Ridge'
+    | 'New Westminster'
+    | 'North Vancouver'
+    | 'Richmond'
+    | 'Surrey'
+    | 'Vancouver'
+    | 'White Rock'
+  >
+
+  /**
+   * Service field in *Recents → Location → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recents.location.primary.service
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  service: prismic.SelectField<'All' | 'Installation' | 'Repair'>
+}
+
+/**
+ * Location variation for Recents Slice
+ *
+ * - **API ID**: `location`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RecentsSliceLocation = prismic.SharedSliceVariation<
+  'location',
+  Simplify<RecentsSliceLocationPrimary>,
+  never
+>
+
+/**
  * Slice variation for *Recents*
  */
-type RecentsSliceVariation = RecentsSliceDefault
+type RecentsSliceVariation = RecentsSliceDefault | RecentsSliceLocation
 
 /**
  * Recents Shared Slice
@@ -2878,8 +2949,10 @@ declare module '@prismicio/client' {
       LocationsSliceDefault,
       RecentsSlice,
       RecentsSliceDefaultPrimary,
+      RecentsSliceLocationPrimary,
       RecentsSliceVariation,
       RecentsSliceDefault,
+      RecentsSliceLocation,
       ReviewsSlice,
       ReviewsSliceVariation,
       ReviewsSliceDefault,
