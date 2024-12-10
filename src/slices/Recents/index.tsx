@@ -2,7 +2,7 @@ import Section from '@/components/Section'
 import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { Suspense } from 'react'
-import RecentList from './RecentList'
+import RecentsWrapper from './RecentsWrapper'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Heading from '@/components/Heading'
 
@@ -33,7 +33,7 @@ const Recents = ({ slice }: RecentsProps): JSX.Element => {
           </Heading>
         )}
       <Suspense fallback={<div>Loading...</div>}>
-        <RecentList
+        <RecentsWrapper
           type={slice.primary.type}
           location={
             slice.variation === 'location' ? slice.primary.location : null

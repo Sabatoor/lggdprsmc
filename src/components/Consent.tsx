@@ -3,7 +3,7 @@
 import { cn } from '@/app/lib/cn'
 import * as React from 'react'
 import { HiX } from 'react-icons/hi'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'motion/react'
 import Script from 'next/script'
 import { Button } from './ui/button'
 
@@ -69,7 +69,7 @@ export default function Consent() {
             }}
             id="consent-banner"
             className={cn(
-              'bg-background fixed bottom-0 z-10 grid w-full p-3 md:grid-cols-5',
+              'fixed bottom-0 z-10 grid w-full bg-background p-3 md:grid-cols-5',
             )}
           >
             <p className="prose prose-sm mx-auto my-4 px-6 text-left md:col-span-3">
@@ -87,7 +87,7 @@ export default function Consent() {
                   setHideBanner(true)
                 }}
               >
-                <HiX className="text-neutral h-5 w-5" />
+                <HiX className="h-5 w-5 text-neutral" />
                 <span className="sr-only">Close</span>
               </Button>
               <Button
@@ -114,7 +114,7 @@ export default function Consent() {
                   setConsent(true)
                   setHideBanner(true)
                 }}
-                className="text-neutral px-6 py-4 font-medium lg:text-lg"
+                className="px-6 py-4 font-medium text-neutral lg:text-lg"
               >
                 Accept All
               </Button>

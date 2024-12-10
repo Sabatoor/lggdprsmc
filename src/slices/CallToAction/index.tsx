@@ -1,3 +1,4 @@
+'use client'
 import { cn } from '@/app/lib/cn'
 import Heading from '@/components/Heading'
 import { PrismicRichText } from '@/components/PrismicRichText'
@@ -23,6 +24,7 @@ import {
   ProductTypeDocument,
   ServiceDocument,
 } from '../../../prismicio-types'
+import WhileInView from '@/components/WhileInView'
 
 /**
  * Props for `CallToAction`.
@@ -539,16 +541,15 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             {slice.items.length > 0 &&
               slice.items.map(item => {
                 return (
-                  <li
-                    key={item.logo.id}
-                    className="flex flex-col justify-center"
-                  >
-                    <PrismicNextImage
-                      field={item.logo}
-                      width={250}
-                      className=""
-                    />
-                  </li>
+                  <WhileInView key={item.logo.id} direction="none">
+                    <li className="flex flex-col justify-center">
+                      <PrismicNextImage
+                        field={item.logo}
+                        width={250}
+                        className=""
+                      />
+                    </li>
+                  </WhileInView>
                 )
               })}
           </ul>
@@ -639,22 +640,27 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
     >
       <Section as="div" width="xl" className="grid lg:grid-cols-3">
         <div className="flex flex-col items-center gap-6 lg:col-span-2 lg:flex-row">
-          <GiHomeGarage className="-mt-3 h-24 w-24 text-primary" />
-          <PrismicRichText
-            field={slice.primary.heading}
-            components={{
-              heading2: ({ children }) => (
-                <Heading
-                  as="h2"
-                  size="4xl"
-                  className="text-3xl uppercase text-muted md:text-4xl"
-                >
-                  {children}
-                </Heading>
-              ),
-            }}
-          />
+          <WhileInView direction="right">
+            <GiHomeGarage className="-mt-3 h-24 w-24 text-primary" />
+          </WhileInView>
+          <WhileInView direction="left">
+            <PrismicRichText
+              field={slice.primary.heading}
+              components={{
+                heading2: ({ children }) => (
+                  <Heading
+                    as="h2"
+                    size="4xl"
+                    className="text-3xl uppercase text-muted md:text-4xl"
+                  >
+                    {children}
+                  </Heading>
+                ),
+              }}
+            />
+          </WhileInView>
         </div>
+
         <div className="my-8 justify-self-center lg:justify-self-end">
           <PrismicNextLink
             field={slice.primary.button_link}
