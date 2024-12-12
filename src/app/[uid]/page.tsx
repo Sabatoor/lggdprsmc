@@ -15,16 +15,15 @@ type SearchParams = {
   [key: string]: string | string[] | undefined
 }
 
-export default async function Page(
-  props: {
-    params: Promise<Params>
-    searchParams: Promise<SearchParams>
-  }
-) {
-  const searchParams = await props.searchParams;
-  const params = await props.params;
+export default async function Page(props: {
+  params: Promise<Params>
+  searchParams: Promise<SearchParams>
+}) {
+  const searchParams = await props.searchParams
+  const params = await props.params
   const client = createClient()
   const pageNumber = { page: Number(searchParams['page']) || 1 }
+  const type = { type: searchParams['type'] }
   const page = await client
     .getByUID('page', params.uid, {
       fetchLinks: [
@@ -105,7 +104,7 @@ export default async function Page(
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={pageNumber}
+        context={{ pageNumber, type }}
       />
       {/* CODE FOR BLOG PAGE ONLY */}
       {(page.uid === 'blog' || page.uid === 'portfolio') && (
@@ -141,12 +140,10 @@ export default async function Page(
   )
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<Params>
-  }
-): Promise<Metadata> {
-  const params = await props.params;
+export async function generateMetadata(props: {
+  params: Promise<Params>
+}): Promise<Metadata> {
+  const params = await props.params
   const client = createClient()
   const page = await client.getByUID('page', params.uid).catch(() => notFound())
   const settings = await client.getSingle('settings')
