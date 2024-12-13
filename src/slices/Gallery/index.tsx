@@ -34,6 +34,7 @@ const Gallery = async ({
 }: GalleryProps): Promise<JSX.Element> => {
   const { pageNumber, type } = context as contextProps
   const page = pageNumber?.page || 1
+  console.log('type --> ', type?.type)
 
   return (
     <Section
@@ -42,17 +43,36 @@ const Gallery = async ({
       width="2xl"
       className="flex flex-col"
     >
-      <div className="flex justify-center gap-x-4 py-4 lg:gap-x-8 lg:py-8">
-        <Button asChild>
-          <Link href={`/our-gallery/?page=${page}&type=Installation`}>
-            Installation Gallery
-          </Link>
-        </Button>
-        <Button asChild>
-          <Link href={`/our-gallery/?page=${page}&type=Repair`}>
-            Repair Gallery
-          </Link>
-        </Button>
+      <div className="flex w-full flex-wrap justify-center gap-x-4 gap-y-4 rounded-lg bg-muted/90 py-4 backdrop-blur-sm lg:sticky lg:top-28 lg:z-10 lg:gap-x-8 lg:gap-y-0 lg:py-8">
+        {type?.type ? (
+          <Button asChild variant={'outline'}>
+            <Link href={`/our-gallery/?page=${page}`}>
+              All Lions Gate Garagedoor Jobs
+            </Link>
+          </Button>
+        ) : (
+          <Button disabled variant={'outline'}>
+            All Lions Gate Garagedoor Jobs
+          </Button>
+        )}
+        {type?.type !== 'Installation' ? (
+          <Button asChild>
+            <Link href={`/our-gallery/?page=${page}&type=Installation`}>
+              Garage Door Installation Gallery
+            </Link>
+          </Button>
+        ) : (
+          <Button disabled>Garage Door Installation Gallery </Button>
+        )}
+        {type?.type !== 'Repair' ? (
+          <Button asChild>
+            <Link href={`/our-gallery/?page=${page}&type=Repair`}>
+              Garage Door Repair Gallery
+            </Link>
+          </Button>
+        ) : (
+          <Button disabled>Garage Door Repair Gallery</Button>
+        )}
       </div>
       <Suspense
         fallback={
