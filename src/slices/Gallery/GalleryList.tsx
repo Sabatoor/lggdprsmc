@@ -66,7 +66,10 @@ const GalleryList = async ({
                     {workLocation}
                   </Badge>
                 )}
-                <Link href={item.url || '#'}>
+                <Link
+                  href={item.url || '#'}
+                  aria-label={prismic.asText(item.data.title)}
+                >
                   <PrismicNextImage
                     field={item.data.featured_image}
                     quality={75}
