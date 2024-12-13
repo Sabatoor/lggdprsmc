@@ -46,12 +46,12 @@ const Gallery = async ({
         {type?.type ? (
           <Button asChild variant={'outline'}>
             <Link href={`/our-gallery/?page=${page}`}>
-              All Lions Gate Garagedoor Jobs
+              All Lions Gate Garage Door Jobs
             </Link>
           </Button>
         ) : (
           <Button disabled variant={'outline'}>
-            All Lions Gate Garagedoor Jobs
+            All Lions Gate Garage Door Jobs
           </Button>
         )}
         {type?.type !== 'Installation' ? (
