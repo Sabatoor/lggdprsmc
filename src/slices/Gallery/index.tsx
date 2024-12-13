@@ -42,7 +42,7 @@ const Gallery = async ({
       width="2xl"
       className="flex flex-col"
     >
-      <div className="flex w-full flex-wrap justify-center gap-x-4 gap-y-4 rounded-lg bg-muted/90 py-4 backdrop-blur-sm lg:sticky lg:top-28 lg:z-10 lg:gap-x-8 lg:gap-y-0 lg:py-8">
+      <div className="-mt-6 mb-4 flex w-full flex-wrap justify-center gap-x-4 gap-y-8 rounded-lg bg-muted/90 py-4 backdrop-blur-sm lg:sticky lg:top-28 lg:z-10 lg:-mt-0 lg:mb-0 lg:gap-x-8 lg:gap-y-0 lg:py-8">
         {type?.type ? (
           <Button asChild variant={'outline'}>
             <Link href={`/our-gallery/?page=${page}`}>
