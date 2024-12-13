@@ -43,7 +43,7 @@ const GalleryList = async ({
   return (
     <>
       {PrismicImages.length > 0 && (
-        <ul className="grid gap-4 pb-4 md:grid-cols-2 md:gap-6 md:pb-6 lg:grid-cols-3 lg:gap-8 lg:pb-8 xl:grid-cols-4">
+        <ul className="grid gap-4 pb-8 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-8 lg:pb-10 xl:grid-cols-4">
           {gallery_items.results.map((item, index) => {
             let workType = getTypeValue(item.tags, 'Installation')
             if (!workType) {
@@ -52,10 +52,7 @@ const GalleryList = async ({
             const workLocation = getPostLocationTag(item.tags, locations)
 
             return (
-              <li
-                key={item.id}
-                className="group relative h-64 rounded-lg bg-secondary"
-              >
+              <li key={item.id} className="relative rounded-lg bg-secondary">
                 {workType && (
                   <Badge className="absolute left-4 top-4 cursor-default text-emerald-950">
                     {workType}

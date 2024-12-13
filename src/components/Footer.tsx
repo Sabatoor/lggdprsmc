@@ -7,6 +7,7 @@ import { isFilled } from '@prismicio/client'
 import { FaFacebook, FaInstagram, FaLinkedin, FaYelp } from 'react-icons/fa'
 import { PrismicRichText } from './PrismicRichText'
 import React from 'react'
+import CopyrightYear from './CopyrightYear'
 
 export default async function Footer() {
   const client = createClient()
@@ -21,10 +22,10 @@ export default async function Footer() {
     <Section
       as="footer"
       className={cn(
-        'bg-neutral text-background flex-col px-0 py-0 md:px-0 md:py-0 lg:px-0 lg:py-0 lg:text-lg',
+        'flex-col bg-neutral px-0 py-0 text-background md:px-0 md:py-0 lg:px-0 lg:py-0 lg:text-lg',
       )}
     >
-      <div className="text-background grid place-items-center gap-8 p-8 lg:grid-cols-2">
+      <div className="grid place-items-center gap-8 p-8 text-background lg:grid-cols-2">
         <div className="flex flex-col place-content-center">
           <PrismicNextImage field={settings.data.footer_logo} />
 
@@ -40,7 +41,7 @@ export default async function Footer() {
                     <li key={settings.id + `footer-social` + i}>
                       <PrismicNextLink field={social_url}>
                         {Logo && (
-                          <Logo className="text-background ring-muted h-12 w-12 rounded p-1 group-focus:ring-2 lg:h-16 lg:w-16" />
+                          <Logo className="h-12 w-12 rounded p-1 text-background ring-muted group-focus:ring-2 lg:h-16 lg:w-16" />
                         )}
                         <span className="sr-only">{`View us on ${logo}`}</span>
                       </PrismicNextLink>
@@ -50,8 +51,8 @@ export default async function Footer() {
             </ul>
           ) : null}
         </div>
-        <div className="prose-p:text-background prose-a:text-background prose lg:prose-lg prose-a:no-underline prose-ul:list-none prose-ul:pl-0 prose-li:pl-0">
-          <p className="text-background font-heading text-xl font-bold">
+        <div className="prose lg:prose-lg prose-p:text-background prose-a:text-background prose-a:no-underline prose-ul:list-none prose-ul:pl-0 prose-li:pl-0">
+          <p className="font-heading text-xl font-bold text-background">
             Lions Gate Garage Doors LTD.
           </p>
           <PrismicRichText
@@ -63,22 +64,20 @@ export default async function Footer() {
               ),
             }}
           />
-          <p className="text-background font-heading text-xl font-bold">
+          <p className="font-heading text-xl font-bold text-background">
             Terms of Service
           </p>
           {isFilled.richText(settings.data.terms_of_service) && (
             <PrismicRichText field={settings.data.terms_of_service} />
           )}
-          <p className="text-background flex flex-wrap gap-8 font-heading text-xl font-bold">
+          <p className="flex flex-wrap gap-8 font-heading text-xl font-bold text-background">
             <Link href="/locations">Areas Served</Link>
             <Link href={'/sitemap.xml'}>Sitemap</Link>
           </p>
         </div>
       </div>
-      <div className="bg-primary text-neutral flex h-16 items-center justify-center place-self-stretch text-center">
-        <span>
-          All rights reserved &copy; {new Date().getFullYear()} &nbsp;{' '}
-        </span>
+      <div className="flex h-16 items-center justify-center place-self-stretch bg-primary text-center text-neutral">
+        <CopyrightYear />
         <Link href="/">{`${settings.data.site_title}, LTD`}</Link>
       </div>
     </Section>

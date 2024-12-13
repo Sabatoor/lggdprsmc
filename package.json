@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"bun:next:dev\" \"bun:slicemachine\" --names \"next,slicemachine\" --prefix-colors gray,magenta",
-    "next:dev": "next",
+    "next:dev": "next -H 0.0.0.0 -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
