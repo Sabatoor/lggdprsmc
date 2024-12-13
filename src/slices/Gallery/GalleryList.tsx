@@ -22,7 +22,7 @@ const GalleryList = async ({
       page: page,
       pageSize: 12,
       orderings: {
-        field: 'document.first_publication_date',
+        field: 'my.portfolio.date_published',
         direction: 'desc',
       },
     })
@@ -32,7 +32,7 @@ const GalleryList = async ({
       pageSize: 12,
       filters: [prismic.filter.at('document.tags', [type])],
       orderings: {
-        field: 'document.first_publication_date',
+        field: 'my.portfolio.date_published',
         direction: 'desc',
       },
     })
@@ -54,7 +54,7 @@ const GalleryList = async ({
             return (
               <li
                 key={item.id}
-                className="group relative h-64 overflow-hidden rounded-lg bg-secondary"
+                className="group relative h-64 rounded-lg bg-secondary"
               >
                 {workType && (
                   <Badge className="absolute left-4 top-4 cursor-default text-emerald-950">
@@ -77,8 +77,9 @@ const GalleryList = async ({
                     height={261}
                     imgixParams={{ ar: '4:3', fit: 'crop', q: 75 }}
                     title={item.data.featured_image.alt || 'decorative image'}
-                    className="rounded-lg shadow-sm shadow-neutral"
+                    className="rounded-lg shadow-sm shadow-neutral-500"
                     priority={index < 2}
+                    fallbackAlt=""
                   />
                 </Link>
               </li>
