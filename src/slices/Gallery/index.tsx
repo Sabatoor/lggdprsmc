@@ -34,7 +34,6 @@ const Gallery = async ({
 }: GalleryProps): Promise<JSX.Element> => {
   const { pageNumber, type } = context as contextProps
   const page = pageNumber?.page || 1
-  console.log('type --> ', type?.type)
 
   return (
     <Section
