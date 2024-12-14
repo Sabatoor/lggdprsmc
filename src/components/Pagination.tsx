@@ -19,17 +19,23 @@ const Pagination: FC<PaginationProps> = ({
   const path = usePathname()
   const searchParams = useSearchParams()
   const pageNumber = searchParams.get('page') || '1'
+  const pageType = searchParams.get('type')
+
   return (
     <>
       <div className="flex justify-center gap-2">
         <Button
           variant={hasPrevPage ? 'default' : 'ghost'}
           className={cn(
-            'text-neutral text-xs font-medium uppercase leading-normal',
+            'text-xs font-medium uppercase leading-normal text-neutral',
           )}
           disabled={!hasPrevPage}
           onClick={() => {
-            router.push(`${path}?page=${Number(pageNumber) - 1}`)
+            router.push(
+              !pageType
+                ? `${path}?page=${Number(pageNumber) - 1}`
+                : `${path}?page=${Number(pageNumber) - 1}&type=${pageType}`,
+            )
           }}
         >
           prev page
@@ -38,18 +44,22 @@ const Pagination: FC<PaginationProps> = ({
         <Button
           variant={hasNextPage ? 'default' : 'ghost'}
           className={cn(
-            'text-neutral text-xs font-medium uppercase leading-normal',
+            'text-xs font-medium uppercase leading-normal text-neutral',
           )}
           disabled={!hasNextPage}
           onClick={() => {
-            router.push(`${path}?page=${Number(pageNumber) + 1}`)
+            router.push(
+              !pageType
+                ? `${path}?page=${Number(pageNumber) + 1}`
+                : `${path}?page=${Number(pageNumber) + 1}&type=${pageType}`,
+            )
           }}
         >
           next page
         </Button>
       </div>
       {totalPages && (
-        <div className="my-6 flex justify-center ">
+        <div className="my-6 flex justify-center">
           Page {pageNumber} of {totalPages}
         </div>
       )}
