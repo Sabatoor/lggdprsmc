@@ -24,6 +24,7 @@ export const locations = [
   'Richmond',
   'Surrey',
   'Vancouver',
+  'West Vancouver',
   'White Rock',
 ]
 
@@ -41,6 +42,7 @@ export const getLocationValue = (
     | 'Richmond'
     | 'Surrey'
     | 'Vancouver'
+    | 'West Vancouver'
     | 'White Rock',
 ) => {
   return array.find(tag => tag === type)

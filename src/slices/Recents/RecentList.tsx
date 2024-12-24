@@ -5,7 +5,6 @@ import { PrismicNextImage } from '@prismicio/next'
 import Link from 'next/link'
 import React from 'react'
 import * as prismic from '@prismicio/client'
-import { BlogPostDocument, PortfolioDocument } from '../../../prismicio-types'
 import { Badge } from '@/components/ui/badge'
 
 type RecentListProps = {
@@ -22,6 +21,7 @@ type RecentListProps = {
     | 'Richmond'
     | 'Surrey'
     | 'Vancouver'
+    | 'West Vancouver'
     | 'White Rock'
     | undefined
     | null
@@ -34,18 +34,8 @@ const RecentList = async ({
   service,
 }: RecentListProps): Promise<JSX.Element> => {
   const client = createClient()
-  const test = await client.getByType(type, {
-    page: 1,
-    pageSize: 100,
-    orderings: {
-      field: 'my.portfolio.date_published',
-      direction: 'desc',
-    },
-    filters: [prismic.filter.any('document.tags', ['Langley'])],
-  })
 
   let posts
-  let filteredPosts
   if (!location) {
     posts = await client.getByType(type, {
       page: 1,
