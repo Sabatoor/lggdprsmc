@@ -2604,6 +2604,7 @@ export interface RecentsSliceLocationPrimary {
     | 'Richmond'
     | 'Surrey'
     | 'Vancouver'
+    | 'West Vancouver'
     | 'White Rock'
   >
 
