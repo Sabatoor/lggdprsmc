@@ -33,8 +33,8 @@
 			},
 			"location": {
 				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Surrey"
+				"value": "Langley",
+				"type": "Select"
 			},
 			"service": {
 				"__TYPE__": "FieldContent",
