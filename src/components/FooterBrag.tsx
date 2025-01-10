@@ -14,12 +14,12 @@ const FooterBrag = () => {
   })
   return (
     <motion.div
-      className="fixed bottom-4 right-4"
+      className="fixed bottom-4 right-4 z-10"
       id="best-three-seal"
       initial={{ x: '110%' }}
     >
       <Link
-        href={'blog/best-garage-door-repair-in-surrey-3-years-running-2025'}
+        href={'/blog/best-garage-door-repair-in-surrey-3-years-running-2025'}
       >
         <Image
           src={bestThree}
