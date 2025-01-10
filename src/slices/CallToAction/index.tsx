@@ -640,10 +640,10 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
     >
       <Section as="div" width="xl" className="grid lg:grid-cols-3">
         <div className="flex flex-col items-center gap-6 lg:col-span-2 lg:flex-row">
-          <WhileInView direction="right">
+          <WhileInView direction="down">
             <GiHomeGarage className="-mt-3 h-24 w-24 text-primary" />
           </WhileInView>
-          <WhileInView direction="left">
+          <WhileInView direction="up">
             <PrismicRichText
               field={slice.primary.heading}
               components={{
