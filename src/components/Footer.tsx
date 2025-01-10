@@ -8,6 +8,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaYelp } from 'react-icons/fa'
 import { PrismicRichText } from './PrismicRichText'
 import React from 'react'
 import CopyrightYear from './CopyrightYear'
+import FooterBrag from './FooterBrag'
 
 export default async function Footer() {
   const client = createClient()
@@ -25,6 +26,7 @@ export default async function Footer() {
         'flex-col bg-neutral px-0 py-0 text-background md:px-0 md:py-0 lg:px-0 lg:py-0 lg:text-lg',
       )}
     >
+      <FooterBrag />
       <div className="grid place-items-center gap-8 p-8 text-background lg:grid-cols-2">
         <div className="flex flex-col place-content-center">
           <PrismicNextImage field={settings.data.footer_logo} />
