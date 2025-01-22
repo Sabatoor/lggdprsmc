@@ -69,6 +69,7 @@ export default async function RootLayout({
           navigation={navigation}
           logo={settings.data.logo}
           title={settings.data.site_title}
+          phoneNumber={settings.data.phone_number}
         />
         <main id="content">{children}</main>
         <Footer />

@@ -2,7 +2,7 @@
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import Link from 'next/link'
 import { SettingsDocumentDataNavigationItem } from '../../prismicio-types'
-import { ImageField, KeyTextField } from '@prismicio/client'
+import { ImageField, isFilled, KeyTextField } from '@prismicio/client'
 import { HiMenu, HiOutlinePhone, HiX } from 'react-icons/hi'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
@@ -12,9 +12,15 @@ type NavbarProps = {
   navigation: Array<SettingsDocumentDataNavigationItem>
   logo?: ImageField
   title?: KeyTextField
+  phoneNumber?: KeyTextField
 }
 
-export default function Navbar({ navigation, logo, title }: NavbarProps) {
+export default function Navbar({
+  navigation,
+  logo,
+  phoneNumber,
+  title,
+}: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
   const toggleNav = () => {
     setIsOpen(!isOpen)
@@ -88,14 +94,17 @@ export default function Navbar({ navigation, logo, title }: NavbarProps) {
             <span className="sr-only">Return to Homepage</span>
           </Link>
           <div className="flex-1 shrink-0">
-            <p className="text-center text-base font-bold text-neutral md:text-xl">
-              <a
-                href="tel:6042431505"
-                className="rounded-lg px-2 py-3 outline-none ring-neutral focus:ring-2"
-              >
-                <HiOutlinePhone className="-mt-1 inline h-6 w-6" /> 604.243.1505
-              </a>
-            </p>
+            {isFilled.keyText(phoneNumber) && (
+              <p className="text-center text-base font-bold text-neutral md:text-xl">
+                <a
+                  href="tel:6042431505"
+                  className="rounded-lg px-2 py-3 outline-none ring-neutral focus:ring-2"
+                >
+                  <HiOutlinePhone className="-mt-1 inline h-6 w-6" />
+                  {phoneNumber}
+                </a>
+              </p>
+            )}
             <p className="text-center text-xs md:hidden">
               Lions Gate Garage Doors
             </p>

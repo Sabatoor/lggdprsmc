@@ -28,6 +28,13 @@
           "thumbnails": []
         }
       },
+      "phone_number": {
+        "type": "Text",
+        "config": {
+          "label": "Phone Number",
+          "placeholder": ""
+        }
+      },
       "site_meta_description": {
         "type": "Text",
         "config": {
