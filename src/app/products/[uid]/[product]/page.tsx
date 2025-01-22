@@ -23,7 +23,7 @@ type File = {
 }
 
 export default async function Page(props: { params: Promise<Params> }) {
-  const params = await props.params;
+  const params = await props.params
   const client = createClient()
   const page = await client
     .getByUID('product', params.product, {
@@ -52,14 +52,14 @@ export default async function Page(props: { params: Promise<Params> }) {
           <PrismicRichText field={page.data.description} />
         </div>
         {page.data.files.length > 0 && (
-          <div className="bg-background min-w-[350px] max-w-screen-sm overflow-hidden rounded shadow-lg">
+          <div className="min-w-[350px] max-w-screen-sm overflow-hidden rounded bg-background shadow-lg">
             <header className="relative flex h-8 items-center justify-center bg-neutral-300 shadow-sm">
               <div className="absolute left-2 top-2 flex gap-x-2">
                 <div className="h-3 w-3 rounded-full bg-red-600" />
-                <div className="bg-primary h-3 w-3 rounded-full" />
+                <div className="h-3 w-3 rounded-full bg-primary" />
                 <div className="h-3 w-3 rounded-full bg-amber-400" />
               </div>
-              <Heading as="h2" size="xl" className="text-neutral font-light">
+              <Heading as="h2" size="xl" className="font-light text-neutral">
                 Documents to Download
               </Heading>
             </header>
@@ -67,14 +67,14 @@ export default async function Page(props: { params: Promise<Params> }) {
               {isFilled.linkToMedia(page.data.files[0]?.file) && (
                 <ul className="flex flex-wrap">
                   {page.data.files.map((item, i) => {
-                    const file = item.file as File
+                    const file = item.file as unknown as File
                     return (
                       <li key={i}>
                         <Link
                           href={file.url}
-                          className="ring-primary group grid place-items-center gap-4 rounded p-2 outline-none focus:ring-2"
+                          className="group grid place-items-center gap-4 rounded p-2 outline-none ring-primary focus:ring-2"
                         >
-                          <FaFilePdf className="text-primary h-16 w-16 transform transition duration-500 ease-in-out group-hover:-translate-y-1 group-hover:scale-105" />
+                          <FaFilePdf className="h-16 w-16 transform text-primary transition duration-500 ease-in-out group-hover:-translate-y-1 group-hover:scale-105" />
                           <p className="text-sm">{file.name}</p>
                           <p className="text-xs">
                             {bytesToMegabytes(file.size)} MB
@@ -94,12 +94,10 @@ export default async function Page(props: { params: Promise<Params> }) {
   )
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<Params>
-  }
-): Promise<Metadata> {
-  const params = await props.params;
+export async function generateMetadata(props: {
+  params: Promise<Params>
+}): Promise<Metadata> {
+  const params = await props.params
   const client = createClient()
   const settings = await client.getSingle('settings')
   const page = await client

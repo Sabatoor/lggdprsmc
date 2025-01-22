@@ -1069,6 +1069,17 @@ interface SettingsDocumentData {
   logo: prismic.ImageField<never>
 
   /**
+   * Phone Number field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.phone_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_number: prismic.KeyTextField
+
+  /**
    * Site Meta Description field in *Settings*
    *
    * - **Field Type**: Text
