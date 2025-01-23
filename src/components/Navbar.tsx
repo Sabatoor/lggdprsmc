@@ -97,7 +97,7 @@ export default function Navbar({
             {isFilled.keyText(phoneNumber) && (
               <p className="text-center text-base font-bold text-neutral md:text-xl">
                 <a
-                  href="tel:6042431505"
+                  href={`tel:${phoneNumber || 6042431505}`}
                   className="rounded-lg px-2 py-3 outline-none ring-neutral focus:ring-2"
                 >
                   <HiOutlinePhone className="-mt-1 inline h-6 w-6" />
