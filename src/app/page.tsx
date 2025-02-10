@@ -31,7 +31,7 @@ export default async function Page() {
         image: `${settings.data.footer_logo.url}`,
         '@id': 'https://lionsgategaragedoors.com/',
         url: 'https://lionsgategaragedoors.com/',
-        telephone: '+16042431505',
+        telephone: settings.data.phone_number || '+16042431505',
         priceRange: '$-$$$',
         address: {
           '@type': 'PostalAddress',
@@ -39,7 +39,7 @@ export default async function Page() {
           streetAddress: ' 18777 68a Ave',
           addressLocality: 'Surrey',
           addressRegion: 'BC',
-          postalCode: 'V4N 0Z8',
+          postalCode: 'V4N 0Z7',
           addressCountry: 'CA',
         },
 
