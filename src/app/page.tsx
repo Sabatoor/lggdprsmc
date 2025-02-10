@@ -36,7 +36,7 @@ export default async function Page() {
         address: {
           '@type': 'PostalAddress',
           '@id': `https://${settings.data.domain || `example.com`}/#address`,
-          streetAddress: ' 18777 68a Ave',
+          streetAddress: '#11 18777 68a Ave',
           addressLocality: 'Surrey',
           addressRegion: 'BC',
           postalCode: 'V4N 0Z7',
