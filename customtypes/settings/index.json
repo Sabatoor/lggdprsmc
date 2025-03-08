@@ -139,6 +139,13 @@
           "allowTargetBlank": true,
           "single": "paragraph,hyperlink"
         }
+      },
+      "call_to_action": {
+        "type": "Text",
+        "config": {
+          "label": "Call To Action",
+          "placeholder": "Text above the phone number"
+        }
       }
     }
   }

@@ -13,6 +13,7 @@ type NavbarProps = {
   logo?: ImageField
   title?: KeyTextField
   phoneNumber?: KeyTextField
+  call_to_action?: KeyTextField
 }
 
 export default function Navbar({
@@ -20,6 +21,7 @@ export default function Navbar({
   logo,
   phoneNumber,
   title,
+  call_to_action,
 }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
   const toggleNav = () => {
@@ -94,6 +96,9 @@ export default function Navbar({
             <span className="sr-only">Return to Homepage</span>
           </Link>
           <div className="flex-1 shrink-0">
+            {isFilled.keyText(call_to_action) && (
+              <p className="text-center">{call_to_action}</p>
+            )}
             {isFilled.keyText(phoneNumber) && (
               <p className="text-center text-base font-bold text-neutral md:text-xl">
                 <a

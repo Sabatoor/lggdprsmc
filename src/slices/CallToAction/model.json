@@ -466,6 +466,15 @@
             "thumbnails": []
           }
         },
+        "image_shadow": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image Shadow",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
         "button_link": {
           "type": "Link",
           "config": {

@@ -1,5 +1,9 @@
-import * as prismic from '@prismicio/client'
-import * as prismicNext from '@prismicio/next'
+import {
+  createClient as baseCreateClient,
+  type ClientConfig,
+  type Route,
+} from '@prismicio/client'
+import { enableAutoPreviews } from '@prismicio/next'
 import config from '../slicemachine.config.json'
 
 /**
@@ -13,7 +17,7 @@ export const repositoryName = config.repositoryName
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
 // TODO: Update the routes array to match your project's route structure.
-const routes: prismic.ClientConfig['routes'] = [
+const routes: Route[] = [
   {
     type: 'homepage',
     path: '/',
@@ -68,8 +72,8 @@ const routes: prismic.ClientConfig['routes'] = [
  *
  * @param config - Configuration for the Prismic client.
  */
-export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
-  const client = prismic.createClient(repositoryName, {
+export const createClient = (config: ClientConfig = {}) => {
+  const client = baseCreateClient(repositoryName, {
     routes,
     fetchOptions:
       process.env.NODE_ENV === 'production'
@@ -78,10 +82,8 @@ export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
     ...config,
   })
 
-  prismicNext.enableAutoPreviews({
+  enableAutoPreviews({
     client,
-    previewData: config.previewData,
-    req: config.req,
   })
 
   return client

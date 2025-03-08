@@ -1,4 +1,5 @@
 'use client'
+import { ReactNode } from 'react'
 import { cn } from '@/app/lib/cn'
 import Heading from '@/components/Heading'
 import { PrismicRichText } from '@/components/PrismicRichText'
@@ -70,7 +71,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.heading}
             components={{
-              heading2: ({ children }) => (
+              heading2: ({ children }: { children: ReactNode }) => (
                 <Heading
                   as="h2"
                   size="5xl"
@@ -110,7 +111,11 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                         <PrismicRichText
                           field={item.heading}
                           components={{
-                            heading2: ({ children }) => (
+                            heading2: ({
+                              children,
+                            }: {
+                              children: ReactNode
+                            }) => (
                               <Heading
                                 as="h2"
                                 size="3xl"
@@ -125,7 +130,11 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                         <PrismicRichText
                           field={item.brand.data.title}
                           components={{
-                            heading1: ({ children }) => (
+                            heading1: ({
+                              children,
+                            }: {
+                              children: ReactNode
+                            }) => (
                               <Heading
                                 as="h2"
                                 size="3xl"
@@ -187,7 +196,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             <PrismicRichText
               field={slice.primary.booth_info}
               components={{
-                paragraph: ({ children }) => (
+                paragraph: ({ children }: { children: ReactNode }) => (
                   <p className="text-xl font-semibold uppercase text-neutral">
                     {children}
                   </p>
@@ -197,7 +206,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             <PrismicRichText
               field={slice.primary.expo_title}
               components={{
-                heading2: ({ children }) => (
+                heading2: ({ children }: { children: ReactNode }) => (
                   <Heading
                     as="h2"
                     size="5xl"
@@ -211,7 +220,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             <PrismicRichText
               field={slice.primary.expo_details}
               components={{
-                heading3: ({ children }) => (
+                heading3: ({ children }: { children: ReactNode }) => (
                   <Heading as="h3" size="4xl" className="font-thin uppercase">
                     {children}
                   </Heading>
@@ -234,7 +243,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.heading}
             components={{
-              heading2: ({ children }) => (
+              heading2: ({ children }: { children: ReactNode }) => (
                 <Heading
                   as="h2"
                   size="5xl"
@@ -273,7 +282,11 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                         <PrismicRichText
                           field={item.heading}
                           components={{
-                            heading2: ({ children }) => (
+                            heading2: ({
+                              children,
+                            }: {
+                              children: ReactNode
+                            }) => (
                               <Heading
                                 as="h2"
                                 size="3xl"
@@ -288,7 +301,11 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                         <PrismicRichText
                           field={item.product_type.data.title}
                           components={{
-                            heading1: ({ children }) => (
+                            heading1: ({
+                              children,
+                            }: {
+                              children: ReactNode
+                            }) => (
                               <Heading
                                 as="h2"
                                 size="3xl"
@@ -357,7 +374,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                     <PrismicRichText
                       field={item.heading}
                       components={{
-                        heading2: ({ children }) => (
+                        heading2: ({ children }: { children: ReactNode }) => (
                           <Heading
                             as="h2"
                             size="3xl"
@@ -404,7 +421,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.heading}
             components={{
-              heading2: ({ children }) => (
+              heading2: ({ children }: { children: ReactNode }) => (
                 <Heading
                   as="h2"
                   size="5xl"
@@ -429,7 +446,11 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                         <PrismicRichText
                           field={item.service.data.title}
                           components={{
-                            heading1: ({ children }) => (
+                            heading1: ({
+                              children,
+                            }: {
+                              children: ReactNode
+                            }) => (
                               <Heading
                                 as="h2"
                                 size="3xl"
@@ -480,7 +501,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.heading}
             components={{
-              heading2: ({ children }) => (
+              heading2: ({ children }: { children: ReactNode }) => (
                 <Heading as="h2" size="5xl" className="text-neutral">
                   {children}
                 </Heading>
@@ -530,7 +551,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.heading}
             components={{
-              heading2: ({ children }) => (
+              heading2: ({ children }: { children: ReactNode }) => (
                 <Heading as="h2" size="5xl" className="text-neutral">
                   {children}
                 </Heading>
@@ -569,7 +590,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
               <PrismicRichText
                 field={slice.primary.benefit}
                 components={{
-                  heading2: ({ children }) => (
+                  heading2: ({ children }: { children: ReactNode }) => (
                     <Heading
                       as="h2"
                       size="4xl"
@@ -590,7 +611,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
               <PrismicRichText
                 field={slice.primary.details}
                 components={{
-                  paragraph: ({ children }) => (
+                  paragraph: ({ children }: { children: ReactNode }) => (
                     <p className="max-w-prose self-start lg:text-xl">
                       {children}
                     </p>
@@ -606,7 +627,9 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
                   <PrismicNextLink field={slice.primary.button_link}>
                     <PrismicNextImage
                       field={slice.primary.image}
-                      className="mb-4 rounded-lg shadow md:mb-6 lg:mb-8"
+                      className={cn('mb-4 rounded-lg md:mb-6 lg:mb-8', {
+                        'shadow-md': slice.primary.image_shadow,
+                      })}
                     />
                   </PrismicNextLink>
                 )}
@@ -647,7 +670,7 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             <PrismicRichText
               field={slice.primary.heading}
               components={{
-                heading2: ({ children }) => (
+                heading2: ({ children }: { children: ReactNode }) => (
                   <Heading
                     as="h2"
                     size="4xl"

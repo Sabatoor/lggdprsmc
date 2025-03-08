@@ -9,11 +9,12 @@ import { PrismicNextImage } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Heading from '@/components/Heading'
+import { ReactNode } from 'react'
 
 type Params = { uid: string }
 
 export default async function Page(props: { params: Promise<Params> }) {
-  const params = await props.params;
+  const params = await props.params
   const client = createClient()
   const page = await client
     .getByUID('blog_post', params.uid, {
@@ -102,7 +103,7 @@ export default async function Page(props: { params: Promise<Params> }) {
           <PrismicRichText
             field={page.data.title}
             components={{
-              heading1: ({ children }) => (
+              heading1: ({ children }: { children: ReactNode }) => (
                 <Heading
                   as="h1"
                   size="7xl"
@@ -113,7 +114,7 @@ export default async function Page(props: { params: Promise<Params> }) {
               ),
             }}
           />
-          <p className="text-neutral z-10 mt-8 text-center text-sm font-medium uppercase">
+          <p className="z-10 mt-8 text-center text-sm font-medium uppercase text-neutral">
             {pubDate}
           </p>
         </div>
@@ -123,12 +124,10 @@ export default async function Page(props: { params: Promise<Params> }) {
   )
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<Params>
-  }
-): Promise<Metadata> {
-  const params = await props.params;
+export async function generateMetadata(props: {
+  params: Promise<Params>
+}): Promise<Metadata> {
+  const params = await props.params
   const client = createClient()
   const page = await client
     .getByUID('blog_post', params.uid)

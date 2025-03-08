@@ -22,6 +22,7 @@
 				"type": "Select"
 			},
 			"button_link": {
+				"key": "63cec484-d1c0-424b-abbe-8039b0b2c721",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
@@ -97,6 +98,7 @@
 					[
 						"button_link",
 						{
+							"key": "2dcbd03b-58e9-4bd1-9e43-fd6495aa07ef",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -160,6 +162,7 @@
 					[
 						"button_link",
 						{
+							"key": "467925e4-cb97-4e1d-9a77-fd96f3aba0c1",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -240,6 +243,7 @@
 					[
 						"button_link",
 						{
+							"key": "16e5bc1e-2956-4f30-8223-0dd2e5ea3e48",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -301,6 +305,7 @@
 					[
 						"social_url",
 						{
+							"key": "b7ccdb65-54eb-44c6-9dc4-605775f10bf9",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -324,6 +329,7 @@
 					[
 						"social_url",
 						{
+							"key": "da329983-fb2c-4024-b358-3efb552e82e6",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -348,6 +354,7 @@
 					[
 						"social_url",
 						{
+							"key": "97478a57-8c69-420a-94d2-fe93e977173c",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -372,6 +379,7 @@
 					[
 						"social_url",
 						{
+							"key": "071c1782-803b-4e22-a6f4-c895ae1d1935",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -435,6 +443,7 @@
 					[
 						"button_link",
 						{
+							"key": "08cbc7ee-4f32-48e6-9f68-1a779db8ef76",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -461,6 +470,7 @@
 					[
 						"brand",
 						{
+							"key": "f7c507a2-cc79-47b3-8987-933b330a7a1b",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "DocumentLink",
@@ -523,6 +533,7 @@
 					[
 						"button_link",
 						{
+							"key": "ca2f2a91-0919-46ea-bbc6-13915277dbf3",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
@@ -549,6 +560,7 @@
 					[
 						"product_type",
 						{
+							"key": "6deac95d-5468-43a5-91a2-4f5aa5b1b511",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "DocumentLink",
@@ -605,6 +617,7 @@
 					[
 						"service",
 						{
+							"key": "5bb23a71-23e8-4989-90b4-b21c0149b751",
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "DocumentLink",
@@ -673,6 +686,56 @@
 	},
 	{
 		"__TYPE__": "SharedSliceContent",
+		"variation": "logos",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Organized"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"logo",
+						{
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+								"width": 3456,
+								"height": 3456
+							},
+							"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+							"width": 3456,
+							"height": 3456,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
 		"variation": "promotion",
 		"primary": {
 			"heading": {
@@ -687,6 +750,7 @@
 				]
 			},
 			"button_link": {
+				"key": "727936f2-08a4-4aef-8966-94a3fefce47d",
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
@@ -751,65 +815,19 @@
 					"background": "transparent"
 				},
 				"credits": null,
-				"alt": null,
+				"alt": "Alt text",
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"image_shadow": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
 				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "logos",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Organized"
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"logo",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
-								"width": 3456,
-								"height": 3456
-							},
-							"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
-							"width": 3456,
-							"height": 3456,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					]
-				]
 			}
 		]
 	}

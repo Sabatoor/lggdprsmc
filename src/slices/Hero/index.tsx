@@ -6,6 +6,7 @@ import { cn } from '@/app/lib/cn'
 import Heading from '@/components/Heading'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import { buttonVariants } from '@/components/ui/button'
+import { ReactNode } from 'react'
 
 /**
  * Props for `Hero`.
@@ -37,7 +38,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.heading}
             components={{
-              heading1: ({ children }) => (
+              heading1: ({ children }: { children: ReactNode }) => (
                 <Heading
                   as="h1"
                   size="7xl"

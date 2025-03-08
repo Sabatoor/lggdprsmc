@@ -12,13 +12,13 @@
     "format": "bunx prettier --write ."
   },
   "dependencies": {
-    "@prismicio/client": "latest",
-    "@prismicio/next": "latest",
-    "@prismicio/react": "latest",
+    "@prismicio/client": "7.16.1",
+    "@prismicio/next": "2.0.0",
+    "@prismicio/react": "3.1.0",
     "@radix-ui/react-avatar": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.1",
     "axios": "latest",
-    "caniuse-lite": "^1.0.30001695",
+    "caniuse-lite": "^1.0.30001702",
     "class-variance-authority": "^0.7.1",
     "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
@@ -34,7 +34,7 @@
     "zod": "latest"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "latest",
+    "@slicemachine/adapter-next": "^0.3.68",
     "@tailwindcss/aspect-ratio": "latest",
     "@tailwindcss/forms": "latest",
     "@tailwindcss/typography": "latest",
@@ -50,7 +50,7 @@
     "prettier": "latest",
     "prettier-plugin-tailwindcss": "latest",
     "schema-dts": "latest",
-    "slice-machine-ui": "latest",
+    "slice-machine-ui": "^2.13.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "latest",
     "typescript": "^5.7.3"
