@@ -70,6 +70,7 @@ export default async function RootLayout({
           logo={settings.data.logo}
           title={settings.data.site_title}
           phoneNumber={settings.data.phone_number}
+          call_to_action={settings.data.call_to_action}
         />
         <main id="content">{children}</main>
         <Footer />

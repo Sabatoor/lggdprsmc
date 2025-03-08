@@ -1,58 +1,59 @@
 import {
   PrismicRichText as BasePrismicRichText,
   JSXMapSerializer,
-  PrismicRichTextProps,
+  PrismicRichTextProps as BasePrismicRichTextProps,
 } from '@prismicio/react'
 import * as prismic from '@prismicio/client'
 import Heading from '@/components/Heading'
 import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ReactNode } from 'react'
 
 const defaultComponents: JSXMapSerializer = {
-  heading1: ({ children }) => {
+  heading1: ({ children }: { children: ReactNode }) => {
     return (
       <Heading as="h1" size="6xl">
         {children}
       </Heading>
     )
   },
-  heading2: ({ children }) => {
+  heading2: ({ children }: { children: ReactNode }) => {
     return (
       <Heading as="h2" size="5xl">
         {children}
       </Heading>
     )
   },
-  heading3: ({ children }) => {
+  heading3: ({ children }: { children: ReactNode }) => {
     return (
       <Heading as="h3" size="4xl">
         {children}
       </Heading>
     )
   },
-  heading4: ({ children }) => {
+  heading4: ({ children }: { children: ReactNode }) => {
     return (
       <Heading as="h4" size="3xl">
         {children}
       </Heading>
     )
   },
-  heading5: ({ children }) => {
+  heading5: ({ children }: { children: ReactNode }) => {
     return (
       <Heading as="h5" size="2xl">
         {children}
       </Heading>
     )
   },
-  heading6: ({ children }) => {
+  heading6: ({ children }: { children: ReactNode }) => {
     return (
       <Heading as="h6" size="xl">
         {children}
       </Heading>
     )
   },
-  paragraph: ({ children }) => {
+  paragraph: ({ children }: { children: ReactNode }) => {
     return (
       <p className="mx-auto my-4 self-start text-inherit lg:my-6">{children}</p>
     )
@@ -100,12 +101,21 @@ const defaultComponents: JSXMapSerializer = {
       )
     }
   },
-  list: ({ children }) => {
+  list: ({ children }: { children: ReactNode }) => {
     return <ul className="mx-auto list-disc">{children}</ul>
   },
-  listItem: ({ children }) => {
+  listItem: ({ children }: { children: ReactNode }) => {
     return <li className="ml-4 md:ml-6 lg:ml-8 xl:ml-10">{children}</li>
   },
+}
+
+// Define PrismicRichTextProps as a generic type
+interface PrismicRichTextProps<
+  LinkResolverFunction extends
+    prismic.LinkResolverFunction = prismic.LinkResolverFunction,
+> extends BasePrismicRichTextProps {
+  components?: Record<string, React.ComponentType<any>>
+  // Add other props as needed
 }
 
 export const PrismicRichText = function PrismicRichText<

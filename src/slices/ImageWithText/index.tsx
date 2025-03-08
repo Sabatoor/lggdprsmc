@@ -7,7 +7,7 @@ import { cn } from '@/app/lib/cn'
 import { GiHomeGarage } from 'react-icons/gi'
 import { FaToolbox } from 'react-icons/fa'
 import { RiQuestionnaireFill } from 'react-icons/ri'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Heading from '@/components/Heading'
 
 /**
@@ -107,7 +107,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
             <PrismicRichText
               field={slice.primary.heading}
               components={{
-                heading2: ({ children }) => (
+                heading2: ({ children }: { children: ReactNode }) => (
                   <Heading
                     as="h2"
                     size="3xl"
@@ -122,7 +122,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
           <PrismicRichText
             field={slice.primary.text}
             components={{
-              paragraph: ({ children }) => (
+              paragraph: ({ children }: { children: ReactNode }) => (
                 <p className="prose self-start text-background lg:prose-lg xl:prose-xl">
                   {children}
                 </p>

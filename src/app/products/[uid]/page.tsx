@@ -12,12 +12,13 @@ import Heading from '@/components/Heading'
 import { asText } from '@prismicio/client'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { ReactNode } from 'react'
 type Params = {
   uid: string
 }
 
 export default async function Page(props: { params: Promise<Params> }) {
-  const params = await props.params;
+  const params = await props.params
   const client = createClient()
 
   const page = await client
@@ -66,7 +67,7 @@ export default async function Page(props: { params: Promise<Params> }) {
                     <PrismicRichText
                       field={product.data.title}
                       components={{
-                        heading1: ({ children }) => (
+                        heading1: ({ children }: { children: ReactNode }) => (
                           <Heading
                             as="h2"
                             size="3xl"
@@ -139,7 +140,7 @@ export default async function Page(props: { params: Promise<Params> }) {
                     <PrismicRichText
                       field={product.data.title}
                       components={{
-                        heading1: ({ children }) => (
+                        heading1: ({ children }: { children: ReactNode }) => (
                           <Heading
                             as="h2"
                             size="2xl"
@@ -175,12 +176,10 @@ export default async function Page(props: { params: Promise<Params> }) {
   }
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<Params>
-  }
-): Promise<Metadata> {
-  const params = await props.params;
+export async function generateMetadata(props: {
+  params: Promise<Params>
+}): Promise<Metadata> {
+  const params = await props.params
   const client = createClient()
   const settings = await client.getSingle('settings')
   const page = await client

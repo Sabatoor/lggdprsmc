@@ -16,6 +16,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import { cn } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
+import { ReactNode } from 'react'
 /**
  * Props for `Scroller`.
  */
@@ -135,7 +136,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
         <PrismicRichText
           field={slice.primary.heading}
           components={{
-            heading2: ({ children }) => (
+            heading2: ({ children }: { children: ReactNode }) => (
               <h2 className="mb-4 mt-6 text-center font-heading text-3xl font-bold text-neutral md:text-4xl lg:text-5xl">
                 {children}
               </h2>

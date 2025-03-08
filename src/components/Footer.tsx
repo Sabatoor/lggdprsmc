@@ -6,7 +6,7 @@ import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { isFilled } from '@prismicio/client'
 import { FaFacebook, FaInstagram, FaLinkedin, FaYelp } from 'react-icons/fa'
 import { PrismicRichText } from './PrismicRichText'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import CopyrightYear from './CopyrightYear'
 import FooterBrag from './FooterBrag'
 
@@ -60,8 +60,10 @@ export default async function Footer() {
           <PrismicRichText
             field={settings.data.company_information}
             components={{
-              list: ({ children }) => <ul>{children}</ul>,
-              listItem: ({ children }) => (
+              list: ({ children }: { children: ReactNode }) => (
+                <ul>{children}</ul>
+              ),
+              listItem: ({ children }: { children: ReactNode }) => (
                 <li className="text-background">{children}</li>
               ),
             }}

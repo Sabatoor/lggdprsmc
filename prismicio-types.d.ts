@@ -627,7 +627,7 @@ export interface ProductDocumentDataFilesItem {
    * - **API ID Path**: product.files[].file
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  file: prismic.LinkToMediaField
+  file: prismic.LinkToMediaField<prismic.FieldState, never>
 }
 
 type ProductDocumentDataSlicesSlice =
@@ -993,7 +993,7 @@ export interface SettingsDocumentDataNavigationItem {
    * - **API ID Path**: settings.navigation[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
 
   /**
    * Label field in *Settings → Navigation*
@@ -1028,7 +1028,13 @@ export interface SettingsDocumentDataFooterSocialsItem {
    * - **API ID Path**: settings.footer_socials[].social_url
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  social_url: prismic.LinkField
+  social_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
 }
 
 /**
@@ -1179,6 +1185,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   design_credit: prismic.RichTextField
+
+  /**
+   * Call To Action field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Text above the phone number
+   * - **API ID Path**: settings.call_to_action
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  call_to_action: prismic.KeyTextField
 }
 
 /**
@@ -1232,7 +1249,13 @@ export interface CallToActionSliceDefaultPrimary {
    * - **API ID Path**: call_to_action.default.primary.button_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.LinkField
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
 
   /**
    * Button Label field in *CallToAction → Default → Primary*
@@ -1329,7 +1352,13 @@ export interface CallToActionSliceFeaturedGridItem {
    * - **API ID Path**: call_to_action.items[].button_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.LinkField
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
 
   /**
    * Button Label field in *CallToAction → Items*
@@ -1404,7 +1433,13 @@ export interface CallToActionSliceSocialItem {
    * - **API ID Path**: call_to_action.items[].social_url
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  social_url: prismic.LinkField
+  social_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
 }
 
 /**
@@ -1477,7 +1512,13 @@ export interface CallToActionSliceBrandGridItem {
    * - **API ID Path**: call_to_action.items[].button_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.LinkField
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
 
   /**
    * Button Label field in *CallToAction → Items*
@@ -1572,7 +1613,13 @@ export interface CallToActionSliceProductTypeGridItem {
    * - **API ID Path**: call_to_action.items[].button_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.LinkField
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
 
   /**
    * Button Label field in *CallToAction → Items*
@@ -1766,6 +1813,17 @@ export interface CallToActionSlicePromotionPrimary {
   image: prismic.ImageField<never>
 
   /**
+   * Image Shadow field in *CallToAction → Promotion → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: call_to_action.promotion.primary.image_shadow
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  image_shadow: prismic.BooleanField
+
+  /**
    * Button Link field in *CallToAction → Promotion → Primary*
    *
    * - **Field Type**: Link
@@ -1773,7 +1831,13 @@ export interface CallToActionSlicePromotionPrimary {
    * - **API ID Path**: call_to_action.promotion.primary.button_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.LinkField
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
 
   /**
    * Button Label field in *CallToAction → Promotion → Primary*
@@ -2201,7 +2265,13 @@ export interface HeroSliceDefaultItem {
    * - **API ID Path**: hero.items[].button_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.LinkField
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
 
   /**
    * Button Label field in *Hero → Items*
