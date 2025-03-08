@@ -27,6 +27,7 @@ export default function BlogCard({
           <Link
             href={`${blog_post.url}`}
             className="overflow-hidden focus:outline-none focus:ring-4 focus:ring-primary"
+            aria-labelledby={blog_post.id}
           >
             <PrismicNextImage
               field={blog_post.data.featured_image}
@@ -42,7 +43,12 @@ export default function BlogCard({
             field={blog_post.data.title}
             components={{
               heading1: ({ children }: { children: ReactNode }) => (
-                <Heading as="h1" size="3xl" className="my-2 text-left">
+                <Heading
+                  as="h1"
+                  size="3xl"
+                  className="my-2 text-left"
+                  id={blog_post.id}
+                >
                   {children}
                 </Heading>
               ),
@@ -54,7 +60,7 @@ export default function BlogCard({
             variant="default"
             className="text-xs font-medium uppercase leading-normal text-neutral"
           >
-            <Link href={`${blog_post.url}`}>
+            <Link href={`${blog_post.url}`} aria-labelledby={blog_post.id}>
               {blog_post.type === 'blog_post'
                 ? 'Continue Reading'
                 : 'View Project'}
