@@ -28,9 +28,11 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
       <div className="aspect-h-9 aspect-w-16 relative">
         <PrismicNextImage
           field={slice.primary.background_image}
-          className="w-full"
+          className="absolute inset-0 object-cover"
           priority={index === 0}
           imgixParams={{ ar: '16:9', fit: 'crop' }}
+          fill
+          sizes="100vw"
         />
       </div>
       <div className="flex items-center justify-center bg-neutral py-4 text-background backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">

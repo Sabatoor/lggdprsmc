@@ -562,15 +562,18 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
             {slice.items.length > 0 &&
               slice.items.map(item => {
                 return (
-                  <WhileInView key={item.logo.id}>
-                    <li className="flex flex-col justify-center">
+                  <li
+                    key={item.logo.id}
+                    className="flex flex-col justify-center"
+                  >
+                    <WhileInView>
                       <PrismicNextImage
                         field={item.logo}
                         width={250}
                         className=""
                       />
-                    </li>
-                  </WhileInView>
+                    </WhileInView>
+                  </li>
                 )
               })}
           </ul>
