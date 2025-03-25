@@ -52,7 +52,7 @@ const Slider = ({ reviews }: ReviewsProps) => {
           delay: 6000,
         }),
       ]}
-      className="w-full max-w-[240px] md:max-w-screen-sm lg:max-w-screen-lg"
+      className="w-full max-w-[240px] md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-lg)"
     >
       {reviews && (
         <CarouselContent className="h-full">
@@ -80,7 +80,7 @@ const Slider = ({ reviews }: ReviewsProps) => {
                                 />
                               ))}
                             </CardTitle>
-                            <CardDescription className="line-clamp-[10] min-h-[200px]">
+                            <CardDescription className="line-clamp-10 min-h-[200px]">
                               {item.text.text}
                             </CardDescription>
                             <CardFooter className="flex flex-col items-center justify-center gap-3 pt-4">

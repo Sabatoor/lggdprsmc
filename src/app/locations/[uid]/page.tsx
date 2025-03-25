@@ -78,7 +78,7 @@ export default async function Page(props: { params: Promise<Params> }) {
             />
           </div>
         )}
-        <div className="mx-auto flex max-w-screen-lg flex-col px-4 py-4 lg:py-8">
+        <div className="mx-auto flex max-w-(--breakpoint-lg) flex-col px-4 py-4 lg:py-8">
           <PrismicRichText
             field={page.data.title}
             components={{

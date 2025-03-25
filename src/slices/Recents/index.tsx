@@ -5,6 +5,7 @@ import { Suspense } from 'react'
 import RecentList from './RecentList'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Heading from '@/components/Heading'
+import React from 'react'
 
 /**
  * Props for `Recents`.
@@ -14,13 +15,13 @@ export type RecentsProps = SliceComponentProps<Content.RecentsSlice>
 /**
  * Component for "Recents" Slices.
  */
-const Recents = ({ slice }: RecentsProps): JSX.Element => {
+const Recents = ({ slice }: RecentsProps): React.JSX.Element => {
   return (
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
-      className="full-bleed-white flex-col bg-background"
+      className="full-bleed-white bg-background flex-col"
     >
       {isFilled.richText(slice.primary.heading) && (
         <PrismicRichText field={slice.primary.heading} />

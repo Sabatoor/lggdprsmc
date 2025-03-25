@@ -18,7 +18,10 @@ export type ImageWithTextProps = SliceComponentProps<Content.ImageWithTextSlice>
 /**
  * Component for "ImageWithText" Slices.
  */
-const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
+const ImageWithText = ({
+  slice,
+  index,
+}: ImageWithTextProps): React.JSX.Element => {
   if (slice.variation === 'twoColumn') {
     return (
       <Section
@@ -30,12 +33,12 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
         {isFilled.richText(slice.primary.heading) && (
           <>
             <PrismicRichText field={slice.primary.heading} />
-            <div className="my-4 h-0.5 w-full rounded-full bg-primary lg:my-6" />
+            <div className="bg-primary my-4 h-0.5 w-full rounded-full lg:my-6" />
           </>
         )}
         <div className="grid lg:grid-cols-2 lg:gap-x-8">
           <div
-            className={cn('aspect-h-9 aspect-w-16 overflow-hidden rounded-lg', {
+            className={cn('relative aspect-16/9 overflow-hidden rounded-lg', {
               'lg:order-2': slice.primary.image_location,
             })}
           >
@@ -44,14 +47,14 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
               fallbackAlt=""
               priority={index < 2}
               fill
-              sizes="95vw"
-              className="rounded-lg object-cover transition duration-500 ease-in-out hover:scale-110"
+              sizes="(min-width: 1360px) 600px, (min-width: 1040px) calc(40vw + 64px), (min-width: 740px) 656px, 92.38vw"
+              className="absolute inset-0 rounded-lg object-cover transition duration-500 ease-in-out hover:scale-110"
               title={slice.primary.image.alt || ''}
             />
           </div>
           <div
             className={cn(
-              'prose self-center px-0 py-4 lg:prose-lg xl:prose-xl lg:mr-6 lg:py-0',
+              'prose lg:prose-lg xl:prose-xl self-center px-0 py-4 lg:mr-6 lg:py-0',
               {
                 'lg:order-1': slice.primary.image_location,
               },
@@ -75,9 +78,9 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
       Icon = icons[slice.primary.icon] as React.ElementType
     }
     return (
-      <section className="group mx-auto grid max-w-screen-xl lg:grid-cols-2">
+      <section className="group mx-auto grid max-w-(--breakpoint-xl) lg:grid-cols-2">
         <div
-          className={cn('aspect-h-9 aspect-w-16 overflow-hidden', {
+          className={cn('relative aspect-16/9 overflow-hidden', {
             'lg:order-2': slice.primary.image_location,
           })}
         >
@@ -86,21 +89,21 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
             fallbackAlt=""
             priority={index < 2}
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover transition duration-500 ease-in-out group-hover:scale-110"
+            sizes="(min-width: 1380px) 640px, (min-width: 1040px) calc(37.19vw + 134px), 100vw"
+            className="absolute inset-0 object-cover transition duration-500 ease-in-out group-hover:scale-110"
             title={slice.primary.image.alt || ''}
           />
         </div>
         <div
-          className={cn('flex flex-col items-center bg-neutral p-4 lg:p-6', {
+          className={cn('bg-neutral flex flex-col items-center p-4 lg:p-6', {
             'lg:order-1': slice.primary.image_location,
           })}
         >
           {isFilled.select(slice.primary.icon) && (
             <>
-              {Icon && <Icon className="h-24 w-24 text-primary" />}
+              {Icon && <Icon className="text-primary h-24 w-24" />}
 
-              <div className="my-4 h-0.5 w-full rounded-full bg-primary lg:my-6" />
+              <div className="bg-primary my-4 h-0.5 w-full rounded-full lg:my-6" />
             </>
           )}
           {isFilled.richText(slice.primary.heading) ? (
@@ -111,7 +114,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
                   <Heading
                     as="h2"
                     size="3xl"
-                    className="pb-4 text-center text-primary"
+                    className="text-primary pb-4 text-center"
                   >
                     {children}
                   </Heading>
@@ -123,7 +126,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
             field={slice.primary.text}
             components={{
               paragraph: ({ children }: { children: ReactNode }) => (
-                <p className="prose self-start text-background lg:prose-lg xl:prose-xl">
+                <p className="prose text-background lg:prose-lg xl:prose-xl self-start">
                   {children}
                 </p>
               ),
@@ -155,7 +158,7 @@ const ImageWithText = ({ slice, index }: ImageWithTextProps): JSX.Element => {
           />
         </div>
         <div
-          className={cn('prose col-span-2 lg:prose-lg xl:prose-xl', {
+          className={cn('prose lg:prose-lg xl:prose-xl col-span-2', {
             'order-1': slice.primary.image_location,
           })}
         >

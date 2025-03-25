@@ -3,6 +3,7 @@ import JotFormEmbed from '@/components/JotFormEmbed'
 import Section from '@/components/Section'
 import { Content } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
+import React from 'react'
 
 /**
  * Props for `Form`.
@@ -12,7 +13,7 @@ export type FormProps = SliceComponentProps<Content.FormSlice>
 /**
  * Component for "Form" Slices.
  */
-const Form = ({ slice }: FormProps): JSX.Element => {
+const Form = ({ slice }: FormProps): React.JSX.Element => {
   if (slice.variation === 'estimate') {
     return (
       <Section

@@ -129,7 +129,7 @@ export default async function Page(props: { params: Promise<Params> }) {
                 <li key={product.id} className="max-w-[400px]">
                   <Link
                     href={product.url || '#'}
-                    className="block outline-none ring-primary transition duration-300 ease-in-out focus:ring-2"
+                    className="block outline-hidden ring-primary transition duration-300 ease-in-out focus:ring-2"
                   >
                     <PrismicNextImage
                       field={product.data.featured_image}

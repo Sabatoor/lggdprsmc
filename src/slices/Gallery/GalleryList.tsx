@@ -14,7 +14,7 @@ type GalleryListProps = {
 const GalleryList = async ({
   page = 1,
   type,
-}: GalleryListProps): Promise<JSX.Element> => {
+}: GalleryListProps): Promise<React.JSX.Element> => {
   const client = createClient()
   let gallery_items
   if (!type) {
@@ -52,15 +52,15 @@ const GalleryList = async ({
             const workLocation = getPostLocationTag(item.tags, locations)
 
             return (
-              <li key={item.id} className="relative rounded-lg bg-secondary">
+              <li key={item.id} className="bg-secondary relative rounded-lg">
                 {workType && (
-                  <Badge className="absolute left-4 top-4 cursor-default text-emerald-950">
+                  <Badge className="absolute top-4 left-4 cursor-default text-emerald-950">
                     {workType}
                   </Badge>
                 )}
                 {workLocation && (
                   <Badge
-                    className="absolute right-4 top-4 cursor-default"
+                    className="absolute top-4 right-4 cursor-default"
                     variant={'secondary'}
                   >
                     {workLocation}
@@ -77,7 +77,7 @@ const GalleryList = async ({
                     height={261}
                     imgixParams={{ ar: '4:3', fit: 'crop', q: 75 }}
                     title={item.data.featured_image.alt || 'decorative image'}
-                    className="rounded-lg shadow-sm shadow-neutral-500"
+                    className="rounded-lg shadow-xs shadow-neutral-500"
                     priority={index < 2}
                     fallbackAlt=""
                   />

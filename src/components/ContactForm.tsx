@@ -95,7 +95,7 @@ const ContactForm = (data: FormSlice): React.JSX.Element => {
         type="submit"
         aria-disabled={isSubmitting}
         className={cn(
-          'my-4 inline-block rounded-lg bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:shadow',
+          'my-4 inline-block rounded-lg bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:shadow-sm',
         )}
       >
         {text}
@@ -211,7 +211,7 @@ const ContactForm = (data: FormSlice): React.JSX.Element => {
 
           <div className="mx-auto max-w-sm">
             <SubmitButton text={button_text} />
-            <p className="prose prose-sm mt-3 prose-a:no-underline hover:prose-a:underline">
+            <p className="prose prose-sm mt-3 prose-a:no-underline prose-a:hover:underline">
               This site is protected by reCAPTCHA and the{' '}
               <a href="https://policies.google.com/privacy">
                 Google Privacy Policy

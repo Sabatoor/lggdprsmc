@@ -52,8 +52,8 @@ export default async function Page(props: { params: Promise<Params> }) {
           <PrismicRichText field={page.data.description} />
         </div>
         {page.data.files.length > 0 && (
-          <div className="min-w-[350px] max-w-screen-sm overflow-hidden rounded bg-background shadow-lg">
-            <header className="relative flex h-8 items-center justify-center bg-neutral-300 shadow-sm">
+          <div className="min-w-[350px] max-w-(--breakpoint-sm) overflow-hidden rounded bg-background shadow-lg">
+            <header className="relative flex h-8 items-center justify-center bg-neutral-300 shadow-xs">
               <div className="absolute left-2 top-2 flex gap-x-2">
                 <div className="h-3 w-3 rounded-full bg-red-600" />
                 <div className="h-3 w-3 rounded-full bg-primary" />
@@ -72,7 +72,7 @@ export default async function Page(props: { params: Promise<Params> }) {
                       <li key={i}>
                         <Link
                           href={file.url}
-                          className="group grid place-items-center gap-4 rounded p-2 outline-none ring-primary focus:ring-2"
+                          className="group grid place-items-center gap-4 rounded p-2 outline-hidden ring-primary focus:ring-2"
                         >
                           <FaFilePdf className="h-16 w-16 transform text-primary transition duration-500 ease-in-out group-hover:-translate-y-1 group-hover:scale-105" />
                           <p className="text-sm">{file.name}</p>

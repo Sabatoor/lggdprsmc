@@ -21,11 +21,11 @@ export default function Section({
         'mx-auto flex items-center justify-center px-4 py-2 md:px-6 md:py-8 lg:py-10',
         {
           'w-full': width === 'full',
-          'max-w-screen-2xl': width === '2xl',
-          'max-w-screen-xl': width === 'xl',
-          'max-w-screen-lg': width === 'lg',
-          'max-w-screen-md': width === 'md',
-          'max-w-screen-sm': width === 'sm',
+          'max-w-(--breakpoint-2xl)': width === '2xl',
+          'max-w-(--breakpoint-xl)': width === 'xl',
+          'max-w-(--breakpoint-lg)': width === 'lg',
+          'max-w-(--breakpoint-md)': width === 'md',
+          'max-w-(--breakpoint-sm)': width === 'sm',
         },
         className,
       )}

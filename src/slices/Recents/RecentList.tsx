@@ -32,7 +32,7 @@ const RecentList = async ({
   type,
   location,
   service,
-}: RecentListProps): Promise<JSX.Element> => {
+}: RecentListProps): Promise<React.JSX.Element> => {
   const client = createClient()
 
   let posts
@@ -82,7 +82,7 @@ const RecentList = async ({
             return (
               <li
                 key={post.id}
-                className="group flex min-w-[250px] max-w-sm flex-col rounded-lg bg-muted shadow transition duration-200 ease-in-out hover:bg-background hover:shadow-md"
+                className="group bg-muted hover:bg-background flex max-w-sm min-w-[250px] flex-col rounded-lg shadow-sm transition duration-200 ease-in-out hover:shadow-md"
               >
                 <div className="relative h-24 overflow-hidden rounded-t-lg">
                   <PrismicNextImage
@@ -92,7 +92,7 @@ const RecentList = async ({
                     sizes="(min-width: 460px) 384px, calc(82.86vw + 19px)"
                   />
                 </div>
-                <p className="p-3 text-center text-xs font-bold text-neutral">
+                <p className="text-neutral p-3 text-center text-xs font-bold">
                   {asDate(post.data.date_published)?.toLocaleDateString(
                     'en-CA',
                     {
@@ -106,7 +106,7 @@ const RecentList = async ({
                 </p>
                 {hasServiceTag && (
                   <div className="flex justify-center">
-                    <Badge className="cursor-default bg-neutral hover:bg-neutral">
+                    <Badge className="bg-neutral hover:bg-neutral cursor-default">
                       {postTags[serviceTagIndex]}
                     </Badge>
                   </div>
@@ -115,7 +115,7 @@ const RecentList = async ({
                 <div className="mt-auto flex justify-center pb-3 lg:pb-6">
                   <Button
                     asChild
-                    className="font-bold text-neutral"
+                    className="text-neutral font-bold"
                     variant="default"
                   >
                     <Link href={post.url || '/'}>

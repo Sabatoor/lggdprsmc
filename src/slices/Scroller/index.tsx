@@ -25,7 +25,7 @@ export type ScrollerProps = SliceComponentProps<Content.ScrollerSlice>
 /**
  * Component for "Scroller" Slices.
  */
-const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
+const Scroller = ({ slice, index }: ScrollerProps): React.JSX.Element => {
   const dupedImages = [...slice.items, ...slice.items]
   React.useEffect(() => {
     const scrollers = document.querySelectorAll('.scroller')
@@ -87,7 +87,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
           <Carousel
             opts={{ loop: true }}
             plugins={[Autoplay({ delay: 6000 })]}
-            className="w-full max-w-screen-sm lg:max-w-screen-lg"
+            className="w-full max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-lg)"
           >
             <CarouselContent>
               {carouselItems &&
@@ -137,7 +137,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
           field={slice.primary.heading}
           components={{
             heading2: ({ children }: { children: ReactNode }) => (
-              <h2 className="mb-4 mt-6 text-center font-heading text-3xl font-bold text-neutral md:text-4xl lg:text-5xl">
+              <h2 className="font-heading text-neutral mt-6 mb-4 text-center text-3xl font-bold md:text-4xl lg:text-5xl">
                 {children}
               </h2>
             ),
@@ -148,7 +148,7 @@ const Scroller = ({ slice, index }: ScrollerProps): JSX.Element => {
         id={`scroller-${index}`}
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
-        className="scroller max-w-screen-lg"
+        className="scroller max-w-(--breakpoint-lg)"
         data-speed={`${slice.primary.speed?.toLowerCase()}`}
         data-direction={`${slice.primary.scroll_direction ? 'right' : 'left'}`}
       >
