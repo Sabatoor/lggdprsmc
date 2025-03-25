@@ -64,46 +64,45 @@ const Scroller = ({ slice, index }: ScrollerProps): React.JSX.Element => {
    * Carousel State
    */
 
-  if (slice.variation === 'carousel') {
-    const carouselItems = isFilled.group(slice.primary.items)
-      ? slice.primary.items
-      : slice.items.length > 0
-        ? slice.items
-        : null
+  const carouselItems = isFilled.group(slice.primary.items)
+    ? slice.primary.items
+    : slice.items.length > 0
+      ? slice.items
+      : null
 
-    return (
-      <Section
-        data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}
-        className="flex-col"
-        width="xl"
-      >
-        {isFilled.richText(slice.primary.heading) && (
-          <div className="flex justify-center pb-4 md:pb-6 lg:pb-10">
-            <PrismicRichText field={slice.primary.heading} />
-          </div>
-        )}
-        {carouselItems && (
-          <Carousel
-            opts={{ loop: true }}
-            plugins={[Autoplay({ delay: 6000 })]}
-            className="w-full max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-lg)"
-          >
-            <CarouselContent>
-              {carouselItems &&
-                carouselItems.map(item => {
-                  return (
-                    <CarouselItem
-                      key={item.image.id}
-                      className={cn('h-full', {
-                        'xl:basis-1/2': slice.primary.desktop_columns === '2',
-                        'lg:basis-1/2 xl:basis-1/3':
-                          slice.primary.desktop_columns === '3',
-                        'lg:basis-1/2 xl:basis-1/4':
-                          slice.primary.desktop_columns === '4',
-                      })}
-                    >
-                      <Card className="aspect-h-9 aspect-w-16 overflow-hidden">
+  return (
+    <Section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      className="flex-col"
+      width="xl"
+    >
+      {isFilled.richText(slice.primary.heading) && (
+        <div className="flex justify-center pb-4 md:pb-6 lg:pb-10">
+          <PrismicRichText field={slice.primary.heading} />
+        </div>
+      )}
+      {carouselItems && (
+        <Carousel
+          opts={{ loop: true }}
+          plugins={[Autoplay({ delay: 6000 })]}
+          className="w-full max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-lg)"
+        >
+          <CarouselContent className="h-full">
+            {carouselItems &&
+              carouselItems.map(item => {
+                return (
+                  <CarouselItem
+                    key={item.image.id}
+                    className={cn('relative h-full', {
+                      'xl:basis-1/2': slice.primary.desktop_columns === '2',
+                      'lg:basis-1/2 xl:basis-1/3':
+                        slice.primary.desktop_columns === '3',
+                      'lg:basis-1/2 xl:basis-1/4':
+                        slice.primary.desktop_columns === '4',
+                    })}
+                  >
+                    {/* <Card className="">
                         <CardContent className="p-0">
                           <Link href={item.image.url || '#'}>
                             <PrismicNextImage
@@ -117,59 +116,28 @@ const Scroller = ({ slice, index }: ScrollerProps): React.JSX.Element => {
                             />
                           </Link>
                         </CardContent>
-                      </Card>
-                    </CarouselItem>
-                  )
-                })}
-            </CarouselContent>
+                      </Card> */}
+                    <Card className="relative aspect-16/9">
+                      <CardContent className="p-0">
+                        <Link href={item.image.url || '#'}>
+                          <PrismicNextImage
+                            field={item.image}
+                            fill
+                            className="absolute inset-0 rounded-lg object-cover"
+                          />
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                )
+              })}
+          </CarouselContent>
 
-            <CarouselNext className="hidden md:inline-flex" />
-            <CarouselPrevious className="hidden md:inline-flex" />
-          </Carousel>
-        )}
-      </Section>
-    )
-  }
-  return (
-    <section className="my-4 grid place-content-center">
-      {isFilled.richText(slice.primary.heading) && (
-        <PrismicRichText
-          field={slice.primary.heading}
-          components={{
-            heading2: ({ children }: { children: ReactNode }) => (
-              <h2 className="font-heading text-neutral mt-6 mb-4 text-center text-3xl font-bold md:text-4xl lg:text-5xl">
-                {children}
-              </h2>
-            ),
-          }}
-        />
+          <CarouselNext variant={'default'} />
+          <CarouselPrevious variant={'default'} />
+        </Carousel>
       )}
-      <div
-        id={`scroller-${index}`}
-        data-slice-type={slice.slice_type}
-        data-slice-variation={slice.variation}
-        className="scroller max-w-(--breakpoint-lg)"
-        data-speed={`${slice.primary.speed?.toLowerCase()}`}
-        data-direction={`${slice.primary.scroll_direction ? 'right' : 'left'}`}
-      >
-        <div className="scroll-skeleton h-[300px]" />
-        <ul className="scroller__inner relative hidden flex-wrap gap-4 py-4">
-          {dupedImages.length > 0 &&
-            dupedImages.map((item, i) => (
-              <li key={item.image.url + `${i}`}>
-                <PrismicNextImage
-                  field={item.image}
-                  fallbackAlt=""
-                  className="h-[300px] w-[400px]"
-                  aria-hidden={i > slice.items.length - 1}
-                  priority={index < 2}
-                  title={item.image.alt || ''}
-                />
-              </li>
-            ))}
-        </ul>
-      </div>
-    </section>
+    </Section>
   )
 }
 
