@@ -50,6 +50,7 @@ export default function Consent() {
                 'ad_storage': 'granted',
                 'analytics_storage': 'granted'
               });
+              window.clarity('consent');
               localStorage.setItem('consentMode', JSON.stringify({ad_storage: 'granted', analytics_storage: 'granted'}));
             `,
           }}
@@ -69,7 +70,7 @@ export default function Consent() {
             }}
             id="consent-banner"
             className={cn(
-              'fixed bottom-0 z-10 grid w-full bg-background p-3 md:grid-cols-5',
+              'bg-background fixed bottom-0 z-10 grid w-full p-3 md:grid-cols-5',
             )}
           >
             <p className="prose prose-sm mx-auto my-4 px-6 text-left md:col-span-3">
@@ -82,12 +83,12 @@ export default function Consent() {
             <div className="my-4 flex items-center justify-evenly md:col-span-2">
               <Button
                 variant="outline"
-                className="absolute right-2 top-2"
+                className="absolute top-2 right-2"
                 onClick={e => {
                   setHideBanner(true)
                 }}
               >
-                <HiX className="h-5 w-5 text-neutral" />
+                <HiX className="text-neutral h-5 w-5" />
                 <span className="sr-only">Close</span>
               </Button>
               <Button
@@ -114,7 +115,7 @@ export default function Consent() {
                   setConsent(true)
                   setHideBanner(true)
                 }}
-                className="px-6 py-4 font-medium text-neutral lg:text-lg"
+                className="text-neutral px-6 py-4 font-medium lg:text-lg"
               >
                 Accept All
               </Button>
