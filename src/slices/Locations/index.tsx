@@ -5,6 +5,7 @@ import { LocationDocument } from '../../../prismicio-types'
 import { PrismicNextImage } from '@prismicio/next'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Link from 'next/link'
+import React from 'react'
 
 /**
  * Props for `Locations`.
@@ -14,7 +15,7 @@ export type LocationsProps = SliceComponentProps<Content.LocationsSlice>
 /**
  * Component for "Locations" Slices.
  */
-const Locations = ({ slice }: LocationsProps): JSX.Element => {
+const Locations = ({ slice }: LocationsProps): React.JSX.Element => {
   return (
     <Section
       data-slice-type={slice.slice_type}

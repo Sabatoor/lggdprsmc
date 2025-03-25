@@ -57,7 +57,7 @@ export default async function RootLayout({
     <html lang="en-CA">
       <body
         className={cn(
-          'flex min-h-screen flex-col justify-between bg-muted font-body text-neutral',
+          'font-body text-neutral bg-muted flex min-h-screen flex-col justify-between',
           body.variable,
           heading.variable,
         )}

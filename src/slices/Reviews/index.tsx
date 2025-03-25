@@ -12,7 +12,7 @@ export type ReviewsProps = SliceComponentProps<Content.ReviewsSlice>
 /**
  * Component for "Reviews" Slices.
  */
-const Reviews = async ({ slice }: ReviewsProps): Promise<JSX.Element> => {
+const Reviews = async ({ slice }: ReviewsProps): Promise<React.JSX.Element> => {
   const data =
     process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
       ? await fetch(

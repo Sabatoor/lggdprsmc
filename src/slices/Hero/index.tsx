@@ -7,6 +7,7 @@ import Heading from '@/components/Heading'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import { buttonVariants } from '@/components/ui/button'
 import { ReactNode } from 'react'
+import React from 'react'
 
 /**
  * Props for `Hero`.
@@ -16,7 +17,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>
 /**
  * Component for "Hero" Slices.
  */
-const Hero = ({ slice, index }: HeroProps): JSX.Element => {
+const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -25,7 +26,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
         'relative mx-auto flex flex-col overflow-hidden px-0 py-0 md:px-0 md:py-0 lg:py-0',
       )}
     >
-      <div className="aspect-h-9 aspect-w-16 relative">
+      <div className="relative aspect-16/9">
         <PrismicNextImage
           field={slice.primary.background_image}
           className="absolute inset-0 object-cover"
@@ -35,7 +36,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
           sizes="100vw"
         />
       </div>
-      <div className="flex items-center justify-center bg-neutral py-4 text-background backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
+      <div className="bg-neutral text-background flex items-center justify-center py-4 backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
         <div>
           <PrismicRichText
             field={slice.primary.heading}
@@ -52,7 +53,7 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
             }}
           />
           {isFilled.richText(slice.primary.description) && (
-            <span className="relative my-6 flex justify-center text-muted lg:mb-8">
+            <span className="text-muted relative my-6 flex justify-center lg:mb-8">
               <PrismicRichText field={slice.primary.description} />
             </span>
           )}

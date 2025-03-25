@@ -1,26 +1,105 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme inline {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-base: hsl(var(--base));
+  --color-neutral: hsl(var(--neutral));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  --grid-template-columns-gallery: repeat(auto-fit, minmax(250px, 1fr));
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 @layer base {
   :root {
     /* Previous Variables */
-    /* --full-bleed: rgb(132, 199, 124); */
     --full-bleed: 113.6 40.11% 63.33%;
-    /* --full-bleed-white: rgb(253, 253, 253); */
+
     --full-bleed-white: 0 0% 99.22%;
-    --color-primary: 113.6 40.11% 63.33%;
-    /* --color-primary-hover: 83, 173, 73; */
-    --color-primary-hover: 114 40.65% 48.24%;
-    --color-secondary: 0 72.22% 50.59%;
-    --color-secondary-hover: 0 70% 35.29%;
-    --color-neutral: 226.15 48.15% 10.59%;
-    /* --color-neutral: 14, 20, 40; */
-    --color-base: 240 2.33% 91.57%;
-    /* --color-base: 233, 233, 234; */
-    --color-white: 240 2.33% 91.57%;
-    --color-muted: 140.62 84.21% 92.55%;
-    /* --color-muted: 220, 252, 231; */
+    --neutral: 226.15 48.15% 10.59%;
+    --base: 226 13% 10.6%;
+    --muted: 240 2.33% 91.57%;
 
     /* Previous Variables */
 
@@ -39,10 +118,7 @@
     --secondary: 0, 0%, 96.1%;
     --secondary-foreground: 0, 0%, 9%;
 
-    --muted: 240, 2.33%, 91.57%;
     --muted-foreground: 0, 0%, 45.1%;
-
-    --neutral: 226.15, 48.15%, 10.59%;
 
     --accent: 0, 0%, 96.1%;
     --accent-foreground: 0, 0%, 9%;

@@ -26,19 +26,19 @@ export default function BlogCard({
         {isFilled.image(blog_post.data.featured_image) && (
           <Link
             href={`${blog_post.url}`}
-            className="overflow-hidden focus:outline-none focus:ring-4 focus:ring-primary"
+            className="overflow-hidden focus:outline-hidden focus:ring-4 focus:ring-primary"
             aria-labelledby={blog_post.id}
           >
             <PrismicNextImage
               field={blog_post.data.featured_image}
-              className="w-full transform rounded-lg object-cover object-center shadow shadow-muted transition duration-700 ease-in-out group-hover:-translate-y-4"
+              className="w-full transform rounded-lg object-cover object-center shadow-sm shadow-muted transition duration-700 ease-in-out group-hover:-translate-y-4"
               fallbackAlt=""
               title={`Read ${asText(blog_post.data.title)}`}
               width={576}
             />
           </Link>
         )}
-        <div className="relative mx-auto -mt-4 max-w-lg rounded-lg bg-background p-4 shadow lg:-mt-16">
+        <div className="relative mx-auto -mt-4 max-w-lg rounded-lg bg-background p-4 shadow-sm lg:-mt-16">
           <PrismicRichText
             field={blog_post.data.title}
             components={{
