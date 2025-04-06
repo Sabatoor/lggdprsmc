@@ -716,6 +716,10 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                 variant: slice.primary.button_color || 'default',
                 size: 'lg',
               }),
+              {
+                'text-background/95 hover:text-background hover:bg-input/10':
+                  slice.primary.button_color === 'outline',
+              },
             )}
           >
             {slice.primary.button_label}
