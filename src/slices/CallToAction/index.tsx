@@ -158,8 +158,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                       </div>
                       {isFilled.link(item.button_link) ? (
                         <div className="mt-6 mb-4 flex justify-center">
-                          <PrismicNextLink
-                            field={item.button_link}
+                          <span
                             className={cn(
                               buttonVariants({
                                 variant: item.button_color || 'default',
@@ -174,7 +173,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                             )}
                           >
                             {item.button_label || 'Click Here'}
-                          </PrismicNextLink>
+                          </span>
                         </div>
                       ) : null}
                     </div>
@@ -332,8 +331,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                       </div>
                       {isFilled.link(item.button_link) ? (
                         <div className="mt-6 mb-4 flex justify-center">
-                          <PrismicNextLink
-                            field={item.button_link}
+                          <span
                             className={cn(
                               buttonVariants({
                                 variant: item.button_color || 'default',
@@ -343,7 +341,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                             )}
                           >
                             {item.button_label || 'Click Here'}
-                          </PrismicNextLink>
+                          </span>
                         </div>
                       ) : null}
                     </div>
@@ -403,8 +401,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     </div>
                     {isFilled.link(item.button_link) ? (
                       <div className="mt-6 mb-4 flex justify-center">
-                        <PrismicNextLink
-                          field={item.button_link}
+                        <span
                           className={cn(
                             buttonVariants({
                               variant: item.button_color || 'default',
@@ -414,7 +411,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                           )}
                         >
                           {item.button_label || 'Click Here'}
-                        </PrismicNextLink>
+                        </span>
                       </div>
                     ) : null}
                   </PrismicNextLink>
@@ -497,15 +494,14 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                       </div>
                       {isService(item.service) ? (
                         <div className="mt-6 mb-4 flex justify-center">
-                          <Link
-                            href={item.service.url || '#'}
+                          <span
                             className={cn(
                               buttonVariants({ variant: 'default' }),
                               'text-neutral text-center outline-hidden focus:ring-2',
                             )}
                           >
                             {item.button_label || 'Click Here'}
-                          </Link>
+                          </span>
                         </div>
                       ) : null}
                     </div>

@@ -74,7 +74,9 @@ export default async function RootLayout({
           phoneNumber={settings.data.phone_number}
           call_to_action={settings.data.call_to_action}
         />
-        <main id="content">{children}</main>
+        <main id="content" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
         <Consent />
         <PrismicPreview repositoryName={repositoryName} />
