@@ -84,7 +84,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
           />
         )}
         <div
-          className={cn('grid gap-4 py-6 lg:gap-8', {
+          className={cn('grid gap-4 py-6 lg:gap-8 lg:py-0 lg:pt-6', {
             'lg:grid-cols-3': slice.items.length === 3,
             'lg:grid-cols-2': slice.items.length === 2,
           })}
@@ -95,11 +95,10 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                   <PrismicNextLink
                     field={item.button_link}
                     aria-labelledby={`${slice.id}-heading-${i}`}
+                    key={`${slice.id}-${i}`}
+                    className="ring-primary rounded-lg outline-hidden focus:ring-2"
                   >
-                    <div
-                      key={`${slice.id}-${i}`}
-                      className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
-                    >
+                    <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
                         {isBrand(item.brand) && (
                           <PrismicNextImage
@@ -269,11 +268,10 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                   <PrismicNextLink
                     field={item.button_link}
                     aria-labelledby={`${slice.id}-heading-${i}`}
+                    key={`${slice.id}-${i}`}
+                    className="ring-primary rounded-lg outline-hidden focus:ring-2"
                   >
-                    <div
-                      key={`${slice.id}-${i}`}
-                      className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
-                    >
+                    <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
                         {isProductType(item.product_type) && (
                           <PrismicNextImage
@@ -378,6 +376,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                   <PrismicNextLink
                     field={item.button_link}
                     aria-labelledby={slice.id + '-' + 'heading-' + i}
+                    className="ring-primary rounded-lg outline-hidden focus:ring-2"
                   >
                     <div className="flex flex-col items-center">
                       {Icon ? (
@@ -454,17 +453,16 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
             ? slice.items.map((item, i) => {
                 return (
                   <Link
+                    key={`${slice.id}-${i}`}
                     href={
                       'url' in item.service && item.service.url
                         ? item.service.url
                         : '/services'
                     }
                     aria-labelledby={`${slice.id}-heading-${i}`}
+                    className="ring-primary rounded-lg outline-hidden focus:ring-2"
                   >
-                    <div
-                      key={`${slice.id}-${i}`}
-                      className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
-                    >
+                    <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
                         {isService(item.service) ? (
                           <PrismicRichText
