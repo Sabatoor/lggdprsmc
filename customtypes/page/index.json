@@ -85,6 +85,15 @@
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
+      },
+      "index": {
+        "type": "Boolean",
+        "config": {
+          "label": "Index",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": true
+        }
       }
     }
   }
