@@ -92,92 +92,94 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
           {slice.items.length > 0
             ? slice.items.map((item, i) => {
                 return (
-                  <div
-                    key={`${slice.id}-${i}`}
-                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
+                  <PrismicNextLink
+                    field={item.button_link}
+                    aria-labelledby={`${slice.id}-heading-${i}`}
                   >
-                    <div className="flex flex-col items-center">
-                      {isBrand(item.brand) &&
-                        isFilled.image(item.brand.data.logo) &&
-                        isFilled.link(item.button_link) && (
-                          <Link href={item.button_link.url || '#'}>
-                            <PrismicNextImage
-                              field={item.brand.data.logo}
-                              className="rounded-lg"
-                            />
-                          </Link>
-                        )}
-                      {isFilled.richText(item.heading) ? (
-                        <PrismicRichText
-                          field={item.heading}
-                          components={{
-                            heading2: ({
-                              children,
-                            }: {
-                              children: ReactNode
-                            }) => (
-                              <Heading
-                                as="h2"
-                                size="3xl"
-                                className="text-neutral my-2 lg:my-3"
-                              >
-                                {children}
-                              </Heading>
-                            ),
-                          }}
-                        />
-                      ) : isBrand(item.brand) ? (
-                        <PrismicRichText
-                          field={item.brand.data.title}
-                          components={{
-                            heading1: ({
-                              children,
-                            }: {
-                              children: ReactNode
-                            }) => (
-                              <Heading
-                                as="h2"
-                                size="3xl"
-                                className="text-neutral my-2 lg:my-3"
-                              >
-                                {children}
-                              </Heading>
-                            ),
-                          }}
-                        />
-                      ) : null}
-                      {isFilled.richText(item.description) ? (
-                        <PrismicRichText field={item.description} />
-                      ) : (
-                        isBrand(item.brand) && (
-                          <PrismicRichText
-                            field={item.brand.data.description}
+                    <div
+                      key={`${slice.id}-${i}`}
+                      className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
+                    >
+                      <div className="flex flex-col items-center">
+                        {isBrand(item.brand) && (
+                          <PrismicNextImage
+                            field={item.brand.data.logo}
+                            className="rounded-lg"
                           />
-                        )
-                      )}
-                    </div>
-                    {isFilled.link(item.button_link) ? (
-                      <div className="mt-6 mb-4 flex justify-center">
-                        <PrismicNextLink
-                          field={item.button_link}
-                          className={cn(
-                            buttonVariants({
-                              variant: item.button_color || 'default',
-                              size: 'lg',
-                            }),
-                            {
-                              'text-neutral':
-                                item.button_color === 'default' ||
-                                item.button_color === 'link',
-                            },
-                            'font-bold',
-                          )}
-                        >
-                          {item.button_label || 'Click Here'}
-                        </PrismicNextLink>
+                        )}
+                        {isFilled.richText(item.heading) ? (
+                          <PrismicRichText
+                            field={item.heading}
+                            components={{
+                              heading2: ({
+                                children,
+                              }: {
+                                children: ReactNode
+                              }) => (
+                                <Heading
+                                  as="h2"
+                                  size="3xl"
+                                  className="text-neutral my-2 lg:my-3"
+                                >
+                                  {children}
+                                </Heading>
+                              ),
+                            }}
+                          />
+                        ) : isBrand(item.brand) ? (
+                          <PrismicRichText
+                            field={item.brand.data.title}
+                            components={{
+                              heading1: ({
+                                children,
+                              }: {
+                                children: ReactNode
+                              }) => (
+                                <Heading
+                                  as="h2"
+                                  size="3xl"
+                                  className="text-neutral my-2 lg:my-3"
+                                  id={`${slice.id}-heading-${i}`}
+                                >
+                                  {children}
+                                </Heading>
+                              ),
+                            }}
+                          />
+                        ) : null}
+                        {isFilled.richText(item.description) ? (
+                          <PrismicRichText field={item.description} />
+                        ) : (
+                          isBrand(item.brand) && (
+                            <PrismicRichText
+                              field={item.brand.data.description}
+                            />
+                          )
+                        )}
                       </div>
-                    ) : null}
-                  </div>
+                      {isFilled.link(item.button_link) ? (
+                        <div className="mt-6 mb-4 flex justify-center">
+                          <PrismicNextLink
+                            field={item.button_link}
+                            className={cn(
+                              buttonVariants({
+                                variant: item.button_color || 'default',
+                                size: 'lg',
+                              }),
+                              {
+                                'text-neutral':
+                                  item.button_color === 'default' ||
+                                  item.button_color === 'link',
+                              },
+                              'font-bold',
+                            )}
+                          >
+                            {item.button_label || 'Click Here'}
+                          </PrismicNextLink>
+                        </div>
+                      ) : null}
+                    </div>
+                  </PrismicNextLink>
                 )
               })
             : null}
@@ -264,86 +266,90 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
           {slice.items.length > 0
             ? slice.items.map((item, i) => {
                 return (
-                  <div
-                    key={`${slice.id}-${i}`}
-                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
+                  <PrismicNextLink
+                    field={item.button_link}
+                    aria-labelledby={`${slice.id}-heading-${i}`}
                   >
-                    <div className="flex flex-col items-center">
-                      {isProductType(item.product_type) &&
-                        isFilled.link(item.button_link) && (
-                          <PrismicNextLink field={item.button_link}>
-                            <PrismicNextImage
-                              field={item.product_type.data.featured_image}
-                              className="h-[250px] w-[250px] rounded-lg"
-                            />
-                          </PrismicNextLink>
-                        )}
-                      {isFilled.richText(item.heading) ? (
-                        <PrismicRichText
-                          field={item.heading}
-                          components={{
-                            heading2: ({
-                              children,
-                            }: {
-                              children: ReactNode
-                            }) => (
-                              <Heading
-                                as="h2"
-                                size="3xl"
-                                className="text-neutral my-2 lg:my-3"
-                              >
-                                {children}
-                              </Heading>
-                            ),
-                          }}
-                        />
-                      ) : isProductType(item.product_type) ? (
-                        <PrismicRichText
-                          field={item.product_type.data.title}
-                          components={{
-                            heading1: ({
-                              children,
-                            }: {
-                              children: ReactNode
-                            }) => (
-                              <Heading
-                                as="h2"
-                                size="3xl"
-                                className="text-neutral my-2 lg:my-3"
-                              >
-                                {children}
-                              </Heading>
-                            ),
-                          }}
-                        />
-                      ) : null}
-                      {isFilled.richText(item.description) ? (
-                        <PrismicRichText field={item.description} />
-                      ) : (
-                        isProductType(item.product_type) && (
-                          <PrismicRichText
-                            field={item.product_type.data.description}
+                    <div
+                      key={`${slice.id}-${i}`}
+                      className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
+                    >
+                      <div className="flex flex-col items-center">
+                        {isProductType(item.product_type) && (
+                          <PrismicNextImage
+                            field={item.product_type.data.featured_image}
+                            className="h-[250px] w-[250px] rounded-lg"
                           />
-                        )
-                      )}
-                    </div>
-                    {isFilled.link(item.button_link) ? (
-                      <div className="mt-6 mb-4 flex justify-center">
-                        <PrismicNextLink
-                          field={item.button_link}
-                          className={cn(
-                            buttonVariants({
-                              variant: item.button_color || 'default',
-                              size: 'lg',
-                            }),
-                            'font-bold',
-                          )}
-                        >
-                          {item.button_label || 'Click Here'}
-                        </PrismicNextLink>
+                        )}
+                        {isFilled.richText(item.heading) ? (
+                          <PrismicRichText
+                            field={item.heading}
+                            components={{
+                              heading2: ({
+                                children,
+                              }: {
+                                children: ReactNode
+                              }) => (
+                                <Heading
+                                  id={`${slice.id}-heading-${i}`}
+                                  as="h2"
+                                  size="3xl"
+                                  className="text-neutral my-2 lg:my-3"
+                                >
+                                  {children}
+                                </Heading>
+                              ),
+                            }}
+                          />
+                        ) : isProductType(item.product_type) ? (
+                          <PrismicRichText
+                            field={item.product_type.data.title}
+                            components={{
+                              heading1: ({
+                                children,
+                              }: {
+                                children: ReactNode
+                              }) => (
+                                <Heading
+                                  id={`${slice.id}-heading-${i}`}
+                                  as="h2"
+                                  size="3xl"
+                                  className="text-neutral my-2 lg:my-3"
+                                >
+                                  {children}
+                                </Heading>
+                              ),
+                            }}
+                          />
+                        ) : null}
+                        {isFilled.richText(item.description) ? (
+                          <PrismicRichText field={item.description} />
+                        ) : (
+                          isProductType(item.product_type) && (
+                            <PrismicRichText
+                              field={item.product_type.data.description}
+                            />
+                          )
+                        )}
                       </div>
-                    ) : null}
-                  </div>
+                      {isFilled.link(item.button_link) ? (
+                        <div className="mt-6 mb-4 flex justify-center">
+                          <PrismicNextLink
+                            field={item.button_link}
+                            className={cn(
+                              buttonVariants({
+                                variant: item.button_color || 'default',
+                                size: 'lg',
+                              }),
+                              'font-bold',
+                            )}
+                          >
+                            {item.button_label || 'Click Here'}
+                          </PrismicNextLink>
+                        </div>
+                      ) : null}
+                    </div>
+                  </PrismicNextLink>
                 )
               })
             : null}
@@ -369,40 +375,50 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                   key={`${slice.id}-${i}`}
                   className="bg-background max-w-sm overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
                 >
-                  <div className="flex flex-col items-center">
-                    {Icon ? <Icon className="text-primary h-16 w-16" /> : null}
-                    <PrismicRichText
-                      field={item.heading}
-                      components={{
-                        heading2: ({ children }: { children: ReactNode }) => (
-                          <Heading
-                            as="h2"
-                            size="3xl"
-                            className="text-neutral my-2 lg:my-3"
-                          >
-                            {children}
-                          </Heading>
-                        ),
-                      }}
-                    />
-                    <PrismicRichText field={item.description} />
-                  </div>
-                  {isFilled.link(item.button_link) ? (
-                    <div className="mt-6 mb-4 flex justify-center">
-                      <PrismicNextLink
-                        field={item.button_link}
-                        className={cn(
-                          buttonVariants({
-                            variant: item.button_color || 'default',
-                            size: 'lg',
-                          }),
-                          'font-bold',
-                        )}
-                      >
-                        {item.button_label || 'Click Here'}
-                      </PrismicNextLink>
+                  <PrismicNextLink
+                    field={item.button_link}
+                    aria-labelledby={slice.id + '-' + 'heading-' + i}
+                  >
+                    <div className="flex flex-col items-center">
+                      {Icon ? (
+                        <Icon className="text-primary h-16 w-16" />
+                      ) : null}
+                      <PrismicRichText
+                        field={item.heading}
+                        components={{
+                          heading2: ({ children }: { children: ReactNode }) => (
+                            <Heading
+                              id={slice.id + '-' + 'heading-' + i}
+                              as="h2"
+                              size="3xl"
+                              className="text-neutral my-2 lg:my-3"
+                            >
+                              {children}
+                            </Heading>
+                          ),
+                        }}
+                      />
+                      {isFilled.richText(item.description) && (
+                        <PrismicRichText field={item.description} />
+                      )}
                     </div>
-                  ) : null}
+                    {isFilled.link(item.button_link) ? (
+                      <div className="mt-6 mb-4 flex justify-center">
+                        <PrismicNextLink
+                          field={item.button_link}
+                          className={cn(
+                            buttonVariants({
+                              variant: item.button_color || 'default',
+                              size: 'lg',
+                            }),
+                            'font-bold',
+                          )}
+                        >
+                          {item.button_label || 'Click Here'}
+                        </PrismicNextLink>
+                      </div>
+                    ) : null}
+                  </PrismicNextLink>
                 </div>
               )
             })
@@ -437,53 +453,65 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
           {slice.items.length > 0
             ? slice.items.map((item, i) => {
                 return (
-                  <div
-                    key={`${slice.id}-${i}`}
-                    className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
+                  <Link
+                    href={
+                      'url' in item.service && item.service.url
+                        ? item.service.url
+                        : '/services'
+                    }
+                    aria-labelledby={`${slice.id}-heading-${i}`}
                   >
-                    <div className="flex flex-col items-center">
-                      {isService(item.service) ? (
-                        <PrismicRichText
-                          field={item.service.data.title}
-                          components={{
-                            heading1: ({
-                              children,
-                            }: {
-                              children: ReactNode
-                            }) => (
-                              <Heading
-                                as="h2"
-                                size="3xl"
-                                className="text-neutral my-2 lg:my-3"
-                              >
-                                {children}
-                              </Heading>
-                            ),
-                          }}
-                        />
-                      ) : null}
-                      {isFilled.richText(item.description) ? (
-                        <PrismicRichText field={item.description} />
-                      ) : (
-                        isService(item.service) && (
-                          <PrismicRichText field={item.service.data.excerpt} />
-                        )
-                      )}
-                    </div>
-                    {isService(item.service) ? (
-                      <div className="mt-6 mb-4 flex justify-center">
-                        <Link
-                          href={item.service.url || '#'}
-                          className={cn(
-                            buttonVariants({ variant: 'default' }),
-                            'text-neutral text-center outline-hidden focus:ring-2',
-                          )}
-                        >
-                          {item.button_label || 'Click Here'}
-                        </Link>
+                    <div
+                      key={`${slice.id}-${i}`}
+                      className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
+                    >
+                      <div className="flex flex-col items-center">
+                        {isService(item.service) ? (
+                          <PrismicRichText
+                            field={item.service.data.title}
+                            components={{
+                              heading1: ({
+                                children,
+                              }: {
+                                children: ReactNode
+                              }) => (
+                                <Heading
+                                  id={`${slice.id}-heading-${i}`}
+                                  as="h2"
+                                  size="3xl"
+                                  className="text-neutral my-2 lg:my-3"
+                                >
+                                  {children}
+                                </Heading>
+                              ),
+                            }}
+                          />
+                        ) : null}
+                        {isFilled.richText(item.description) ? (
+                          <PrismicRichText field={item.description} />
+                        ) : (
+                          isService(item.service) && (
+                            <PrismicRichText
+                              field={item.service.data.excerpt}
+                            />
+                          )
+                        )}
                       </div>
-                    ) : null}
-                  </div>
+                      {isService(item.service) ? (
+                        <div className="mt-6 mb-4 flex justify-center">
+                          <Link
+                            href={item.service.url || '#'}
+                            className={cn(
+                              buttonVariants({ variant: 'default' }),
+                              'text-neutral text-center outline-hidden focus:ring-2',
+                            )}
+                          >
+                            {item.button_label || 'Click Here'}
+                          </Link>
+                        </div>
+                      ) : null}
+                    </div>
+                  </Link>
                 )
               })
             : null}
