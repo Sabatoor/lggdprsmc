@@ -643,6 +643,7 @@ export interface ProductDocumentDataFilesItem {
 }
 
 type ProductDocumentDataSlicesSlice =
+  | CallToActionSlice
   | RecentsSlice
   | ScrollerSlice
   | ImageWithTextSlice
