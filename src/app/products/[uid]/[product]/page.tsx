@@ -43,53 +43,55 @@ export default async function Page(props: { params: Promise<Params> }) {
   return (
     <>
       <Section width="lg" className="flex-col">
-        <div className="prose flex flex-col lg:prose-lg xl:prose-xl prose-h2:mt-2">
+        <div className="prose lg:prose-lg xl:prose-xl prose-h2:mt-2 flex flex-col">
           <PrismicNextImage
             field={page.data.featured_image}
             className="place-self-center"
           />
           <PrismicRichText field={page.data.title} />
-          <PrismicRichText field={page.data.description} />
+          {isFilled.richText(page.data.description) && (
+            <PrismicRichText field={page.data.description} />
+          )}
         </div>
-        {page.data.files.length > 0 && (
-          <div className="min-w-[350px] max-w-(--breakpoint-sm) overflow-hidden rounded bg-background shadow-lg">
-            <header className="relative flex h-8 items-center justify-center bg-neutral-300 shadow-xs">
-              <div className="absolute left-2 top-2 flex gap-x-2">
-                <div className="h-3 w-3 rounded-full bg-red-600" />
-                <div className="h-3 w-3 rounded-full bg-primary" />
-                <div className="h-3 w-3 rounded-full bg-amber-400" />
-              </div>
-              <Heading as="h2" size="xl" className="font-light text-neutral">
-                Documents to Download
-              </Heading>
-            </header>
-            <div className="grid place-items-center p-6">
-              {isFilled.linkToMedia(page.data.files[0]?.file) && (
-                <ul className="flex flex-wrap">
-                  {page.data.files.map((item, i) => {
-                    const file = item.file as unknown as File
-                    return (
-                      <li key={i}>
-                        <Link
-                          href={file.url}
-                          className="group grid place-items-center gap-4 rounded p-2 outline-hidden ring-primary focus:ring-2"
-                        >
-                          <FaFilePdf className="h-16 w-16 transform text-primary transition duration-500 ease-in-out group-hover:-translate-y-1 group-hover:scale-105" />
-                          <p className="text-sm">{file.name}</p>
-                          <p className="text-xs">
-                            {bytesToMegabytes(file.size)} MB
-                          </p>
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-              )}
-            </div>
-          </div>
-        )}
       </Section>
       <SliceZone slices={page.data.slices} components={components} />
+      {page.data.files.length > 0 && (
+        <div className="bg-background mx-auto max-w-(--breakpoint-sm) min-w-[350px] overflow-hidden rounded shadow-lg">
+          <header className="relative flex h-8 items-center justify-center bg-neutral-300 shadow-xs">
+            <div className="absolute top-2 left-2 flex gap-x-2">
+              <div className="h-3 w-3 rounded-full bg-red-600" />
+              <div className="bg-primary h-3 w-3 rounded-full" />
+              <div className="h-3 w-3 rounded-full bg-amber-400" />
+            </div>
+            <Heading as="h2" size="xl" className="text-neutral font-light">
+              Documents to Download
+            </Heading>
+          </header>
+          <div className="grid place-items-center p-6">
+            {isFilled.linkToMedia(page.data.files[0]?.file) && (
+              <ul className="flex flex-wrap">
+                {page.data.files.map((item, i) => {
+                  const file = item.file as unknown as File
+                  return (
+                    <li key={i}>
+                      <Link
+                        href={file.url}
+                        className="group ring-primary grid place-items-center gap-4 rounded p-2 outline-hidden focus:ring-2"
+                      >
+                        <FaFilePdf className="text-primary h-16 w-16 transform transition duration-500 ease-in-out group-hover:-translate-y-1 group-hover:scale-105" />
+                        <p className="text-sm">{file.name}</p>
+                        <p className="text-xs">
+                          {bytesToMegabytes(file.size)} MB
+                        </p>
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
     </>
   )
 }
