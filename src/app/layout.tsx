@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Analytics from '@/components/Analytics'
 import Consent from '../components/Consent'
+import SkipNav from '@/components/SkipNav'
 
 /**
  * Heading & Body fonts
@@ -54,7 +55,7 @@ export default async function RootLayout({
     data: { navigation },
   } = settings
   return (
-    <html lang="en-CA">
+    <html lang="en-CA" className="scroll-smooth">
       <body
         className={cn(
           'font-body text-neutral bg-muted flex min-h-screen flex-col justify-between',
@@ -65,6 +66,7 @@ export default async function RootLayout({
         <Suspense>
           <Analytics />
         </Suspense>
+        <SkipNav />
         <Navbar
           navigation={navigation}
           logo={settings.data.logo}

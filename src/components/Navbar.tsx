@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { SettingsDocumentDataNavigationItem } from '../../prismicio-types'
 import { ImageField, isFilled, KeyTextField } from '@prismicio/client'
 import { HiMenu, HiOutlinePhone, HiX } from 'react-icons/hi'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, KeyboardEvent } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import Image from 'next/image'
 
@@ -23,6 +23,7 @@ export default function Navbar({
   title,
   call_to_action,
 }: NavbarProps) {
+  const mobileNavRef = useRef<HTMLButtonElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const toggleNav = () => {
     setIsOpen(!isOpen)
@@ -31,6 +32,7 @@ export default function Navbar({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      if (mobileNavRef.current) mobileNavRef.current.focus()
     } else {
       document.body.style.overflow = 'visible'
     }
@@ -40,6 +42,20 @@ export default function Navbar({
       document.body.style.overflow = 'visible'
     }
   }, [isOpen])
+  useEffect(() => {
+    const handleKeyDown = (event: globalThis.KeyboardEvent): void => {
+      if (isOpen && event.key === 'Escape') {
+        toggleNav()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isOpen, toggleNav])
+
   return (
     <>
       {/* MOBILE NAV */}
@@ -55,7 +71,8 @@ export default function Navbar({
             <button
               type="button"
               onClick={toggleNav}
-              className="absolute top-6 right-6 cursor-pointer"
+              className="ring-primary absolute top-6 right-6 cursor-pointer outline-none focus:ring-2"
+              ref={mobileNavRef}
             >
               <HiX className="h-8 w-8" />
               <span className="sr-only">Toggle Navigation</span>
@@ -107,7 +124,7 @@ export default function Navbar({
               <p className="text-center text-base font-bold md:text-xl">
                 <a
                   href={`tel:${phoneNumber || 6042431505}`}
-                  className="ring-neutral rounded-lg px-2 py-3 outline-hidden focus:ring-2"
+                  className="ring-primary rounded-lg px-2 py-3 outline-hidden focus:ring-2"
                 >
                   <HiOutlinePhone className="-mt-1 inline h-6 w-6" />
                   {phoneNumber}
@@ -122,7 +139,7 @@ export default function Navbar({
             <button
               type="button"
               onClick={toggleNav}
-              className="flex cursor-pointer flex-col items-center"
+              className="ring-primary flex cursor-pointer flex-col items-center rounded-lg outline-none focus:ring-2"
             >
               <HiMenu className="text-neutral mx-6 h-10 w-10" />
               <span className="text-sm md:text-base">Menu</span>
