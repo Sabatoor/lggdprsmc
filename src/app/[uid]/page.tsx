@@ -122,7 +122,7 @@ export default async function Page(props: {
               })}
             </ul>
           ) : (
-            <p className="prose mx-auto lg:prose-lg xl:prose-xl">
+            <p className="prose lg:prose-lg xl:prose-xl mx-auto">
               No posts have been published yet. Please check back again soon!
             </p>
           )}
@@ -161,6 +161,12 @@ export async function generateMetadata(props: {
     },
     alternates: {
       canonical: page.url,
+    },
+    robots: {
+      index: page.data.index || true,
+      googleBot: {
+        index: page.data.index || true,
+      },
     },
   }
 }

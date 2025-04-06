@@ -487,6 +487,18 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_title: prismic.KeyTextField
+
+  /**
+   * Index field in *Page*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: page.index
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  index: prismic.BooleanField
 }
 
 /**
