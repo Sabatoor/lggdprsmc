@@ -147,6 +147,7 @@ export async function generateMetadata(props: {
   const client = createClient()
   const page = await client.getByUID('page', params.uid).catch(() => notFound())
   const settings = await client.getSingle('settings')
+  console.log('page.data.index ', page.data.index)
 
   return {
     title: `${prismic.asText(page.data.title) || page.data.meta_title} • ${
@@ -163,9 +164,9 @@ export async function generateMetadata(props: {
       canonical: page.url,
     },
     robots: {
-      index: page.data.index || true,
+      index: !page.data.index ? false : true,
       googleBot: {
-        index: page.data.index || true,
+        index: !page.data.index ? false : true,
       },
     },
   }
