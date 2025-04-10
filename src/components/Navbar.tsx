@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { SettingsDocumentDataNavigationItem } from '../../prismicio-types'
 import { ImageField, isFilled, KeyTextField } from '@prismicio/client'
 import { HiMenu, HiOutlinePhone, HiX } from 'react-icons/hi'
-import { useState, useEffect, useRef, KeyboardEvent } from 'react'
+import { useState, useEffect, useRef, KeyboardEvent, useCallback } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import Image from 'next/image'
 
@@ -25,9 +25,9 @@ export default function Navbar({
 }: NavbarProps) {
   const mobileNavRef = useRef<HTMLButtonElement>(null)
   const [isOpen, setIsOpen] = useState(false)
-  const toggleNav = () => {
+  const toggleNav = useCallback(() => {
     setIsOpen(!isOpen)
-  }
+  }, [isOpen, setIsOpen])
   // Add an effect to handle body overflow when the mobile nav is open
   useEffect(() => {
     if (isOpen) {
