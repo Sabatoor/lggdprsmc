@@ -1,8 +1,9 @@
 import { createClient } from '@/prismicio'
+import { ApiError } from 'next/dist/server/api-utils'
 import { NextRequest, NextResponse } from 'next/server'
 
 const INDEXNOW_API_KEY = process.env.INDEXNOW_API_KEY
-const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
+const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/IndexNow'
 const PRISMIC_WEBHOOK_SECRET = process.env.PRISMIC_WEBHOOK_SECRET
 const YOUR_DOMAIN = 'lionsgategaragedoors.com' // Replace with your actual domain
 const client = createClient()
@@ -45,6 +46,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       const indexNowPayload = {
         host: YOUR_DOMAIN,
         key: INDEXNOW_API_KEY,
+        keyLocation: `https://${YOUR_DOMAIN}/${INDEXNOW_API_KEY}.txt`,
         urlList: urlsToSubmit,
       }
 
@@ -52,13 +54,14 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Host: 'api.indexnow.org',
         },
         body: JSON.stringify(indexNowPayload),
       })
 
       if (response.ok) {
-        const data = await response.json()
-        console.log('IndexNow submission successful:', data)
+        const responseText = await response.text()
+        console.log('IndexNow submission successful:', responseText)
         return NextResponse.json(
           { message: 'IndexNow URLs submitted successfully' },
           { status: 200 },
