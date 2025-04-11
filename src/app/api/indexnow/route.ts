@@ -60,8 +60,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       })
 
       if (response.ok) {
-        const responseText = await response.text()
-        console.log('IndexNow submission successful:', responseText)
         return NextResponse.json(
           { message: 'IndexNow URLs submitted successfully' },
           { status: 200 },
