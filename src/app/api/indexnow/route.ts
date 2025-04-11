@@ -1,16 +1,16 @@
-// import { createClient } from '@prismicio/client'
 import { createClient } from '@/prismicio'
 import { NextRequest, NextResponse } from 'next/server'
 
-const client = createClient()
 const INDEXNOW_API_KEY = process.env.INDEXNOW_API_KEY
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
 const PRISMIC_WEBHOOK_SECRET = process.env.PRISMIC_WEBHOOK_SECRET
 const YOUR_DOMAIN = 'lionsgategaragedoors.com' // Replace with your actual domain
+const client = createClient()
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
-  const prismicWebhookSecret =
-    req.headers.get('prismic-hook-secret') || (await req.json())?.secret
+  const requestBody = await req.json() // Read the body once
+
+  const prismicWebhookSecret = req.headers.get('secret') || requestBody?.secret
 
   if (
     PRISMIC_WEBHOOK_SECRET &&
@@ -22,8 +22,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     )
   }
 
-  const body = await req.json()
-  const { documents } = body
+  const { documents } = requestBody
 
   if (!documents || !Array.isArray(documents) || documents.length === 0) {
     return NextResponse.json(
