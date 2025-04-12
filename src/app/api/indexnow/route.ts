@@ -1,6 +1,6 @@
 import { createClient } from '@/prismicio'
-import { ApiError } from 'next/dist/server/api-utils'
 import { NextRequest, NextResponse } from 'next/server'
+import { PageDocumentData } from '../../../../prismicio-types'
 
 const INDEXNOW_API_KEY = process.env.INDEXNOW_API_KEY
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/IndexNow'
@@ -36,7 +36,12 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const urlsToSubmit: string[] = []
     for (const docId of documents) {
       const document = await client.getByID(docId)
-      if (document?.url) {
+      let data
+      if (document?.type === 'page') {
+        data = document?.data as PageDocumentData
+      }
+      const index = data?.index || true
+      if (document?.url && index) {
         urlsToSubmit.push(`https://${YOUR_DOMAIN}${document.url}`)
       }
       // Handle different document types and URL structures as needed
