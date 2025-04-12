@@ -40,8 +40,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       if (document?.type === 'page') {
         data = document?.data as PageDocumentData
       }
-      const index = data?.index || true
-      if (document?.url && index) {
+      const index = data?.index
+      if (document?.url && index !== false) {
         urlsToSubmit.push(`https://${YOUR_DOMAIN}${document.url}`)
       }
       // Handle different document types and URL structures as needed
