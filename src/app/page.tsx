@@ -3,7 +3,6 @@ import { SliceZone } from '@prismicio/react'
 import { Graph } from 'schema-dts'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
-import { type } from 'os'
 
 export default async function Page() {
   const client = createClient()

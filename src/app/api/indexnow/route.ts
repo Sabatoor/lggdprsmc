@@ -35,16 +35,25 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const urlsToSubmit: string[] = []
     for (const docId of documents) {
-      const document = await client.getByID(docId)
-      let data
-      if (document?.type === 'page') {
-        data = document?.data as PageDocumentData
+      try {
+        const document = await client.getByID(docId)
+        if (document?.url) {
+          let data
+          if (document?.type === 'page') {
+            data = document?.data as PageDocumentData
+          }
+          const index = data?.index
+          if (index !== false) {
+            urlsToSubmit.push(`https://${YOUR_DOMAIN}${document.url}`)
+          }
+        } else {
+          console.log(
+            `Document with ID ${docId} not found (likely unpublished), skipping for IndexNow.`,
+          )
+        }
+      } catch (error) {
+        console.error(`Error fetching document with ID ${docId}:`, error)
       }
-      const index = data?.index
-      if (document?.url && index !== false) {
-        urlsToSubmit.push(`https://${YOUR_DOMAIN}${document.url}`)
-      }
-      // Handle different document types and URL structures as needed
     }
 
     if (urlsToSubmit.length > 0) {
