@@ -1,5 +1,4 @@
 import { createClient } from '@/prismicio'
-import { ApiError } from 'next/dist/server/api-utils'
 import { NextRequest, NextResponse } from 'next/server'
 import { PageDocumentData } from '../../../../prismicio-types'
 
