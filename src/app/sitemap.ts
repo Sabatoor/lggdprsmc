@@ -4,10 +4,12 @@ export default async function sitemap() {
   const client = createClient()
   const settings = await client.getSingle('settings')
   const pages = await client.getAllByType('page')
-  const sitemapPages = pages.map(page => ({
-    url: `https://${settings.data.domain || `example.com`}${page.url}`,
-    lastModified: asDate(page.last_publication_date),
-  }))
+  const sitemapPages = pages
+    .filter(page => page.data.index !== false)
+    .map(page => ({
+      url: `https://${settings.data.domain || `example.com`}${page.url}`,
+      lastModified: asDate(page.last_publication_date),
+    }))
   const homepage = await client.getSingle('homepage')
   const sitemapHomepage = {
     url: `https://${settings.data.domain || `example.com`}${homepage.url}`,
