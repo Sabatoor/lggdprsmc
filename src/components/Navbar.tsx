@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { SettingsDocumentDataNavigationItem } from '../../prismicio-types'
 import { ImageField, isFilled, KeyTextField } from '@prismicio/client'
 import { HiMenu, HiOutlinePhone, HiX } from 'react-icons/hi'
-import { useState, useEffect, useRef, KeyboardEvent, useCallback } from 'react'
+import { useState, useEffect, useRef, MouseEvent, useCallback } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import Image from 'next/image'
 
@@ -55,6 +55,17 @@ export default function Navbar({
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [isOpen, toggleNav])
+
+  const handlePhoneClick = (e: MouseEvent<HTMLAnchorElement>): void => {
+    e.preventDefault()
+    if (typeof window !== 'undefined' && typeof window.clarity === 'function') {
+      window.clarity('event', { name: 'phone_click' })
+    }
+    // Delay navigation to ensure the event is logged
+    setTimeout(() => {
+      window.location.href = `tel:${phoneNumber}`
+    }, 100)
+  }
 
   return (
     <>
@@ -125,6 +136,7 @@ export default function Navbar({
                 <a
                   href={`tel:${phoneNumber || 6042431505}`}
                   className="ring-primary rounded-lg px-2 py-3 outline-hidden focus:ring-2"
+                  onClick={handlePhoneClick}
                 >
                   <HiOutlinePhone className="-mt-1 inline h-6 w-6" />
                   {phoneNumber}
