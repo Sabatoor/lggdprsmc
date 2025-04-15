@@ -58,7 +58,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
             </span>
           )}
           {slice.items.length > 0 && (
-            <div className="mt-6 flex flex-col justify-center gap-8 lg:mt-8 lg:flex-row">
+            <div className="mt-6 flex flex-col justify-center gap-8 px-8 lg:mt-8 lg:flex-row lg:px-0">
               {isFilled.link(slice.items[0].button_link) &&
                 slice.items.map(item => (
                   <PrismicNextLink
@@ -67,6 +67,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
                     className={cn(
                       buttonVariants({
                         variant: item.button_color || 'default',
+                        size: 'lg',
                       }),
                       {
                         'bg-neutral': item.button_color === 'outline',

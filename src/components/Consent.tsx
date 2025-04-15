@@ -104,7 +104,7 @@ export default function Consent() {
                     }),
                   )
                 }}
-                // className="rounded-xl px-6 py-4 lg:text-lg"
+                className="text-foreground hover:bg-accent hover:shadow"
               >
                 Deny All
               </Button>
