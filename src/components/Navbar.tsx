@@ -56,17 +56,6 @@ export default function Navbar({
     }
   }, [isOpen, toggleNav])
 
-  const handlePhoneClick = (e: MouseEvent<HTMLAnchorElement>): void => {
-    e.preventDefault()
-    if (typeof window !== 'undefined' && typeof window.clarity === 'function') {
-      window.clarity('event', { name: 'phone_click' })
-    }
-    // Delay navigation to ensure the event is logged
-    setTimeout(() => {
-      window.location.href = `tel:${phoneNumber}`
-    }, 100)
-  }
-
   return (
     <>
       {/* MOBILE NAV */}
@@ -129,14 +118,13 @@ export default function Navbar({
           </Link>
           <div className="flex-1 shrink-0">
             {isFilled.keyText(call_to_action) && (
-              <p className="text-center">{call_to_action}</p>
+              <p className="text-center text-xs lg:text-sm">{call_to_action}</p>
             )}
             {isFilled.keyText(phoneNumber) && (
               <p className="text-center text-base font-bold md:text-xl">
                 <a
                   href={`tel:${phoneNumber || 6042431505}`}
                   className="ring-primary rounded-lg px-2 py-3 outline-hidden focus:ring-2"
-                  onClick={handlePhoneClick}
                 >
                   <HiOutlinePhone className="-mt-1 inline h-6 w-6" />
                   {phoneNumber}
