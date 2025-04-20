@@ -119,7 +119,7 @@
           "label": "Company Information",
           "placeholder": "Enter company info",
           "allowTargetBlank": true,
-          "multi": "list-item"
+          "multi": "hyperlink,list-item"
         }
       },
       "terms_of_service": {
