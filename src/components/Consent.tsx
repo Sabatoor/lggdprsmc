@@ -94,7 +94,15 @@ export default function Consent() {
               });
               window.clarity('consent');
               localStorage.setItem('consentMode', JSON.stringify({ad_storage: 'granted', analytics_storage: 'granted'}));
-              fbq('consent', 'grant');
+              setTimeout(() => {
+                if (typeof fbq === 'function') {
+                  fbq('consent', 'grant');
+                } else {
+                  console.warn('Meta Pixel (fbq) not yet loaded when consent was granted.');
+                  // Optionally, you could try to re-call it after another small delay
+                  // setTimeout(() => { if (typeof fbq === 'function') fbq('consent', 'grant'); }, 500);
+                }
+              }, 500); // Adjust the delay (in milliseconds) as needed
             `,
           }}
         />
