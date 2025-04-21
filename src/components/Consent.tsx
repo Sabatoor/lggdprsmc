@@ -34,6 +34,13 @@ export default function Consent() {
             timeDifference / (1000 * 60 * 60 * 24),
           )
           daysSinceDenied > 14 && localStorage.removeItem('consentMode')
+        } else if (consentMode.analytics_storage === 'granted') {
+          // Inform GTM about the initial consent if already granted
+          if (typeof window !== 'undefined' && window.dataLayer) {
+            window.dataLayer.push({
+              event: 'user_consent_granted',
+            })
+          }
         }
       }
     }, 3000)
