@@ -45,6 +45,41 @@ export default function Consent() {
       }
     }, 3000)
   }, [])
+
+  const handleAcceptConsent = () => {
+    localStorage.setItem(
+      'consentMode',
+      JSON.stringify({ ad_storage: 'granted', analytics_storage: 'granted' }),
+    )
+    setConsent(true)
+    setHideBanner(true)
+    // Inform GTM that consent has been granted
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'user_consent_granted',
+      })
+    }
+  }
+
+  const handleDenyConsent = () => {
+    localStorage.setItem(
+      'consentMode',
+      JSON.stringify({
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        date_denied: new Date().toISOString(),
+      }),
+    )
+    setConsent(false)
+    setHideBanner(true)
+    // Optionally, you could push a 'user_consent_denied' event to GTM if needed
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'user_consent_denied',
+      })
+    }
+  }
+
   return (
     <>
       {consent === true && (
@@ -101,17 +136,7 @@ export default function Consent() {
               </Button>
               <Button
                 variant="ghost"
-                onClick={e => {
-                  setHideBanner(true)
-                  localStorage.setItem(
-                    'consentMode',
-                    JSON.stringify({
-                      ad_storage: 'denied',
-                      analytics_storage: 'denied',
-                      date_denied: new Date(),
-                    }),
-                  )
-                }}
+                onClick={handleDenyConsent}
                 className="text-foreground hover:bg-accent hover:shadow"
               >
                 Deny All
@@ -119,10 +144,7 @@ export default function Consent() {
               <Button
                 variant="default"
                 size="lg"
-                onClick={() => {
-                  setConsent(true)
-                  setHideBanner(true)
-                }}
+                onClick={handleAcceptConsent}
                 className="text-neutral px-6 py-4 font-medium lg:text-lg"
               >
                 Accept All
