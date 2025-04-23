@@ -2741,6 +2741,62 @@ type RecentsSliceVariation = RecentsSliceDefault | RecentsSliceLocation
 export type RecentsSlice = prismic.SharedSlice<'recents', RecentsSliceVariation>
 
 /**
+ * Item in *Reviews → Manual → Primary → Reviews*
+ */
+export interface ReviewsSliceManualPrimaryReviewsItem {
+  /**
+   * Reviewer Name field in *Reviews → Manual → Primary → Reviews*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reviews.manual.primary.reviews[].reviewer_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  reviewer_name: prismic.KeyTextField
+
+  /**
+   * Rating field in *Reviews → Manual → Primary → Reviews*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: How many stars was the review?
+   * - **API ID Path**: reviews.manual.primary.reviews[].rating
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  rating: prismic.NumberField
+
+  /**
+   * Review Date field in *Reviews → Manual → Primary → Reviews*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: When was the review received?
+   * - **API ID Path**: reviews.manual.primary.reviews[].review_date
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  review_date: prismic.DateField
+
+  /**
+   * Show Date field in *Reviews → Manual → Primary → Reviews*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: reviews.manual.primary.reviews[].show_date
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_date: prismic.BooleanField
+
+  /**
+   * Review Text field in *Reviews → Manual → Primary → Reviews*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reviews.manual.primary.reviews[].review_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  review_text: prismic.KeyTextField
+}
+
+/**
  * Default variation for Reviews Slice
  *
  * - **API ID**: `default`
@@ -2754,9 +2810,37 @@ export type ReviewsSliceDefault = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *Reviews → Manual → Primary*
+ */
+export interface ReviewsSliceManualPrimary {
+  /**
+   * Reviews field in *Reviews → Manual → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reviews.manual.primary.reviews[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  reviews: prismic.GroupField<Simplify<ReviewsSliceManualPrimaryReviewsItem>>
+}
+
+/**
+ * Manual variation for Reviews Slice
+ *
+ * - **API ID**: `manual`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ReviewsSliceManual = prismic.SharedSliceVariation<
+  'manual',
+  Simplify<ReviewsSliceManualPrimary>,
+  never
+>
+
+/**
  * Slice variation for *Reviews*
  */
-type ReviewsSliceVariation = ReviewsSliceDefault
+type ReviewsSliceVariation = ReviewsSliceDefault | ReviewsSliceManual
 
 /**
  * Reviews Shared Slice
@@ -2984,8 +3068,11 @@ declare module '@prismicio/client' {
       RecentsSliceDefault,
       RecentsSliceLocation,
       ReviewsSlice,
+      ReviewsSliceManualPrimaryReviewsItem,
+      ReviewsSliceManualPrimary,
       ReviewsSliceVariation,
       ReviewsSliceDefault,
+      ReviewsSliceManual,
       ScrollerSlice,
       ScrollerSliceCarouselPrimaryItemsItem,
       ScrollerSliceCarouselPrimary,
