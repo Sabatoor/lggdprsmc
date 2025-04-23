@@ -10,7 +10,66 @@
       "docURL": "...",
       "version": "initial",
       "description": "Default",
-      "imageUrl": ""
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    },
+    {
+      "id": "manual",
+      "name": "Manual",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "reviews": {
+          "type": "Group",
+          "config": {
+            "label": "Reviews",
+            "repeat": true,
+            "fields": {
+              "reviewer_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Reviewer Name",
+                  "placeholder": ""
+                }
+              },
+              "rating": {
+                "type": "Number",
+                "config": {
+                  "label": "Rating",
+                  "placeholder": "How many stars was the review?"
+                }
+              },
+              "review_date": {
+                "type": "Date",
+                "config": {
+                  "label": "Review Date",
+                  "placeholder": "When was the review received?"
+                }
+              },
+              "show_date": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Show Date",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
+              },
+              "review_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Review Text",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
