@@ -2,13 +2,14 @@ import { Content, isFilled } from '@prismicio/client'
 import { SliceComponentProps } from '@prismicio/react'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Section from '@/components/Section'
-import { PrismicNextImage } from '@prismicio/next'
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { cn } from '@/app/lib/cn'
 import { GiHomeGarage } from 'react-icons/gi'
 import { FaToolbox } from 'react-icons/fa'
 import { RiQuestionnaireFill } from 'react-icons/ri'
 import React, { ReactNode } from 'react'
 import Heading from '@/components/Heading'
+import { Button } from '@/components/ui/button'
 
 /**
  * Props for `ImageWithText`.
@@ -167,6 +168,36 @@ const ImageWithText = ({
           )}
           {isFilled.richText(slice.primary.text) && (
             <PrismicRichText field={slice.primary.text} />
+          )}
+          {slice.variation === 'default' && (
+            <div className="not-prose flex justify-evenly">
+              {slice.primary.call_to_action &&
+                slice.primary.call_to_action.map(link => {
+                  if (isFilled.link(link)) {
+                    return (
+                      <Button
+                        key={link.key}
+                        asChild
+                        variant={link.variant || 'default'}
+                        className={cn({
+                          'text-foreground':
+                            link.variant === 'destructive' ||
+                            link.variant === 'link',
+                          'text-foreground hover:bg-secondary hover:shadow-primary transition duration-300 ease-in-out':
+                            link.variant === 'ghost',
+                        })}
+                        size={'lg'}
+                      >
+                        <PrismicNextLink field={link}>
+                          {link.text}
+                        </PrismicNextLink>
+                      </Button>
+                    )
+                  } else {
+                    return <></>
+                  }
+                })}
+            </div>
           )}
         </div>
       </div>
