@@ -2382,6 +2382,24 @@ export interface ImageWithTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   text: prismic.RichTextField
+
+  /**
+   * Call To Action field in *ImageWithText → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Add a call to action
+   * - **API ID Path**: image_with_text.default.primary.call_to_action
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  call_to_action: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      'default' | 'destructive' | 'ghost' | 'link' | 'outline' | 'secondary'
+    >
+  >
 }
 
 /**

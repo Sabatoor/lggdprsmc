@@ -46,6 +46,25 @@
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,strong,em,hyperlink,list-item,o-list-item,rtl"
           }
+        },
+        "call_to_action": {
+          "type": "Link",
+          "config": {
+            "label": "Call To Action",
+            "placeholder": "Add a call to action",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "default",
+              "destructive",
+              "ghost",
+              "link",
+              "outline",
+              "secondary"
+            ]
+          }
         }
       },
       "items": {}
