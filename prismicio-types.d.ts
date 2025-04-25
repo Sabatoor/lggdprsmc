@@ -2363,6 +2363,22 @@ export interface ImageWithTextSliceDefaultPrimary {
   image: prismic.ImageField<never>
 
   /**
+   * Image Link field in *ImageWithText → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text.default.primary.image_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  image_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >
+
+  /**
    * Image Location field in *ImageWithText → Default → Primary*
    *
    * - **Field Type**: Boolean

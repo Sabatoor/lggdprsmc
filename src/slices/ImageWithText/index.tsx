@@ -149,14 +149,29 @@ const ImageWithText = ({
             'lg:order-3': slice.primary.image_location,
           })}
         >
-          <PrismicNextImage
-            field={slice.primary.image}
-            className={cn('my-6 w-1/2 rounded-lg shadow-md lg:w-full')}
-            fallbackAlt=""
-            priority={index < 2}
-            title={slice.primary.image.alt || ''}
-            imgixParams={{ ar: '4:5', fit: 'crop' }}
-          />
+          {isFilled.link(slice.primary.image_link) ? (
+            <PrismicNextLink
+              field={slice.primary.image_link}
+              title={slice.primary.image_link.text}
+            >
+              <PrismicNextImage
+                field={slice.primary.image}
+                className={cn('my-6 w-1/2 rounded-lg shadow-md lg:w-full')}
+                fallbackAlt=""
+                priority={index < 2}
+                imgixParams={{ ar: '4:5', fit: 'crop' }}
+              />
+            </PrismicNextLink>
+          ) : (
+            <PrismicNextImage
+              field={slice.primary.image}
+              className={cn('my-6 w-1/2 rounded-lg shadow-md lg:w-full')}
+              fallbackAlt=""
+              priority={index < 2}
+              title={slice.primary.image.alt || ''}
+              imgixParams={{ ar: '4:5', fit: 'crop' }}
+            />
+          )}
         </div>
         <div
           className={cn('prose lg:prose-lg xl:prose-xl col-span-2', {

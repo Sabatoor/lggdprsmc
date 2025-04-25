@@ -29,6 +29,17 @@
             "thumbnails": []
           }
         },
+        "image_link": {
+          "type": "Link",
+          "config": {
+            "label": "Image Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
         "image_location": {
           "type": "Boolean",
           "config": {

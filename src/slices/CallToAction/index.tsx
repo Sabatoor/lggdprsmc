@@ -26,6 +26,7 @@ import {
   ServiceDocument,
 } from '../../../prismicio-types'
 import WhileInView from '@/components/WhileInView'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 
 /**
  * Props for `CallToAction`.
@@ -355,7 +356,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
   } else if (slice.variation === 'featuredGrid') {
     return (
       <Section
-        width="2xl"
+        width="full"
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
         className="flex-wrap place-items-center justify-center gap-4 py-6 lg:gap-8"
@@ -367,40 +368,48 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                 Icon = icons[item.icon]
               }
               return (
-                <div
+                <Card
                   key={`${slice.id}-${i}`}
-                  className="bg-background max-w-sm overflow-hidden rounded-lg p-4 shadow-sm lg:p-6"
+                  className="w-full lg:w-xs xl:w-lg"
                 >
                   <PrismicNextLink
                     field={item.button_link}
                     aria-labelledby={slice.id + '-' + 'heading-' + i}
                     className="ring-primary rounded-lg outline-hidden focus:ring-2"
                   >
-                    <div className="flex flex-col items-center">
-                      {Icon ? (
-                        <Icon className="text-primary h-16 w-16" />
-                      ) : null}
-                      <PrismicRichText
-                        field={item.heading}
-                        components={{
-                          heading2: ({ children }: { children: ReactNode }) => (
-                            <Heading
-                              id={slice.id + '-' + 'heading-' + i}
-                              as="h2"
-                              size="3xl"
-                              className="text-neutral my-2 lg:my-3"
-                            >
-                              {children}
-                            </Heading>
-                          ),
-                        }}
-                      />
+                    <CardHeader>
+                      <div className="flex flex-col items-center">
+                        {Icon ? (
+                          <Icon className="text-primary h-16 w-16" />
+                        ) : null}
+                        <PrismicRichText
+                          field={item.heading}
+                          components={{
+                            heading2: ({
+                              children,
+                            }: {
+                              children: ReactNode
+                            }) => (
+                              <Heading
+                                id={slice.id + '-' + 'heading-' + i}
+                                as="h2"
+                                size="2xl"
+                                className="text-neutral my-2 text-2xl lg:my-3"
+                              >
+                                {children}
+                              </Heading>
+                            ),
+                          }}
+                        />
+                      </div>
+                    </CardHeader>
+                    <CardContent>
                       {isFilled.richText(item.description) && (
                         <PrismicRichText field={item.description} />
                       )}
-                    </div>
+                    </CardContent>
                     {isFilled.link(item.button_link) ? (
-                      <div className="mt-6 mb-4 flex justify-center">
+                      <CardFooter className="mt-6 mb-4 flex justify-center">
                         <span
                           className={cn(
                             buttonVariants({
@@ -412,10 +421,10 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                         >
                           {item.button_label || 'Click Here'}
                         </span>
-                      </div>
+                      </CardFooter>
                     ) : null}
                   </PrismicNextLink>
-                </div>
+                </Card>
               )
             })
           : null}
