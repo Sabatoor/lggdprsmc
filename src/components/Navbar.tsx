@@ -85,6 +85,11 @@ export default function Navbar({
                       field={item.link}
                       className="ring-primary rounded-lg px-2 py-3 outline-hidden focus:ring-2"
                       onClick={toggleNav}
+                      onBlur={() => {
+                        if (i + 1 === navigation.length) {
+                          mobileNavRef.current?.focus()
+                        }
+                      }}
                     >
                       {item.label}
                     </PrismicNextLink>
