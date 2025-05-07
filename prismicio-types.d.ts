@@ -328,6 +328,7 @@ export type HomepageDocument<Lang extends string = string> =
   >
 
 type LocationDocumentDataSlicesSlice =
+  | ReviewsSlice
   | RecentsSlice
   | HeroSlice
   | ContentSlice
