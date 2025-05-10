@@ -185,7 +185,7 @@ const ImageWithText = ({
             <PrismicRichText field={slice.primary.text} />
           )}
           {slice.variation === 'default' && (
-            <div className="not-prose flex justify-evenly">
+            <div className="not-prose flex flex-wrap justify-evenly gap-y-4 lg:gap-y-0">
               {slice.primary.call_to_action &&
                 slice.primary.call_to_action.map(link => {
                   if (isFilled.link(link)) {
