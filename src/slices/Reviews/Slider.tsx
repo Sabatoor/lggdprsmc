@@ -65,11 +65,7 @@ const Slider = ({ reviews }: ReviewsProps) => {
                     className="h-full md:basis-1/2 lg:basis-1/3"
                   >
                     <Card>
-                      <Link
-                        href={
-                          'https://www.google.com/search?client=firefox-b-d&q=lionsgategaragedoors#lrd=0x5485d17db0691f13:0x208ef98cf37b444,1,,,'
-                        }
-                      >
+                      <Link href={'https://g.co/kgs/6Dps4s1'}>
                         <CardHeader>
                           <CardTitle className="my-4 flex justify-center">
                             {Array.from({ length: item.rating }, (_, i) => (
