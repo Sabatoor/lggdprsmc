@@ -46,7 +46,7 @@ const ManualSlider = ({ reviews }: ManualReviewsProps) => {
           delay: 6000,
         }),
       ]}
-      className="w-full max-w-[240px] md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-lg)"
+      className="w-full max-w-[300px] md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-lg)"
     >
       {reviews && (
         <CarouselContent className="h-full">
@@ -111,8 +111,8 @@ const ManualSlider = ({ reviews }: ManualReviewsProps) => {
           )}
         </CarouselContent>
       )}
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="hidden lg:inline-flex" />
+      <CarouselNext className="hidden lg:inline-flex" />
     </Carousel>
   )
 }
