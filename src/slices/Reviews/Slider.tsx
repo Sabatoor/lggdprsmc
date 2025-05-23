@@ -52,7 +52,7 @@ const Slider = ({ reviews }: ReviewsProps) => {
           delay: 6000,
         }),
       ]}
-      className="w-full max-w-[240px] md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-lg)"
+      className="w-full max-w-[300px] md:max-w-(--breakpoint-sm) lg:max-w-(--breakpoint-lg)"
     >
       {reviews && (
         <CarouselContent className="h-full">
@@ -70,35 +70,35 @@ const Slider = ({ reviews }: ReviewsProps) => {
                           'https://www.google.com/search?client=firefox-b-d&q=lionsgategaragedoors#lrd=0x5485d17db0691f13:0x208ef98cf37b444,1,,,'
                         }
                       >
+                        <CardHeader>
+                          <CardTitle className="my-4 flex justify-center">
+                            {Array.from({ length: item.rating }, (_, i) => (
+                              <FaStar
+                                key={item.name + i}
+                                className="text-yellow-400"
+                              />
+                            ))}
+                          </CardTitle>
+                        </CardHeader>
                         <CardContent>
-                          <CardHeader>
-                            <CardTitle className="my-4 flex justify-center">
-                              {Array.from({ length: item.rating }, (_, i) => (
-                                <FaStar
-                                  key={item.name + i}
-                                  className="text-yellow-400"
-                                />
-                              ))}
-                            </CardTitle>
-                            <CardDescription className="line-clamp-10 min-h-[200px]">
-                              {item.text.text}
-                            </CardDescription>
-                            <CardFooter className="flex flex-col items-center justify-center gap-3 pt-4">
-                              <Avatar>
-                                <AvatarImage
-                                  src={item.authorAttribution.photoUri}
-                                  alt={item.authorAttribution.displayName}
-                                />
-                                <AvatarFallback>
-                                  {item.authorAttribution.displayName}
-                                </AvatarFallback>
-                              </Avatar>
-                              <p className="text-xs font-light">
-                                {item.authorAttribution.displayName}
-                              </p>
-                            </CardFooter>
-                          </CardHeader>
+                          <CardDescription className="line-clamp-10 min-h-[200px]">
+                            {item.text.text}
+                          </CardDescription>
                         </CardContent>
+                        <CardFooter className="flex flex-col items-center justify-center gap-3 pt-4">
+                          <Avatar>
+                            <AvatarImage
+                              src={item.authorAttribution.photoUri}
+                              alt={item.authorAttribution.displayName}
+                            />
+                            <AvatarFallback>
+                              {item.authorAttribution.displayName}
+                            </AvatarFallback>
+                          </Avatar>
+                          <p className="text-xs font-light">
+                            {item.authorAttribution.displayName}
+                          </p>
+                        </CardFooter>
                       </Link>
                     </Card>
                   </CarouselItem>
@@ -108,8 +108,8 @@ const Slider = ({ reviews }: ReviewsProps) => {
           )}
         </CarouselContent>
       )}
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="hidden lg:inline-flex" />
+      <CarouselNext className="hidden lg:inline-flex" />
     </Carousel>
   )
 }

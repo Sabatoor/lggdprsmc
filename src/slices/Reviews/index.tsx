@@ -14,6 +14,7 @@ export type ReviewsProps = SliceComponentProps<Content.ReviewsSlice>
  * Component for "Reviews" Slices.
  */
 const Reviews = async ({ slice }: ReviewsProps): Promise<React.JSX.Element> => {
+  const date = new Date()
   let data
   if (slice.variation === 'default') {
     data =
@@ -31,7 +32,9 @@ const Reviews = async ({ slice }: ReviewsProps): Promise<React.JSX.Element> => {
               },
             },
           ).then(res => res.json())
-        : { reviews: [] }
+        : {
+            reviews: [],
+          }
   }
 
   return (
@@ -45,7 +48,9 @@ const Reviews = async ({ slice }: ReviewsProps): Promise<React.JSX.Element> => {
           <Slider reviews={data.reviews} />
         </Suspense>
       )}
-      <ManualSlider reviews={slice.primary.reviews} />
+      {slice.variation === 'manual' && (
+        <ManualSlider reviews={slice.primary.reviews} />
+      )}
     </Section>
   )
 }
