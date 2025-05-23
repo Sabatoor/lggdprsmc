@@ -133,8 +133,11 @@ const Scroller = ({ slice, index }: ScrollerProps): React.JSX.Element => {
               })}
           </CarouselContent>
 
-          <CarouselNext variant={'default'} />
-          <CarouselPrevious variant={'default'} />
+          <CarouselNext variant={'default'} className="hidden lg:inline-flex" />
+          <CarouselPrevious
+            variant={'default'}
+            className="hidden lg:inline-flex"
+          />
         </Carousel>
       )}
     </Section>
