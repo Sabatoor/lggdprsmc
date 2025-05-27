@@ -16,7 +16,6 @@ import Autoplay from 'embla-carousel-autoplay'
 import { cn } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
-import { ReactNode } from 'react'
 /**
  * Props for `Scroller`.
  */
@@ -74,8 +73,8 @@ const Scroller = ({ slice, index }: ScrollerProps): React.JSX.Element => {
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex-col"
-      width="xl"
+      className="flex-col lg:px-16 xl:px-0"
+      width="lg"
     >
       {isFilled.richText(slice.primary.heading) && (
         <div className="flex justify-center pb-4 md:pb-6 lg:pb-10">
