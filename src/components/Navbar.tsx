@@ -85,11 +85,6 @@ export default function Navbar({
                       field={item.link}
                       className="ring-primary rounded-lg px-2 py-3 outline-hidden focus:ring-2"
                       onClick={toggleNav}
-                      onBlur={() => {
-                        if (i + 1 === navigation.length) {
-                          mobileNavRef.current?.focus()
-                        }
-                      }}
                     >
                       {item.label}
                     </PrismicNextLink>
@@ -98,15 +93,25 @@ export default function Navbar({
               })}
             </ul>
             <div className="mt-6 flex justify-center">
-              <Image
-                src={
-                  'https://seal-mbc.bbb.org/seals/gray-seal-187-130-bbb-1377062.png'
+              <Link
+                href={
+                  'https://www.bbb.org/ca/bc/surrey/profile/garage-doors/lions-gate-garage-doors-ltd-0037-1377062'
                 }
-                alt="Better Business Bureau Accredited Business"
-                width={150}
-                height={104.27}
-                className="w-auto"
-              />
+                onBlur={() => {
+                  mobileNavRef.current?.focus()
+                }}
+                className="ring-primary rounded-lg outline-hidden focus:ring-2"
+              >
+                <Image
+                  src={
+                    'https://seal-mbc.bbb.org/seals/gray-seal-187-130-bbb-1377062.png'
+                  }
+                  alt="Better Business Bureau Accredited Business"
+                  width={150}
+                  height={104.27}
+                  className="w-auto"
+                />
+              </Link>
             </div>
           </motion.div>
         )}
