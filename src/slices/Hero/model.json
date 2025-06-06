@@ -37,6 +37,34 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "buttons": {
+          "type": "Group",
+          "config": {
+            "label": "Buttons",
+            "repeat": true,
+            "fields": {
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false,
+                  "variants": [
+                    "default",
+                    "secondary",
+                    "outline",
+                    "ghost",
+                    "destructive",
+                    "link"
+                  ]
+                }
+              }
+            }
+          }
         }
       },
       "items": {

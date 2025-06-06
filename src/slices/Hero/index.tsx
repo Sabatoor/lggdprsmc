@@ -37,7 +37,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
         />
       </div>
       <div className="bg-neutral text-background flex items-center justify-center py-4 backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
-        <div>
+        <div className="flex flex-col items-center">
           <PrismicRichText
             field={slice.primary.heading}
             components={{
@@ -53,31 +53,31 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
             }}
           />
           {isFilled.richText(slice.primary.description) && (
-            <span className="text-muted relative my-6 flex justify-center lg:mb-8">
+            <span className="text-muted relative flex justify-center px-8 md:max-w-prose lg:mb-8 lg:pt-4 lg:text-xl">
               <PrismicRichText field={slice.primary.description} />
             </span>
           )}
-          {slice.items.length > 0 && (
-            <div className="mt-6 flex flex-col justify-center gap-8 px-8 lg:mt-8 lg:flex-row lg:px-0">
-              {isFilled.link(slice.items[0].button_link) &&
-                slice.items.map(item => (
-                  <PrismicNextLink
-                    key={item.button_label}
-                    field={item.button_link}
-                    className={cn(
-                      buttonVariants({
-                        variant: item.button_color || 'default',
-                        size: 'lg',
-                      }),
-                      {
-                        'bg-neutral': item.button_color === 'outline',
-                        'text-neutral': item.button_color === 'default',
-                      },
-                    )}
-                  >
-                    {item.button_label}
-                  </PrismicNextLink>
-                ))}
+          {isFilled.group(slice.primary.buttons) && (
+            <div className="flex flex-col justify-center gap-8 px-8 lg:flex-row lg:px-0">
+              {slice.primary.buttons.map((button, i) => (
+                <PrismicNextLink
+                  key={slice.id + i}
+                  field={button.button_link}
+                  className={cn(
+                    buttonVariants({
+                      variant: button.button_link.variant || 'default',
+                      size: 'lg',
+                    }),
+                    {
+                      'text-background hover:text-background':
+                        button.button_link.variant === 'outline',
+                      'text-neutral': button.button_link.variant === 'default',
+                    },
+                  )}
+                >
+                  {button.button_link.text}
+                </PrismicNextLink>
+              ))}
             </div>
           )}
         </div>
