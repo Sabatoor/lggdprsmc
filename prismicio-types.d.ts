@@ -2233,6 +2233,27 @@ type GallerySliceVariation = GallerySliceDefault
 export type GallerySlice = prismic.SharedSlice<'gallery', GallerySliceVariation>
 
 /**
+ * Item in *Hero → Default → Primary → Buttons*
+ */
+export interface HeroSliceDefaultPrimaryButtonsItem {
+  /**
+   * Button Link field in *Hero → Default → Primary → Buttons*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.buttons[].button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    'default' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'link'
+  >
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -2265,6 +2286,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   background_image: prismic.ImageField<never>
+
+  /**
+   * Buttons field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.buttons[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  buttons: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryButtonsItem>>
 }
 
 /**
@@ -3079,6 +3110,7 @@ declare module '@prismicio/client' {
       GallerySliceVariation,
       GallerySliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimaryButtonsItem,
       HeroSliceDefaultPrimary,
       HeroSliceDefaultItem,
       HeroSliceVariation,

@@ -51,72 +51,31 @@
 				"alt": "brown and white concrete house under blue sky during daytime",
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"buttons": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"button_link",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "cfdc86ae-cc03-4a93-810c-576bfdd4476a",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "This is a Button",
+										"variant": "outline"
+									}
+								}
+							]
+						]
+					}
+				]
 			}
 		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"button_link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://slicemachine.dev"
-							}
-						}
-					],
-					[
-						"button_label",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Call to Action"
-						}
-					],
-					[
-						"button_color",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "default",
-							"type": "Select"
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"button_link",
-						{
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io",
-								"target": ""
-							}
-						}
-					],
-					[
-						"button_label",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Alternative Action"
-						}
-					],
-					[
-						"button_color",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "outline",
-							"type": "Select"
-						}
-					]
-				]
-			}
-		]
+		"items": []
 	}
 ]
