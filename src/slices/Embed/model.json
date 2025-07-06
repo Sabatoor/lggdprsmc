@@ -1,0 +1,35 @@
+{
+  "id": "embed",
+  "type": "SharedSlice",
+  "name": "Embed",
+  "description": "Embed",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Add a heading level 2 or 3",
+            "allowTargetBlank": true,
+            "single": "heading2,heading3"
+          }
+        },
+        "url": {
+          "type": "Text",
+          "config": {
+            "label": "URL",
+            "placeholder": "Enter the iframe url"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
