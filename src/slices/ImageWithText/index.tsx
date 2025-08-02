@@ -156,7 +156,9 @@ const ImageWithText = ({
             >
               <PrismicNextImage
                 field={slice.primary.image}
-                className={cn('my-6 w-1/2 rounded-lg shadow-md lg:w-full')}
+                className={cn(
+                  'mx-auto mb-6 block w-3/4 rounded-lg shadow-md lg:my-6 lg:w-full',
+                )}
                 fallbackAlt=""
                 priority={index < 2}
                 imgixParams={{ ar: '4:5', fit: 'crop' }}
