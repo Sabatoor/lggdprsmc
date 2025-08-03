@@ -87,7 +87,7 @@ export default async function Page(props: { params: Promise<Params> }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className={cn('relative mb-8')}>
+      <div className={cn('relative mb-8')}>
         {prismic.isFilled.image(page.data.featured_image) && (
           <div className="relative h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
             <PrismicNextImage
@@ -115,11 +115,11 @@ export default async function Page(props: { params: Promise<Params> }) {
               ),
             }}
           />
-          <p className="z-10 mt-8 text-center text-sm font-medium uppercase text-neutral">
+          <p className="text-neutral z-10 mt-8 text-center text-sm font-medium uppercase">
             {pubDate}
           </p>
         </div>
-      </section>
+      </div>
       {prismic.isFilled.image(page.data.featured_image) && (
         <Section width="lg" className="">
           <PrismicNextImage

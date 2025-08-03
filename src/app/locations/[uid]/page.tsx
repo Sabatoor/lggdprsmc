@@ -65,7 +65,7 @@ export default async function Page(props: { params: Promise<Params> }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className={cn('relative mb-8')}>
+      <div className={cn('relative mb-8')}>
         {prismic.isFilled.image(page.data.featured_image) && (
           <div className="relative h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
             <PrismicNextImage
@@ -94,7 +94,7 @@ export default async function Page(props: { params: Promise<Params> }) {
             }}
           />
         </div>
-      </section>
+      </div>
       <SliceZone slices={page.data.slices} components={components} />
     </>
   )

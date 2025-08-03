@@ -19,7 +19,7 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>
  */
 const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
   return (
-    <section
+    <div
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
@@ -82,7 +82,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
           )}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 
