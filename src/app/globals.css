@@ -89,6 +89,9 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 @layer base {
