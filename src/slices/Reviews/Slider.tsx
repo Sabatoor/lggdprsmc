@@ -14,7 +14,6 @@ import {
   CardHeader,
   CardFooter,
   CardDescription,
-  CardTitle,
 } from '@/components/ui/card'
 import { FaStar } from 'react-icons/fa6'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -67,14 +66,14 @@ const Slider = ({ reviews }: ReviewsProps) => {
                     <Card>
                       <Link href={'https://g.co/kgs/6Dps4s1'}>
                         <CardHeader>
-                          <CardTitle className="my-4 flex justify-center">
+                          <div className="my-4 flex justify-center">
                             {Array.from({ length: item.rating }, (_, i) => (
                               <FaStar
                                 key={item.name + i}
                                 className="text-yellow-400"
                               />
                             ))}
-                          </CardTitle>
+                          </div>
                         </CardHeader>
                         <CardContent>
                           <CardDescription className="line-clamp-10 min-h-[200px]">
