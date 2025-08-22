@@ -35,17 +35,17 @@ export default async function Page() {
         address: {
           '@type': 'PostalAddress',
           '@id': `https://${settings.data.domain || `example.com`}/#address`,
-          streetAddress: '#11 18777 68a Ave',
+          streetAddress: '6088 184A St',
           addressLocality: 'Surrey',
           addressRegion: 'BC',
-          postalCode: 'V4N 0Z7',
+          postalCode: 'V3S 7P7',
           addressCountry: 'CA',
         },
 
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 49.1274905182408,
-          longitude: -122.70193977308799,
+          latitude: 49.1130084,
+          longitude: -122.7111705,
         },
         sameAs: [
           'https://www.facebook.com/lionsgategaragedoors/',
@@ -56,7 +56,7 @@ export default async function Page() {
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: '5.0',
-          ratingCount: '206',
+          ratingCount: '281',
         },
       },
       {
