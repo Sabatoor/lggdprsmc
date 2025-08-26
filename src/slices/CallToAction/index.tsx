@@ -85,11 +85,9 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
           />
         )}
         <div
-          className={cn('grid gap-4 py-6 lg:gap-8 lg:py-0 lg:pt-6', {
-            'lg:grid-cols-3': slice.items.length === 3,
-            'lg:grid-cols-2': slice.items.length === 2,
-            'lg:grid-flow-col': slice.items.length > 3,
-          })}
+          className={cn(
+            'flex flex-wrap justify-center gap-4 py-6 lg:gap-8 lg:py-0 lg:pt-6',
+          )}
         >
           {slice.items.length > 0
             ? slice.items.map((item, i) => {
@@ -100,7 +98,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     key={`${slice.id}-${i}`}
                     className="ring-primary rounded-lg outline-hidden focus:ring-2"
                   >
-                    <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
+                    <div className="bg-background flex h-full max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
                         {isBrand(item.brand) && (
                           <PrismicNextImage
