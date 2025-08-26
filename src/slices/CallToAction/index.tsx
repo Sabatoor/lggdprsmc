@@ -88,6 +88,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
           className={cn('grid gap-4 py-6 lg:gap-8 lg:py-0 lg:pt-6', {
             'lg:grid-cols-3': slice.items.length === 3,
             'lg:grid-cols-2': slice.items.length === 2,
+            'lg:grid-flow-col': slice.items.length > 3,
           })}
         >
           {slice.items.length > 0
