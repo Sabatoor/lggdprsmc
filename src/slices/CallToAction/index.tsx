@@ -270,7 +270,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     key={`${slice.id}-${i}`}
                     className="ring-primary rounded-lg outline-hidden focus:ring-2"
                   >
-                    <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
+                    <div className="bg-background flex h-full max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
                         {isProductType(item.product_type) && (
                           <PrismicNextImage
