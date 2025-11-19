@@ -70,7 +70,7 @@ export default async function Page(props: { params: Promise<Params> }) {
           <div className="relative h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
             <PrismicNextImage
               field={page.data.featured_image}
-              preload
+              fetchPriority='high'
               fallbackAlt=""
               fill
               sizes="100vw"
