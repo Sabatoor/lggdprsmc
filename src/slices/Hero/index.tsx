@@ -26,11 +26,11 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
         'relative mx-auto flex flex-col overflow-hidden px-0 py-0 md:px-0 md:py-0 lg:py-0',
       )}
     >
-      <div className="relative aspect-16/9">
+      <div className="relative aspect-video">
         <PrismicNextImage
           field={slice.primary.background_image}
           className="absolute inset-0 object-cover"
-          priority={index === 0}
+          preload={index === 0}
           imgixParams={{ ar: '16:9', fit: 'crop' }}
           fill
           sizes="100vw"

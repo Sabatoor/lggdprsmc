@@ -78,7 +78,7 @@ const GalleryList = async ({
                     imgixParams={{ ar: '4:3', fit: 'crop', q: 75 }}
                     title={item.data.featured_image.alt || 'decorative image'}
                     className="rounded-lg shadow-xs shadow-neutral-500"
-                    priority={index < 2}
+                    preload={index < 2}
                     fallbackAlt=""
                   />
                 </Link>
