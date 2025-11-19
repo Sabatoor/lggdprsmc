@@ -39,14 +39,14 @@ const ImageWithText = ({
         )}
         <div className="grid lg:grid-cols-2 lg:gap-x-8">
           <div
-            className={cn('relative aspect-16/9 overflow-hidden rounded-lg', {
+            className={cn('relative aspect-video overflow-hidden rounded-lg', {
               'lg:order-2': slice.primary.image_location,
             })}
           >
             <PrismicNextImage
               field={slice.primary.image}
               fallbackAlt=""
-              priority={index < 2}
+              preload={index < 2}
               fill
               sizes="(min-width: 1360px) 600px, (min-width: 1040px) calc(40vw + 64px), (min-width: 740px) 656px, 92.38vw"
               className="absolute inset-0 rounded-lg object-cover transition duration-500 ease-in-out hover:scale-110"
@@ -81,14 +81,14 @@ const ImageWithText = ({
     return (
       <section className="group mx-auto grid max-w-(--breakpoint-xl) lg:grid-cols-2">
         <div
-          className={cn('relative aspect-16/9 overflow-hidden', {
+          className={cn('relative aspect-video overflow-hidden', {
             'lg:order-2': slice.primary.image_location,
           })}
         >
           <PrismicNextImage
             field={slice.primary.image}
             fallbackAlt=""
-            priority={index < 2}
+            preload={index < 2}
             fill
             sizes="(min-width: 1380px) 640px, (min-width: 1040px) calc(37.19vw + 134px), 100vw"
             className="absolute inset-0 object-cover transition duration-500 ease-in-out group-hover:scale-110"
@@ -160,7 +160,7 @@ const ImageWithText = ({
                   'mx-auto mb-6 block w-3/4 rounded-lg shadow-md lg:my-6 lg:w-full',
                 )}
                 fallbackAlt=""
-                priority={index < 2}
+                preload={index < 2}
                 imgixParams={{ ar: '4:5', fit: 'crop' }}
               />
             </PrismicNextLink>
@@ -169,7 +169,7 @@ const ImageWithText = ({
               field={slice.primary.image}
               className={cn('my-6 w-1/2 rounded-lg shadow-md lg:w-full')}
               fallbackAlt=""
-              priority={index < 2}
+              preload={index < 2}
               title={slice.primary.image.alt || ''}
               imgixParams={{ ar: '4:5', fit: 'crop' }}
             />

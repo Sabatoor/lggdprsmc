@@ -92,7 +92,7 @@ export default async function Page(props: { params: Promise<Params> }) {
           <div className="relative h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
             <PrismicNextImage
               field={page.data.featured_image}
-              priority
+              preload
               fallbackAlt=""
               fill
               sizes="100vw"
@@ -125,7 +125,7 @@ export default async function Page(props: { params: Promise<Params> }) {
           <PrismicNextImage
             field={page.data.featured_image}
             className="rounded-lg"
-            priority
+            preload
             fallbackAlt=""
           />
         </Section>
