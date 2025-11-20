@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
-import { updateTag } from 'next/cache'
+import { revalidateTag } from 'next/cache'
 
 export async function POST() {
-  updateTag('prismic')
+  revalidateTag('prismic', 'max')
 
   return NextResponse.json({ revalidated: true, now: Date.now() })
 }
