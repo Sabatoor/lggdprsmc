@@ -12,6 +12,8 @@ import { FaFilePdf } from 'react-icons/fa6'
 import Link from 'next/link'
 import Heading from '@/components/Heading'
 import bytesToMegabytes from '@/app/lib/bytesToMegabytes'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/app/lib/cn'
 
 type Params = { product: string }
 type File = {
@@ -39,7 +41,6 @@ export default async function Page(props: { params: Promise<Params> }) {
       ],
     })
     .catch(() => notFound())
-
   return (
     <>
       <Section width="lg" className="flex-col">
@@ -49,6 +50,18 @@ export default async function Page(props: { params: Promise<Params> }) {
             className="place-self-center"
           />
           <PrismicRichText field={page.data.title} />
+          <div className="mx-auto">
+            {isFilled.select(page.data.status) && (
+              <Badge
+                variant={
+                  page.data.status === 'in stock' ? 'default' : 'destructive'
+                }
+                className={cn('text-foreground py-1 px-3')}
+              >
+                {page.data.status}
+              </Badge>
+            )}
+          </div>
           {isFilled.richText(page.data.description) && (
             <PrismicRichText field={page.data.description} />
           )}

@@ -769,6 +769,21 @@ interface ProductDocumentData {
   featured_image: prismic.ImageField<never>
 
   /**
+   * Status field in *Product*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Enter the product status
+   * - **Default Value**: in stock
+   * - **API ID Path**: product.status
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  status: prismic.SelectField<
+    'in stock' | 'low stock' | 'backordered' | 'out of stock' | 'discontinued',
+    'filled'
+  >
+
+  /**
    * Excerpt field in *Product*
    *
    * - **Field Type**: Rich Text
