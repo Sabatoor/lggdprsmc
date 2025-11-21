@@ -14,6 +14,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ReactNode } from 'react'
 import { Badge } from '@/components/ui/badge'
+import { cn } from '@/app/lib/cn'
 type Params = {
   uid: string
 }
@@ -41,7 +42,10 @@ export default async function Page(props: { params: Promise<Params> }) {
           }
         }
       `,
-      filters: [prismic.filter.at('my.product.brand', page.id)],
+      filters: [
+        prismic.filter.at('my.product.brand', page.id),
+        prismic.filter.not('my.product.status', 'discontinued'),
+      ],
       orderings: {
         field: 'my.product.title',
         direction: 'asc',
@@ -58,40 +62,52 @@ export default async function Page(props: { params: Promise<Params> }) {
           <ul className="flex flex-wrap justify-center gap-4">
             {products.map(product => {
               return (
-                <li key={product.id} className="max-w-[400px]">
-                  <Link href={product.url || '#'}>
+                <li
+                  key={product.id}
+                  className="max-w-[400px] p-4 border-2 border-primary rounded-lg relative"
+                >
+                  <Link
+                    href={product.url || '#'}
+                    aria-labelledby={`#${product.uid}`}
+                  >
+                    {prismic.isFilled.select(product.data.status) && (
+                      <Badge
+                        variant={
+                          product.data.status === 'in stock'
+                            ? 'default'
+                            : 'destructive'
+                        }
+                        className={cn('absolute top-4 right-4 text-foreground')}
+                      >
+                        {product.data.status}
+                      </Badge>
+                    )}
                     <PrismicNextImage
                       field={product.data.featured_image}
                       className="rounded-lg"
+                      alt=""
                     />
+                    <div className="relative mx-auto flex max-w-sm flex-col lg:text-center">
+                      <PrismicRichText
+                        field={product.data.title}
+                        components={{
+                          heading1: ({ children }: { children: ReactNode }) => (
+                            <Heading
+                              as="h2"
+                              size="3xl"
+                              className="lg:text-center"
+                              id={product.uid || '#'}
+                            >
+                              {children}
+                            </Heading>
+                          ),
+                        }}
+                      />
+                      {prismic.isFilled.richText(product.data.excerpt) && (
+                        <PrismicRichText field={product.data.excerpt} />
+                      )}
+                    </div>
                   </Link>
-                  <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-background p-4 shadow-lg lg:text-center">
-                    <PrismicRichText
-                      field={product.data.title}
-                      components={{
-                        heading1: ({ children }: { children: ReactNode }) => (
-                          <Heading
-                            as="h2"
-                            size="3xl"
-                            className="lg:text-center"
-                          >
-                            {children}
-                          </Heading>
-                        ),
-                      }}
-                    />
-                    <PrismicRichText field={product.data.excerpt} />
-                    <Button
-                      asChild
-                      variant="default"
-                      size="lg"
-                      className="font-bold text-neutral lg:text-lg"
-                    >
-                      <Link
-                        href={product.url || '#'}
-                      >{`See ${asText(product.data.title)}`}</Link>
-                    </Button>
-                  </div>
                 </li>
               )
             })}
