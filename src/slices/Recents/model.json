@@ -26,10 +26,7 @@
           "config": {
             "label": "Type",
             "placeholder": "",
-            "options": [
-              "blog_post",
-              "portfolio"
-            ],
+            "options": ["blog_post", "portfolio"],
             "default_value": "blog_post"
           }
         }
@@ -58,10 +55,7 @@
           "config": {
             "label": "Type",
             "placeholder": "",
-            "options": [
-              "blog_post",
-              "portfolio"
-            ],
+            "options": ["blog_post", "portfolio"],
             "default_value": "blog_post"
           }
         },
@@ -91,11 +85,7 @@
           "config": {
             "label": "Service",
             "placeholder": "",
-            "options": [
-              "All",
-              "Installation",
-              "Repair"
-            ]
+            "options": ["All", "Installation", "Repair"]
           }
         }
       },

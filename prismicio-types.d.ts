@@ -1327,6 +1327,28 @@ export type AllDocumentTypes =
   | SettingsDocument
 
 /**
+ * Item in *CallToAction → Product Recommendation → Primary → Products*
+ */
+export interface CallToActionSliceProductRecommendationPrimaryProductsItem {
+  /**
+   * Product field in *CallToAction → Product Recommendation → Primary → Products*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.productRecommendation.primary.products[].product
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  product: ContentRelationshipFieldWithData<
+    [
+      {
+        id: 'product'
+        fields: ['title', 'featured_image', 'status', 'description', 'excerpt']
+      },
+    ]
+  >
+}
+
+/**
  * Primary content in *CallToAction → Default → Primary*
  */
 export interface CallToActionSliceDefaultPrimary {
@@ -2020,6 +2042,47 @@ export type CallToActionSliceLogos = prismic.SharedSliceVariation<
 >
 
 /**
+ * Primary content in *CallToAction → Product Recommendation → Primary*
+ */
+export interface CallToActionSliceProductRecommendationPrimary {
+  /**
+   * Heading field in *CallToAction → Product Recommendation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter Call to Action Heading
+   * - **API ID Path**: call_to_action.productRecommendation.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField
+
+  /**
+   * Products field in *CallToAction → Product Recommendation → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.productRecommendation.primary.products[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  products: prismic.GroupField<
+    Simplify<CallToActionSliceProductRecommendationPrimaryProductsItem>
+  >
+}
+
+/**
+ * Product Recommendation variation for CallToAction Slice
+ *
+ * - **API ID**: `productRecommendation`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CallToActionSliceProductRecommendation =
+  prismic.SharedSliceVariation<
+    'productRecommendation',
+    Simplify<CallToActionSliceProductRecommendationPrimary>,
+    never
+  >
+
+/**
  * Slice variation for *CallToAction*
  */
 type CallToActionSliceVariation =
@@ -2032,6 +2095,7 @@ type CallToActionSliceVariation =
   | CallToActionSliceExpo
   | CallToActionSlicePromotion
   | CallToActionSliceLogos
+  | CallToActionSliceProductRecommendation
 
 /**
  * CallToAction Shared Slice
@@ -3224,6 +3288,8 @@ declare module '@prismicio/client' {
       CallToActionSlicePromotionPrimary,
       CallToActionSliceLogosPrimary,
       CallToActionSliceLogosItem,
+      CallToActionSliceProductRecommendationPrimaryProductsItem,
+      CallToActionSliceProductRecommendationPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceFeaturedGrid,
@@ -3234,6 +3300,7 @@ declare module '@prismicio/client' {
       CallToActionSliceExpo,
       CallToActionSlicePromotion,
       CallToActionSliceLogos,
+      CallToActionSliceProductRecommendation,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceVariation,

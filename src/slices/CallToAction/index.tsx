@@ -27,6 +27,7 @@ import {
 } from '../../../prismicio-types'
 import WhileInView from '@/components/WhileInView'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 
 /**
  * Props for `CallToAction`.
@@ -380,7 +381,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     <PrismicNextLink
                       field={item.button_link}
                       aria-labelledby={slice.id + '-' + 'heading-' + i}
-                      className="ring-primary flex flex-grow flex-col justify-between rounded-lg outline-hidden focus:ring-2"
+                      className="ring-primary flex grow flex-col justify-between rounded-lg outline-hidden focus:ring-2"
                     >
                       <CardHeader>
                         <div className="flex flex-col items-center">
@@ -408,7 +409,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                           />
                         </div>
                       </CardHeader>
-                      <CardContent className="flex-grow">
+                      <CardContent className="grow">
                         {isFilled.richText(item.description) && (
                           <PrismicRichText field={item.description} />
                         )}
@@ -692,6 +693,86 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
               </div>
             )}
         </Section>
+      </Section>
+    )
+  } else if (slice.variation === 'productRecommendation') {
+    return (
+      <Section
+        width="2xl"
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+        className="flex-col"
+      >
+        {isFilled.richText(slice.primary.heading) && (
+          <PrismicRichText
+            field={slice.primary.heading}
+            components={{
+              heading2: ({ children }: { children: ReactNode }) => (
+                <Heading
+                  as="h2"
+                  size="5xl"
+                  className="text-neutral text-3xl md:text-4xl"
+                >
+                  {children}
+                </Heading>
+              ),
+            }}
+          />
+        )}
+        <div className="flex flex-wrap gap-4 py-6 justify-evenly lg:gap-8">
+          {isFilled.group(slice.primary.products)
+            ? slice.primary.products.map((item, i) => {
+                const product = item.product as unknown as ProductDocument
+                return (
+                  <Link
+                    key={`recommendation-${slice.id}-${i}`}
+                    href={product.url || '#'}
+                    aria-labelledby={`recommendation-${slice.id}-heading-${i}`}
+                    className="ring-primary rounded-lg outline-hidden focus:ring-2 hover:shadow-md transition duration-300 ease-in-out shadow-primary group"
+                  >
+                    <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6 relative">
+                      {isFilled.select(product.data.status) && (
+                        <Badge className="absolute text-foreground top-4 right-4 text-sm capitalize group-hover:shadow-md shadow-primary transition duration-300 ease-in-out">
+                          {product.data.status}
+                        </Badge>
+                      )}
+                      <div className="flex flex-col items-center">
+                        <PrismicNextImage
+                          field={product.data.featured_image}
+                          className="lg:blur-[1px] group-hover:blur-none transition duration-300 ease-in-out"
+                        />
+                        <PrismicRichText
+                          field={product.data.title}
+                          components={{
+                            heading1: ({
+                              children,
+                            }: {
+                              children: ReactNode
+                            }) => (
+                              <Heading
+                                id={`recommendation-${slice.id}-heading-${i}`}
+                                as="h2"
+                                size="3xl"
+                                className="text-neutral my-2 lg:my-3"
+                              >
+                                {children}
+                              </Heading>
+                            ),
+                          }}
+                        />
+
+                        {isFilled.richText(product.data.description) ? (
+                          <PrismicRichText field={product.data.description} />
+                        ) : (
+                          <PrismicRichText field={product.data.excerpt} />
+                        )}
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })
+            : null}
+        </div>
       </Section>
     )
   }

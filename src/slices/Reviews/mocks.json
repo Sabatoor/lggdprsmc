@@ -1,209 +1,209 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {},
-		"items": []
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "manual",
-		"primary": {
-			"reviews": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"reviewer_name",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "L. Graham"
-								}
-							],
-							[
-								"rating",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Number",
-									"value": "4"
-								}
-							],
-							[
-								"review_date",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Date",
-									"value": "2025-04-15"
-								}
-							],
-							[
-								"review_text",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "I would definitely refer them to anyone who wants the garage door done. ******* was informative as he explained the detail of work involved during his first visit. Hes trustworthy as he got the work done and went above and beyond to fix any issues I discussed with him and made sure everything was in good working order before he leaves. Excellent work ethic which is hard to find. Very pleased with our new garage door."
-								}
-							],
-							[
-								"show_date",
-								{
-									"__TYPE__": "BooleanContent",
-									"value": true
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"reviewer_name",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "A. Mannarino"
-								}
-							],
-							[
-								"rating",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Number",
-									"value": "5"
-								}
-							],
-							[
-								"date",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Date",
-									"value": "2013-08-08"
-								}
-							],
-							[
-								"show_date",
-								{
-									"__TYPE__": "BooleanContent",
-									"value": true
-								}
-							],
-							[
-								"review_date",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Date",
-									"value": "2025-04-29"
-								}
-							],
-							[
-								"review_text",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "I contacted Lions Gate Garage Doors by email about having my 22 year old overhead garage opener replaced by one with back up power. I received information about my options promptly and the new opener was installed the next day, even though it was not an emergency. The installation was done professionally and the installer patiently explained the new system to me in addition to programming my existing remote along with the new ones. I would highly recommend this company for their knowledge and outstanding customer service and will use them again for any issues that *** occur with my garage door."
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"reviewer_name",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "PeeWee"
-								}
-							],
-							[
-								"rating",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Number",
-									"value": "3"
-								}
-							],
-							[
-								"review_date",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Date",
-									"value": "2025-05-13"
-								}
-							],
-							[
-								"review_text",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "Review Text"
-								}
-							],
-							[
-								"show_date",
-								{
-									"__TYPE__": "BooleanContent",
-									"value": true
-								}
-							]
-						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"reviewer_name",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "Hiccup"
-								}
-							],
-							[
-								"rating",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Number",
-									"value": "5"
-								}
-							],
-							[
-								"review_date",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Date",
-									"value": "2025-03-11"
-								}
-							],
-							[
-								"review_text",
-								{
-									"__TYPE__": "FieldContent",
-									"type": "Text",
-									"value": "Way to go LGGD!"
-								}
-							],
-							[
-								"show_date",
-								{
-									"__TYPE__": "BooleanContent",
-									"value": false
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {},
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "manual",
+    "primary": {
+      "reviews": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "reviewer_name",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "L. Graham"
+                }
+              ],
+              [
+                "rating",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Number",
+                  "value": "4"
+                }
+              ],
+              [
+                "review_date",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Date",
+                  "value": "2025-04-15"
+                }
+              ],
+              [
+                "review_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "I would definitely refer them to anyone who wants the garage door done. ******* was informative as he explained the detail of work involved during his first visit. Hes trustworthy as he got the work done and went above and beyond to fix any issues I discussed with him and made sure everything was in good working order before he leaves. Excellent work ethic which is hard to find. Very pleased with our new garage door."
+                }
+              ],
+              [
+                "show_date",
+                {
+                  "__TYPE__": "BooleanContent",
+                  "value": true
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "reviewer_name",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "A. Mannarino"
+                }
+              ],
+              [
+                "rating",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Number",
+                  "value": "5"
+                }
+              ],
+              [
+                "date",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Date",
+                  "value": "2013-08-08"
+                }
+              ],
+              [
+                "show_date",
+                {
+                  "__TYPE__": "BooleanContent",
+                  "value": true
+                }
+              ],
+              [
+                "review_date",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Date",
+                  "value": "2025-04-29"
+                }
+              ],
+              [
+                "review_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "I contacted Lions Gate Garage Doors by email about having my 22 year old overhead garage opener replaced by one with back up power. I received information about my options promptly and the new opener was installed the next day, even though it was not an emergency. The installation was done professionally and the installer patiently explained the new system to me in addition to programming my existing remote along with the new ones. I would highly recommend this company for their knowledge and outstanding customer service and will use them again for any issues that *** occur with my garage door."
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "reviewer_name",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "PeeWee"
+                }
+              ],
+              [
+                "rating",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Number",
+                  "value": "3"
+                }
+              ],
+              [
+                "review_date",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Date",
+                  "value": "2025-05-13"
+                }
+              ],
+              [
+                "review_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Review Text"
+                }
+              ],
+              [
+                "show_date",
+                {
+                  "__TYPE__": "BooleanContent",
+                  "value": true
+                }
+              ]
+            ]
+          },
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "reviewer_name",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Hiccup"
+                }
+              ],
+              [
+                "rating",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Number",
+                  "value": "5"
+                }
+              ],
+              [
+                "review_date",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Date",
+                  "value": "2025-03-11"
+                }
+              ],
+              [
+                "review_text",
+                {
+                  "__TYPE__": "FieldContent",
+                  "type": "Text",
+                  "value": "Way to go LGGD!"
+                }
+              ],
+              [
+                "show_date",
+                {
+                  "__TYPE__": "BooleanContent",
+                  "value": false
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
 ]

@@ -38,6 +38,11 @@ export default async function Page(props: { params: Promise<Params> }) {
         'product_type.featured_image',
         'service.title',
         'service.excerpt',
+        'product.title',
+        'product.featured_image',
+        'product.excerpt',
+        'product.description',
+        'product.status',
       ],
     })
     .catch(() => notFound())
@@ -56,7 +61,9 @@ export default async function Page(props: { params: Promise<Params> }) {
                 variant={
                   page.data.status === 'in stock' ? 'default' : 'destructive'
                 }
-                className={cn('text-foreground py-1 px-3')}
+                className={cn(
+                  'text-foreground py-1 px-3 capitalize text-sm cursor-default',
+                )}
               >
                 {page.data.status}
               </Badge>
