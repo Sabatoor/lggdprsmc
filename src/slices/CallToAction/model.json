@@ -536,6 +536,55 @@
           }
         }
       }
+    },
+    {
+      "id": "productRecommendation",
+      "name": "Product Recommendation",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Enter Call to Action Heading",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "products": {
+          "type": "Group",
+          "config": {
+            "label": "Products",
+            "repeat": true,
+            "fields": {
+              "product": {
+                "type": "Link",
+                "config": {
+                  "label": "Product",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "product",
+                      "fields": [
+                        "title",
+                        "featured_image",
+                        "status",
+                        "description",
+                        "excerpt"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

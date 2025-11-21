@@ -37,7 +37,6 @@ interface ManualReviewsProps {
 }
 
 const ManualSlider = ({ reviews }: ManualReviewsProps) => {
-  // console.log('ManualSlider says -> ', reviews.length)
   return (
     <Carousel
       opts={{ loop: true }}
