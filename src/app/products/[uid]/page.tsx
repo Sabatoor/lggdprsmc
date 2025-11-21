@@ -13,6 +13,7 @@ import { asText } from '@prismicio/client'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { ReactNode } from 'react'
+import { Badge } from '@/components/ui/badge'
 type Params = {
   uid: string
 }
@@ -36,6 +37,7 @@ export default async function Page(props: { params: Promise<Params> }) {
             title
             featured_image
             excerpt
+            status
           }
         }
       `,
@@ -106,10 +108,14 @@ export default async function Page(props: { params: Promise<Params> }) {
             title
             featured_image
             excerpt
+            status
           }
         }
       `,
-      filters: [prismic.filter.at('my.product.product_type', page.id)],
+      filters: [
+        prismic.filter.at('my.product.product_type', page.id),
+        prismic.filter.not('my.product.status', 'discontinued'),
+      ],
       orderings: {
         field: 'my.product.title',
         direction: 'asc',
@@ -137,6 +143,18 @@ export default async function Page(props: { params: Promise<Params> }) {
                     />
                   </Link>
                   <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-background p-4 shadow-lg lg:text-center">
+                    {prismic.isFilled.select(product.data.status) && (
+                      <Badge
+                        variant={
+                          product.data.status === 'in stock'
+                            ? 'default'
+                            : 'destructive'
+                        }
+                        className="absolute right-2 -top-3 text-foreground capitalize"
+                      >
+                        {product.data.status}
+                      </Badge>
+                    )}
                     <PrismicRichText
                       field={product.data.title}
                       components={{
@@ -154,7 +172,7 @@ export default async function Page(props: { params: Promise<Params> }) {
                     <PrismicRichText field={product.data.excerpt} />
                     <Button
                       asChild
-                      variant="default"
+                      variant="secondary"
                       size="lg"
                       className="font-bold text-neutral lg:text-lg"
                     >

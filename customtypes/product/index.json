@@ -45,6 +45,21 @@
           "thumbnails": []
         }
       },
+      "status": {
+        "type": "Select",
+        "config": {
+          "label": "Status",
+          "placeholder": "Enter the product status",
+          "options": [
+            "in stock",
+            "low stock",
+            "backordered",
+            "out of stock",
+            "discontinued"
+          ],
+          "default_value": "in stock"
+        }
+      },
       "excerpt": {
         "type": "StructuredText",
         "config": {
