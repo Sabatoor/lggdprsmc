@@ -1,264 +1,264 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "twoColumn",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Two Column Variation",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"image": {
-				"origin": {
-					"id": "IjkIOe-2fF4",
-					"url": "https://images.unsplash.com/photo-1590650046871-92c887180603?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjb3dvcmtlcnN8ZW58MHx8fHwxNzAwNTE2NTI2fDA&ixlib=rb-4.0.3&q=85",
-					"width": 5760,
-					"height": 3840
-				},
-				"url": "https://images.unsplash.com/photo-1590650046871-92c887180603?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjb3dvcmtlcnN8ZW58MHx8fHwxNzAwNTE2NTI2fDA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C5760%2C3840&w=5760&h=3840",
-				"width": 5760,
-				"height": 3840,
-				"edit": {
-					"background": "transparent",
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					}
-				},
-				"credits": null,
-				"alt": "woman in black jacket sitting beside woman in white blazer",
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"image_location": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"text": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "This variation is best for images that are 16:9 aspect ratio.",
-							"spans": []
-						},
-						"direction": "ltr"
-					},
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Who we are: We are your residential garage door specialists. We sell, service, repair, install and all types of garage doors and openers. We sell, service and maintain a wide range of garage door opener makes and models, but specialize in the operators LiftMaster provide.",
-							"spans": []
-						},
-						"direction": "ltr"
-					},
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "We are a family run business and provide high-quality, knowledgeable, friendly services. You can count on our experience, dedication, and commitment to all your garage door needs.",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "withIcon",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "With Icon Variation",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"image": {
-				"origin": {
-					"id": "biepNX5n7r4",
-					"url": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8aG91c2V8ZW58MHx8fHwxNzAwNTE2NTEwfDA&ixlib=rb-4.0.3&q=85",
-					"width": 3675,
-					"height": 2450
-				},
-				"url": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8aG91c2V8ZW58MHx8fHwxNzAwNTE2NTEwfDA&ixlib=rb-4.0.3&q=85",
-				"width": 3675,
-				"height": 2450,
-				"edit": {
-					"background": "transparent",
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					}
-				},
-				"credits": null,
-				"alt": "brown and white concrete house under blue sky during daytime",
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"image_location": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
-			"text": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "This slice will but up against the slices above and below it.",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"icon": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "Garage"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "ImageWithText Slice",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"image": {
-				"origin": {
-					"id": "nAOZCYcLND8",
-					"url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2OTk0Nzk5OTh8MA&ixlib=rb-4.0.3&q=85",
-					"width": 2749,
-					"height": 4124
-				},
-				"url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2OTk0Nzk5OTh8MA&ixlib=rb-4.0.3&q=85",
-				"width": 2749,
-				"height": 4124,
-				"edit": {
-					"background": "transparent",
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					}
-				},
-				"credits": null,
-				"alt": null,
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"image_location": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
-			"text": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
-							"spans": []
-						},
-						"direction": "ltr"
-					},
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
-							"spans": []
-						},
-						"direction": "ltr"
-					},
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"call_to_action": {
-				"__TYPE__": "RepeatableContent",
-				"type": "Link",
-				"value": [
-					{
-						"key": "dc4a31a6-d398-4d73-aac6-ac6cb2ad7b26",
-						"__TYPE__": "LinkContent",
-						"value": {
-							"__TYPE__": "ExternalLink",
-							"url": "https://prismic.io",
-							"text": "Call To Action",
-							"variant": "default"
-						}
-					},
-					{
-						"key": "45474e2a-09ae-48bc-a50f-8a165bf78f73",
-						"__TYPE__": "LinkContent",
-						"value": {
-							"__TYPE__": "ExternalLink",
-							"url": "https://prismic.io",
-							"text": "Alternative Call to Action",
-							"variant": "secondary"
-						}
-					}
-				]
-			},
-			"image_link": {
-				"__TYPE__": "LinkContent",
-				"key": "555fe187-5b92-472d-8438-0f30b2d3ea63",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io",
-					"text": "Title Text"
-				}
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "twoColumn",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Two Column Variation",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "image": {
+        "origin": {
+          "id": "IjkIOe-2fF4",
+          "url": "https://images.unsplash.com/photo-1590650046871-92c887180603?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjb3dvcmtlcnN8ZW58MHx8fHwxNzAwNTE2NTI2fDA&ixlib=rb-4.0.3&q=85",
+          "width": 5760,
+          "height": 3840
+        },
+        "url": "https://images.unsplash.com/photo-1590650046871-92c887180603?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxjb3dvcmtlcnN8ZW58MHx8fHwxNzAwNTE2NTI2fDA&ixlib=rb-4.0.3&q=85&rect=0%2C0%2C5760%2C3840&w=5760&h=3840",
+        "width": 5760,
+        "height": 3840,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "alt": "woman in black jacket sitting beside woman in white blazer",
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "image_location": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "This variation is best for images that are 16:9 aspect ratio.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Who we are: We are your residential garage door specialists. We sell, service, repair, install and all types of garage doors and openers. We sell, service and maintain a wide range of garage door opener makes and models, but specialize in the operators LiftMaster provide.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "We are a family run business and provide high-quality, knowledgeable, friendly services. You can count on our experience, dedication, and commitment to all your garage door needs.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "withIcon",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "With Icon Variation",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "image": {
+        "origin": {
+          "id": "biepNX5n7r4",
+          "url": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8aG91c2V8ZW58MHx8fHwxNzAwNTE2NTEwfDA&ixlib=rb-4.0.3&q=85",
+          "width": 3675,
+          "height": 2450
+        },
+        "url": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8aG91c2V8ZW58MHx8fHwxNzAwNTE2NTEwfDA&ixlib=rb-4.0.3&q=85",
+        "width": 3675,
+        "height": 2450,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "alt": "brown and white concrete house under blue sky during daytime",
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "image_location": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "This slice will but up against the slices above and below it.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "icon": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "Garage"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "ImageWithText Slice",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "image": {
+        "origin": {
+          "id": "nAOZCYcLND8",
+          "url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2OTk0Nzk5OTh8MA&ixlib=rb-4.0.3&q=85",
+          "width": 2749,
+          "height": 4124
+        },
+        "url": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2OTk0Nzk5OTh8MA&ixlib=rb-4.0.3&q=85",
+        "width": 2749,
+        "height": 4124,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "alt": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "image_location": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "text": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
+              "spans": []
+            },
+            "direction": "ltr"
+          },
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Incididunt labore est ea dolor Lorem mollit nulla id ut. Ex consequat incididunt commodo ut occaecat magna do duis mollit duis elit ullamco.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "call_to_action": {
+        "__TYPE__": "RepeatableContent",
+        "type": "Link",
+        "value": [
+          {
+            "key": "dc4a31a6-d398-4d73-aac6-ac6cb2ad7b26",
+            "__TYPE__": "LinkContent",
+            "value": {
+              "__TYPE__": "ExternalLink",
+              "url": "https://prismic.io",
+              "text": "Call To Action",
+              "variant": "default"
+            }
+          },
+          {
+            "key": "45474e2a-09ae-48bc-a50f-8a165bf78f73",
+            "__TYPE__": "LinkContent",
+            "value": {
+              "__TYPE__": "ExternalLink",
+              "url": "https://prismic.io",
+              "text": "Alternative Call to Action",
+              "variant": "secondary"
+            }
+          }
+        ]
+      },
+      "image_link": {
+        "__TYPE__": "LinkContent",
+        "key": "555fe187-5b92-472d-8438-0f30b2d3ea63",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://prismic.io",
+          "text": "Title Text"
+        }
+      }
+    },
+    "items": []
+  }
 ]

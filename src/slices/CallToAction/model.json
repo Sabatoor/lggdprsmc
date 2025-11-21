@@ -78,11 +78,7 @@
           "config": {
             "label": "Icon",
             "placeholder": "Select an Icon",
-            "options": [
-              "RiQuestionnaireFill",
-              "GiHomeGarage",
-              "FaToolbox"
-            ]
+            "options": ["RiQuestionnaireFill", "GiHomeGarage", "FaToolbox"]
           }
         },
         "heading": {
@@ -160,12 +156,7 @@
           "config": {
             "label": "Logo",
             "placeholder": "Select a Social Logo",
-            "options": [
-              "Facebook",
-              "Instagram",
-              "LinkedIn",
-              "Yelp"
-            ]
+            "options": ["Facebook", "Instagram", "LinkedIn", "Yelp"]
           }
         },
         "social_url": {
@@ -203,9 +194,7 @@
           "config": {
             "label": "Brand",
             "select": "document",
-            "customtypes": [
-              "brand"
-            ]
+            "customtypes": ["brand"]
           }
         },
         "heading": {
@@ -283,10 +272,7 @@
           "config": {
             "label": "Product Type",
             "select": "document",
-            "customtypes": [
-              "product_type",
-              "product"
-            ]
+            "customtypes": ["product_type", "product"]
           }
         },
         "heading": {
@@ -364,9 +350,7 @@
           "config": {
             "label": "Service",
             "select": "document",
-            "customtypes": [
-              "service"
-            ]
+            "customtypes": ["service"]
           }
         },
         "description": {

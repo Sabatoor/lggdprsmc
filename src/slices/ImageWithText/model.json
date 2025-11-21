@@ -174,11 +174,7 @@
           "config": {
             "label": "Icon",
             "placeholder": "Optionally select an icon",
-            "options": [
-              "Garage",
-              "Toolbox",
-              "Question"
-            ]
+            "options": ["Garage", "Toolbox", "Question"]
           }
         }
       },

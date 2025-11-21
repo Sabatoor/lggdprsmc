@@ -1,81 +1,81 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading1",
-						"content": {
-							"text": "Prismic Foundation Hero",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"description": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Chocolate cake carrot cake candy gummi bears wafer. Donut toffee toffee chocolate bar soufflé toffee halvah halvah. Jelly-o jelly marzipan tiramisu shortbread. Marshmallow jelly-o chocolate cake toffee chocolate cake ice cream chocolate bar fruitcake icing.",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"background_image": {
-				"origin": {
-					"id": "biepNX5n7r4",
-					"url": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8aG91c2V8ZW58MHx8fHwxNzA5ODM1MTgzfDA&ixlib=rb-4.0.3&q=85",
-					"width": 3675,
-					"height": 2450
-				},
-				"url": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8aG91c2V8ZW58MHx8fHwxNzA5ODM1MTgzfDA&ixlib=rb-4.0.3&q=85",
-				"width": 3675,
-				"height": 2450,
-				"edit": {
-					"background": "transparent",
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					}
-				},
-				"credits": null,
-				"alt": "brown and white concrete house under blue sky during daytime",
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"buttons": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"button_link",
-								{
-									"__TYPE__": "LinkContent",
-									"key": "cfdc86ae-cc03-4a93-810c-576bfdd4476a",
-									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://twitter.com",
-										"text": "This is a Button",
-										"variant": "outline"
-									}
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": []
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Prismic Foundation Hero",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Chocolate cake carrot cake candy gummi bears wafer. Donut toffee toffee chocolate bar soufflé toffee halvah halvah. Jelly-o jelly marzipan tiramisu shortbread. Marshmallow jelly-o chocolate cake toffee chocolate cake ice cream chocolate bar fruitcake icing.",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "background_image": {
+        "origin": {
+          "id": "biepNX5n7r4",
+          "url": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8aG91c2V8ZW58MHx8fHwxNzA5ODM1MTgzfDA&ixlib=rb-4.0.3&q=85",
+          "width": 3675,
+          "height": 2450
+        },
+        "url": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyMXx8aG91c2V8ZW58MHx8fHwxNzA5ODM1MTgzfDA&ixlib=rb-4.0.3&q=85",
+        "width": 3675,
+        "height": 2450,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "alt": "brown and white concrete house under blue sky during daytime",
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "buttons": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "button_link",
+                {
+                  "__TYPE__": "LinkContent",
+                  "key": "cfdc86ae-cc03-4a93-810c-576bfdd4476a",
+                  "value": {
+                    "__TYPE__": "ExternalLink",
+                    "url": "http://twitter.com",
+                    "text": "This is a Button",
+                    "variant": "outline"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": []
+  }
 ]

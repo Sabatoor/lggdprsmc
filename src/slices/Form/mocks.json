@@ -1,91 +1,91 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"name_label": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Full Name"
-			},
-			"name_placeholder": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Enter Your Full Name"
-			},
-			"email_label": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Email"
-			},
-			"email_placeholder": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Enter Your Email Address"
-			},
-			"message_label": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Message"
-			},
-			"message_placeholder": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Enter Your Message Here"
-			},
-			"button_text": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Send Your Message"
-			}
-		},
-		"items": []
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "estimate",
-		"primary": {
-			"name_label": {
-				"__TYPE__": "FieldContent",
-				"value": "finger",
-				"type": "Text"
-			},
-			"name_placeholder": {
-				"__TYPE__": "FieldContent",
-				"value": "stronger",
-				"type": "Text"
-			},
-			"email_label": {
-				"__TYPE__": "FieldContent",
-				"value": "thus",
-				"type": "Text"
-			},
-			"email_placeholder": {
-				"__TYPE__": "FieldContent",
-				"value": "shirt",
-				"type": "Text"
-			},
-			"message_label": {
-				"__TYPE__": "FieldContent",
-				"value": "nor",
-				"type": "Text"
-			},
-			"message_placeholder": {
-				"__TYPE__": "FieldContent",
-				"value": "aside",
-				"type": "Text"
-			},
-			"button_text": {
-				"__TYPE__": "FieldContent",
-				"value": "hot",
-				"type": "Text"
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "name_label": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Full Name"
+      },
+      "name_placeholder": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Enter Your Full Name"
+      },
+      "email_label": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Email"
+      },
+      "email_placeholder": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Enter Your Email Address"
+      },
+      "message_label": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Message"
+      },
+      "message_placeholder": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Enter Your Message Here"
+      },
+      "button_text": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Send Your Message"
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "estimate",
+    "primary": {
+      "name_label": {
+        "__TYPE__": "FieldContent",
+        "value": "finger",
+        "type": "Text"
+      },
+      "name_placeholder": {
+        "__TYPE__": "FieldContent",
+        "value": "stronger",
+        "type": "Text"
+      },
+      "email_label": {
+        "__TYPE__": "FieldContent",
+        "value": "thus",
+        "type": "Text"
+      },
+      "email_placeholder": {
+        "__TYPE__": "FieldContent",
+        "value": "shirt",
+        "type": "Text"
+      },
+      "message_label": {
+        "__TYPE__": "FieldContent",
+        "value": "nor",
+        "type": "Text"
+      },
+      "message_placeholder": {
+        "__TYPE__": "FieldContent",
+        "value": "aside",
+        "type": "Text"
+      },
+      "button_text": {
+        "__TYPE__": "FieldContent",
+        "value": "hot",
+        "type": "Text"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
 ]

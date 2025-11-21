@@ -37,9 +37,7 @@
           "config": {
             "label": "Location",
             "select": "document",
-            "customtypes": [
-              "location"
-            ]
+            "customtypes": ["location"]
           }
         }
       }
