@@ -63,7 +63,7 @@ export default async function Page(props: { params: Promise<Params> }) {
                     page.data.status === 'in stock' ? 'default' : 'destructive'
                   }
                   className={cn(
-                    'text-foreground py-1 px-3 capitalize text-sm cursor-default',
+                    'py-1 px-3 capitalize text-sm cursor-default',{'text-foreground': page.data.status === 'in stock'}
                   )}
                 >
                   {page.data.status}

@@ -739,7 +739,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                 ? 'default'
                                 : 'destructive'
                             }
-                            className="absolute text-foreground top-4 right-4 text-sm capitalize group-hover:shadow-md shadow-primary transition duration-300 ease-in-out"
+                            className={cn("absolute top-4 right-4 text-sm capitalize group-hover:shadow-md shadow-primary transition duration-300 ease-in-out", {'text-foreground': product.data.status === 'in stock'})}
                           >
                             {product.data.status}
                           </Badge>

@@ -79,7 +79,8 @@ export default async function Page(props: { params: Promise<Params> }) {
                               : 'destructive'
                           }
                           className={cn(
-                            'absolute top-4 right-4 text-foreground',
+                            'absolute top-4 right-4',
+                            {'text-foreground': product.data.status === 'in stock'}
                           )}
                         >
                           {product.data.status}
@@ -170,7 +171,7 @@ export default async function Page(props: { params: Promise<Params> }) {
                               ? 'default'
                               : 'destructive'
                           }
-                          className="absolute right-2 -top-3 text-foreground capitalize"
+                          className={cn("absolute right-2 -top-3 capitalize",{'text-foreground': product.data.status === 'in stock'} )}
                         >
                           {product.data.status}
                         </Badge>
