@@ -56,18 +56,19 @@ export default async function Page(props: { params: Promise<Params> }) {
           />
           <PrismicRichText field={page.data.title} />
           <div className="mx-auto">
-            {isFilled.select(page.data.status) && (
-              <Badge
-                variant={
-                  page.data.status === 'in stock' ? 'default' : 'destructive'
-                }
-                className={cn(
-                  'text-foreground py-1 px-3 capitalize text-sm cursor-default',
-                )}
-              >
-                {page.data.status}
-              </Badge>
-            )}
+            {isFilled.select(page.data.status) &&
+              page.data.status !== 'no status' && (
+                <Badge
+                  variant={
+                    page.data.status === 'in stock' ? 'default' : 'destructive'
+                  }
+                  className={cn(
+                    'text-foreground py-1 px-3 capitalize text-sm cursor-default',
+                  )}
+                >
+                  {page.data.status}
+                </Badge>
+              )}
           </div>
           {isFilled.richText(page.data.description) && (
             <PrismicRichText field={page.data.description} />
