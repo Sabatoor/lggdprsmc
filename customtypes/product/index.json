@@ -51,13 +51,14 @@
           "label": "Status",
           "placeholder": "Enter the product status",
           "options": [
+            "no status",
             "in stock",
             "low stock",
             "backordered",
             "out of stock",
             "discontinued"
           ],
-          "default_value": "in stock"
+          "default_value": "no status"
         }
       },
       "excerpt": {

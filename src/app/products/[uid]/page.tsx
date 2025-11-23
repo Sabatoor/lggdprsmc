@@ -70,18 +70,21 @@ export default async function Page(props: { params: Promise<Params> }) {
                     href={product.url || '#'}
                     aria-labelledby={`#${product.uid}`}
                   >
-                    {prismic.isFilled.select(product.data.status) && (
-                      <Badge
-                        variant={
-                          product.data.status === 'in stock'
-                            ? 'default'
-                            : 'destructive'
-                        }
-                        className={cn('absolute top-4 right-4 text-foreground')}
-                      >
-                        {product.data.status}
-                      </Badge>
-                    )}
+                    {prismic.isFilled.select(product.data.status) &&
+                      product.data.status !== 'no status' && (
+                        <Badge
+                          variant={
+                            product.data.status === 'in stock'
+                              ? 'default'
+                              : 'destructive'
+                          }
+                          className={cn(
+                            'absolute top-4 right-4 text-foreground',
+                          )}
+                        >
+                          {product.data.status}
+                        </Badge>
+                      )}
                     <PrismicNextImage
                       field={product.data.featured_image}
                       className="rounded-lg"
@@ -159,18 +162,19 @@ export default async function Page(props: { params: Promise<Params> }) {
                     />
                   </Link>
                   <div className="relative mx-auto -mt-8 flex max-w-sm flex-col rounded-lg bg-background p-4 shadow-lg lg:text-center">
-                    {prismic.isFilled.select(product.data.status) && (
-                      <Badge
-                        variant={
-                          product.data.status === 'in stock'
-                            ? 'default'
-                            : 'destructive'
-                        }
-                        className="absolute right-2 -top-3 text-foreground capitalize"
-                      >
-                        {product.data.status}
-                      </Badge>
-                    )}
+                    {prismic.isFilled.select(product.data.status) &&
+                      product.data.status !== 'no status' && (
+                        <Badge
+                          variant={
+                            product.data.status === 'in stock'
+                              ? 'default'
+                              : 'destructive'
+                          }
+                          className="absolute right-2 -top-3 text-foreground capitalize"
+                        >
+                          {product.data.status}
+                        </Badge>
+                      )}
                     <PrismicRichText
                       field={product.data.title}
                       components={{

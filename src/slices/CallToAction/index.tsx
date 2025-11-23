@@ -731,11 +731,19 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     className="ring-primary rounded-lg outline-hidden focus:ring-2 hover:shadow-md transition duration-300 ease-in-out shadow-primary group"
                   >
                     <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6 relative">
-                      {isFilled.select(product.data.status) && (
-                        <Badge variant={product.data.status === 'in stock'? 'default' : 'destructive'} className="absolute text-foreground top-4 right-4 text-sm capitalize group-hover:shadow-md shadow-primary transition duration-300 ease-in-out">
-                          {product.data.status}
-                        </Badge>
-                      )}
+                      {isFilled.select(product.data.status) &&
+                        product.data.status !== 'no status' && (
+                          <Badge
+                            variant={
+                              product.data.status === 'in stock'
+                                ? 'default'
+                                : 'destructive'
+                            }
+                            className="absolute text-foreground top-4 right-4 text-sm capitalize group-hover:shadow-md shadow-primary transition duration-300 ease-in-out"
+                          >
+                            {product.data.status}
+                          </Badge>
+                        )}
                       <div className="flex flex-col items-center">
                         <PrismicNextImage
                           field={product.data.featured_image}
