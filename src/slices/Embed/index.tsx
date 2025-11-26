@@ -18,7 +18,7 @@ const Embed: FC<EmbedProps> = ({ slice }) => {
     <Section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="bg-background lg:my8 my-4 flex-col gap-4"
+      className="lg:my8 my-4 flex-col gap-4 bg-background"
     >
       {isFilled.richText(slice.primary.heading) && (
         <div className="flex items-center justify-center">

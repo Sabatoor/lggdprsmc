@@ -122,7 +122,7 @@ export default async function Page(props: {
               })}
             </ul>
           ) : (
-            <p className="prose lg:prose-lg xl:prose-xl mx-auto">
+            <p className="mx-auto prose lg:prose-lg xl:prose-xl">
               No posts have been published yet. Please check back again soon!
             </p>
           )}

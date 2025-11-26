@@ -64,7 +64,7 @@ export default async function Page(props: { params: Promise<Params> }) {
               return (
                 <li
                   key={product.id}
-                  className="max-w-[400px] p-4 border-2 border-primary rounded-lg relative"
+                  className="relative max-w-[400px] rounded-lg border-2 border-primary p-4"
                 >
                   <Link
                     href={product.url || '#'}
@@ -78,10 +78,10 @@ export default async function Page(props: { params: Promise<Params> }) {
                               ? 'default'
                               : 'destructive'
                           }
-                          className={cn(
-                            'absolute top-4 right-4',
-                            {'text-foreground': product.data.status === 'in stock'}
-                          )}
+                          className={cn('absolute top-4 right-4', {
+                            'text-foreground':
+                              product.data.status === 'in stock',
+                          })}
                         >
                           {product.data.status}
                         </Badge>
@@ -155,7 +155,7 @@ export default async function Page(props: { params: Promise<Params> }) {
                 <li key={product.id} className="max-w-[400px]">
                   <Link
                     href={product.url || '#'}
-                    className="block outline-hidden ring-primary transition duration-300 ease-in-out focus:ring-2"
+                    className="block ring-primary outline-hidden transition duration-300 ease-in-out focus:ring-2"
                   >
                     <PrismicNextImage
                       field={product.data.featured_image}
@@ -171,7 +171,10 @@ export default async function Page(props: { params: Promise<Params> }) {
                               ? 'default'
                               : 'destructive'
                           }
-                          className={cn("absolute right-2 -top-3 capitalize",{'text-foreground': product.data.status === 'in stock'} )}
+                          className={cn('absolute -top-3 right-2 capitalize', {
+                            'text-foreground':
+                              product.data.status === 'in stock',
+                          })}
                         >
                           {product.data.status}
                         </Badge>

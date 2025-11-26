@@ -42,7 +42,7 @@ const Gallery = async ({
       width="2xl"
       className="flex flex-col"
     >
-      <div className="bg-muted/90 -mt-6 mb-4 flex w-full flex-wrap justify-center gap-x-4 gap-y-8 rounded-lg py-4 backdrop-blur-xs lg:sticky lg:top-28 lg:z-10 lg:-mt-0 lg:mb-0 lg:gap-x-8 lg:gap-y-0 lg:py-8">
+      <div className="-mt-6 mb-4 flex w-full flex-wrap justify-center gap-x-4 gap-y-8 rounded-lg bg-muted/90 py-4 backdrop-blur-xs lg:sticky lg:top-28 lg:z-10 lg:-mt-0 lg:mb-0 lg:gap-x-8 lg:gap-y-0 lg:py-8">
         {type?.type ? (
           <Button asChild variant={'outline'}>
             <Link href={`/our-gallery/?page=${page}`}>
@@ -76,7 +76,7 @@ const Gallery = async ({
       <Suspense
         fallback={
           <div className="grid min-h-[calc(100vh-80px)] place-content-center">
-            <FaSpinner className="text-primary animate-spin" />
+            <FaSpinner className="animate-spin text-primary" />
           </div>
         }
       >

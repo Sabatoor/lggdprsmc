@@ -26,7 +26,7 @@ export default function BlogCard({
         {isFilled.image(blog_post.data.featured_image) && (
           <Link
             href={`${blog_post.url}`}
-            className="overflow-hidden focus:outline-hidden focus:ring-4 focus:ring-primary"
+            className="overflow-hidden focus:ring-4 focus:ring-primary focus:outline-hidden"
             aria-labelledby={blog_post.id}
           >
             <PrismicNextImage
@@ -58,7 +58,7 @@ export default function BlogCard({
           <Button
             asChild
             variant="default"
-            className="text-xs font-medium uppercase leading-normal text-neutral"
+            className="text-xs leading-normal font-medium text-neutral uppercase"
           >
             <Link href={`${blog_post.url}`} aria-labelledby={blog_post.id}>
               {blog_post.type === 'blog_post'

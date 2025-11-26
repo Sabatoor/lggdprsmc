@@ -14,7 +14,7 @@ const FooterBrag = () => {
   })
   return (
     <motion.div
-      className="fixed bottom-4 right-4 z-10"
+      className="fixed right-4 bottom-4 z-10"
       id="best-three-seal"
       initial={{ x: '110%' }}
     >

@@ -34,14 +34,17 @@ const ImageWithText = ({
         {isFilled.richText(slice.primary.heading) && (
           <>
             <PrismicRichText field={slice.primary.heading} />
-            <div className="bg-primary my-4 h-0.5 w-full rounded-full lg:my-6" />
+            <div className="my-4 h-0.5 w-full rounded-full bg-primary lg:my-6" />
           </>
         )}
         <div className="grid lg:grid-cols-2 lg:gap-x-8">
           <div
-            className={cn('relative aspect-video lg:aspect-auto overflow-hidden rounded-lg', {
-              'lg:order-2': slice.primary.image_location,
-            })}
+            className={cn(
+              'relative aspect-video overflow-hidden rounded-lg lg:aspect-auto',
+              {
+                'lg:order-2': slice.primary.image_location,
+              },
+            )}
           >
             <PrismicNextImage
               field={slice.primary.image}
@@ -55,7 +58,7 @@ const ImageWithText = ({
           </div>
           <div
             className={cn(
-              'prose lg:prose-lg xl:prose-xl self-center px-0 py-4 lg:mr-6 lg:py-0',
+              'prose self-center px-0 py-4 lg:prose-lg lg:mr-6 lg:py-0 xl:prose-xl',
               {
                 'lg:order-1': slice.primary.image_location,
               },
@@ -96,15 +99,15 @@ const ImageWithText = ({
           />
         </div>
         <div
-          className={cn('bg-neutral flex flex-col items-center p-4 lg:p-6', {
+          className={cn('flex flex-col items-center bg-neutral p-4 lg:p-6', {
             'lg:order-1': slice.primary.image_location,
           })}
         >
           {isFilled.select(slice.primary.icon) && (
             <>
-              {Icon && <Icon className="text-primary h-24 w-24" />}
+              {Icon && <Icon className="h-24 w-24 text-primary" />}
 
-              <div className="bg-primary my-4 h-0.5 w-full rounded-full lg:my-6" />
+              <div className="my-4 h-0.5 w-full rounded-full bg-primary lg:my-6" />
             </>
           )}
           {isFilled.richText(slice.primary.heading) ? (
@@ -115,7 +118,7 @@ const ImageWithText = ({
                   <Heading
                     as="h2"
                     size="3xl"
-                    className="text-primary pb-4 text-center"
+                    className="pb-4 text-center text-primary"
                   >
                     {children}
                   </Heading>
@@ -127,7 +130,7 @@ const ImageWithText = ({
             field={slice.primary.text}
             components={{
               paragraph: ({ children }: { children: ReactNode }) => (
-                <p className="prose text-background lg:prose-lg xl:prose-xl self-start">
+                <p className="prose self-start text-background lg:prose-lg xl:prose-xl">
                   {children}
                 </p>
               ),
@@ -153,11 +156,12 @@ const ImageWithText = ({
             <PrismicNextLink
               field={slice.primary.image_link}
               title={slice.primary.image_link.text}
+              className="block rounded-lg ring-destructive/50 outline-none focus:ring-4"
             >
               <PrismicNextImage
                 field={slice.primary.image}
                 className={cn(
-                  'mx-auto mb-6 block w-3/4 rounded-lg shadow-md lg:my-6 lg:w-full',
+                  'mx-auto block w-3/4 rounded-lg shadow-md lg:w-full',
                 )}
                 fallbackAlt=""
                 preload={index < 2}
@@ -176,7 +180,7 @@ const ImageWithText = ({
           )}
         </div>
         <div
-          className={cn('prose lg:prose-lg xl:prose-xl col-span-2', {
+          className={cn('col-span-2 prose lg:prose-lg xl:prose-xl', {
             'order-1': slice.primary.image_location,
           })}
         >
@@ -196,16 +200,19 @@ const ImageWithText = ({
                         key={link.key}
                         asChild
                         variant={link.variant || 'default'}
-                        className={cn({
-                          'text-foreground':
-                            link.variant === 'destructive' ||
-                            link.variant === 'link',
-                          'text-foreground hover:bg-secondary hover:shadow-primary transition duration-300 ease-in-out':
-                            link.variant === 'ghost',
-                        })}
+                        className={cn(
+                          {
+                            'text-foreground':
+                              link.variant === 'destructive' ||
+                              link.variant === 'link',
+                            'text-foreground transition duration-300 ease-in-out hover:bg-secondary hover:shadow-primary':
+                              link.variant === 'ghost',
+                          },
+                          'outline-none focus-visible:ring-4 focus-visible:ring-destructive/50',
+                        )}
                         size={'lg'}
                       >
-                        <PrismicNextLink field={link}>
+                        <PrismicNextLink field={link} className="">
                           {link.text}
                         </PrismicNextLink>
                       </Button>

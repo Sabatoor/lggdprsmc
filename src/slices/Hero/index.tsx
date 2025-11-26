@@ -36,7 +36,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
           sizes="100vw"
         />
       </div>
-      <div className="bg-neutral text-background flex items-center justify-center py-4 backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
+      <div className="flex items-center justify-center bg-neutral py-4 text-background backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
         <div className="flex flex-col items-center">
           <PrismicRichText
             field={slice.primary.heading}
@@ -53,7 +53,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
             }}
           />
           {isFilled.richText(slice.primary.description) && (
-            <span className="text-muted relative flex justify-center px-8 md:max-w-prose lg:mb-8 lg:pt-4 lg:text-xl">
+            <span className="relative flex justify-center px-8 text-muted md:max-w-prose lg:mb-8 lg:pt-4 lg:text-xl">
               <PrismicRichText field={slice.primary.description} />
             </span>
           )}

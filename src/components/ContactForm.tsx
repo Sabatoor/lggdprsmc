@@ -95,7 +95,7 @@ const ContactForm = (data: FormSlice): React.JSX.Element => {
         type="submit"
         aria-disabled={isSubmitting}
         className={cn(
-          'my-4 inline-block rounded-lg bg-skin-button-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in hover:bg-skin-button-primary-hover hover:shadow-sm',
+          'bg-skin-button-primary hover:bg-skin-button-primary-hover my-4 inline-block rounded-lg px-6 pt-2.5 pb-2 text-xs leading-normal font-medium uppercase transition duration-150 ease-in hover:shadow-sm',
         )}
       >
         {text}

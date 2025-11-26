@@ -115,7 +115,7 @@ export default async function Page(props: { params: Promise<Params> }) {
               ),
             }}
           />
-          <p className="text-neutral z-10 mt-8 text-center text-sm font-medium uppercase">
+          <p className="z-10 mt-8 text-center text-sm font-medium text-neutral uppercase">
             {pubDate}
           </p>
         </div>

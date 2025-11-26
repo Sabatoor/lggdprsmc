@@ -30,7 +30,7 @@ const Locations = ({ slice }: LocationsProps): React.JSX.Element => {
               <li key={location.id}>
                 <Link
                   href={location.url || '#'}
-                  className="border-neutral grid gap-4 overflow-hidden rounded-lg border lg:grid-cols-3 lg:gap-8"
+                  className="grid gap-4 overflow-hidden rounded-lg border border-neutral lg:grid-cols-3 lg:gap-8"
                 >
                   <div className="relative min-h-28 lg:col-span-1">
                     <PrismicNextImage

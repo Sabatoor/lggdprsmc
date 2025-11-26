@@ -121,10 +121,10 @@ export default function Consent() {
             }}
             id="consent-banner"
             className={cn(
-              'bg-background fixed bottom-0 z-10 grid w-full p-3 md:grid-cols-5',
+              'fixed bottom-0 z-10 grid w-full bg-background p-3 md:grid-cols-5',
             )}
           >
-            <p className="prose prose-sm mx-auto my-4 px-6 text-left md:col-span-3">
+            <p className="mx-auto my-4 prose prose-sm px-6 text-left md:col-span-3">
               Your have a right to privacy. Period. If you wish to allow it,
               certain events will be logged. These data are collected with the
               intention of improving the visitor experience. Please choose your
@@ -139,7 +139,7 @@ export default function Consent() {
                   setHideBanner(true)
                 }}
               >
-                <HiX className="text-neutral h-5 w-5" />
+                <HiX className="h-5 w-5 text-neutral" />
                 <span className="sr-only">Close</span>
               </Button>
               <Button
@@ -153,7 +153,7 @@ export default function Consent() {
                 variant="default"
                 size="lg"
                 onClick={handleAcceptConsent}
-                className="text-neutral px-6 py-4 font-medium lg:text-lg"
+                className="px-6 py-4 font-medium text-neutral lg:text-lg"
               >
                 Accept All
               </Button>

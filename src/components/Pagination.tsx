@@ -27,7 +27,7 @@ const Pagination: FC<PaginationProps> = ({
         <Button
           variant={hasPrevPage ? 'default' : 'ghost'}
           className={cn(
-            'text-xs font-medium uppercase leading-normal text-neutral',
+            'text-xs leading-normal font-medium text-neutral uppercase',
           )}
           disabled={!hasPrevPage}
           onClick={() => {
@@ -44,7 +44,7 @@ const Pagination: FC<PaginationProps> = ({
         <Button
           variant={hasNextPage ? 'default' : 'ghost'}
           className={cn(
-            'text-xs font-medium uppercase leading-normal text-neutral',
+            'text-xs leading-normal font-medium text-neutral uppercase',
           )}
           disabled={!hasNextPage}
           onClick={() => {

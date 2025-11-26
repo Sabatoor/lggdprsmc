@@ -77,7 +77,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-neutral text-3xl md:text-4xl"
+                  className="text-3xl text-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -97,9 +97,9 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     field={item.button_link}
                     aria-labelledby={`${slice.id}-heading-${i}`}
                     key={`${slice.id}-${i}`}
-                    className="ring-primary rounded-lg outline-hidden focus:ring-2"
+                    className="rounded-lg ring-primary outline-hidden focus:ring-2"
                   >
-                    <div className="bg-background flex h-full max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
+                    <div className="flex h-full max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
                         {isBrand(item.brand) && (
                           <PrismicNextImage
@@ -119,7 +119,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                 <Heading
                                   as="h2"
                                   size="3xl"
-                                  className="text-neutral my-2 lg:my-3"
+                                  className="my-2 text-neutral lg:my-3"
                                 >
                                   {children}
                                 </Heading>
@@ -138,7 +138,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                 <Heading
                                   as="h2"
                                   size="3xl"
-                                  className="text-neutral my-2 lg:my-3"
+                                  className="my-2 text-neutral lg:my-3"
                                   id={`${slice.id}-heading-${i}`}
                                 >
                                   {children}
@@ -192,13 +192,13 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
         data-slice-variation={slice.variation}
         className="bg-[#ec0c8b] lg:py-0"
       >
-        <Section as="div" width="xl" className="text-muted text-center">
+        <Section as="div" width="xl" className="text-center text-muted">
           <div className="flex flex-col items-center gap-2">
             <PrismicRichText
               field={slice.primary.booth_info}
               components={{
                 paragraph: ({ children }: { children: ReactNode }) => (
-                  <p className="text-neutral text-xl font-semibold uppercase">
+                  <p className="text-xl font-semibold text-neutral uppercase">
                     {children}
                   </p>
                 ),
@@ -211,7 +211,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                   <Heading
                     as="h2"
                     size="5xl"
-                    className="text-muted font-light uppercase"
+                    className="font-light text-muted uppercase"
                   >
                     {children}
                   </Heading>
@@ -248,7 +248,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-neutral text-3xl md:text-4xl"
+                  className="text-3xl text-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -269,9 +269,9 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     field={item.button_link}
                     aria-labelledby={`${slice.id}-heading-${i}`}
                     key={`${slice.id}-${i}`}
-                    className="ring-primary rounded-lg outline-hidden focus:ring-2"
+                    className="rounded-lg ring-primary outline-hidden focus:ring-2"
                   >
-                    <div className="bg-background flex h-full max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
+                    <div className="flex h-full max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
                         {isProductType(item.product_type) && (
                           <PrismicNextImage
@@ -292,7 +292,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                   id={`${slice.id}-heading-${i}`}
                                   as="h2"
                                   size="3xl"
-                                  className="text-neutral my-2 lg:my-3"
+                                  className="my-2 text-neutral lg:my-3"
                                 >
                                   {children}
                                 </Heading>
@@ -312,7 +312,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                   id={`${slice.id}-heading-${i}`}
                                   as="h2"
                                   size="3xl"
-                                  className="text-neutral my-2 lg:my-3"
+                                  className="my-2 text-neutral lg:my-3"
                                 >
                                   {children}
                                 </Heading>
@@ -381,12 +381,12 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     <PrismicNextLink
                       field={item.button_link}
                       aria-labelledby={slice.id + '-' + 'heading-' + i}
-                      className="ring-primary flex grow flex-col justify-between rounded-lg outline-hidden focus:ring-2"
+                      className="flex grow flex-col justify-between rounded-lg ring-primary outline-hidden focus:ring-2"
                     >
                       <CardHeader>
                         <div className="flex flex-col items-center">
                           {Icon ? (
-                            <Icon className="text-primary h-16 w-16" />
+                            <Icon className="h-16 w-16 text-primary" />
                           ) : null}
                           <PrismicRichText
                             field={item.heading}
@@ -400,7 +400,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                   id={slice.id + '-' + 'heading-' + i}
                                   as="h2"
                                   size="2xl"
-                                  className="text-neutral my-2 text-2xl lg:my-3"
+                                  className="my-2 text-2xl text-neutral lg:my-3"
                                 >
                                   {children}
                                 </Heading>
@@ -453,7 +453,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-neutral text-3xl md:text-4xl"
+                  className="text-3xl text-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -473,9 +473,9 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                         : '/services'
                     }
                     aria-labelledby={`${slice.id}-heading-${i}`}
-                    className="ring-primary rounded-lg outline-hidden focus:ring-2"
+                    className="rounded-lg ring-primary outline-hidden focus:ring-2"
                   >
-                    <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6">
+                    <div className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
                         {isService(item.service) ? (
                           <PrismicRichText
@@ -490,7 +490,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                   id={`${slice.id}-heading-${i}`}
                                   as="h2"
                                   size="3xl"
-                                  className="text-neutral my-2 lg:my-3"
+                                  className="my-2 text-neutral lg:my-3"
                                 >
                                   {children}
                                 </Heading>
@@ -513,7 +513,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                           <span
                             className={cn(
                               buttonVariants({ variant: 'default' }),
-                              'text-neutral text-center outline-hidden focus:ring-2',
+                              'text-center text-neutral outline-hidden focus:ring-2',
                             )}
                           >
                             {item.button_label || 'Click Here'}
@@ -562,7 +562,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                         {isFilled.link(item.social_url) && (
                           <>
                             {Icon && (
-                              <Icon className="text-background ring-muted h-16 w-16 rounded p-1 group-focus:ring-2" />
+                              <Icon className="h-16 w-16 rounded p-1 text-background ring-muted group-focus:ring-2" />
                             )}
                             <span className="sr-only">
                               {`View us on ${item.logo}`}
@@ -635,7 +635,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     <Heading
                       as="h2"
                       size="4xl"
-                      className="text-neutral text-3xl uppercase md:text-4xl"
+                      className="text-3xl text-neutral uppercase md:text-4xl"
                     >
                       {children}
                     </Heading>
@@ -665,12 +665,18 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
             isFilled.keyText(slice.primary.button_label) && (
               <div className="my-8 justify-self-center lg:col-span-2 lg:justify-self-end">
                 {isFilled.image(slice.primary.image) && (
-                  <PrismicNextLink field={slice.primary.button_link}>
+                  <PrismicNextLink
+                    field={slice.primary.button_link}
+                    className="block rounded-lg ring-destructive/50 outline-none focus:ring-4"
+                  >
                     <PrismicNextImage
                       field={slice.primary.image}
-                      className={cn('mb-4 rounded-lg md:mb-6 lg:mb-8', {
-                        'shadow-md': slice.primary.image_shadow,
-                      })}
+                      className={cn(
+                        'aspect-square rounded-lg md:mb-6 lg:mb-8',
+                        {
+                          'shadow-md': slice.primary.image_shadow,
+                        },
+                      )}
                     />
                   </PrismicNextLink>
                 )}
@@ -682,6 +688,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                         variant: slice.primary.button_color || 'outline',
                         size: 'lg',
                       }),
+                      'focus-visible:ring-4 focus-visible:ring-destructive/50',
                     )}
                   >
                     {slice.primary.button_label}
@@ -711,7 +718,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                 <Heading
                   as="h2"
                   size="5xl"
-                  className="text-neutral text-3xl md:text-4xl"
+                  className="text-3xl text-neutral md:text-4xl"
                 >
                   {children}
                 </Heading>
@@ -719,7 +726,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
             }}
           />
         )}
-        <div className="flex flex-wrap gap-4 py-6 justify-evenly lg:gap-8">
+        <div className="flex flex-wrap justify-evenly gap-4 py-6 lg:gap-8">
           {isFilled.group(slice.primary.products)
             ? slice.primary.products.map((item, i) => {
                 const product = item.product as unknown as ProductDocument
@@ -728,9 +735,9 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     key={`recommendation-${slice.id}-${i}`}
                     href={product.url || '#'}
                     aria-labelledby={`recommendation-${slice.id}-heading-${i}`}
-                    className="ring-primary rounded-lg outline-hidden focus:ring-2 hover:shadow-md transition duration-300 ease-in-out shadow-primary group"
+                    className="group rounded-lg shadow-primary ring-primary outline-hidden transition duration-300 ease-in-out hover:shadow-md focus:ring-2"
                   >
-                    <div className="bg-background flex max-w-sm flex-col justify-between overflow-hidden rounded-lg p-4 shadow-sm lg:p-6 relative">
+                    <div className="relative flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow-sm lg:p-6">
                       {isFilled.select(product.data.status) &&
                         product.data.status !== 'no status' && (
                           <Badge
@@ -739,7 +746,13 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                 ? 'default'
                                 : 'destructive'
                             }
-                            className={cn("absolute top-4 right-4 text-sm capitalize group-hover:shadow-md shadow-primary transition duration-300 ease-in-out", {'text-foreground': product.data.status === 'in stock'})}
+                            className={cn(
+                              'absolute top-4 right-4 text-sm capitalize shadow-primary transition duration-300 ease-in-out group-hover:shadow-md',
+                              {
+                                'text-foreground':
+                                  product.data.status === 'in stock',
+                              },
+                            )}
                           >
                             {product.data.status}
                           </Badge>
@@ -747,7 +760,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                       <div className="flex flex-col items-center">
                         <PrismicNextImage
                           field={product.data.featured_image}
-                          className="lg:blur-[1px] group-hover:blur-none transition duration-300 ease-in-out"
+                          className="transition duration-300 ease-in-out group-hover:blur-none lg:blur-[1px]"
                         />
                         <PrismicRichText
                           field={product.data.title}
@@ -761,7 +774,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                                 id={`recommendation-${slice.id}-heading-${i}`}
                                 as="h2"
                                 size="3xl"
-                                className="text-neutral my-2 lg:my-3"
+                                className="my-2 text-neutral lg:my-3"
                               >
                                 {children}
                               </Heading>
@@ -793,7 +806,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
       <Section as="div" width="xl" className="grid lg:grid-cols-3">
         <div className="flex flex-col items-center gap-6 lg:col-span-2 lg:flex-row">
           <WhileInView direction="down">
-            <GiHomeGarage className="text-primary -mt-3 h-24 w-24" />
+            <GiHomeGarage className="-mt-3 h-24 w-24 text-primary" />
           </WhileInView>
           <WhileInView direction="up">
             <PrismicRichText
@@ -803,7 +816,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                   <Heading
                     as="h2"
                     size="4xl"
-                    className="text-muted text-3xl uppercase md:text-4xl"
+                    className="text-3xl text-muted uppercase md:text-4xl"
                   >
                     {children}
                   </Heading>
@@ -821,9 +834,10 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                 size: 'lg',
               }),
               {
-                'text-background/95 hover:text-background hover:bg-input/10':
+                'text-background/95 hover:bg-input/10 hover:text-background':
                   slice.primary.button_color === 'outline',
               },
+              'outline-none focus-visible:ring-4 focus-visible:ring-pink-400/80',
             )}
           >
             {slice.primary.button_label}
