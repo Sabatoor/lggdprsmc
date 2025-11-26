@@ -39,7 +39,7 @@ const ImageWithText = ({
         )}
         <div className="grid lg:grid-cols-2 lg:gap-x-8">
           <div
-            className={cn('relative overflow-hidden rounded-lg', {
+            className={cn('relative aspect-video lg:aspect-auto overflow-hidden rounded-lg', {
               'lg:order-2': slice.primary.image_location,
             })}
           >
