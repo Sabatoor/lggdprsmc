@@ -1,11 +1,6 @@
 {
   "repositoryName": "lionsgate",
-  "adapter": {
-    "resolve": "@slicemachine/adapter-next",
-    "options": {
-      "format": false
-    }
-  },
+  "adapter": "@slicemachine/adapter-next",
   "libraries": ["./src/slices"],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
 }

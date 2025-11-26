@@ -10,7 +10,7 @@ import Heading from '@/components/Heading'
 type Params = { uid: string }
 
 export default async function Page(props: { params: Promise<Params> }) {
-  const params = await props.params;
+  const params = await props.params
   const client = createClient()
   const page = await client
     .getByUID('service', params.uid, {
@@ -70,12 +70,10 @@ export default async function Page(props: { params: Promise<Params> }) {
   )
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<Params>
-  }
-): Promise<Metadata> {
-  const params = await props.params;
+export async function generateMetadata(props: {
+  params: Promise<Params>
+}): Promise<Metadata> {
+  const params = await props.params
   const client = createClient()
   const page = await client
     .getByUID('service', params.uid)

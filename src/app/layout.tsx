@@ -58,7 +58,7 @@ export default async function RootLayout({
     <html lang="en-CA" className="scroll-smooth">
       <body
         className={cn(
-          'font-body text-neutral bg-muted flex min-h-screen flex-col justify-between',
+          'flex min-h-screen flex-col justify-between bg-muted font-body text-neutral',
           body.variable,
           heading.variable,
         )}

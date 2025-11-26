@@ -52,7 +52,7 @@ const GalleryList = async ({
             const workLocation = getPostLocationTag(item.tags, locations)
 
             return (
-              <li key={item.id} className="bg-secondary relative rounded-lg">
+              <li key={item.id} className="relative rounded-lg bg-secondary">
                 {workType && (
                   <Badge className="absolute top-4 left-4 cursor-default text-emerald-950">
                     {workType}

@@ -64,7 +64,10 @@ const Slider = ({ reviews }: ReviewsProps) => {
                     className="h-full md:basis-1/2 lg:basis-1/3"
                   >
                     <Card>
-                      <Link href={'https://g.co/kgs/6Dps4s1'}>
+                      <Link
+                        href={'https://g.co/kgs/6Dps4s1'}
+                        className="block rounded ring-primary/50 outline-none focus:ring-2"
+                      >
                         <CardHeader>
                           <div className="my-4 flex justify-center">
                             {Array.from({ length: item.rating }, (_, i) => (

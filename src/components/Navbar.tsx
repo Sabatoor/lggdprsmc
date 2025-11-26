@@ -66,12 +66,12 @@ export default function Navbar({
             animate={{ y: 0 }}
             exit={{ y: '-100%' }}
             transition={{ duration: 0.5, type: 'tween' }}
-            className="text-background bg-neutral fixed inset-0 z-30 flex h-full w-full flex-col justify-center"
+            className="fixed inset-0 z-30 flex h-full w-full flex-col justify-center bg-neutral text-background"
           >
             <button
               type="button"
               onClick={toggleNav}
-              className="ring-primary absolute top-6 right-6 cursor-pointer outline-none focus:ring-2"
+              className="absolute top-6 right-6 cursor-pointer ring-primary outline-none focus:ring-2"
               ref={mobileNavRef}
             >
               <HiX className="h-8 w-8" />
@@ -83,7 +83,7 @@ export default function Navbar({
                   <li key={`mobile-nav-${i}`}>
                     <PrismicNextLink
                       field={item.link}
-                      className="ring-primary rounded-lg px-2 py-3 outline-hidden focus:ring-2"
+                      className="rounded-lg px-2 py-3 ring-primary outline-hidden focus:ring-2"
                       onClick={toggleNav}
                     >
                       {item.label}
@@ -100,7 +100,7 @@ export default function Navbar({
                 onBlur={() => {
                   mobileNavRef.current?.focus()
                 }}
-                className="ring-primary rounded-lg outline-hidden focus:ring-2"
+                className="rounded-lg ring-primary outline-hidden focus:ring-2"
               >
                 <Image
                   src={
@@ -117,11 +117,11 @@ export default function Navbar({
         )}
       </AnimatePresence>
       {/* END MOBILE NAV */}
-      <header className="bg-background sticky top-0 z-20 py-3 shadow-xs lg:py-6">
+      <header className="sticky top-0 z-20 bg-background py-3 shadow-xs lg:py-6">
         <div className="mx-auto flex w-full max-w-(--breakpoint-2xl) items-center justify-between px-4">
           <Link
             href="/"
-            className="ring-primary hidden flex-1 rounded-lg outline-hidden focus:ring-2 md:inline-block"
+            className="hidden flex-1 rounded-lg ring-primary outline-hidden focus:ring-2 md:inline-block"
           >
             {logo ? <PrismicNextImage field={logo} /> : <h1>{title}</h1>}
             <span className="sr-only">Return to Homepage</span>
@@ -131,10 +131,10 @@ export default function Navbar({
               <p className="text-center text-xs lg:text-sm">{call_to_action}</p>
             )}
             {isFilled.keyText(phoneNumber) && (
-              <p className="text-center text-base font-bold md:text-xl">
+              <p className="text-center font-bold text-base md:text-xl">
                 <a
                   href={`tel:${phoneNumber || 6042431505}`}
-                  className="ring-primary rounded-lg px-2 py-3 outline-hidden focus:ring-2"
+                  className="rounded-lg px-2 py-3 ring-primary outline-hidden focus:ring-2"
                 >
                   <HiOutlinePhone className="-mt-1 inline h-6 w-6" />
                   {phoneNumber}
@@ -149,9 +149,9 @@ export default function Navbar({
             <button
               type="button"
               onClick={toggleNav}
-              className="ring-primary flex cursor-pointer flex-col items-center rounded-lg outline-none focus:ring-2"
+              className="flex cursor-pointer flex-col items-center rounded-lg ring-primary outline-none focus:ring-2"
             >
-              <HiMenu className="text-neutral mx-6 h-10 w-10" />
+              <HiMenu className="mx-6 h-10 w-10 text-neutral" />
               <span className="text-sm md:text-base">Menu</span>
             </button>
           </div>

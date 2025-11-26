@@ -21,7 +21,7 @@ const Recents = ({ slice }: RecentsProps): React.JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       width="xl"
-      className="full-bleed-white bg-background flex-col"
+      className="full-bleed-white flex-col bg-background"
     >
       {isFilled.richText(slice.primary.heading) && (
         <PrismicRichText field={slice.primary.heading} />
