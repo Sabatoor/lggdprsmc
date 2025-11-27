@@ -27,7 +27,7 @@ const Pagination: FC<PaginationProps> = ({
         <Button
           variant={hasPrevPage ? 'default' : 'ghost'}
           className={cn(
-            'text-xs leading-normal font-medium text-neutral uppercase',
+            'text-xs leading-normal font-medium text-neutral uppercase outline-none focus-visible:ring-4 focus-visible:ring-destructive/60',
           )}
           disabled={!hasPrevPage}
           onClick={() => {
@@ -36,6 +36,11 @@ const Pagination: FC<PaginationProps> = ({
                 ? `${path}?page=${Number(pageNumber) - 1}`
                 : `${path}?page=${Number(pageNumber) - 1}&type=${pageType}`,
             )
+            const mainContent = document.getElementById('content')
+            if (mainContent) {
+              mainContent.focus()
+              window.scrollTo(0, 0)
+            }
           }}
         >
           prev page
@@ -44,7 +49,7 @@ const Pagination: FC<PaginationProps> = ({
         <Button
           variant={hasNextPage ? 'default' : 'ghost'}
           className={cn(
-            'text-xs leading-normal font-medium text-neutral uppercase',
+            'text-xs leading-normal font-medium text-neutral uppercase outline-none focus-visible:ring-4 focus-visible:ring-destructive/60',
           )}
           disabled={!hasNextPage}
           onClick={() => {
@@ -53,6 +58,11 @@ const Pagination: FC<PaginationProps> = ({
                 ? `${path}?page=${Number(pageNumber) + 1}`
                 : `${path}?page=${Number(pageNumber) + 1}&type=${pageType}`,
             )
+            const mainContent = document.getElementById('content')
+            if (mainContent) {
+              mainContent.focus()
+              window.scrollTo(0, 0)
+            }
           }}
         >
           next page
