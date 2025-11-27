@@ -6,6 +6,7 @@ import { FaSpinner } from 'react-icons/fa6'
 import GalleryList from './GalleryList'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { cn } from '@/app/lib/cn'
 
 /**
  * Props for `Gallery`.
@@ -42,7 +43,7 @@ const Gallery = async ({
       width="2xl"
       className="flex flex-col"
     >
-      <div className="-mt-6 mb-4 flex w-full flex-wrap justify-center gap-x-4 gap-y-8 rounded-lg bg-muted/90 py-4 backdrop-blur-xs lg:sticky lg:top-28 lg:z-10 lg:-mt-0 lg:mb-0 lg:gap-x-8 lg:gap-y-0 lg:py-8">
+      <div className="flex w-full flex-wrap justify-center gap-x-4 gap-y-8 rounded-lg bg-muted/90 py-4 backdrop-blur-xs lg:sticky lg:top-[108px] lg:z-10 lg:mt-0 lg:mb-0 lg:gap-x-8 lg:gap-y-0 lg:py-8">
         {type?.type ? (
           <Button asChild variant={'outline'}>
             <Link href={`/our-gallery/?page=${page}`}>
@@ -55,7 +56,12 @@ const Gallery = async ({
           </Button>
         )}
         {type?.type !== 'Installation' ? (
-          <Button asChild>
+          <Button
+            asChild
+            className={cn(
+              'outline-none focus-visible:ring-4 focus-visible:ring-destructive/60',
+            )}
+          >
             <Link href={`/our-gallery/?page=${page}&type=Installation`}>
               Garage Door Installation Gallery
             </Link>
@@ -64,7 +70,12 @@ const Gallery = async ({
           <Button disabled>Garage Door Installation Gallery </Button>
         )}
         {type?.type !== 'Repair' ? (
-          <Button asChild>
+          <Button
+            asChild
+            className={cn(
+              'outline-none focus-visible:ring-4 focus-visible:ring-destructive/60',
+            )}
+          >
             <Link href={`/our-gallery/?page=${page}&type=Repair`}>
               Garage Door Repair Gallery
             </Link>
