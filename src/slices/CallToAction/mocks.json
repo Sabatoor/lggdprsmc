@@ -1,880 +1,880 @@
 [
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "GARAGE DOOR INSTALLATIONS,\nSERVICE & REPAIRS",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"button_color": {
-				"__TYPE__": "FieldContent",
-				"value": "default",
-				"type": "Select"
-			},
-			"button_link": {
-				"key": "63cec484-d1c0-424b-abbe-8039b0b2c721",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
-				}
-			},
-			"button_label": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Call to Action"
-			}
-		},
-		"items": []
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "featuredGrid",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Weather"
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"icon",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "GiHomeGarage",
-							"type": "Select"
-						}
-					],
-					[
-						"heading",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "heading2",
-									"content": {
-										"text": "This Is The",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Sint labore consequat ea occaecat culpa. Mollit deserunt cillum cupidatat occaecat officia duis ipsum irure nulla quis culpa officia magna sit cupidatat."
-									}
-								}
-							]
-						}
-					],
-					[
-						"button_link",
-						{
-							"key": "2dcbd03b-58e9-4bd1-9e43-fd6495aa07ef",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io"
-							}
-						}
-					],
-					[
-						"button_label",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Call to Action"
-						}
-					],
-					[
-						"button_color",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "outline",
-							"type": "Select"
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"heading",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "heading2",
-									"content": {
-										"text": "FeatureGrid",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Sint labore consequat ea occaecat culpa. Mollit deserunt cillum cupidatat occaecat officia duis ipsum irure nulla quis culpa officia magna sit cupidatat.",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"button_link",
-						{
-							"key": "467925e4-cb97-4e1d-9a77-fd96f3aba0c1",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io",
-								"target": ""
-							}
-						}
-					],
-					[
-						"button_label",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Call to Action"
-						}
-					],
-					[
-						"icon",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "FaToolbox"
-						}
-					],
-					[
-						"button_color",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "destructive",
-							"type": "Select"
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"icon",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "RiQuestionnaireFill"
-						}
-					],
-					[
-						"heading",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "heading2",
-									"content": {
-										"text": "Call To Action",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Sint labore consequat ea occaecat culpa. Mollit deserunt cillum cupidatat occaecat officia duis ipsum irure nulla quis culpa officia magna sit cupidatat.",
-										"spans": []
-									},
-									"direction": "ltr"
-								}
-							]
-						}
-					],
-					[
-						"button_link",
-						{
-							"key": "16e5bc1e-2956-4f30-8223-0dd2e5ea3e48",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://prismic.io",
-								"target": ""
-							}
-						}
-					],
-					[
-						"button_label",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "Call to Action"
-						}
-					],
-					[
-						"button_color",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "link",
-							"type": "Select"
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "social",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Call to Action Social Variation",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"logo",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "Facebook"
-						}
-					],
-					[
-						"social_url",
-						{
-							"key": "b7ccdb65-54eb-44c6-9dc4-605775f10bf9",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://slicemachine.dev"
-							}
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"logo",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "Instagram"
-						}
-					],
-					[
-						"social_url",
-						{
-							"key": "da329983-fb2c-4024-b358-3efb552e82e6",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://slicemachine.dev",
-								"target": ""
-							}
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"logo",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "LinkedIn"
-						}
-					],
-					[
-						"social_url",
-						{
-							"key": "97478a57-8c69-420a-94d2-fe93e977173c",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://slicemachine.dev",
-								"target": ""
-							}
-						}
-					]
-				]
-			},
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"logo",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Select",
-							"value": "Yelp"
-						}
-					],
-					[
-						"social_url",
-						{
-							"key": "071c1782-803b-4e22-a6f4-c895ae1d1935",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "https://slicemachine.dev",
-								"target": ""
-							}
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "brandGrid",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Piece"
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"heading",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "heading2",
-									"content": {
-										"text": "Source"
-									}
-								}
-							]
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Minim pariatur cupidatat ullamco Lorem mollit laborum officia Lorem nisi magna ea eiusmod ipsum. Labore incididunt laboris voluptate elit ullamco elit."
-									}
-								}
-							]
-						}
-					],
-					[
-						"button_link",
-						{
-							"key": "08cbc7ee-4f32-48e6-9f68-1a779db8ef76",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "http://twitter.com"
-							}
-						}
-					],
-					[
-						"button_label",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "mixture",
-							"type": "Text"
-						}
-					],
-					[
-						"button_color",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "destructive",
-							"type": "Select"
-						}
-					],
-					[
-						"brand",
-						{
-							"key": "f7c507a2-cc79-47b3-8987-933b330a7a1b",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "DocumentLink",
-								"id": "mock_document_id"
-							}
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "productTypeGrid",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Longer"
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"heading",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "heading2",
-									"content": {
-										"text": "Paint"
-									}
-								}
-							]
-						}
-					],
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Dolore ea aute aute ullamco excepteur sit ullamco Lorem ad qui nostrud."
-									}
-								}
-							]
-						}
-					],
-					[
-						"button_link",
-						{
-							"key": "ca2f2a91-0919-46ea-bbc6-13915277dbf3",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "ExternalLink",
-								"url": "http://google.com"
-							}
-						}
-					],
-					[
-						"button_label",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "skin",
-							"type": "Text"
-						}
-					],
-					[
-						"button_color",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "default",
-							"type": "Select"
-						}
-					],
-					[
-						"product_type",
-						{
-							"key": "6deac95d-5468-43a5-91a2-4f5aa5b1b511",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "DocumentLink",
-								"id": "mock_document_id"
-							}
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "servicesGrid",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Offer"
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"description",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Magna pariatur nisi consectetur non nisi aute cupidatat sint velit cupidatat officia ex id consequat est. Anim aute nisi proident consequat qui exercitation anim aliquip cillum elit tempor. In labore culpa magna proident laboris deserunt enim consequat laboris aliquip minim."
-									}
-								}
-							]
-						}
-					],
-					[
-						"button_label",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "label",
-							"type": "Text"
-						}
-					],
-					[
-						"service",
-						{
-							"key": "5bb23a71-23e8-4989-90b4-b21c0149b751",
-							"__TYPE__": "LinkContent",
-							"value": {
-								"__TYPE__": "DocumentLink",
-								"id": "mock_document_id"
-							}
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "expo",
-		"primary": {
-			"booth_info": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "VISIT US AT BOOTHS 69 & 70",
-							"spans": [
-								{
-									"type": "strong",
-									"start": 0,
-									"end": 26
-								}
-							]
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"expo_title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "HOME & BACKYARD LIVING EXPO",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"expo_details": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading3",
-						"content": {
-							"text": "Palace"
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "logos",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Organized"
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": [
-					[
-						"logo",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
-								"width": 3456,
-								"height": 3456
-							},
-							"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
-							"width": 3456,
-							"height": 3456,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					]
-				]
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "productRecommendation",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Product Recommendation Slice",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"products": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"product",
-								{
-									"key": "eb5d316b-8f9e-4465-9793-5d06dc52d1cc",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "DocumentLink",
-										"id": "mock_document_id"
-									}
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "promotion",
-		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Regular"
-						}
-					}
-				]
-			},
-			"button_link": {
-				"key": "727936f2-08a4-4aef-8966-94a3fefce47d",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://slicemachine.dev"
-				}
-			},
-			"button_label": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "Learn More"
-			},
-			"button_color": {
-				"__TYPE__": "FieldContent",
-				"type": "Select",
-				"value": "secondary"
-			},
-			"benefit": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Free: 1st Annual Maintenance/Service*",
-							"spans": []
-						},
-						"direction": "ltr"
-					}
-				]
-			},
-			"details": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Lorem esse enim culpa labore Lorem commodo exercitation."
-						}
-					}
-				]
-			},
-			"promo_code": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "MAIN24"
-			},
-			"image": {
-				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-					"width": 3212,
-					"height": 3880
-				},
-				"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-				"width": 3212,
-				"height": 3880,
-				"edit": {
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					},
-					"background": "transparent"
-				},
-				"credits": null,
-				"alt": "Alt text",
-				"__TYPE__": "ImageContent",
-				"thumbnails": {}
-			},
-			"image_shadow": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	}
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "GARAGE DOOR INSTALLATIONS,\nSERVICE & REPAIRS",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "button_color": {
+        "__TYPE__": "FieldContent",
+        "value": "default",
+        "type": "Select"
+      },
+      "button_link": {
+        "key": "63cec484-d1c0-424b-abbe-8039b0b2c721",
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://slicemachine.dev"
+        }
+      },
+      "button_label": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Call to Action"
+      }
+    },
+    "items": []
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "featuredGrid",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Weather"
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "icon",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "GiHomeGarage",
+              "type": "Select"
+            }
+          ],
+          [
+            "heading",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "This Is The",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Sint labore consequat ea occaecat culpa. Mollit deserunt cillum cupidatat occaecat officia duis ipsum irure nulla quis culpa officia magna sit cupidatat."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "button_link",
+            {
+              "key": "2dcbd03b-58e9-4bd1-9e43-fd6495aa07ef",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io"
+              }
+            }
+          ],
+          [
+            "button_label",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Call to Action"
+            }
+          ],
+          [
+            "button_color",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "outline",
+              "type": "Select"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "heading",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "FeatureGrid",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Sint labore consequat ea occaecat culpa. Mollit deserunt cillum cupidatat occaecat officia duis ipsum irure nulla quis culpa officia magna sit cupidatat.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "button_link",
+            {
+              "key": "467925e4-cb97-4e1d-9a77-fd96f3aba0c1",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io",
+                "target": ""
+              }
+            }
+          ],
+          [
+            "button_label",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Call to Action"
+            }
+          ],
+          [
+            "icon",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "FaToolbox"
+            }
+          ],
+          [
+            "button_color",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "destructive",
+              "type": "Select"
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "icon",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "RiQuestionnaireFill"
+            }
+          ],
+          [
+            "heading",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Call To Action",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Sint labore consequat ea occaecat culpa. Mollit deserunt cillum cupidatat occaecat officia duis ipsum irure nulla quis culpa officia magna sit cupidatat.",
+                    "spans": []
+                  },
+                  "direction": "ltr"
+                }
+              ]
+            }
+          ],
+          [
+            "button_link",
+            {
+              "key": "16e5bc1e-2956-4f30-8223-0dd2e5ea3e48",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://prismic.io",
+                "target": ""
+              }
+            }
+          ],
+          [
+            "button_label",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Text",
+              "value": "Call to Action"
+            }
+          ],
+          [
+            "button_color",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "link",
+              "type": "Select"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "social",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Call to Action Social Variation",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "logo",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "Facebook"
+            }
+          ],
+          [
+            "social_url",
+            {
+              "key": "b7ccdb65-54eb-44c6-9dc4-605775f10bf9",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://slicemachine.dev"
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "logo",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "Instagram"
+            }
+          ],
+          [
+            "social_url",
+            {
+              "key": "da329983-fb2c-4024-b358-3efb552e82e6",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://slicemachine.dev",
+                "target": ""
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "logo",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "LinkedIn"
+            }
+          ],
+          [
+            "social_url",
+            {
+              "key": "97478a57-8c69-420a-94d2-fe93e977173c",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://slicemachine.dev",
+                "target": ""
+              }
+            }
+          ]
+        ]
+      },
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "logo",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Select",
+              "value": "Yelp"
+            }
+          ],
+          [
+            "social_url",
+            {
+              "key": "071c1782-803b-4e22-a6f4-c895ae1d1935",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "https://slicemachine.dev",
+                "target": ""
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "brandGrid",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Piece"
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "heading",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Source"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Minim pariatur cupidatat ullamco Lorem mollit laborum officia Lorem nisi magna ea eiusmod ipsum. Labore incididunt laboris voluptate elit ullamco elit."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "button_link",
+            {
+              "key": "08cbc7ee-4f32-48e6-9f68-1a779db8ef76",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://twitter.com"
+              }
+            }
+          ],
+          [
+            "button_label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "mixture",
+              "type": "Text"
+            }
+          ],
+          [
+            "button_color",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "destructive",
+              "type": "Select"
+            }
+          ],
+          [
+            "brand",
+            {
+              "key": "f7c507a2-cc79-47b3-8987-933b330a7a1b",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "productTypeGrid",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Longer"
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "heading",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "heading2",
+                  "content": {
+                    "text": "Paint"
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Dolore ea aute aute ullamco excepteur sit ullamco Lorem ad qui nostrud."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "button_link",
+            {
+              "key": "ca2f2a91-0919-46ea-bbc6-13915277dbf3",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://google.com"
+              }
+            }
+          ],
+          [
+            "button_label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "skin",
+              "type": "Text"
+            }
+          ],
+          [
+            "button_color",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "default",
+              "type": "Select"
+            }
+          ],
+          [
+            "product_type",
+            {
+              "key": "6deac95d-5468-43a5-91a2-4f5aa5b1b511",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "servicesGrid",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Offer"
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Magna pariatur nisi consectetur non nisi aute cupidatat sint velit cupidatat officia ex id consequat est. Anim aute nisi proident consequat qui exercitation anim aliquip cillum elit tempor. In labore culpa magna proident laboris deserunt enim consequat laboris aliquip minim."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "button_label",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "label",
+              "type": "Text"
+            }
+          ],
+          [
+            "service",
+            {
+              "key": "5bb23a71-23e8-4989-90b4-b21c0149b751",
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "expo",
+    "primary": {
+      "booth_info": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "VISIT US AT BOOTHS 69 & 70",
+              "spans": [
+                {
+                  "type": "strong",
+                  "start": 0,
+                  "end": 26
+                }
+              ]
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "expo_title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "HOME & BACKYARD LIVING EXPO",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "expo_details": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading3",
+            "content": {
+              "text": "Palace"
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "logos",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Organized"
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "logo",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+                "width": 3456,
+                "height": 3456
+              },
+              "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+              "width": 3456,
+              "height": 3456,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "productRecommendation",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Product Recommendation Slice",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "products": {
+        "__TYPE__": "GroupContentType",
+        "value": [
+          {
+            "__TYPE__": "GroupItemContent",
+            "value": [
+              [
+                "product",
+                {
+                  "key": "eb5d316b-8f9e-4465-9793-5d06dc52d1cc",
+                  "__TYPE__": "LinkContent",
+                  "value": {
+                    "__TYPE__": "DocumentLink",
+                    "id": "mock_document_id"
+                  }
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  },
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "promotion",
+    "primary": {
+      "heading": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Regular"
+            }
+          }
+        ]
+      },
+      "button_link": {
+        "key": "727936f2-08a4-4aef-8966-94a3fefce47d",
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "https://slicemachine.dev"
+        }
+      },
+      "button_label": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Learn More"
+      },
+      "button_color": {
+        "__TYPE__": "FieldContent",
+        "type": "Select",
+        "value": "secondary"
+      },
+      "benefit": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Free: 1st Annual Maintenance/Service*",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "details": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Lorem esse enim culpa labore Lorem commodo exercitation."
+            }
+          }
+        ]
+      },
+      "promo_code": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "MAIN24"
+      },
+      "image": {
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+          "width": 3212,
+          "height": 3880
+        },
+        "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+        "width": 3212,
+        "height": 3880,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        },
+        "credits": null,
+        "alt": "Alt text",
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "image_shadow": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
 ]
