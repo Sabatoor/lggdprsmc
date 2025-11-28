@@ -18,13 +18,12 @@
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-slot": "^1.2.4",
     "axios": "^1.13.2",
-    "caniuse-lite": "^1.0.30001757",
     "class-variance-authority": "^0.7.1",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
-    "lucide-react": "^0.554.0",
+    "lucide-react": "^0.555.0",
     "motion": "^12.23.24",
-    "next": "16.0.4",
+    "next": "16.0.5",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hook-form": "^7.66.1",
@@ -40,14 +39,15 @@
     "@tailwindcss/postcss": "^4.1.17",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^24.10.1",
-    "@types/react": "19.2.4",
+    "@types/react": "^19.2.4",
     "@types/react-dom": "19.2.3",
+    "baseline-browser-mapping": "^2.8.32",
     "clsx": "^2.1.1",
     "concurrently": "^9.2.1",
     "eslint": "^9.39.1",
-    "eslint-config-next": "16.0.4",
+    "eslint-config-next": "16.0.5",
     "postcss": "^8.5.6",
-    "prettier": "^3.6.2",
+    "prettier": "^3.7.1",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "schema-dts": "^1.1.5",
     "slice-machine-ui": "^2.20.0",
@@ -57,6 +57,10 @@
   },
   "overrides": {
     "@types/react": "19.2.4",
-    "@types/react-dom": "19.2.3"
+    "@types/react-dom": "19.2.3",
+    "baseline-browser-mapping": "2.8.32"
+  },
+  "resolutions": {
+    "baseline-browser-mapping": "2.8.32"
   }
 }

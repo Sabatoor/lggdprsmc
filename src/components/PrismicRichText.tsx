@@ -111,16 +111,16 @@ const defaultComponents: JSXMapSerializer = {
 
 // Define PrismicRichTextProps as a generic type
 interface PrismicRichTextProps<
-  LinkResolverFunction extends
-    prismic.LinkResolverFunction = prismic.LinkResolverFunction,
+  LinkResolverFunction extends prismic.LinkResolverFunction =
+    prismic.LinkResolverFunction,
 > extends BasePrismicRichTextProps {
   components?: Record<string, React.ComponentType<any>>
   // Add other props as needed
 }
 
 export const PrismicRichText = function PrismicRichText<
-  LinkResolverFunction extends
-    prismic.LinkResolverFunction<any> = prismic.LinkResolverFunction,
+  LinkResolverFunction extends prismic.LinkResolverFunction<any> =
+    prismic.LinkResolverFunction,
 >({ components, ...props }: PrismicRichTextProps<LinkResolverFunction>) {
   return (
     <BasePrismicRichText
