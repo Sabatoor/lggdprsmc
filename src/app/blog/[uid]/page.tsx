@@ -135,7 +135,7 @@ export async function generateMetadata(props: {
   const settings = await client.getSingle('settings')
 
   return {
-    title: `${prismic.asText(page.data.title) || page.data.meta_title} • ${
+    title: `${page.data.meta_title || prismic.asText(page.data.title)} • ${
       settings.data.site_title
     }`,
     description:
