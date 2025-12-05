@@ -128,7 +128,7 @@ export async function generateMetadata(props: {
     .catch(() => notFound())
 
   return {
-    title: `${asText(page.data.title) || page.data.meta_title} • ${
+    title: `${page.data.meta_title || asText(page.data.title)} • ${
       settings.data.site_title
     }`,
     description:
