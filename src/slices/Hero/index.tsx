@@ -34,6 +34,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
           imgixParams={{ ar: '16:9', fit: 'crop' }}
           fill
           sizes="100vw"
+          fetchPriority="high"
         />
       </div>
       <div className="flex items-center justify-center bg-neutral py-4 text-background backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
