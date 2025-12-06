@@ -671,12 +671,10 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                   >
                     <PrismicNextImage
                       field={slice.primary.image}
-                      className={cn(
-                        'aspect-square rounded-lg md:mb-6 lg:mb-8',
-                        {
-                          'shadow-md': slice.primary.image_shadow,
-                        },
-                      )}
+                      className={cn('rounded-lg md:mb-6 lg:mb-8', {
+                        'shadow-md': slice.primary.image_shadow,
+                      })}
+                      // imgixParams={{ ar: '1:1', fit: 'crop' }}
                     />
                   </PrismicNextLink>
                 )}
