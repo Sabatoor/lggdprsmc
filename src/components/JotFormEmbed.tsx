@@ -1,8 +1,10 @@
 'use client'
 
 import Script from 'next/script'
+import { useJotFormTracker } from '@/hooks/useJotFormTracker'
 
 const JotFormEmbed = ({ url, id }: { url: string; id: number }) => {
+  useJotFormTracker(id)
   return (
     <div className="w-[340px] lg:w-[600px]">
       <iframe
