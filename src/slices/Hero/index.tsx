@@ -23,21 +23,21 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
-        'relative mx-auto flex flex-col overflow-hidden px-0 py-0 md:px-0 md:py-0 lg:py-0',
+        'relative mx-auto flex flex-col overflow-hidden px-0 py-0 md:px-0 md:py-0 2xl:h-dvh 2xl:max-h-[1080px] 2xl:py-0',
       )}
     >
-      <div className="relative aspect-video">
+      <div className="relative aspect-video w-full 2xl:aspect-auto 2xl:min-h-0 2xl:flex-1">
         <PrismicNextImage
           field={slice.primary.background_image}
           className="absolute inset-0 object-cover"
           preload={index === 0}
-          imgixParams={{ ar: '16:9', fit: 'crop' }}
+          imgixParams={{ fit: 'crop' }}
           fill
           sizes="100vw"
           fetchPriority="high"
         />
       </div>
-      <div className="flex items-center justify-center bg-neutral py-4 text-background backdrop-blur-md lg:-mt-24 lg:min-h-[250px] lg:py-8">
+      <div className="flex shrink-0 items-center justify-center bg-neutral py-4 text-background backdrop-blur-md 2xl:-mt-24 2xl:min-h-[250px] 2xl:py-8">
         <div className="flex flex-col items-center">
           <PrismicRichText
             field={slice.primary.heading}
@@ -59,7 +59,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
             </span>
           )}
           {isFilled.group(slice.primary.buttons) && (
-            <div className="flex flex-col justify-center gap-8 px-8 lg:flex-row lg:px-0">
+            <div className="flex flex-col justify-center gap-8 p-4 px-8 lg:px-0 2xl:flex-row 2xl:p-8">
               {slice.primary.buttons.map((button, i) => (
                 <PrismicNextLink
                   key={slice.id + i}
