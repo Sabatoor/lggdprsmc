@@ -53,8 +53,12 @@ const isProduct = (product: object): product is ProductDocument => {
 const isProductType = (type: object): type is ProductTypeDocument => {
   return (type as ProductTypeDocument).data !== undefined
 }
-const isService = (service: object): service is ServiceDocument => {
-  return (service as ServiceDocument).data !== undefined
+const isService = (service: unknown): service is Content.ServiceDocument => {
+  return (
+    typeof service === 'object' &&
+    service !== null &&
+    (service as Content.ServiceDocument).data !== undefined
+  )
 }
 
 /**
@@ -276,7 +280,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                         {isProductType(item.product_type) && (
                           <PrismicNextImage
                             field={item.product_type.data.featured_image}
-                            className="h-[250px] w-[250px] rounded-lg"
+                            className="h-62.5 w-62.5 rounded-lg"
                           />
                         )}
                         {isFilled.richText(item.heading) ? (
@@ -462,8 +466,8 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
           />
         )}
         <div className="grid gap-4 py-6 lg:grid-cols-3 lg:gap-8">
-          {slice.items.length > 0
-            ? slice.items.map((item, i) => {
+          {isFilled.group(slice.primary.services)
+            ? slice.primary.services.map((item, i) => {
                 return (
                   <Link
                     key={`${slice.id}-${i}`}
@@ -475,9 +479,59 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                     aria-labelledby={`${slice.id}-heading-${i}`}
                     className="rounded-lg ring-primary outline-hidden focus:ring-2"
                   >
-                    <div className="flex max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow-sm lg:p-6">
+                    <div className="flex h-full max-w-sm flex-col justify-between overflow-hidden rounded-lg bg-background p-4 shadow-sm lg:p-6">
                       <div className="flex flex-col items-center">
-                        {isService(item.service) ? (
+                        {isService(item.service) &&
+                        isFilled.richText(item.service_title) ? (
+                          <PrismicRichText
+                            field={item.service_title}
+                            components={{
+                              heading2: ({
+                                children,
+                              }: {
+                                children: ReactNode
+                              }) => (
+                                <Heading
+                                  id={`${slice.id}-heading-${i}`}
+                                  as="h2"
+                                  size="3xl"
+                                  className="my-2 text-neutral lg:my-3"
+                                >
+                                  {children}
+                                </Heading>
+                              ),
+                              heading3: ({
+                                children,
+                              }: {
+                                children: ReactNode
+                              }) => (
+                                <Heading
+                                  id={`${slice.id}-heading-${i}`}
+                                  as="h3"
+                                  size="3xl"
+                                  className="my-2 text-neutral lg:my-3"
+                                >
+                                  {children}
+                                </Heading>
+                              ),
+                              heading4: ({
+                                children,
+                              }: {
+                                children: ReactNode
+                              }) => (
+                                <Heading
+                                  id={`${slice.id}-heading-${i}`}
+                                  as="h4"
+                                  size="3xl"
+                                  className="my-2 text-neutral lg:my-3"
+                                >
+                                  {children}
+                                </Heading>
+                              ),
+                            }}
+                          />
+                        ) : isService(item.service) &&
+                          isFilled.richText(item.service.data.title) ? (
                           <PrismicRichText
                             field={item.service.data.title}
                             components={{
@@ -498,8 +552,8 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                             }}
                           />
                         ) : null}
-                        {isFilled.richText(item.description) ? (
-                          <PrismicRichText field={item.description} />
+                        {isFilled.richText(item.service_description) ? (
+                          <PrismicRichText field={item.service_description} />
                         ) : (
                           isService(item.service) && (
                             <PrismicRichText

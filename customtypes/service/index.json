@@ -91,6 +91,22 @@
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
+      },
+      "schema_service_type": {
+        "type": "Text",
+        "config": {
+          "label": "Schema Service Type",
+          "placeholder": ""
+        }
+      },
+      "is_emergency_service": {
+        "type": "Boolean",
+        "config": {
+          "label": "Is Emergency Service",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": false
+        }
       }
     }
   }

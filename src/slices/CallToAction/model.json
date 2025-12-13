@@ -78,7 +78,11 @@
           "config": {
             "label": "Icon",
             "placeholder": "Select an Icon",
-            "options": ["RiQuestionnaireFill", "GiHomeGarage", "FaToolbox"]
+            "options": [
+              "RiQuestionnaireFill",
+              "GiHomeGarage",
+              "FaToolbox"
+            ]
           }
         },
         "heading": {
@@ -156,7 +160,12 @@
           "config": {
             "label": "Logo",
             "placeholder": "Select a Social Logo",
-            "options": ["Facebook", "Instagram", "LinkedIn", "Yelp"]
+            "options": [
+              "Facebook",
+              "Instagram",
+              "LinkedIn",
+              "Yelp"
+            ]
           }
         },
         "social_url": {
@@ -194,7 +203,9 @@
           "config": {
             "label": "Brand",
             "select": "document",
-            "customtypes": ["brand"]
+            "customtypes": [
+              "brand"
+            ]
           }
         },
         "heading": {
@@ -272,7 +283,10 @@
           "config": {
             "label": "Product Type",
             "select": "document",
-            "customtypes": ["product_type", "product"]
+            "customtypes": [
+              "product_type",
+              "product"
+            ]
           }
         },
         "heading": {
@@ -342,6 +356,51 @@
             "allowTargetBlank": true,
             "single": "heading2"
           }
+        },
+        "services": {
+          "type": "Group",
+          "config": {
+            "label": "Services",
+            "repeat": true,
+            "fields": {
+              "service": {
+                "type": "Link",
+                "config": {
+                  "label": "Service",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": false,
+                  "repeat": false
+                }
+              },
+              "service_title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Service Title",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "heading2,heading3,heading4,heading5,heading6"
+                }
+              },
+              "service_description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Service Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,strong,em"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Label",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
         }
       },
       "items": {
@@ -350,7 +409,9 @@
           "config": {
             "label": "Service",
             "select": "document",
-            "customtypes": ["service"]
+            "customtypes": [
+              "service"
+            ]
           }
         },
         "description": {

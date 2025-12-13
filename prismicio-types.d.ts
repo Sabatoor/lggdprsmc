@@ -28,7 +28,8 @@ type PickContentRelationshipFieldData<
       TSubRelationship['customtypes'],
       TLang
     >
-  } & { // Group
+  } & // Group
+  {
     [TGroup in Extract<
       TRelationship['fields'][number],
       | prismic.CustomTypeModelFetchGroupLevel1
@@ -40,7 +41,8 @@ type PickContentRelationshipFieldData<
           PickContentRelationshipFieldData<TGroup, TGroupData, TLang>
         >
       : never
-  } & { // Other fields
+  } & // Other fields
+  {
     [TFieldKey in Extract<
       TRelationship['fields'][number],
       string
@@ -1069,6 +1071,29 @@ interface ServiceDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   meta_title: prismic.KeyTextField
+
+  /**
+   * Schema Service Type field in *Service*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service.schema_service_type
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  schema_service_type: prismic.KeyTextField
+
+  /**
+   * Is Emergency Service field in *Service*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: service.is_emergency_service
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  is_emergency_service: prismic.BooleanField
 }
 
 /**
@@ -1328,6 +1353,51 @@ export type AllDocumentTypes =
   | ProductTypeDocument
   | ServiceDocument
   | SettingsDocument
+
+/**
+ * Item in *CallToAction → ServicesGrid → Primary → Services*
+ */
+export interface CallToActionSliceServicesGridPrimaryServicesItem {
+  /**
+   * Service field in *CallToAction → ServicesGrid → Primary → Services*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.servicesGrid.primary.services[].service
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  service: prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+
+  /**
+   * Service Title field in *CallToAction → ServicesGrid → Primary → Services*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.servicesGrid.primary.services[].service_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  service_title: prismic.RichTextField
+
+  /**
+   * Service Description field in *CallToAction → ServicesGrid → Primary → Services*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.servicesGrid.primary.services[].service_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  service_description: prismic.RichTextField
+
+  /**
+   * Button Label field in *CallToAction → ServicesGrid → Primary → Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.servicesGrid.primary.services[].button_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  button_label: prismic.KeyTextField
+}
 
 /**
  * Item in *CallToAction → Product Recommendation → Primary → Products*
@@ -1796,6 +1866,18 @@ export interface CallToActionSliceServicesGridPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   heading: prismic.RichTextField
+
+  /**
+   * Services field in *CallToAction → ServicesGrid → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.servicesGrid.primary.services[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  services: prismic.GroupField<
+    Simplify<CallToActionSliceServicesGridPrimaryServicesItem>
+  >
 }
 
 /**
@@ -3285,6 +3367,7 @@ declare module '@prismicio/client' {
       CallToActionSliceBrandGridItem,
       CallToActionSliceProductTypeGridPrimary,
       CallToActionSliceProductTypeGridItem,
+      CallToActionSliceServicesGridPrimaryServicesItem,
       CallToActionSliceServicesGridPrimary,
       CallToActionSliceServicesGridItem,
       CallToActionSliceExpoPrimary,
