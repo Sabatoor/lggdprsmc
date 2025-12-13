@@ -23,7 +23,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={cn(
-        'relative mx-auto flex flex-col overflow-hidden px-0 py-0 md:px-0 md:py-0 2xl:h-dvh 2xl:max-h-[1080px] 2xl:py-0',
+        'relative mx-auto flex flex-col overflow-hidden px-0 py-0 md:px-0 md:py-0 2xl:h-dvh 2xl:max-h-270 2xl:py-0',
       )}
     >
       <div className="relative aspect-video w-full 2xl:aspect-auto 2xl:min-h-0 2xl:flex-1">
@@ -37,7 +37,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
           fetchPriority="high"
         />
       </div>
-      <div className="flex shrink-0 items-center justify-center bg-neutral py-4 text-background backdrop-blur-md 2xl:-mt-24 2xl:min-h-[250px] 2xl:py-8">
+      <div className="flex shrink-0 items-center justify-center bg-neutral p-4 text-background backdrop-blur-md 2xl:-mt-24 2xl:min-h-62.5 2xl:p-8 2xl:py-8">
         <div className="flex flex-col items-center">
           <PrismicRichText
             field={slice.primary.heading}
