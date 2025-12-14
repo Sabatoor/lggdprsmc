@@ -77,7 +77,7 @@ export default async function Page(props: { params: Promise<Params> }) {
       </Section>
       <SliceZone slices={page.data.slices} components={components} />
       {page.data.files.length > 0 && (
-        <div className="mx-auto max-w-(--breakpoint-sm) min-w-[350px] overflow-hidden rounded bg-background shadow-lg">
+        <div className="mx-auto max-w-(--breakpoint-sm) min-w-87.5 overflow-hidden rounded bg-background shadow-lg">
           <header className="relative flex h-8 items-center justify-center bg-neutral-300 shadow-xs">
             <div className="absolute top-2 left-2 flex gap-x-2">
               <div className="h-3 w-3 rounded-full bg-red-600" />
