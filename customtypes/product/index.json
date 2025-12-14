@@ -153,6 +153,20 @@
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
+      },
+      "schema_price": {
+        "type": "Number",
+        "config": {
+          "label": "Schema Price",
+          "placeholder": ""
+        }
+      },
+      "schema_sku": {
+        "type": "Text",
+        "config": {
+          "label": "Schema SKU",
+          "placeholder": ""
+        }
       }
     }
   }

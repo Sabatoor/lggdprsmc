@@ -9,6 +9,8 @@ import Section from '@/components/Section'
 import BlogCard from '@/components/BlogCard'
 import Pagination from '@/components/Pagination'
 import Heading from '@/components/Heading'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
+import { asText } from '@prismicio/client/richtext'
 
 type Params = { uid: string }
 type SearchParams = {
@@ -101,6 +103,9 @@ export default async function Page(props: {
           {prismic.asText(page.data.title)}
         </Heading>
       ) : null}
+      <div className="flex justify-center">
+        <Breadcrumbs currentPageTitle={asText(page.data.title)} />
+      </div>
       <SliceZone
         slices={page.data.slices}
         components={components}
