@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>['id']]
 
 type BlogPostDocumentDataSlicesSlice =
+  | AccordionSlice
   | TableSlice
   | CallToActionSlice
   | ScrollerSlice
@@ -324,6 +325,7 @@ export type GalleryItemDocument<Lang extends string = string> =
   >
 
 type HomepageDocumentDataSlicesSlice =
+  | AccordionSlice
   | ReviewsSlice
   | RecentsSlice
   | CallToActionSlice
@@ -396,6 +398,8 @@ export type HomepageDocument<Lang extends string = string> =
   >
 
 type LocationDocumentDataSlicesSlice =
+  | TableSlice
+  | AccordionSlice
   | ReviewsSlice
   | RecentsSlice
   | HeroSlice
@@ -489,6 +493,7 @@ export type LocationDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | AccordionSlice
   | TableSlice
   | EmbedSlice
   | ReviewsSlice
@@ -715,6 +720,7 @@ export interface ProductDocumentDataFilesItem {
 }
 
 type ProductDocumentDataSlicesSlice =
+  | AccordionSlice
   | TableSlice
   | EmbedSlice
   | CallToActionSlice
@@ -1356,6 +1362,96 @@ export type AllDocumentTypes =
   | ProductTypeDocument
   | ServiceDocument
   | SettingsDocument
+
+/**
+ * Item in *Accordion → Default → Primary → Items*
+ */
+export interface AccordionSliceDefaultPrimaryItemsItem {
+  /**
+   * Item Heading field in *Accordion → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion.default.primary.items[].item_heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  item_heading: prismic.RichTextField
+
+  /**
+   * Item Text field in *Accordion → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion.default.primary.items[].item_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  item_text: prismic.RichTextField
+}
+
+/**
+ * Primary content in *Accordion → Default → Primary*
+ */
+export interface AccordionSliceDefaultPrimary {
+  /**
+   * Heading field in *Accordion → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField
+
+  /**
+   * Description field in *Accordion → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Items field in *Accordion → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: accordion.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  items: prismic.GroupField<Simplify<AccordionSliceDefaultPrimaryItemsItem>>
+}
+
+/**
+ * Default variation for Accordion Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AccordionSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<AccordionSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Accordion*
+ */
+type AccordionSliceVariation = AccordionSliceDefault
+
+/**
+ * Accordion Shared Slice
+ *
+ * - **API ID**: `accordion`
+ * - **Description**: Accordion
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AccordionSlice = prismic.SharedSlice<
+  'accordion',
+  AccordionSliceVariation
+>
 
 /**
  * Item in *CallToAction → ServicesGrid → Primary → Services*
@@ -3441,6 +3537,11 @@ declare module '@prismicio/client' {
       SettingsDocumentDataNavigationItem,
       SettingsDocumentDataFooterSocialsItem,
       AllDocumentTypes,
+      AccordionSlice,
+      AccordionSliceDefaultPrimaryItemsItem,
+      AccordionSliceDefaultPrimary,
+      AccordionSliceVariation,
+      AccordionSliceDefault,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceFeaturedGridPrimary,
