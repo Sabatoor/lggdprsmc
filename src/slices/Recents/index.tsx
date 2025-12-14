@@ -35,6 +35,7 @@ const Recents = ({ slice }: RecentsProps): React.JSX.Element => {
         )}
       <Suspense fallback={<div>Loading...</div>}>
         <RecentList
+          id={slice.id}
           type={slice.primary.type}
           location={
             slice.variation === 'location' ? slice.primary.location : null

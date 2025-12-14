@@ -8,6 +8,7 @@ import * as prismic from '@prismicio/client'
 import { Badge } from '@/components/ui/badge'
 
 type RecentListProps = {
+  id: string
   type: 'blog_post' | 'portfolio'
   location?:
     | 'Burnaby'
@@ -29,6 +30,7 @@ type RecentListProps = {
 }
 
 const RecentList = async ({
+  id,
   type,
   location,
   service,
@@ -68,7 +70,7 @@ const RecentList = async ({
     return (
       <ul className="my-4 flex w-full flex-wrap justify-evenly gap-4 lg:my-8 lg:gap-8">
         {posts.results.length > 0 &&
-          posts.results.map(post => {
+          posts.results.map((post, i) => {
             let postTags = post.tags
             let hasServiceTag =
               postTags.indexOf('Installation') > -1 ||
@@ -82,50 +84,57 @@ const RecentList = async ({
             return (
               <li
                 key={post.id}
-                className="group flex max-w-sm min-w-[250px] flex-col rounded-lg bg-muted shadow-sm transition duration-200 ease-in-out hover:bg-background hover:shadow-md"
+                className="group flex max-w-sm min-w-62.5 flex-col rounded-lg bg-muted shadow-sm transition duration-200 ease-in-out hover:bg-background hover:shadow-md"
               >
-                <div className="relative h-24 overflow-hidden rounded-t-lg">
-                  <PrismicNextImage
-                    field={post.data.featured_image}
-                    fill
-                    className="object-cover transition duration-200 ease-in-out group-hover:opacity-75"
-                    sizes="(min-width: 460px) 384px, calc(82.86vw + 19px)"
-                  />
-                </div>
-                <p className="p-3 text-center text-xs font-bold text-neutral">
-                  {asDate(post.data.date_published)?.toLocaleDateString(
-                    'en-CA',
-                    {
-                      weekday: 'long',
-                      month: 'long',
-                      day: '2-digit',
-                      year: 'numeric',
-                      timeZone: 'UTC',
-                    },
-                  )}
-                </p>
-                {hasServiceTag && (
-                  <div className="flex justify-center">
-                    <Badge className="cursor-default bg-neutral hover:bg-neutral">
-                      {postTags[serviceTagIndex]}
-                    </Badge>
+                <Link
+                  href={post.url || '/'}
+                  aria-labelledby={`${id}-heading-${i}`}
+                >
+                  <div className="relative h-24 overflow-hidden rounded-t-lg">
+                    <PrismicNextImage
+                      field={post.data.featured_image}
+                      fill
+                      className="object-cover transition duration-200 ease-in-out group-hover:opacity-75"
+                      sizes="(min-width: 460px) 384px, calc(82.86vw + 19px)"
+                    />
                   </div>
-                )}
-                <p className="prose p-3">{post.data.excerpt}</p>
-                <div className="mt-auto flex justify-center pb-3 lg:pb-6">
-                  <Button
-                    asChild
-                    className="font-bold text-neutral"
-                    variant="default"
-                  >
-                    <Link href={post.url || '/'}>
-                      Read More{' '}
-                      <span className="sr-only">
-                        about {asText(post.data.title)}
-                      </span>
-                    </Link>
-                  </Button>
-                </div>
+                  <p className="p-3 text-center text-xs font-bold text-neutral">
+                    {asDate(post.data.date_published)?.toLocaleDateString(
+                      'en-CA',
+                      {
+                        weekday: 'long',
+                        month: 'long',
+                        day: '2-digit',
+                        year: 'numeric',
+                        timeZone: 'UTC',
+                      },
+                    )}
+                  </p>
+                  {hasServiceTag && (
+                    <div className="flex justify-center">
+                      <Badge className="cursor-default bg-neutral hover:bg-neutral">
+                        {postTags[serviceTagIndex]}
+                      </Badge>
+                    </div>
+                  )}
+                  <p className="prose p-3" id={`${id}-heading-${i}`}>
+                    {post.data.excerpt}
+                  </p>
+                  <div className="mt-auto flex justify-center pb-3 lg:pb-6">
+                    <Button
+                      asChild
+                      className="font-bold text-neutral"
+                      variant="default"
+                    >
+                      <Link href={post.url || '/'}>
+                        Read More{' '}
+                        <span className="sr-only">
+                          about {asText(post.data.title)}
+                        </span>
+                      </Link>
+                    </Button>
+                  </div>
+                </Link>
               </li>
             )
           })}
