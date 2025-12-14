@@ -10,6 +10,7 @@ import { cn } from '@/app/lib/cn'
 import { PrismicRichText } from '@/components/PrismicRichText'
 import Heading from '@/components/Heading'
 import { ReactNode } from 'react'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 
 type Params = { uid: string }
 
@@ -88,7 +89,7 @@ export default async function Page(props: { params: Promise<Params> }) {
       />
       <div className={cn('relative mb-8')}>
         {prismic.isFilled.image(page.data.featured_image) && (
-          <div className="relative h-[300px] lg:h-[400px] xl:h-[500px] 2xl:h-[600px]">
+          <div className="relative h-75 lg:h-100 xl:h-125 2xl:h-150">
             <PrismicNextImage
               field={page.data.featured_image}
               preload
@@ -117,6 +118,9 @@ export default async function Page(props: { params: Promise<Params> }) {
           <p className="z-10 mt-8 text-center text-sm font-medium text-neutral uppercase">
             {pubDate}
           </p>
+          <div className="flex justify-center py-4 lg:py-8">
+            <Breadcrumbs currentPageTitle={prismic.asText(page.data.title)} />
+          </div>
         </div>
       </div>
       <SliceZone slices={page.data.slices} components={components} />
