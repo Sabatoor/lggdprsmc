@@ -14,4 +14,5 @@ export const components = {
   recents: dynamic(() => import('./Recents')),
   reviews: dynamic(() => import('./Reviews')),
   scroller: dynamic(() => import('./Scroller')),
+  table: dynamic(() => import('./Table')),
 }

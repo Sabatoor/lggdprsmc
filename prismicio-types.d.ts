@@ -70,6 +70,7 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>['id']]
 
 type BlogPostDocumentDataSlicesSlice =
+  | TableSlice
   | CallToActionSlice
   | ScrollerSlice
   | ContentSlice
@@ -488,6 +489,7 @@ export type LocationDocument<Lang extends string = string> =
   >
 
 type PageDocumentDataSlicesSlice =
+  | TableSlice
   | EmbedSlice
   | ReviewsSlice
   | LocationsSlice
@@ -713,6 +715,7 @@ export interface ProductDocumentDataFilesItem {
 }
 
 type ProductDocumentDataSlicesSlice =
+  | TableSlice
   | EmbedSlice
   | CallToActionSlice
   | RecentsSlice
@@ -3301,6 +3304,87 @@ export type ScrollerSlice = prismic.SharedSlice<
   ScrollerSliceVariation
 >
 
+/**
+ * Primary content in *Table → Default → Primary*
+ */
+export interface TableSliceDefaultPrimary {
+  /**
+   * Heading field in *Table → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optionally provide a heading
+   * - **API ID Path**: table.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField
+
+  /**
+   * Table field in *Table → Default → Primary*
+   *
+   * - **Field Type**: Table
+   * - **Placeholder**: *None*
+   * - **API ID Path**: table.default.primary.table
+   * - **Documentation**: https://prismic.io/docs/fields/table
+   */
+  table: prismic.TableField
+
+  /**
+   * Table Width field in *Table → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select how wide the table can be
+   * - **Default Value**: Full
+   * - **API ID Path**: table.default.primary.table_width
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  table_width: prismic.SelectField<
+    | 'Full'
+    | 'Small'
+    | 'Medium'
+    | 'Large'
+    | 'Extra Large'
+    | 'Double Extra Large',
+    'filled'
+  >
+
+  /**
+   * Table Caption field in *Table → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: For accessibility, add a caption
+   * - **API ID Path**: table.default.primary.table_caption
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  table_caption: prismic.RichTextField
+}
+
+/**
+ * Default variation for Table Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TableSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<TableSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Table*
+ */
+type TableSliceVariation = TableSliceDefault
+
+/**
+ * Table Shared Slice
+ *
+ * - **API ID**: `table`
+ * - **Description**: Table
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TableSlice = prismic.SharedSlice<'table', TableSliceVariation>
+
 declare module '@prismicio/client' {
   interface CreateClient {
     (
@@ -3442,6 +3526,10 @@ declare module '@prismicio/client' {
       ScrollerSliceCarouselItem,
       ScrollerSliceVariation,
       ScrollerSliceCarousel,
+      TableSlice,
+      TableSliceDefaultPrimary,
+      TableSliceVariation,
+      TableSliceDefault,
     }
   }
 }

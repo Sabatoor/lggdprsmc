@@ -1,0 +1,113 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"table": {
+				"__TYPE__": "TableContent",
+				"content": [
+					{
+						"key": "f2dd2965-7029-4174-bd78-a309dd543326",
+						"type": "tableRow",
+						"content": [
+							{
+								"key": "badf7ad1-814b-4a6c-a929-98a800cbf049",
+								"type": "tableHeader",
+								"content": {
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Nisi sit."
+											}
+										}
+									]
+								}
+							},
+							{
+								"key": "4c85c972-b98d-4795-8083-3fab122329a1",
+								"type": "tableHeader",
+								"content": {
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Incididunt sunt."
+											}
+										}
+									]
+								}
+							}
+						]
+					},
+					{
+						"key": "48570c5d-b312-4a60-b491-e8cdc5eade72",
+						"type": "tableRow",
+						"content": [
+							{
+								"key": "77e8b748-ba67-4ff3-87dd-08952aa46499",
+								"type": "tableCell",
+								"content": {
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Aute aute sit pariatur."
+											}
+										}
+									]
+								}
+							},
+							{
+								"key": "37b286f3-2620-47b1-a9ef-aa37f195dc9b",
+								"type": "tableCell",
+								"content": {
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Anim elit magna et laboris esse irure exercitation."
+											}
+										}
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"table_caption": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim id duis nisi mollit anim ipsum. Eu tempor nulla laboris cillum pariatur laborum occaecat deserunt duis anim pariatur nostrud. Irure commodo commodo ea aute do sunt irure id ipsum cillum do elit sint proident."
+						}
+					}
+				]
+			},
+			"table_width": {
+				"__TYPE__": "FieldContent",
+				"value": "Full",
+				"type": "Select"
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Faster"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

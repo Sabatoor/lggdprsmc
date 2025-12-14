@@ -1,0 +1,59 @@
+{
+  "id": "table",
+  "type": "SharedSlice",
+  "name": "Table",
+  "description": "Table",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "Optionally provide a heading",
+            "allowTargetBlank": true,
+            "single": "heading2,heading3,heading4,heading5,heading6"
+          }
+        },
+        "table": {
+          "type": "Table",
+          "config": {
+            "label": "Table"
+          }
+        },
+        "table_width": {
+          "type": "Select",
+          "config": {
+            "label": "Table Width",
+            "placeholder": "Select how wide the table can be",
+            "options": [
+              "Full",
+              "Small",
+              "Medium",
+              "Large",
+              "Extra Large",
+              "Double Extra Large"
+            ],
+            "default_value": "Full"
+          }
+        },
+        "table_caption": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Table Caption",
+            "placeholder": "For accessibility, add a caption",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em,hyperlink"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
