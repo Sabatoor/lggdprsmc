@@ -871,6 +871,28 @@ interface ProductDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   meta_title: prismic.KeyTextField
+
+  /**
+   * Schema Price field in *Product*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.schema_price
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  schema_price: prismic.NumberField
+
+  /**
+   * Schema SKU field in *Product*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product.schema_sku
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  schema_sku: prismic.KeyTextField
 }
 
 /**

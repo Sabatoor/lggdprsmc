@@ -45,11 +45,14 @@ const Accordion: FC<AccordionProps> = ({ slice }) => {
           >
             {slice.primary.items.map((item, index) => {
               return (
-                <AccordionItem value={`${slice.id}-item-${index}`}>
-                  <AccordionTrigger className="lg:text-lg">
+                <AccordionItem
+                  key={`${slice.id}-item-${index}`}
+                  value={`${slice.id}-item-${index}`}
+                >
+                  <AccordionTrigger className="cursor-pointer lg:text-lg xl:text-xl 2xl:prose-2xl">
                     <PrismicRichText field={item.item_heading} />
                   </AccordionTrigger>
-                  <AccordionContent className="mx-auto prose lg:prose-lg">
+                  <AccordionContent className="mx-auto prose lg:prose-lg xl:prose-xl 2xl:prose-2xl">
                     <PrismicRichText field={item.item_text} />
                   </AccordionContent>
                 </AccordionItem>

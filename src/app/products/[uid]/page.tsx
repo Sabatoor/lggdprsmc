@@ -15,6 +15,7 @@ import { Button } from '@/components/ui/button'
 import { ReactNode } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/app/lib/cn'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 type Params = {
   uid: string
 }
@@ -57,6 +58,8 @@ export default async function Page(props: { params: Promise<Params> }) {
         <Heading as="h1" size="4xl" className="my-6 lg:my-8">
           Products by {asText(page.data.title)}
         </Heading>
+        <Breadcrumbs currentPageTitle={asText(page.data.title)} />
+
         <SliceZone slices={page.data.slices} components={components} />
         {products.length > 0 ? (
           <ul className="flex flex-wrap justify-center gap-4">
@@ -64,7 +67,7 @@ export default async function Page(props: { params: Promise<Params> }) {
               return (
                 <li
                   key={product.id}
-                  className="relative max-w-[400px] rounded-lg border-2 border-primary p-4"
+                  className="relative max-w-100 rounded-lg border-2 border-primary p-4"
                 >
                   <Link
                     href={product.url || '#'}
@@ -152,7 +155,7 @@ export default async function Page(props: { params: Promise<Params> }) {
           <ul className="flex flex-wrap justify-center gap-4">
             {products.map(product => {
               return (
-                <li key={product.id} className="max-w-[400px]">
+                <li key={product.id} className="max-w-100">
                   <Link
                     href={product.url || '#'}
                     className="block ring-primary outline-hidden transition duration-300 ease-in-out focus:ring-2"

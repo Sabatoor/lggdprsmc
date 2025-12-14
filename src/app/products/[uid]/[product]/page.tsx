@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { SliceZone } from '@prismicio/react'
-
+import { generateProductSchema } from '@/lib/utils'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 import { asText, isFilled } from '@prismicio/client'
@@ -14,6 +14,8 @@ import Heading from '@/components/Heading'
 import bytesToMegabytes from '@/app/lib/bytesToMegabytes'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/app/lib/cn'
+import Script from 'next/script'
+import { Breadcrumbs } from '@/components/Breadcrumbs'
 
 type Params = { product: string }
 type File = {
@@ -46,14 +48,21 @@ export default async function Page(props: { params: Promise<Params> }) {
       ],
     })
     .catch(() => notFound())
+  const jsonLd = generateProductSchema(page)
   return (
     <>
+      <Script
+        id="product-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Section width="lg" className="flex-col">
         <div className="prose flex flex-col lg:prose-lg xl:prose-xl prose-h2:mt-2">
           <PrismicNextImage
             field={page.data.featured_image}
             className="place-self-center"
           />
+          <Breadcrumbs currentPageTitle={asText(page.data.title)} />
           <PrismicRichText field={page.data.title} />
           <div className="mx-auto">
             {isFilled.select(page.data.status) &&
