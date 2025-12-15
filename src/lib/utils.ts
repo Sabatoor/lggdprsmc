@@ -90,66 +90,53 @@ function getAvailabilityUrl(status: string | null | undefined): string {
  */
 export function generateProductSchema(product: Content.ProductDocument) {
   // 1. Base Data
-  // Priority: Meta Title -> Page Title -> Fallback
   const title =
     product.data.meta_title ||
     asText(product.data.title) ||
     'Lions Gate Product'
-
-  // Priority: Meta Desc -> First 160 chars of Desc -> Empty
   const description =
     product.data.meta_description ||
     asText(product.data.description).substring(0, 160) ||
     ''
-
-  // Priority: Meta Image -> Main Product Image
   const image =
     asImageSrc(product.data.meta_image) ||
     asImageSrc(product.data.featured_image)
 
-  // We cast to 'any' because standard types don't always know if 'data' was fetched.
-  // We fallback to the UID (e.g., 'liftmaster') if the full title isn't found.
+  // 2. Extract Brand Info
+  // We need the UID for the URL (e.g. "liftmaster") and the Title for display (e.g. "LiftMaster")
   const brandRelation = product.data.brand as any
-  const brandName =
-    asText(brandRelation?.data?.title) ||
-    brandRelation?.uid ||
-    'Lions Gate Garage Doors'
+  const brandUid = brandRelation?.uid || 'liftmaster' // Fallback to 'liftmaster' if undefined
+  const brandName = asText(brandRelation?.data?.title) || 'LiftMaster'
 
-  // 2. Extract FAQs from Accordion Slices
-  // We strictly check for slice_type 'accordion' to match your component
+  // 3. Construct the Correct URL
+  // Matches: https://lionsgategaragedoors.com/products/liftmaster/liftmaster-380ut...
+  const productUrl = `https://lionsgategaragedoors.com/products/${brandUid}/${product.uid}`
+
+  // 4. Extract FAQs (Same as before)
   const faqSlices = product.data.slices.filter(
     (slice): slice is Content.AccordionSlice =>
       slice.slice_type === 'accordion',
   )
-
-  const faqQuestions = faqSlices.flatMap(slice => {
-    // Check if the items exist in 'primary' (Group Field) or root 'items' (Repeatable Zone)
-    // We cast to 'any' purely to check existence safely without TS complaining
-    const items = (slice.primary as any).items || (slice as any).items || []
-
-    // We explicitly type 'item' here to fix the "implicitly has any type" error
-    return items.map((item: any) => ({
+  const faqQuestions = faqSlices.flatMap(slice =>
+    (slice.primary as any).items.map((item: any) => ({
       '@type': 'Question',
       name: asText(item.item_heading),
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: asText(item.item_text),
-      },
-    }))
-  })
+      acceptedAnswer: { '@type': 'Answer', text: asText(item.item_text) },
+    })),
+  )
   const faqSchema =
     faqQuestions.length > 0
-      ? {
-          '@type': 'FAQPage',
-          mainEntity: faqQuestions,
-        }
+      ? { '@type': 'FAQPage', mainEntity: faqQuestions }
       : null
 
-  // 3. Construct the Product Schema
+  // 5. Dynamic Dates
+  const nextYear = new Date().getFullYear() + 1
+  const priceValidUntil = `${nextYear}-12-31`
+
+  // 6. Construct the Product Schema
   const productSchema = {
     '@context': 'https://schema.org',
     '@graph': [
-      // Breadcrumbs
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -165,42 +152,65 @@ export function generateProductSchema(product: Content.ProductDocument) {
             name: 'Products',
             item: 'https://lionsgategaragedoors.com/products',
           },
+          // NEW: Add the Brand Breadcrumb Step
           {
             '@type': 'ListItem',
             position: 3,
+            name: brandName,
+            item: `https://lionsgategaragedoors.com/products/${brandUid}`,
+          },
+          // Bumped position to 4
+          {
+            '@type': 'ListItem',
+            position: 4,
             name: title,
-            item: `https://lionsgategaragedoors.com/products/${product.uid}`,
+            item: productUrl,
           },
         ],
       },
-      // The Product
       {
         '@type': 'Product',
         name: title,
         image: image ? [image] : [],
         description: description,
-        // Use 'schema_sku' from your Static Zone, fallback to UID
+        url: productUrl, // <--- UPDATED URL
         sku: product.data.schema_sku || product.uid,
-        brand: {
-          '@type': 'Brand',
-          name: brandName,
-        },
+        brand: { '@type': 'Brand', name: brandName },
         offers: {
           '@type': 'Offer',
-          url: `https://lionsgategaragedoors.com/products/${product.uid}`,
+          url: productUrl, // <--- UPDATED URL
           priceCurrency: 'CAD',
-          // Use 'schema_price' from your Static Zone
           price: product.data.schema_price || '0',
-          // Map the 'status' dropdown to Schema URL
           availability: getAvailabilityUrl(product.data.status),
           itemCondition: 'https://schema.org/NewCondition',
+          priceValidUntil: priceValidUntil,
+          hasMerchantReturnPolicy: {
+            '@type': 'MerchantReturnPolicy',
+            applicableCountry: 'CA',
+            returnPolicyCategory:
+              'https://schema.org/MerchantReturnFiniteReturnWindow',
+            merchantReturnDays: 30,
+            returnMethod: 'https://schema.org/ReturnInStore',
+            returnFees: 'https://schema.org/FreeReturn',
+          },
+          shippingDetails: {
+            '@type': 'OfferShippingDetails',
+            shippingRate: {
+              '@type': 'MonetaryAmount',
+              value: 0,
+              currency: 'CAD',
+            },
+            shippingDestination: {
+              '@type': 'DefinedRegion',
+              addressCountry: 'CA',
+            },
+          },
           seller: {
             '@type': 'LocalBusiness',
             name: 'Lions Gate Garage Doors',
           },
         },
       },
-      // Inject FAQ Schema if questions exist
       ...(faqSchema ? [faqSchema] : []),
     ],
   }
