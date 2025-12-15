@@ -1,50 +1,61 @@
 import { createClient } from '@/prismicio'
-import { asDate } from '@prismicio/client'
+import { asDate, isFilled } from '@prismicio/client'
+
 export default async function sitemap() {
   const client = createClient()
-  const settings = await client.getSingle('settings')
-  const pages = await client.getAllByType('page')
+
+  // Fetch all data in parallel
+  const [
+    settings,
+    homepage,
+    pages,
+    posts,
+    portfolios,
+    products,
+    brands,
+    productTypes,
+    locations,
+  ] = await Promise.all([
+    client.getSingle('settings'),
+    client.getSingle('homepage'),
+    client.getAllByType('page'),
+    client.getAllByType('blog_post'),
+    client.getAllByType('portfolio'),
+    client.getAllByType('product'),
+    client.getAllByType('brand'),
+    client.getAllByType('product_type'),
+    client.getAllByType('location'),
+  ])
+
+  const domain = settings.data.domain || 'example.com'
+
+  const sitemapHomepage = {
+    url: `https://${domain}${homepage.url}`,
+    lastModified: asDate(homepage.last_publication_date),
+  }
+
+  // Generic function to map documents to sitemap entries
+  const mapToSitemapEntries = (docs: any[]) => {
+    return docs.map(doc => ({
+      url: `https://${domain}${doc.url}`,
+      lastModified: asDate(doc.last_publication_date),
+    }))
+  }
+
   const sitemapPages = pages
     .filter(page => page.data.index !== false)
     .map(page => ({
-      url: `https://${settings.data.domain || `example.com`}${page.url}`,
+      url: `https://${domain}${page.url}`,
       lastModified: asDate(page.last_publication_date),
     }))
-  const homepage = await client.getSingle('homepage')
-  const sitemapHomepage = {
-    url: `https://${settings.data.domain || `example.com`}${homepage.url}`,
-    lastModified: asDate(homepage.last_publication_date),
-  }
-  const posts = await client.getAllByType('blog_post')
-  const sitemapPosts = posts.map(post => ({
-    url: `https://${settings.data.domain || `example.com`}${post.url}`,
-    lastModified: asDate(post.last_publication_date),
-  }))
-  const portfolios = await client.getAllByType('portfolio')
-  const sitemapPortfolios = portfolios.map(portfolio => ({
-    url: `https://${settings.data.domain || `example.com`}${portfolio.url}`,
-    lastModified: asDate(portfolio.last_publication_date),
-  }))
-  const products = await client.getAllByType('product')
-  const sitemapProducts = products.map(product => ({
-    url: `https://${settings.data.domain || `example.com`}${product.url}`,
-    lastModified: asDate(product.last_publication_date),
-  }))
-  const brands = await client.getAllByType('brand')
-  const sitemapBrands = brands.map(brand => ({
-    url: `https://${settings.data.domain || `example.com`}${brand.url}`,
-    lastModified: asDate(brand.last_publication_date),
-  }))
-  const productTypes = await client.getAllByType('product_type')
-  const sitemapProductTypes = productTypes.map(product_type => ({
-    url: `https://${settings.data.domain || `example.com`}${product_type.url}`,
-    lastModified: asDate(product_type.last_publication_date),
-  }))
-  const locations = await client.getAllByType('location')
-  const sitemapLocations = locations.map(location => ({
-    url: `https://${settings.data.domain || `example.com`}${location.url}`,
-    lastModified: asDate(location.last_publication_date),
-  }))
+
+  const sitemapPosts = mapToSitemapEntries(posts)
+  const sitemapPortfolios = mapToSitemapEntries(portfolios)
+  const sitemapProducts = mapToSitemapEntries(products)
+  const sitemapBrands = mapToSitemapEntries(brands)
+  const sitemapProductTypes = mapToSitemapEntries(productTypes)
+  const sitemapLocations = mapToSitemapEntries(locations)
+
   return [
     sitemapHomepage,
     ...sitemapPages,
