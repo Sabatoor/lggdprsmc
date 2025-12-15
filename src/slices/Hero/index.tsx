@@ -30,7 +30,7 @@ const Hero = ({ slice, index }: HeroProps): React.JSX.Element => {
         <PrismicNextImage
           field={slice.primary.background_image}
           className="absolute inset-0 object-cover"
-          preload={index === 0}
+          priority={index === 0}
           imgixParams={{ fit: 'crop' }}
           fill
           sizes="100vw"
