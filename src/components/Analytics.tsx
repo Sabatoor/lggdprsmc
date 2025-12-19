@@ -28,18 +28,30 @@ export default function Analytics() {
           __html: `
     window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
-        
-        if(localStorage.getItem('consentMode') === null){
-            gtag('consent', 'default', {
-                'ad_storage': 'denied',
-                'analytics_storage': 'denied',
-                'personalization_storage': 'denied',
-                'functionality_storage': 'denied',
-                'security_storage': 'denied',
-            });
-        } else {
-            gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+
+        const storedConsent = localStorage.getItem('consentMode');
+        let consentState = {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'personalization_storage': 'denied',
+            'functionality_storage': 'denied',
+            'security_storage': 'denied',
+        };
+
+        if (storedConsent) {
+          try {
+            const parsedConsent = JSON.parse(storedConsent);
+            // We only need to check one value, since our new implementation sets all or none
+            if (parsedConsent.analytics_storage === 'granted') {
+              consentState = parsedConsent;
+            }
+          } catch (e) {
+            // If parsing fails, default to denied.
+            console.error("Could not parse consentMode from localStorage", e);
+          }
         }
+
+        gtag('consent', 'default', consentState);
   `,
         }}
       />
