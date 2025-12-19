@@ -14,17 +14,8 @@ export default function Consent() {
     const stored = localStorage.getItem('consentMode')
 
     // UI: Only show banner if no choice exists
-    // (We wait 3s as per your original design)
     if (stored === null) {
       setTimeout(() => setHideBanner(false), 3000)
-    }
-    // Logic: If they previously granted, we must re-grant on new page load
-    // because GTM defaults to 'denied' in your Analytics.tsx
-    else {
-      const prefs = JSON.parse(stored)
-      if (prefs.analytics_storage === 'granted') {
-        updateGTMConsent('granted')
-      }
     }
   }, [])
   // Helper to update GTM
@@ -32,11 +23,6 @@ export default function Consent() {
     if (typeof window !== 'undefined' && window.dataLayer) {
       // 1. Google Consent Mode Update
       // Note: we use the 'gtag' arguments pushed to dataLayer
-      window.dataLayer.push(function () {
-        // @ts-ignore
-        this.reset() // clear previous state if needed
-      })
-
       window.dataLayer.push({
         event: 'consent_update', // Optional: Trigger for GTM
         'gtm.uniqueEventId': new Date().getTime(), // unique ID to force update
@@ -63,7 +49,13 @@ export default function Consent() {
     }
   }
   const handleAccept = () => {
-    const prefs = { ad_storage: 'granted', analytics_storage: 'granted' } // etc...
+    const prefs = {
+      ad_storage: 'granted',
+      analytics_storage: 'granted',
+      personalization_storage: 'granted',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+    }
     localStorage.setItem('consentMode', JSON.stringify(prefs))
     setHideBanner(true)
     updateGTMConsent('granted')
@@ -73,7 +65,9 @@ export default function Consent() {
     const prefs = {
       ad_storage: 'denied',
       analytics_storage: 'denied',
-      date_denied: new Date().toISOString(),
+      personalization_storage: 'denied',
+      functionality_storage: 'denied',
+      security_storage: 'denied',
     }
     localStorage.setItem('consentMode', JSON.stringify(prefs))
     setHideBanner(true)
