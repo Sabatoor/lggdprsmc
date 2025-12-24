@@ -92,7 +92,7 @@ export default async function Page(props: { params: Promise<Params> }) {
         // but we STRICTLY OMIT 'streetAddress'.
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Surrey',
+          addressLocality: 'Vancouver',
           addressRegion: 'BC',
           addressCountry: 'CA',
         },
