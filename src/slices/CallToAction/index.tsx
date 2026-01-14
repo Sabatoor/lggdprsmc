@@ -728,6 +728,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                       className={cn('rounded-lg md:mb-6 lg:mb-8', {
                         'shadow-md': slice.primary.image_shadow,
                       })}
+                      sizes="(max-width: 1023px) 100vw, 40vw"
                       // imgixParams={{ ar: '1:1', fit: 'crop' }}
                     />
                   </PrismicNextLink>
