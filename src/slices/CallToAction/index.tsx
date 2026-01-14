@@ -729,7 +729,7 @@ const CallToAction = ({ slice }: CallToActionProps): React.JSX.Element => {
                         'shadow-md': slice.primary.image_shadow,
                       })}
                       sizes="(max-width: 1023px) 100vw, 40vw"
-                      // imgixParams={{ ar: '1:1', fit: 'crop' }}
+                      imgixParams={{ ar: '3:4', fit: 'crop' }}
                     />
                   </PrismicNextLink>
                 )}
