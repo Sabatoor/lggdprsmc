@@ -44,7 +44,9 @@ const Reviews = async ({ slice }: ReviewsProps): Promise<React.JSX.Element> => {
       className="bg-secondary"
     >
       {slice.variation === 'default' && (
-        <Suspense fallback={<div>Loading reviews...</div>}>
+        <Suspense
+          fallback={<div className="min-h-100">Loading reviews...</div>}
+        >
           <Slider reviews={data.reviews} />
         </Suspense>
       )}
