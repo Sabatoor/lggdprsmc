@@ -56,7 +56,7 @@ export default async function Page() {
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: '5.0',
-          ratingCount: '281',
+          ratingCount: '330',
         },
       },
       {
